@@ -1,0 +1,12 @@
+# Los tres repos hijos se versionan aparte; este repo (nutria/) solo
+# versiona tooling y documentación transversal.
+nutria-backend/
+nutria-ia/
+nutria-frontend/
+
+# Símlink local a los skills (se recrea con el comando del README, no se versiona
+# como archivo real si tu sistema no soporta symlinks en git; si tu `git` sí los
+# versiona como symlink, podés borrar esta línea).
+.claude/skills
+
+.DS_Store

@@ -25,6 +25,11 @@ commits.
 - Commits: `tipo(T<N>): descripción`, tipo ∈ {`feat`, `fix`, `chore`, `docs`}.
   Ejemplo: `feat(T1): alguna funcionalidad genial`.
 - Nunca push directo a `master`, `development` o `staging`: siempre PR.
+- **El historial lo maneja quien inicia la sesión.** El asistente no hace `add`,
+  `commit`, `push`, `merge`, `checkout -b` ni abre PRs por iniciativa propia, ni
+  propone dividir el trabajo en commits ni sugiere cuándo commitear. Deja los
+  cambios sin commitear. Solo ejecuta una operación de git/`gh` si se le pide
+  explícitamente en esa sesión, y con el alcance exacto que se le pidió.
 
 ## 2. Stack (decisiones cerradas)
 
@@ -58,6 +63,20 @@ commits.
   anonimizados.
 - No registrar como "implementado" algo que no tiene prueba o verificación que lo
   respalde.
+- **Tests, migraciones y seed se corren siempre dentro del contenedor Docker del
+  repo**, nunca con el Node/Python del host. Los comandos viven en el
+  `package.json` de la raíz `nutria/` y se ejecutan desde ahí (`npm run
+  test:backend`, `npm run db:migrate:dev -- --name ...`, `npm run db:seed`, etc.;
+  lista completa en el `README.md` de la raíz). Un `npm test` / `pytest` /
+  `npx prisma` suelto en local sirve para iterar, pero no cuenta como
+  verificación de una tarea. Corren con `docker compose run --build`: rebuildean
+  con cache antes de ejecutar, así que un test o cambio de código nuevo se ve sin
+  ningún paso manual (el rebuild cacheado tarda segundos, no reinstala
+  dependencias salvo que hayan cambiado). No hay un `docker-compose.dev.yml` ni
+  nada por el estilo — solo el compose normal de `nutria-backend/`.
+- `npm run up` deja las migraciones al día solo: el `CMD` del backend corre
+  `prisma migrate deploy` antes de levantar el server. No hace falta `db:migrate`
+  aparte después de un merge, salvo que quieras aplicarlas sin reiniciar el stack.
 
 ## 4. Backend (`nutria-backend/`)
 

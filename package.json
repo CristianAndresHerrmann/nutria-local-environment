@@ -1,0 +1,28 @@
+{
+  "name": "nutria",
+  "private": true,
+  "description": "Tooling transversal de NutrIA. Todo (tests, migraciones, seed) corre dentro de los contenedores Docker de cada repo, nunca con el runtime del host. Ver README.md.",
+  "scripts": {
+    "up": "docker compose -f nutria-backend/docker-compose.yml up -d --build",
+    "down": "docker compose -f nutria-backend/docker-compose.yml down",
+    "ps": "docker compose -f nutria-backend/docker-compose.yml ps",
+    "logs": "docker compose -f nutria-backend/docker-compose.yml logs -f",
+    "build": "docker compose -f nutria-backend/docker-compose.yml build",
+
+    "test:backend": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npm run test",
+    "test:backend:coverage": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps -v ./nutria-backend/coverage:/app/coverage backend npm run test:coverage",
+    "test:ia": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps ia pytest",
+    "test:frontend": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps frontend npm test --if-present",
+
+    "db:migrate": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npx prisma migrate deploy",
+    "db:migrate:dev": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps -v ./nutria-backend/prisma:/app/prisma backend npx prisma migrate dev",
+    "db:seed": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npm run seed",
+    "db:reset": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npx prisma migrate reset --force",
+    "db:studio": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps -p 5555:5555 backend npx prisma studio --hostname 0.0.0.0 --browser none",
+    "db:shell": "docker compose -f nutria-backend/docker-compose.yml run --rm psql",
+
+    "shell:backend": "docker compose -f nutria-backend/docker-compose.yml exec backend sh",
+    "shell:ia": "docker compose -f nutria-backend/docker-compose.yml exec ia sh",
+    "shell:frontend": "docker compose -f nutria-backend/docker-compose.yml exec frontend sh"
+  }
+}

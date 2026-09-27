@@ -5,25 +5,35 @@ description: Cómo hacer un cambio de modelo seguro en nutria-backend con Prisma
 
 # Migraciones con Prisma — backend
 
-Este skill opera dentro de `nutria-backend/`. Prisma es la herramienta de acceso a
+Este skill toca archivos de `nutria-backend/`, pero los comandos de Prisma se
+corren **desde la raíz `nutria/`**, dentro del contenedor (regla del proyecto;
+lista completa en el README de la raíz). Prisma es la herramienta de acceso a
 datos y migraciones del proyecto (decisión cerrada).
 
 ## Flujo para cualquier cambio de modelo
 
 1. Editar `schema.prisma`.
 2. Generar migración **nombrada** y descriptiva:
-   `npx prisma migrate dev --name <verbo_entidad_cambio>` (ejemplo:
+   `npm run db:migrate:dev -- --name <verbo_entidad_cambio>` (ejemplo:
    `agrega_campo_telefono_paciente`). Nunca dejar el nombre autogenerado
-   genérico si Prisma lo pide.
+   genérico si Prisma lo pide. Ese comando monta `nutria-backend/prisma/` en el
+   contenedor efímero solo para esta corrida (`-v` puntual en el script, nada
+   permanente), así la migración generada aparece en
+   `nutria-backend/prisma/migrations/` en vez de perderse con el contenedor.
 3. Revisar el SQL generado en `prisma/migrations/` antes de commitear — Prisma no
    siempre infiere la migración más segura (por ejemplo, un campo NOT NULL nuevo
    sin default en una tabla con datos).
-4. Actualizar el seed si el cambio de modelo lo requiere.
-5. **Verificación desde cero:** correr `prisma migrate reset` (o levantar la base
-   desde cero con docker-compose) y confirmar que migración + seed dejan la base
-   en un estado consistente, no solo que el `migrate dev` incremental funcionó en
-   tu base local ya existente.
-6. Commitear el `schema.prisma` y la carpeta de migración juntos.
+4. Actualizar el seed si el cambio de modelo lo requiere (`npm run db:seed` para
+   probarlo; no requiere rebuild).
+5. **Verificación desde cero:** `npm run db:reset` (borra la base local, aplica
+   todas las migraciones y corre el seed) y confirmar que migración + seed dejan
+   la base en un estado consistente, no solo que el `migrate dev` incremental
+   funcionó en tu base local ya existente.
+6. `npm run up`: rebuildea (el cliente de Prisma se genera al buildear) y el
+   `CMD` del backend aplica migraciones pendientes antes de arrancar — no hace
+   falta ningún `db:migrate` aparte para que el stack quede al día.
+7. El `schema.prisma` y la carpeta de migración van juntos en el mismo commit —
+   nunca uno sin el otro. El commit lo hace la persona (ver `flujo-git-nutria`).
 
 ## Prohibido
 

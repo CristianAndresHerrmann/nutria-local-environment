@@ -1,12 +1,29 @@
 ---
 name: flujo-git-nutria
-description: Ramas, commits, PR, merge y cierre de incremento en los tres repos de NutrIA. Usar al empezar o cerrar una tarea, o al abrir/mergear un PR.
+description: Convenciones de ramas, mensajes de commit, PR y cierre de incremento en los tres repos de NutrIA. Consultar solo cuando se pide explícitamente ejecutar o revisar una operación de git/gh, o cuando hay una duda sobre la convención. El asistente no commitea ni abre PRs por su cuenta.
 ---
 
 # Flujo de ramas — NutrIA
 
 Corré todo comando `git`/`gh` dentro del repo afectado (`nutria-backend/`,
 `nutria-ia/` o `nutria-frontend/`), nunca en la raíz `nutria/`.
+
+## Quién maneja el repositorio
+
+El control del historial es de quien inicia la sesión, no del asistente. El
+asistente **no** hace `git add`, `git commit`, `git push`, `git merge`, `git
+checkout -b` ni abre PRs por iniciativa propia, y tampoco propone cortar el
+trabajo en varios commits ni sugiere "conviene commitear acá". Deja los cambios
+en el working tree y listo; el commit lo hace la persona cuando quiere y con el
+alcance que quiere.
+
+Excepción única: que se le pida explícitamente en esa sesión ("commiteá esto",
+"abrí el PR"). Ahí sí ejecuta lo pedido, con el alcance pedido — sin dividir en
+commits extra ni agregar pasos que no se pidieron.
+
+El resto de este documento es **referencia de convenciones** (cómo se nombran
+ramas, commits y PRs en este proyecto), para consultar o para cuando se pida
+ejecutar algo. No es una secuencia que el asistente deba empujar.
 
 ## Ramas permanentes
 
@@ -20,16 +37,13 @@ Corré todo comando `git`/`gh` dentro del repo afectado (`nutria-backend/`,
   completa — no en cada tarea individual. Es la rama que se despliega al entorno
   de validación cuando exista (Cloud Run, Incremento 3).
 
-## Al empezar una tarea
+## Nombre de rama de tarea
 
-1. Parado en `development` actualizado (`git checkout development && git pull`).
-2. Crear la rama: `git checkout -b T<N>-TituloTarea` (ejemplo:
-   `T6-alta-paciente`). Sin prefijo `feat/`, `fix/`, etc. en el nombre de rama,
-   salvo que la persona que inicia la sesión pida explícitamente otra convención
-   para esa tarea puntual.
-3. Trabajar y commitear siguiendo el formato de abajo.
+Se crean desde `development` actualizado, con el formato `T<N>-TituloTarea`
+(ejemplo: `T6-alta-paciente`). Sin prefijo `feat/`, `fix/`, etc. en el nombre de
+rama.
 
-## Commits
+## Formato de mensaje de commit
 
 Conventional Commits en español, con el identificador de tarea como scope:
 
@@ -46,23 +60,17 @@ chore(T12): agrega workflow de CI
 docs(T9): registra decisión de usar Prisma
 ```
 
-Un commit, un cambio lógico. No mezclar refactors grandes con features en el
-mismo commit si se puede evitar.
+Qué entra en cada commit lo decide la persona. No hay regla de granularidad acá
+y el asistente no opina sobre eso.
 
 ## Pull request
 
 - Un PR por tarea, siempre contra `development`.
 - Nunca push directo a `master`, `development` o `staging`.
-- Merge por squash hacia `development` (el historial de `development` queda un
-  commit por tarea).
-- Usar la plantilla `.github/pull_request_template.md` del repo: qué tarea es, qué
-  cambia, cómo probarlo, y el checklist (tests corridos, sin secretos en el diff,
-  migración revisada si aplica, decisión técnica anotada si aplica, trazabilidad
-  con el requerimiento/riesgo del Plan de Proyecto).
-- En GitHub el término correcto es *pull request*; *merge request* es terminología
-  de GitLab — no mezclar.
 
 ## Cierre de incremento
+
+Secuencia de referencia; la ejecuta quien lleva el proyecto.
 
 1. Confirmar que `development` tiene CI en verde y todas las tareas del incremento
    mergeadas.

@@ -12,6 +12,31 @@ de usarlo).
 Alcance del proyecto: **pruebas unitarias son obligatorias**; integración y
 E2E/UI se agregan de forma selectiva, no como default de cada tarea.
 
+## Cómo correrlos
+
+Siempre dentro del contenedor, desde la raíz `nutria/` (no desde `nutria-backend/`):
+
+```bash
+npm run test:backend             # suite completa, una vez
+npm run test:backend:coverage    # + cobertura: tabla en terminal y reporte en nutria-backend/coverage/ (index.html, lcov.info)
+```
+
+Eso hace `docker compose run --build --rm --no-deps backend npm run test`:
+`--build` rebuildea la imagen (con cache de capas) antes de correr, así que un
+test nuevo o un cambio en el código se ve sin ningún paso manual — el rebuild
+cacheado tarda segundos porque `npm install` no se repite salvo que
+`package.json`/`package-lock.json` hayan cambiado. `--no-deps` porque la suite
+unitaria no toca Postgres (repositorios fake). No hay ningún archivo de compose
+extra ni mounts: es el compose normal de `nutria-backend/` con dos flags.
+
+Correr `npm run test` directo en `nutria-backend/` sirve para iterar rápido (o
+`npm run test:watch`), pero la verificación que cuenta para cerrar una tarea es la
+del contenedor.
+
+Los archivos de test son CommonJS como el resto del repo y usan `describe`/`it`/
+`expect`/`vi` como globales (`globals: true` en `vitest.config.js`): no hacer
+`require('vitest')`, falla.
+
 ## Organización
 
 - Un archivo de test por módulo de servicio/repositorio, junto al código que

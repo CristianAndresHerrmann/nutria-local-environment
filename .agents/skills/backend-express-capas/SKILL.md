@@ -9,13 +9,17 @@ Este skill opera dentro de `nutria-backend/`. Todo endpoint nuevo sigue el mismo
 orden de capas, sin saltarse ninguna:
 
 1. **Schema Zod** — valida el body/query/params de la request. Es la única fuente
-   de verdad de qué forma tienen los datos de entrada.
+   de verdad de qué forma tienen los datos de entrada. Una ruta sin parámetros de
+   query usa `emptyQuerySchema` (`src/schemas/common.schema.js`).
 2. **Repositorio** — acceso a datos vía Prisma. No contiene lógica de negocio.
 3. **Servicio** — lógica de negocio. Es la capa que aplica reglas (por ejemplo,
    que un paciente menor de edad requiera responsable).
-4. **Controlador** — orquesta: valida con el schema, llama al servicio, arma la
-   respuesta. No accede a Prisma directamente.
-5. **Ruta** — registra el endpoint y lo conecta al controlador.
+4. **Controlador** — orquesta: lee los datos ya validados de `req.validated`,
+   llama al servicio, arma la respuesta. No valida por su cuenta ni accede a Prisma
+   directamente. Los errores se lanzan como `AppError` y se pasan a `next`.
+5. **Ruta** — registra el endpoint y engancha la validación con
+   `validate({ params, query, body })` (`src/middlewares/validate.js`) entre
+   `requireAuth` y el controlador.
 6. **Test de aislamiento** — al menos un test que verifique que la capa no filtra
    datos de otro `nutricionista_id`.
 7. **Docs** — actualizar la documentación de la API (donde esté centralizada en el
@@ -25,9 +29,11 @@ orden de capas, sin saltarse ninguna:
 
 - **Nunca leer `nutricionista_id` del cliente.** Sale siempre del token JWT
   verificado en el middleware de auth, nunca del body/query de la request.
-- **Formato de error único** en toda la API (mismo shape de respuesta de error en
-  los distintos endpoints — revisar cómo está definido en el repo antes de
-  inventar uno nuevo).
+- **Formato de error único** en toda la API: `{ error: { code, message, details? } }`,
+  armado solo por `src/middlewares/errorHandler.js`. Un endpoint nunca responde un
+  error con `res.status(...).json(...)` a mano: lanza `new AppError(status, message,
+  { code, details })`. Los errores de validación llevan el mapa campo → mensaje en
+  `details.fields` (ver `docs/decisiones/formato-de-error-uniforme.md`).
 - El middleware de aislamiento por `nutricionista_id` se aplica en todas las
   rutas que tocan datos de pacientes — verificar que el endpoint nuevo pasa por
   él, no asumirlo.

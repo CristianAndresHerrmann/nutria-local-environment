@@ -26,11 +26,83 @@ nutria/
 
 ## Requisitos
 
+- Git, con acceso a los tres repos (son privados).
 - Docker Desktop (Compose v2.20 o superior).
 - Node.js, solo para lanzar los comandos con `npm run` — el código nunca corre con
-  el Node del host.
-- El `.env` de cada repo creado a partir de su `.env.example` (ver README de
-  `nutria-backend/`).
+  el Node del host. No hace falta `npm install` en esta carpeta.
+- El puerto 80 del host libre: lo usa el proxy del stack.
+
+## Primer arranque
+
+Todo desde esta carpeta (`nutria/`).
+
+**1. Clonar los tres repos** como carpetas hermanas, con estos nombres exactos (el
+`docker-compose.yml` del backend los busca por ruta relativa). El repo remoto del
+frontend se llama `nutria-frontned`; la carpeta local tiene que ser
+`nutria-frontend`:
+
+```bash
+git clone https://github.com/CristianAndresHerrmann/nutria-backend.git nutria-backend
+git clone https://github.com/CristianAndresHerrmann/nutria-frontned.git nutria-frontend
+git clone https://github.com/CristianAndresHerrmann/nutria-ia.git nutria-ia
+```
+
+**2. Crear los `.env`** a partir de los `.env.example`:
+
+```bash
+cp nutria-backend/.env.example nutria-backend/.env
+cp nutria-frontend/.env.example nutria-frontend/.env
+cp nutria-ia/.env.example nutria-ia/.env
+```
+
+En `nutria-backend/.env` completar `POSTGRES_USER`, `POSTGRES_PASSWORD`,
+`POSTGRES_DB` y `JWT_SECRET` con valores cualquiera para uso local. Los `.env` del
+frontend y de IA sirven tal cual vienen.
+
+**3. Registrar los dominios locales** en el archivo `hosts`, una sola vez por
+máquina. En Windows es `C:\Windows\System32\drivers\etc\hosts` (editar como
+administrador); en Linux/macOS, `/etc/hosts`:
+
+```
+127.0.0.1 local.nutria.com
+127.0.0.1 api.local.nutria.com
+127.0.0.1 ia.local.nutria.com
+127.0.0.1 swagger.local.nutria.com
+127.0.0.1 db.local.nutria.com
+```
+
+**4. Levantar el stack:**
+
+```bash
+npm run up
+```
+
+La primera vez construye las imágenes (tarda unos minutos). Las migraciones se
+aplican solas al arrancar el backend.
+
+**5. Cargar los datos de prueba:**
+
+```bash
+npm run db:seed
+```
+
+Crea dos nutricionistas, cada uno con sus pacientes ficticios, y al terminar
+imprime los emails y la contraseña para iniciar sesión.
+
+**6. Verificar:**
+
+| URL | Qué debería verse |
+|---|---|
+| http://local.nutria.com | Login de la aplicación (entrar con las credenciales del paso 5) |
+| http://api.local.nutria.com/health | `{"status":"ok", ...}` del backend |
+| http://ia.local.nutria.com/health | `{"status":"ok", ...}` del servicio de IA |
+| http://swagger.local.nutria.com | Documentación interactiva de la API |
+| http://db.local.nutria.com | pgAdmin, con la base del stack ya registrada |
+
+**7. Correr las pruebas:** `npm run test:backend` y `npm run test:frontend` (ver
+[Tests](#tests)).
+
+Para bajar el stack: `npm run down` (los datos quedan en el volumen de Postgres).
 
 ## Comandos
 
@@ -43,7 +115,7 @@ de una tarea.
 
 | Comando | Qué hace |
 |---|---|
-| `npm run up` | Levanta todo el stack (`proxy`, `frontend`, `backend`, `ia`, `postgres`) rebuildeando imágenes. |
+| `npm run up` | Levanta todo el stack (`proxy`, `frontend`, `backend`, `ia`, `postgres`, `pgadmin`) rebuildeando imágenes. |
 | `npm run down` | Baja el stack. Los datos de Postgres quedan en el volumen. |
 | `npm run ps` | Estado de los contenedores. |
 | `npm run logs` | Logs en vivo de todo. Para un servicio: `npm run logs -- backend`. |
@@ -61,6 +133,8 @@ de una tarea.
 ### Base de datos
 
 Todos levantan `postgres` si no está y esperan a que responda antes de conectar.
+
+Con el stack levantado (`npm run up`), la base también se puede ver desde el navegador en http://db.local.nutria.com (pgAdmin, sin login; ver README de `nutria-backend/` para los virtual hosts).
 
 | Comando | Qué hace |
 |---|---|

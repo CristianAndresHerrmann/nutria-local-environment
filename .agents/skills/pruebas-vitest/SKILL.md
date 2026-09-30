@@ -5,9 +5,7 @@ description: Cómo organizar y escribir tests del backend de NutrIA con Vitest, 
 
 # Pruebas — backend (Vitest)
 
-Este skill opera dentro de `nutria-backend/`. Vitest es el runner asumido (si la
-card T8 terminó definiendo Jest en su lugar, ajustar este skill en una línea antes
-de usarlo).
+Este skill opera dentro de `nutria-backend/`. El runner es Vitest.
 
 Alcance del proyecto: **pruebas unitarias son obligatorias**; integración y
 E2E/UI se agregan de forma selectiva, no como default de cada tarea.

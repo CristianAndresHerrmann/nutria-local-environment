@@ -1,7 +1,7 @@
 # Documentación de API con Swagger: dónde vive el contrato y cómo se expone
 
 **Fecha:** 17/09/2026
-**Tarea relacionada:** T&lt;N&gt;
+**Tarea relacionada:** card "Implementar Swagger para backend" (soporte del Incremento 1, sin número de tarea)
 
 ## Contexto
 
@@ -95,7 +95,9 @@ inconsistencias reales que antes no se veían: el `404` de ruta inexistente usa 
 en vez del `{ error, fields? }` del resto de la API; el `400` de login no trae `fields` mientras
 que el de pacientes sí; y `birthDate` entra como `AAAA-MM-DD` y sale como fecha-hora ISO.
 Ninguna se corrigió en esta tarea — son cambios de contrato — pero quedan visibles para decidirlo
-en una propia.
+en una propia. Las dos primeras se resolvieron en T7 con el formato de error uniforme (ver
+[formato-de-error-uniforme.md](formato-de-error-uniforme.md)); la de `birthDate` se mantiene y
+está documentada en el spec.
 
 El costo del reenvío lo paga el repo que necesita la documentación, y no se reparte sobre un
 servicio que no tiene nada que ver con ella. `nutria-ia` queda sin una sola línea agregada por

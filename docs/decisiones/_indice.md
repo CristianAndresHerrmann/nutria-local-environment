@@ -16,6 +16,8 @@ Una decisión por archivo, a partir de [`_plantilla.md`](_plantilla.md).
 |---|---|
 | [Prisma para acceso a datos y migraciones](prisma-acceso-a-datos-y-migraciones.md) | T4 |
 | [Ajustes al modelo de datos del Anexo A](ajustes-al-modelo-del-anexo-a.md) | T4 |
+| [Ajustes al modelo de datos del Anexo A — Incremento 2](ajustes-al-modelo-del-anexo-a-incremento-2.md) | T14 |
+| [Catálogos comunes a todos los nutricionistas; recetas propias](catalogos-comunes-entre-nutricionistas.md) | T14 |
 
 ## Seguridad y acceso
 

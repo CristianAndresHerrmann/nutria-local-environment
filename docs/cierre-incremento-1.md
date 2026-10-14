@@ -81,5 +81,7 @@ Con el stack levantado según el [README](../README.md#primer-arranque):
   existe `staging` en ningún repo, no hay plantilla de PR versionada, los PR se
   integraron con merge commit en vez de squash, y los cambios de soporte se
   commitearon directo en `development`.
-- **Versiones sin publicar.** Los `CHANGELOG.md` de backend y frontend siguen en
-  "Unreleased"; la entrada de versión se crea al pasar el incremento a `master`.
+- **Versiones sin publicar.** Al cierre, los `CHANGELOG.md` de backend y frontend
+  seguían en "Unreleased". *Actualización (14/10/2026):* el Incremento 1 quedó como
+  versión `0.0.1` en ambos. La versión se corta al cerrar cada incremento; el paso a
+  `master` es aparte y se hace solo para salir a producción.

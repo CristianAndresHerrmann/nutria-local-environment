@@ -23,6 +23,21 @@ datos y migraciones del proyecto (decisión cerrada).
 3. Revisar el SQL generado en `prisma/migrations/` antes de commitear — Prisma no
    siempre infiere la migración más segura (por ejemplo, un campo NOT NULL nuevo
    sin default en una tabla con datos).
+
+   **Si el cambio necesita restricciones que Prisma no expresa** (`CHECK`: columnas
+   excluyentes, un campo obligatorio según el valor de otro), generar la migración
+   sin aplicarla, con `npm run db:migrate:dev -- --name <nombre> --create-only`.
+   Después agregar los `ALTER TABLE ... ADD CONSTRAINT ... CHECK (...)` al final
+   del `migration.sql`, aplicarla con `npm run db:migrate:dev` (sin `--name`) y:
+   - nombrar cada constraint `<tabla>_<regla>_chk` y comentar en el modelo de
+     `schema.prisma` que existe, porque el schema no la muestra;
+   - validar la misma regla en el schema Zod de entrada, para que la API
+     responda `400` con el campo puntual en vez de un `500` de la base;
+   - no escribir a mano FKs ni índices: Prisma sí los introspecta y los
+     detecta como drift. Los `CHECK` no los ve, así que no generan drift (se
+     comprueba con `npm run db:migrate:dev`, que debe responder "Already in sync").
+
+   Ejemplo: migración `agrega_datos_clinicos_consultas_y_catalogos` (T14).
 4. Actualizar el seed si el cambio de modelo lo requiere (`npm run db:seed` para
    probarlo; no requiere rebuild).
 5. **Verificación desde cero:** `npm run db:reset` (borra la base local, aplica

@@ -27,7 +27,7 @@ nutria/
 ## Requisitos
 
 - Git, con acceso a los tres repos (son privados).
-- Docker Desktop (Compose v2.20 o superior).
+- Docker Desktop (Compose v2.23 o superior; `npm run dev` lo necesita).
 - Node.js, solo para lanzar los comandos con `npm run` — el código nunca corre con
   el Node del host. No hace falta `npm install` en esta carpeta.
 - El puerto 80 del host libre: lo usa el proxy del stack.
@@ -116,6 +116,7 @@ de una tarea.
 | Comando | Qué hace |
 |---|---|
 | `npm run up` | Levanta todo el stack (`proxy`, `frontend`, `backend`, `ia`, `postgres`, `pgadmin`) rebuildeando imágenes. |
+| `npm run dev` | Igual que `up`, pero queda en primer plano mirando los cambios: lo que se guarda en el frontend se ve al instante, y un cambio en `nutria-backend/src` reinicia el backend en segundos. Ctrl+C baja el stack. Ver "Ver cambios sin rebuildear". |
 | `npm run down` | Baja el stack. Los datos de Postgres quedan en el volumen. |
 | `npm run ps` | Estado de los contenedores. |
 | `npm run logs` | Logs en vivo de todo. Para un servicio: `npm run logs -- backend`. |
@@ -171,6 +172,24 @@ las migraciones al día: el `CMD` del backend corre `prisma migrate deploy` ante
 de arrancar el server, así que un `git pull`/merge que trae una migración nueva
 no requiere ningún paso manual — `npm run up` sola te deja el schema
 sincronizado.
+
+## Ver cambios sin rebuildear
+
+Con `npm run up`, los contenedores tienen una copia del código hecha al
+construir la imagen: un cambio recién se ve con otro `npm run up`. Para iterar
+(probar un ajuste de estilos, un texto, un endpoint) usar `npm run dev`, que usa
+Compose Watch (bloque `develop.watch` del `docker-compose.yml`):
+
+| Qué cambia | Qué pasa |
+|---|---|
+| `nutria-frontend/src`, `public/` o `index.html` | Se copia al contenedor y Vite recarga el navegador solo. |
+| `nutria-backend/src` | Se copia y se reinicia el contenedor del backend (unos segundos). |
+| `package.json`/`package-lock.json` de cualquiera de los dos, `vite.config.js` o `nutria-backend/prisma/` | Rebuild automático de esa imagen. |
+| `nutria-ia` | No se mira: sigue necesitando `npm run up`. |
+
+Los archivos se copian dentro del contenedor en vez de montar la carpeta: con un
+volumen desde Windows (y más dentro de OneDrive) Vite no detecta los cambios sin
+activar polling.
 
 ## Skills para Claude Code
 

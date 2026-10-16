@@ -4,6 +4,7 @@
   "description": "Tooling transversal de NutrIA. Todo (tests, migraciones, seed) corre dentro de los contenedores Docker de cada repo, nunca con el runtime del host. Ver README.md.",
   "scripts": {
     "up": "docker compose -f nutria-backend/docker-compose.yml up -d --build",
+    "dev": "docker compose -f nutria-backend/docker-compose.yml up --build --watch",
     "down": "docker compose -f nutria-backend/docker-compose.yml down",
     "ps": "docker compose -f nutria-backend/docker-compose.yml ps",
     "logs": "docker compose -f nutria-backend/docker-compose.yml logs -f",

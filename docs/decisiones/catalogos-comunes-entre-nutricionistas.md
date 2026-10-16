@@ -32,9 +32,13 @@ entrevista de validación con nutricionistas.
 
 - Hoy los catálogos comunes se cargan por seed. Si más adelante hay un ABM, editar un
   catálogo común afecta a todos los nutricionistas: ese ABM no puede quedar abierto a cualquier
-  usuario sin una decisión explícita sobre quién lo administra.
+  usuario sin una decisión explícita sobre quién lo administra. Resuelto en T15: el catálogo lo cura
+  un administrador, los nutricionistas no lo editan, y lo que agrega cada uno es un alimento privado
+  ([abm-de-catalogos-comunes.md](abm-de-catalogos-comunes.md)).
 - Los repositorios de recetas aplican el mismo resguardo que `patient.repository` (cortar
   cualquier consulta sin `nutritionistId`). Los de catálogos comunes no lo necesitan.
 - Si la validación con nutricionistas pide catálogos propios (por ejemplo, alimentos regionales
   de un consultorio), se agrega una columna `nutritionist_id` opcional por migración, donde
-  `NULL` signifique "común", sin rehacer el modelo.
+  `NULL` signifique "común", sin rehacer el modelo. Aplicado en T15 a los alimentos: `food.nutritionist_id`
+  nullable, y desde entonces el repositorio de alimentos sí aplica el resguardo de
+  `patient.repository`.

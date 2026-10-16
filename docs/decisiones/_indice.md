@@ -36,6 +36,7 @@ Una decisión por archivo, a partir de [`_plantilla.md`](_plantilla.md).
 | [Formato de error con detalle por campo](formato-de-error-por-campo.md) — *reemplazada* | T6 |
 | [Formato de error uniforme `{ error: { code, message, details? } }`](formato-de-error-uniforme.md) | T7 |
 | [Documentación de API con Swagger](documentacion-de-api-con-swagger.md) | Soporte |
+| [Aviso de datos clínicos faltantes calculado en el backend](aviso-de-datos-clinicos-faltantes.md) | T16 |
 
 ## Frontend
 

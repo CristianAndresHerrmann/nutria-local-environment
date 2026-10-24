@@ -75,10 +75,13 @@ Además verifica:
 
 ## Medición preliminar de RNF-01 (recortable, hecha)
 
-Con `npm run db:seed:volume` (100 pacientes, de 1 a 20 consultas cada uno, 1050
-consultas en total) y `npm run perf:patient-detail`. La ficha completa son las
-cuatro requests de la ficha, en paralelo: paciente, condiciones, consultas y
-mediciones.
+Medida con un script descartable, que no se versionó: la medición que queda en
+el proyecto será el test de carga de la estrategia de pruebas. El volumen fue el
+de referencia del RNF-01: 100 pacientes ficticios con 1 a 20 consultas cada uno,
+1050 consultas en total, en una cuenta aparte (`volumen@nutria.com`). La ficha
+completa son las cuatro requests de la ficha, en paralelo: paciente,
+condiciones, consultas y mediciones. Primero una vuelta de calentamiento y
+después 5 rondas sobre los 100 pacientes, con un usuario a la vez.
 
 | Medición (24/10/2026, local) | n | P50 | P95 | Máx. |
 |---|---|---|---|---|
@@ -112,7 +115,8 @@ Se repite en el despliegue y cuando la ficha sume planes.
 - **Sin pruebas del frontend en el navegador ni de integración contra una base
   real.** El recorrido de este documento cubre la API contra Postgres. Las
   pantallas se verifican a mano (ver los 🔸).
-- **RNF-01 medido solo en local**, como medición preliminar (ver arriba).
+- **RNF-01 medido solo en local**, como medición preliminar y sin concurrencia
+  (ver arriba).
 - Ya figuran en el CHANGELOG del backend: la composición esperada por tipo de
   comida (RF-26), que se recortó de T15, y la copia del alimento en el ítem del
   plan.

@@ -48,6 +48,12 @@ Una decisión por archivo, a partir de [`_plantilla.md`](_plantilla.md).
 |---|---|
 | [Tailwind CSS v4 como framework de estilos](framework-de-estilos-tailwind.md) | T13 |
 
+## Pruebas
+
+| Decisión | Tarea |
+|---|---|
+| [Estrategia de pruebas: un tipo de prueba por objetivo](estrategia-de-pruebas.md) | T23 |
+
 ## Proceso de trabajo
 
 | Decisión | Tarea |

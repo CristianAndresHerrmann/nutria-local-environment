@@ -70,4 +70,7 @@ T15 abre la carga manual (RF-24, "base mínima controlada de carga manual"), y h
   desde la interfaz.
 - **La FK `RESTRICT` de `food.nutritionist_id`** impide borrar un nutricionista que cargó
   alimentos.
+- **Las recomendaciones clínicas (T22)** siguen el mismo esquema de comunes y privadas, pero el
+  nutricionista sí edita y da de baja las suyas
+  ([recomendaciones-privadas-por-nutricionista.md](recomendaciones-privadas-por-nutricionista.md)).
 - **Hay que confirmarlo en la entrevista de validación con nutricionistas.**

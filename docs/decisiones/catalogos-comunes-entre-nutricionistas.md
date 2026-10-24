@@ -41,4 +41,5 @@ entrevista de validación con nutricionistas.
   de un consultorio), se agrega una columna `nutritionist_id` opcional por migración, donde
   `NULL` signifique "común", sin rehacer el modelo. Aplicado en T15 a los alimentos: `food.nutritionist_id`
   nullable, y desde entonces el repositorio de alimentos sí aplica el resguardo de
-  `patient.repository`.
+  `patient.repository`. Aplicado en T22 a las recomendaciones clínicas
+  ([recomendaciones-privadas-por-nutricionista.md](recomendaciones-privadas-por-nutricionista.md)).

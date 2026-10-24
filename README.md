@@ -86,8 +86,11 @@ aplican solas al arrancar el backend.
 npm run db:seed
 ```
 
-Crea dos nutricionistas, cada uno con sus pacientes ficticios, y al terminar
-imprime los emails y la contraseña para iniciar sesión.
+Carga el catálogo común (grupos, alimentos, patologías y recomendaciones de
+ejemplo) y dos nutricionistas, cada uno con pacientes ficticios ya cargados
+(condiciones, consultas y mediciones), recetas, y alimentos y recomendaciones
+privados. Al terminar imprime los emails y la contraseña para iniciar sesión. Todo
+es ficticio.
 
 **6. Verificar:**
 
@@ -145,6 +148,20 @@ Con el stack levantado (`npm run up`), la base también se puede ver desde el na
 | `npm run db:reset` | **Destructivo.** Borra la base local, aplica todas las migraciones desde cero y corre el seed. Es la "verificación desde cero" del skill `prisma-migraciones`. |
 | `npm run db:studio` | Prisma Studio en http://localhost:5555 (Ctrl+C para cerrarlo). |
 | `npm run db:shell` | `psql` conectado a la base del stack. |
+
+### Reconstruir la base
+
+- **Desde cero:** `npm run db:reset`. Borra todo, aplica las migraciones desde la
+  primera y corre el seed. Sirve para descartar los datos de prueba o después de
+  cambiar a una rama con otras migraciones.
+- **Si el backend estaba levantado**, reiniciarlo después del reset
+  (`docker restart nutria-backend-1`). Prisma guarda en caché los tipos de la base y,
+  hasta reiniciar, responde `500` ("cache lookup failed for type…").
+- **Solo el seed:** `npm run db:seed` se puede volver a correr sobre una base con
+  datos. Actualiza el catálogo común sin duplicarlo y recrea los pacientes, las
+  recetas y las recomendaciones privadas de los dos nutricionistas del seed: lo que
+  se haya cargado a mano en esas dos cuentas se pierde, salvo los alimentos
+  privados. Las demás cuentas no se tocan.
 
 ### Shell dentro de un contenedor
 

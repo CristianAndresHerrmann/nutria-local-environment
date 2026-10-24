@@ -2,6 +2,10 @@
 
 Una decisión por archivo, a partir de [`_plantilla.md`](_plantilla.md).
 
+El resumen con numeración DA para los informes de avance está en
+[`registro-de-decisiones-incremento-2.md`](../registro-de-decisiones-incremento-2.md)
+(Incremento 2, DA-15 a DA-24).
+
 ## Infraestructura y entorno
 
 | Decisión | Tarea |

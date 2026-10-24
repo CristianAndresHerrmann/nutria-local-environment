@@ -130,6 +130,7 @@ de una tarea.
 | `npm run test:backend:coverage` | Ídem + cobertura: tabla en terminal y reporte en `nutria-backend/coverage/index.html` (y `lcov.info`). |
 | `npm run test:ia` | `pytest` del servicio de IA. Hoy falla con `pytest: not found` porque ese repo todavía no tiene tests ni `pytest` en `requirements.txt`. |
 | `npm run test:frontend` | Vitest del frontend. |
+| `npm run perf:patient-detail` | Mide el tiempo de carga de la ficha completa del paciente (RNF-01, P95 < 5 s) sobre los pacientes de `db:seed:volume`. Requiere el stack levantado. |
 
 ### Base de datos
 
@@ -142,6 +143,7 @@ Con el stack levantado (`npm run up`), la base también se puede ver desde el na
 | `npm run db:migrate` | Aplica las migraciones pendientes (`prisma migrate deploy`). No crea migraciones. |
 | `npm run db:migrate:dev -- --name <verbo_entidad_cambio>` | Genera una migración nueva a partir de `schema.prisma` y la aplica. Queda en `nutria-backend/prisma/migrations/`. Ver skill `prisma-migraciones` para el nombre. |
 | `npm run db:seed` | Corre `nutria-backend/scripts/seed.js` (datos ficticios). |
+| `npm run db:seed:volume` | Corre `nutria-backend/scripts/seed-volume.js`: 100 pacientes ficticios con hasta 20 consultas, en una cuenta aparte (`volumen@nutria.com`, misma contraseña que el seed). Va después de `db:seed`, porque usa su catálogo. Cada corrida reemplaza los pacientes de esa cuenta. |
 | `npm run db:reset` | **Destructivo.** Borra la base local, aplica todas las migraciones desde cero y corre el seed. Es la "verificación desde cero" del skill `prisma-migraciones`. |
 | `npm run db:studio` | Prisma Studio en http://localhost:5555 (Ctrl+C para cerrarlo). |
 | `npm run db:shell` | `psql` conectado a la base del stack. |

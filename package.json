@@ -18,7 +18,9 @@
     "db:migrate": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npx prisma migrate deploy",
     "db:migrate:dev": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps -v ./nutria-backend/prisma:/app/prisma backend npx prisma migrate dev",
     "db:seed": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npm run seed",
-    "db:reset": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npx prisma migrate reset --force",
+    "db:seed:volume": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend node scripts/seed-volume.js",
+    "perf:patient-detail": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend node scripts/measure-patient-detail.js",
+    "db:reset":"docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npx prisma migrate reset --force",
     "db:studio": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps -p 5555:5555 backend npx prisma studio --hostname 0.0.0.0 --browser none",
     "db:shell": "docker compose -f nutria-backend/docker-compose.yml run --rm psql",
 

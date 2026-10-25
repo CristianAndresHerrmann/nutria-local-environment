@@ -21,7 +21,7 @@ código puede comportarse distinto según dónde se ejecute.
 
 - **Node 22** (`node:22-alpine`) en los Dockerfiles de backend y frontend.
 - **Python 3.12** (`python:3.12-slim`) en el Dockerfile del servicio de IA.
-- Cuando exista la CI, sus workflows usan las mismas versiones.
+- Los workflows de CI usan las mismas versiones (`setup-node` con `22`, `setup-python` con `3.12`).
 
 ## Consecuencias
 
@@ -30,5 +30,5 @@ código puede comportarse distinto según dónde se ejecute.
   afecta la verificación.
 - Correr un servicio fuera de Docker con otra versión (por ejemplo, un entorno
   virtual local de `nutria-ia` con otro Python) no está cubierto por esta decisión.
-- Subir de versión es un cambio en un solo lugar por repo (la línea `FROM`, y el
-  workflow de CI cuando exista).
+- Subir de versión es un cambio en dos lugares por repo, que van juntos: la línea
+  `FROM` y el `node-version`/`python-version` del `ci.yml`.

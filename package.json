@@ -12,7 +12,7 @@
 
     "test:backend": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npm run test",
     "test:backend:coverage": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps -v ./nutria-backend/coverage:/app/coverage backend npm run test:coverage",
-    "test:ia": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps ia pytest",
+    "test:ia": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps ia-test",
     "test:frontend": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps frontend npm test --if-present",
 
     "db:migrate": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npx prisma migrate deploy",

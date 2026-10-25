@@ -14,11 +14,11 @@ implementarla. Si algo no coincide, mandan las cards.
 |---|---|
 | Incremento 2 (en curso) | Solo local, con `npm run up` (docker-compose). |
 | Incremento 3 | Solo local hasta terminarlo. Todavía no tiene tareas definidas. |
-| Staging | Se implementa cuando el servicio de generación de planes exista (card de staging). Depende del CD de T12 y de la rama `staging`. |
+| Staging | Se implementa cuando el servicio de generación de planes exista (card de staging). Depende del CD (en la card de staging) y de la rama `staging`. |
 | Producción | Se define cuando el sistema esté implementado. Fuera del alcance actual. |
 
-La parte de CI de T12 (tests en cada PR) es independiente del despliegue y se puede
-hacer en cualquier momento.
+Desde el 25/10/2026, T12 es solo CI (checks en cada PR, sin secrets) y el CD pasó a la
+card de staging. La CI es independiente del despliegue.
 
 docker-compose local sigue siendo el entorno de respaldo que siempre funciona (riesgo 13
 del Plan de Proyecto).
@@ -98,7 +98,7 @@ prueba una vez de punta a punta (criterio de cierre).
 
 1. **Reanudar Supabase** si está pausado. No hay keep-alive: la pausa es aceptable
    porque staging se usa de forma esporádica.
-2. **Ejecutar el CD manual de T12** (`workflow_dispatch`) para desplegar la versión
+2. **Ejecutar el CD manual** (`workflow_dispatch`) para desplegar la versión
    vigente de `staging`.
 3. **Recargar el seed** de pacientes ficticios.
 4. **Hacer un pedido de calentamiento** (login y una generación) para que el backend, el
@@ -115,7 +115,7 @@ Reglas del entorno:
 ## 5. Ajustes al código que necesita staging
 
 Las cards no los detallan, pero sin ellos el despliegue no funciona o sale más caro.
-Corresponden a la card de staging o a T12, no a tareas del Incremento 2.
+Corresponden a la card de staging, no a tareas del Incremento 2.
 
 | Repo | Ajuste | Motivo |
 |---|---|---|
@@ -144,14 +144,6 @@ Corresponden a la card de staging o a T12, no a tareas del Incremento 2.
 
 No se tocaron. Quedan anotadas para resolverlas cuando corresponda:
 
-- **Rama de producción.** La card de T12 habla de `main`. `AGENTS.md`, el skill
-  `flujo-git-nutria` y la decisión de [flujo de ramas](decisiones/flujo-de-ramas.md)
-  hablan de `master`.
-- **Keep-alive.** El skill `ci-github-actions` lo tiene como trabajo diferido, pero la
-  card de staging lo descarta.
-- **CD desde `staging`.** El skill `ci-github-actions` lo ubica en el Incremento 3. Las
-  cards lo atan a cuando exista el servicio de generación de planes y el plan actual es
-  terminar el Incremento 3 en local. Conviene que el skill no fije un incremento.
 - **Proveedor de IA.** `AGENTS.md` da Gemini por cerrado y el Informe de Avances 2 lo
   tiene en evaluación (DA-12).
 - **DA-14** sigue "en evaluación" en el Informe de Avances 2. Se actualiza en el próximo

@@ -103,4 +103,6 @@ formulario mostrados por campo. Detalle en el skill `frontend-react-nutria`.
 ## 7. CI (ver skill `ci-github-actions`)
 
 Cada repo tiene su propio `.github/workflows/ci.yml`, disparado por PR hacia
-`development`/`master` y push a `development`. Sin secretos en el Incremento 1.
+`development`/`master`, push a `development` y a mano (`workflow_dispatch`). El job
+`ci` es el check obligatorio del ruleset de `development` y `master`. La CI no usa
+secrets; el CD va en otro workflow (card de staging).

@@ -131,7 +131,7 @@ de una tarea.
 |---|---|
 | `npm run test:backend` | Vitest del backend. |
 | `npm run test:backend:coverage` | Ídem + cobertura: tabla en terminal y reporte en `nutria-backend/coverage/index.html` (y `lcov.info`). |
-| `npm run test:ia` | `pytest` del servicio de IA. Hoy falla con `pytest: not found` porque ese repo todavía no tiene tests ni `pytest` en `requirements.txt`. |
+| `npm run test:ia` | `pytest` del servicio de IA, en el servicio `ia-test` del compose (etapa `test` del Dockerfile de `nutria-ia`, con `requirements-dev.txt`). |
 | `npm run test:frontend` | Vitest del frontend. |
 
 ### Base de datos

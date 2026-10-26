@@ -31,6 +31,7 @@ El resumen con numeración DA para los informes de avance está en
 | [Condiciones repetidas del paciente controladas en el servicio](condiciones-repetidas-controladas-en-el-servicio.md) | T18 |
 | [La última actualización del paciente incluye sus consultas](ultima-actualizacion-del-paciente-incluye-consultas.md) | T19 |
 | [IMC calculado al leer, con la talla más reciente a la fecha del peso](imc-calculado-con-la-talla-mas-reciente.md) | T20 |
+| [Composición esperada por tipo de comida](composicion-esperada-por-tipo-de-comida.md) | T27 |
 
 ## Seguridad y acceso
 

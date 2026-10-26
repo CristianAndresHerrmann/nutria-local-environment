@@ -37,18 +37,18 @@ commits.
 - **Servicio de IA:** Python/FastAPI, ONNX Runtime (no PyTorch, para mantener la
   imagen liviana), embeddings con `sentence-transformers` local (384 dimensiones).
 - **Frontend:** React.
-- **Base de datos:** PostgreSQL con `pgvector`; en local, contenedor Docker; en
-  despliegue, Supabase free tier (solo como Postgres administrado — no se usan
-  Auth, PostgREST ni Edge Functions, para preservar portabilidad).
+- **Base de datos:** PostgreSQL con `pgvector`, en un contenedor Docker tanto en
+  local como en staging (sin base administrada).
 - **IA generativa:** Gemini API, tier pago cubierto por el crédito de Google AI Pro.
-- **Infraestructura de despliegue (Incremento 3):** GCP Cloud Run en `us-central1`,
-  imágenes construidas localmente/por Actions (Container Scanning API deshabilitada,
-  sin Cloud Build). El servicio de IA se despliega privado, con autenticación por
-  identity token desde el backend.
+- **Staging:** una VM de OCI Always Free que corre el mismo compose de
+  `nutria-backend/` más `docker-compose.staging.yml` (HTTPS, sin pgAdmin, sin puerto
+  de Postgres, servicio de IA sin ruta pública). Se despliega con cada push a
+  `staging` (`cd-staging.yml` por SSH). Detalle en `docs/estrategia-de-despliegue.md`
+  y en el README de `nutria-backend`, sección "Staging". Producción sin definir.
 - **Auth:** JWT + bcrypt; todo acceso a datos de paciente filtra por
   `nutricionista_id` en middleware — nunca se lee `nutricionista_id` del cliente.
-- **docker-compose local es siempre el fallback funcional**; GCP es solo para la
-  presentación final ante el tribunal.
+- **docker-compose local es siempre el fallback funcional**: staging usa ese mismo
+  compose, así que lo que anda en local anda en staging.
 
 ## 3. Prohibiciones transversales
 
@@ -73,7 +73,8 @@ commits.
   con cache antes de ejecutar, así que un test o cambio de código nuevo se ve sin
   ningún paso manual (el rebuild cacheado tarda segundos, no reinstala
   dependencias salvo que hayan cambiado). No hay un `docker-compose.dev.yml` ni
-  nada por el estilo — solo el compose normal de `nutria-backend/`.
+  nada por el estilo — solo el compose normal de `nutria-backend/`. La única
+  excepción es `docker-compose.staging.yml`, que se usa solo en la VM de staging.
 - `npm run up` deja las migraciones al día solo: el `CMD` del backend corre
   `prisma migrate deploy` antes de levantar el server. No hace falta `db:migrate`
   aparte después de un merge, salvo que quieras aplicarlas sin reiniciar el stack.

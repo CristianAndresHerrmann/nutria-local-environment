@@ -1,15 +1,20 @@
 ---
 name: ci-github-actions
-description: Estructura de los workflows de CI de NutrIA, cómo agregar un paso nuevo y qué hacer cuando un check falla. Usar al tocar archivos dentro de .github/workflows.
+description: Estructura de los workflows de CI y CD a staging de NutrIA, cómo agregar un paso nuevo y qué hacer cuando un check o un despliegue falla. Usar al tocar archivos dentro de .github/workflows.
 ---
 
-# CI con GitHub Actions — NutrIA
+# CI/CD con GitHub Actions — NutrIA
 
-Cada uno de los tres repos tiene su propio `.github/workflows/ci.yml` (no hay
-workflow compartido). Disparadores: `pull_request` hacia `development`/`master`,
-`push` a `development` y `workflow_dispatch`. Solo integración continua: no
-despliega nada y no usa secrets. `nutria-local-environment` (la raíz `nutria/`) no
-lleva CI.
+Cada uno de los tres repos tiene su propio `.github/workflows/ci.yml` y
+`cd-staging.yml` (no hay workflows compartidos entre repos).
+
+- `ci.yml`: `pull_request` hacia `development`/`staging`/`master`, `push` a
+  `development`, `workflow_dispatch` y `workflow_call` (lo reutiliza el CD). No
+  despliega nada y no usa secrets.
+- `cd-staging.yml`: `push` a `staging` y `workflow_dispatch`. Corre el CI y, si pasa,
+  despliega en la VM de staging (ver "CD a staging").
+
+`nutria-local-environment` (la raíz `nutria/`) no lleva CI.
 
 ## Estructura por repo
 
@@ -33,7 +38,7 @@ Sin lint en el backend (DA-24).
 3. `npm test`
 4. `npm run build`
 5. `npm audit --audit-level=high`
-6. `docker build` (sin push)
+6. `docker build` (sin push) del target por defecto (`dev`) y del `prod` (staging)
 
 **`nutria-ia/ci.yml`**
 1. `pip install -r requirements.txt -r requirements-dev.txt`
@@ -69,9 +74,35 @@ README de cada repo.
 - No usar `pull_request_target`: los repos son públicos y ejecutaría código de un
   fork con permisos del repo.
 
+## CD a staging
+
+`cd-staging.yml`, mismo esqueleto en los tres repos; solo cambian el servicio y el
+smoke test:
+
+1. Job `ci`: `uses: ./.github/workflows/ci.yml`. Si falla, no se despliega.
+2. Job `deploy` (`needs: ci`, `environment: staging`): instala la clave y el
+   `known_hosts` desde los secrets y corre
+   `ssh $STAGING_SSH_USER@$STAGING_HOST <backend|frontend|ia>`.
+3. Smoke test por HTTPS con reintentos (~3 min): `/health` y `/health/ia` del backend,
+   la página del frontend. La IA no tiene ruta pública: se verifica por `/health/ia`.
+
+En la VM, la clave de despliegue está en `authorized_keys` con
+`restrict,command="bash …/nutria-backend/scripts/deploy-staging.sh"`: pida lo que
+pida, solo corre ese script, que valida el servicio, toma un lock, deja el repo igual
+a `origin/staging` y rebuildea con
+`docker compose -f docker-compose.yml -f docker-compose.staging.yml`. El del backend
+levanta todo el stack (el compose y Traefik viven ahí).
+
+- `concurrency: cd-staging` sin cancelar: un despliegue a medias puede dejar la VM
+  en un estado intermedio.
+- Si un despliegue necesita otro comando en la VM, se agrega al script (con su
+  validación), no al workflow: la clave no puede ejecutar nada más.
+- Detalle operativo (variables de la VM, primer arranque, comandos): README de
+  `nutria-backend`, sección "Staging".
+
 ## Protección de ramas
 
-Ruleset por repo sobre `development` y `master`, con bypass list vacía: bloquea
+Ruleset por repo sobre `development`, `staging` y `master`, con bypass list vacía: bloquea
 borrado y force push, exige PR (0 aprobaciones: un solo desarrollador) y exige el
 check `ci` en verde (sin "require branches to be up to date"). El check solo aparece
 en el buscador del ruleset después de que el workflow corrió al menos una vez.
@@ -91,11 +122,17 @@ La CI no usa ningún secret ni variable de GitHub, y así se mantiene:
 Si un paso parece necesitar un secret, primero confirmar con quien inicia la sesión
 si corresponde a esta etapa — no agregar secrets al workflow sin decisión explícita.
 
-El CD vive en otro workflow (card "Desplegar staging bajo demanda"), nunca en
-`ci.yml`: sus secrets y variables van en el Environment `staging` de GitHub, la
-autenticación con GCP es por Workload Identity Federation (sin claves JSON;
-`id-token: write` solo en ese job), y los identificadores de GCP son variables, no
-secrets.
+El CD usa el Environment `staging` de cada repo (restringido a la rama `staging`),
+nunca secrets a nivel repo ni en `ci.yml`:
+
+| Nombre | Tipo |
+|---|---|
+| `STAGING_SSH_KEY` (clave privada de despliegue) | secret |
+| `STAGING_SSH_KNOWN_HOSTS` (`<IP> ssh-ed25519 …`) | secret |
+| `STAGING_HOST`, `STAGING_SSH_USER`, `STAGING_DOMAIN` | variables |
+
+En los `run:` se pasan por `env:`, no interpolados en el script. Los secrets de la
+aplicación (`JWT_SECRET`, contraseñas) viven en los `.env` de la VM, no en GitHub.
 
 ## Cómo agregar un paso
 
@@ -121,3 +158,16 @@ existan, cada una en su propia tarea.
 4. Si falla `npm audit` o `pip-audit`, actualizar la dependencia en su propia tarea
    o PR; no bajar el `--audit-level` ni sacar el paso para destrabar un merge.
 5. No mergear con el check en rojo. No usar `[skip ci]` para esquivar una falla.
+
+## Cuando un despliegue falla
+
+1. **Falla el job `ci`:** es el mismo caso de arriba; no se desplegó nada.
+2. **Falla el SSH** (`Permission denied`, `Host key verification failed`): revisar
+   los secrets del Environment y la línea de `authorized_keys` en la VM. Si la VM se
+   recreó, cambió su clave de host y hay que actualizar `STAGING_SSH_KNOWN_HOSTS`;
+   nunca desactivar `StrictHostKeyChecking`.
+3. **Falla el script o el smoke test:** entrar a la VM con la clave personal y mirar
+   `dcs ps` y `dcs logs <servicio>` (alias del README de `nutria-backend`). Un
+   certificado que todavía no salió se ve en `dcs logs proxy`.
+4. Corregir con un PR nuevo y volver a desplegar; no editar archivos a mano en la VM
+   (el siguiente despliegue los pisa con `git reset --hard`).

@@ -34,8 +34,9 @@ ejecutar algo. No es una secuencia que el asistente deba empujar.
   obligatoria antes de mergear.
 - `staging`: se crea desde `development` desde el día uno. Recibe fast-forward (o
   un PR sin cambios de contenido) desde `development` cuando la iteración está
-  completa — no en cada tarea individual. Es la rama que se despliega al entorno
-  de validación cuando exista (Cloud Run, Incremento 3).
+  completa — no en cada tarea individual. Cada push a `staging` se despliega solo
+  en la VM de staging (`cd-staging.yml` de cada repo), así que mergear ahí es
+  desplegar.
 
 ## Nombre de rama de tarea
 

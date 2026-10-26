@@ -32,6 +32,7 @@ El resumen con numeración DA para los informes de avance está en
 | [La última actualización del paciente incluye sus consultas](ultima-actualizacion-del-paciente-incluye-consultas.md) | T19 |
 | [IMC calculado al leer, con la talla más reciente a la fecha del peso](imc-calculado-con-la-talla-mas-reciente.md) | T20 |
 | [Composición esperada por tipo de comida](composicion-esperada-por-tipo-de-comida.md) | T27 |
+| [Motor de reglas v1: condiciones directas, ítem no reconocido y composición](motor-de-reglas-v1.md) | T34 |
 
 ## Seguridad y acceso
 

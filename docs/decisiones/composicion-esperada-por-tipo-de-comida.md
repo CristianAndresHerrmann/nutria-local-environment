@@ -64,9 +64,10 @@ Vive en `nutria-backend/src/domain/reglas/mealComposition.js`.
   carne en el almuerzo y cereal o legumbre en la cena). RF-26 pide los tres en
   ambas. Se mantiene RF-26, que es un requerimiento, y la diferencia se lleva a la
   entrevista.
-- Un ítem de grupo ("un lácteo") no trae categorías, y uno de receta tampoco. Cómo se
-  derivan se define en T37. Hasta entonces, esas opciones pueden dar advertencias de
-  más.
+- Un ítem de grupo ("un lácteo") no trae categorías, y uno de receta tampoco. El motor
+  de reglas las deriva (T34, DA-30, [`motor-de-reglas-v1.md`](motor-de-reglas-v1.md)):
+  la receta aporta las de sus ingredientes, y el grupo las que comparten todos sus
+  alimentos vigentes.
 - **Para la entrevista de validación:**
   - Confirmar o corregir la composición de desayuno y merienda.
   - Decidir si la fruta es esperable en alguna comida.

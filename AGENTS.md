@@ -84,7 +84,8 @@ commits.
 Capas: schema Zod → repositorio → servicio → controlador → ruta → test de
 aislamiento → docs. Formato de error uniforme en toda la API. Detalle completo en
 el skill `backend-express-capas`; migraciones en `prisma-migraciones`; tests en
-`pruebas-vitest`.
+`pruebas-vitest`; motor de reglas y hallazgos (`src/domain/reglas/`) en
+`reglas-clinicas-deterministicas`.
 
 ## 5. Servicio de IA (`nutria-ia/`)
 

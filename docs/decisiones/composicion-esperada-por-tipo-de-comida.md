@@ -29,8 +29,7 @@ la Población Argentina* (Ministerio de Salud de la Nación), pp. 20 a 22:
 
 ## Alternativas consideradas
 
-- **Dejar desayuno y merienda sin definir hasta la entrevista** (origen V, sin
-  advertencias). No inventa nada, pero el motor llega a T37 sin poder advertir en dos
+- **Dejar desayuno y merienda sin definir hasta la entrevista** (sin advertencias). No inventa nada, pero el motor llega a T37 sin poder advertir en dos
   de las cuatro comidas, y la entrevista no tiene fecha.
 - **Una composición distinta para cada una, igual al ejemplo del manual** (lácteo,
   cereal y fruta en el desayuno; lácteo, cereal y frutas secas en la merienda). Es la
@@ -47,9 +46,9 @@ la Población Argentina* (Ministerio de Salud de la Nación), pp. 20 a 22:
 ## Decisión
 
 Desayuno y merienda comparten una composición: `protein` (el lácteo) y
-`carbohydrate` (pan o cereales). Es lo común a ambas en el manual. Origen S
-(supuesto), a confirmar en la entrevista de validación. Almuerzo y cena quedan como
-dice RF-26, con origen P. Vive en `nutria-backend/src/domain/reglas/mealComposition.js`.
+`carbohydrate` (pan o cereales). Es lo común a ambas en el manual, y es un supuesto
+a confirmar en la entrevista de validación. Almuerzo y cena quedan como dice RF-26.
+Vive en `nutria-backend/src/domain/reglas/mealComposition.js`.
 
 ## Consecuencias
 
@@ -72,4 +71,3 @@ dice RF-26, con origen P. Vive en `nutria-backend/src/domain/reglas/mealComposit
   - Confirmar o corregir la composición de desayuno y merienda.
   - Decidir si la fruta es esperable en alguna comida.
   - Decidir si almuerzo y cena exigen siempre las tres categorías.
-  - Al confirmarse, el origen pasa a E.

@@ -49,6 +49,7 @@ El resumen con numeración DA para los informes de avance está en
 | [Formato de error uniforme `{ error: { code, message, details? } }`](formato-de-error-uniforme.md) | T7 |
 | [Documentación de API con Swagger](documentacion-de-api-con-swagger.md) | Soporte |
 | [Aviso de datos clínicos faltantes calculado en el backend](aviso-de-datos-clinicos-faltantes.md) | T16 |
+| [Contrato del servicio de IA para generar el plan, con proveedor simulado](contrato-del-servicio-de-ia.md) | T33 |
 
 ## Frontend
 

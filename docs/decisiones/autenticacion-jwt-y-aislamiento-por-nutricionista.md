@@ -1,6 +1,7 @@
 # Autenticación con JWT + bcrypt y aislamiento por nutricionista
 
 **Tarea relacionada:** T5
+**Estado:** actualizada por [administrador-y-gestion-de-cuentas.md](administrador-y-gestion-de-cuentas.md) (T31): `requireAuth` también verifica que la cuenta siga activa y toma su rol de la base, y cada ruta exige un rol.
 
 ## Contexto
 

@@ -1,6 +1,7 @@
 # Alta de nutricionistas solo por seed
 
 **Tarea relacionada:** T5
+**Estado:** modificada por [administrador-y-gestion-de-cuentas.md](administrador-y-gestion-de-cuentas.md) (T31). El seed sigue creando sus dos nutricionistas de prueba, pero las cuentas también se administran desde la aplicación.
 
 ## Contexto
 

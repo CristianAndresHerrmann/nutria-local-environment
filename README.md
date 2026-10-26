@@ -92,6 +92,10 @@ ejemplo) y dos nutricionistas, cada uno con pacientes ficticios ya cargados
 privados. Al terminar imprime los emails y la contraseña para iniciar sesión. Todo
 es ficticio.
 
+Opcional, para usar el panel de cuentas (`/admin`): completar `ADMIN_EMAIL` y
+`ADMIN_PASSWORD` en `nutria-backend/.env` y correr `npm run db:create-admin`. El
+administrador entra con el mismo login.
+
 **6. Verificar:**
 
 | URL | Qué debería verse |
@@ -145,6 +149,7 @@ Con el stack levantado (`npm run up`), la base también se puede ver desde el na
 | `npm run db:migrate` | Aplica las migraciones pendientes (`prisma migrate deploy`). No crea migraciones. |
 | `npm run db:migrate:dev -- --name <verbo_entidad_cambio>` | Genera una migración nueva a partir de `schema.prisma` y la aplica. Queda en `nutria-backend/prisma/migrations/`. Ver skill `prisma-migraciones` para el nombre. |
 | `npm run db:seed` | Corre `nutria-backend/scripts/seed.js` (datos ficticios). |
+| `npm run db:create-admin` | Crea o pone al día la cuenta de administrador con `ADMIN_EMAIL` y `ADMIN_PASSWORD` del `.env` de `nutria-backend/`. Idempotente. |
 | `npm run db:reset` | **Destructivo.** Borra la base local, aplica todas las migraciones desde cero y corre el seed. Es la "verificación desde cero" del skill `prisma-migraciones`. |
 | `npm run db:studio` | Prisma Studio en http://localhost:5555 (Ctrl+C para cerrarlo). |
 | `npm run db:shell` | `psql` conectado a la base del stack. |
@@ -161,7 +166,9 @@ Con el stack levantado (`npm run up`), la base también se puede ver desde el na
   datos. Actualiza el catálogo común sin duplicarlo y recrea los pacientes, las
   recetas y las recomendaciones privadas de los dos nutricionistas del seed: lo que
   se haya cargado a mano en esas dos cuentas se pierde, salvo los alimentos
-  privados. Las demás cuentas no se tocan.
+  privados. Las demás cuentas (las del panel de administración y la del administrador)
+  no se tocan. `db:reset` sí las borra: después de un reset hay que volver a correr
+  `npm run db:create-admin`.
 
 ### Shell dentro de un contenedor
 

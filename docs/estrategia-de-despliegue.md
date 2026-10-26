@@ -51,7 +51,7 @@ VM OCI Always Free (A1, ARM, Ubuntu 24.04) — docker compose
 | Cómputo | Una VM `VM.Standard.A1.Flex` (2 OCPU, 12 GB, disco de 100 GB), dentro del límite Always Free (4 OCPU, 24 GB, 200 GB). Región `us-ashburn-1`. |
 | Red | VCN propia con subred pública. Security List: entrada solo en 22, 80 y 443. El firewall de Ubuntu abre los mismos puertos. |
 | Servicios | `docker-compose.yml` de `nutria-backend` + `docker-compose.staging.yml`: HTTPS en Traefik, frontend con build estático, sin pgAdmin, sin puerto de Postgres, IA sin ruta pública, `restart: unless-stopped`. |
-| Base de datos | El Postgres del compose, con volumen en la VM. Solo datos ficticios del seed, sin backups. El corpus del RAG va en una base separada de la operativa (DA-13). |
+| Base de datos | El Postgres del compose, con volumen en la VM. Solo datos ficticios (del seed y de las nutricionistas que prueban), sin backups. El corpus del RAG va en una base separada de la operativa (DA-13). |
 | Dominio y TLS | Subdominio gratuito de DuckDNS; Traefik pide y renueva el certificado de Let's Encrypt. |
 | Build y despliegue | `cd-staging.yml` en cada repo, por push a `staging` o a mano: corre el CI, entra por SSH con una clave restringida a `scripts/deploy-staging.sh` y rebuildea el servicio en la VM. Smoke test por HTTPS. |
 | Variables y secretos | Los de la aplicación, en los `.env` de la VM (no se versionan). Los del CD, en el Environment `staging` de GitHub. En los README se documentan solo los nombres. |
@@ -92,9 +92,11 @@ Reglas del entorno:
 - Solo datos ficticios. Avisar explícitamente a la nutricionista que no cargue pacientes
   reales.
 - Aviso visible en la interfaz de que es un entorno de prueba.
-- Acceso solo con usuarios creados por el desarrollador, coherente con la
-  [alta de nutricionistas por seed](decisiones/alta-de-nutricionistas-por-seed.md). En
-  staging la contraseña del seed sale de una variable, porque el repo es público.
+- Acceso solo con cuentas creadas por el administrador desde el panel, o por el seed
+  ([administrador y gestión de cuentas](decisiones/administrador-y-gestion-de-cuentas.md),
+  T31). Las credenciales del administrador y la contraseña del seed salen de variables
+  del `.env` de la VM, porque el repo es público. Ni un redeploy ni el seed tocan las
+  cuentas creadas desde el panel.
 
 ## 5. Alternativas descartadas para staging
 

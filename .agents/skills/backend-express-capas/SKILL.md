@@ -19,7 +19,11 @@ orden de capas, sin saltarse ninguna:
    directamente. Los errores se lanzan como `AppError` y se pasan a `next`.
 5. **Ruta** — registra el endpoint y engancha la validación con
    `validate({ params, query, body })` (`src/middlewares/validate.js`) entre
-   `requireAuth` y el controlador.
+   el middleware de rol y el controlador. Toda ruta protegida usa
+   `requireNutritionist` o `requireAdmin` (`src/middlewares/auth.js`), nunca
+   `requireAuth` suelto: así el otro rol recibe `403`. Documentar ese `403`
+   (`ForbiddenRole`) en el bloque `@openapi`; los tests de 403 cruzados de
+   `app.test.js` se generan desde el spec.
 6. **Test de aislamiento** — al menos un test que verifique que la capa no filtra
    datos de otro `nutricionista_id`.
 7. **Docs** — actualizar la documentación de la API (donde esté centralizada en el

@@ -22,6 +22,8 @@ nutria/
   iteración, con el detalle funcional.
 - **`docs/decisiones/`**: decisiones técnicas con su fundamento (una por archivo,
   a partir de `_plantilla.md`).
+- **`docs/reglas-clinicas.md`**: catálogo de reglas del motor determinístico, cada una
+  con su origen.
 - **`.agents/skills/`**: procedimientos paso a paso para trabajar en el proyecto.
 
 ## Requisitos

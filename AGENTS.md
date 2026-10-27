@@ -53,7 +53,8 @@ commits.
 ## 3. Prohibiciones transversales
 
 - No inventar reglas clínicas ni datos de validación: el motor de reglas
-  deterministico vive en el backend, no en el servicio de IA. Toda sugerencia de
+  deterministico vive en el backend, no en el servicio de IA, y cada regla tiene su
+  ficha con origen (E/P/S/V) en `docs/reglas-clinicas.md`. Toda sugerencia de
   IA debe poder ser revisada, editada, aceptada o rechazada por el nutricionista.
 - No usar `prisma db push` fuera de prototipado rápido descartable: los cambios de
   esquema van por migración nombrada (ver skill `prisma-migraciones`).

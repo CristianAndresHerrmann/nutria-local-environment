@@ -28,6 +28,7 @@ El resumen con numeración DA para los informes de avance está en
 | [Catálogos curados por un administrador; alimentos privados por nutricionista](abm-de-catalogos-comunes.md) | T15 |
 | [Nombres de catálogo únicos sin distinguir mayúsculas, con `citext`](nombres-de-catalogo-sin-distinguir-mayusculas.md) | T15 |
 | [Recomendaciones clínicas comunes de solo lectura, y privadas por nutricionista](recomendaciones-privadas-por-nutricionista.md) | T22 |
+| [Recetas básicas comunes de solo lectura, y privadas por nutricionista](recetas-comunes.md) | T30 |
 | [Condiciones repetidas del paciente controladas en el servicio](condiciones-repetidas-controladas-en-el-servicio.md) | T18 |
 | [La última actualización del paciente incluye sus consultas](ultima-actualizacion-del-paciente-incluye-consultas.md) | T19 |
 | [IMC calculado al leer, con la talla más reciente a la fecha del peso](imc-calculado-con-la-talla-mas-reciente.md) | T20 |

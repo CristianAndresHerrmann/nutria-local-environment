@@ -171,6 +171,7 @@ Las reglas que cruzan tablas no entran en un `CHECK` y quedan a cargo de los ser
 | HALLAZGO.severidad | bloqueo → `blocking`, advertencia → `warning` |
 | GENERACION_IA.resultado_validacion | sin_hallazgos → `no_findings`, con_advertencias → `warnings`, con_bloqueos → `blocking` |
 | GENERACION_IA.result (nuevo) | `success`, `invalid_response`, `provider_error`, `timeout` |
+| ALIMENTO_CATEGORIA.categoria (RF-25) | Se agrega `complementary` (T28, DA-32), para alimentos sin aporte a la composición. Ver `categoria-complementaria.md`. |
 
 ## Consecuencias
 

@@ -104,6 +104,12 @@ Errores de validación de formulario se muestran por campo, junto al input que
 falló, con el mismo texto/estructura que devuelve el backend cuando sea posible
 (no inventar mensajes que no coincidan con la validación real del servidor).
 
+Los formularios de datos (paciente, catálogos, condición, consulta y todo formulario
+nuevo) manejan sus errores con `useFormErrors` (`src/hooks/`) y muestra el
+general con `<FormError>` arriba del botón de guardar: el aviso fijo si hay campos
+marcados, o el `message` si el error no trae campos (409, 500, red). No se arma
+otro estado `formError`/`fieldErrors` a mano.
+
 ## Prohibido
 
 - No mostrar datos crudos del modelo de IA como si fueran definitivos: toda

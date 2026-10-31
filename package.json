@@ -11,9 +11,11 @@
     "build": "docker compose -f nutria-backend/docker-compose.yml build",
 
     "test:backend": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npm run test",
-    "test:backend:coverage": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps -v ./nutria-backend/coverage:/app/coverage backend npm run test:coverage",
+    "test:backend:integration": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npm run test:integration",
+    "test:backend:coverage": "node -e \"const fs = require('node:fs'); fs.rmSync('nutria-backend/coverage', { recursive: true, force: true }); fs.mkdirSync('nutria-backend/coverage', { recursive: true })\" && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps -v ./nutria-backend/coverage:/app/coverage backend npm run test:coverage",
     "test:ia": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps ia-test",
     "test:frontend": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps frontend npm test --if-present",
+    "contract:ia:update": "docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps -v ./nutria-ia/contracts:/app/contracts -v ./nutria-backend/src/schemas/fixtures:/backend-contract ia-test python -m scripts.export_openapi /app/contracts/openapi.json /backend-contract/ia.openapi.json",
 
     "db:migrate": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps backend npx prisma migrate deploy",
     "db:migrate:dev": "docker compose -f nutria-backend/docker-compose.yml up -d --wait postgres && docker compose -f nutria-backend/docker-compose.yml run --build --rm --no-deps -v ./nutria-backend/prisma:/app/prisma backend npx prisma migrate dev",

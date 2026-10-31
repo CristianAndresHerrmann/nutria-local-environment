@@ -16,7 +16,7 @@ fundamento están en `docs/decisiones/estrategia-de-pruebas.md`, en el repo raí
 |---|---|---|---|
 | Unitarias (backend y frontend) | `npm run test:backend`, `npm run test:frontend` | Cada cambio | **Implementadas** |
 | Lint del frontend (oxlint) | `npm run lint:frontend` | Cada cambio | Previsto: el comando no existe todavía en la raíz |
-| Integración del backend contra Postgres | `npm run test:backend:integration` | Al cerrar cada tarea del backend | Previsto |
+| Integración del backend contra Postgres | `npm run test:backend:integration` | Al cerrar cada tarea del backend y en CI | **Implementada** (AUD-001) |
 | E2E de camino feliz (Playwright) | `npm run test:e2e` | Al cerrar tareas que toquen esos flujos, y el incremento | Previsto |
 | Carga y estrés (k6) | `npm run test:load` | Al cerrar el incremento, y en staging | Previsto |
 
@@ -37,6 +37,7 @@ Siempre dentro del contenedor, desde la raíz `nutria/` (no desde `nutria-backen
 
 ```bash
 npm run test:backend             # suite completa, una vez
+npm run test:backend:integration # Postgres real, solo nutria_test; recrea la base de pruebas
 npm run test:backend:coverage    # + cobertura: tabla en terminal y reporte en nutria-backend/coverage/ (index.html, lcov.info)
 ```
 
@@ -66,10 +67,18 @@ Los archivos de test son CommonJS como el resto del repo y usan `describe`/`it`/
   contra Prisma + Postgres. Los tests que sí necesitan la base van aparte
   (integración), no se mezclan en la misma suite que corre en cada commit.
 
-## Integración contra Postgres (prevista)
+## Integración contra Postgres
 
-Convenciones definidas para cuando se implemente. Hasta entonces no existe ni la
-config ni el comando.
+Implementada con `vitest.integration.config.js` y `scripts/run-integration-tests.js`.
+El comando raíz levanta solo Postgres y ejecuta la suite en Docker con `--build`.
+Deriva `nutria_test` desde `DATABASE_URL`, o usa `TEST_DATABASE_URL` explícita solo
+si apunta a `nutria_test` y schema `public`. La validación ocurre antes del reset;
+la limpieza comprueba también el destino real de la conexión.
+
+Cobertura inicial (AUD-001): aislamiento en los seis recursos auditados, atomicidad
+de planes y consultas, CHECK de condiciones y trazas, FK compuestas, RESTRICT,
+`citext`, `createManyAndReturn` y seed. La validación general contra Swagger y los
+demás escenarios de la estrategia siguen pendientes.
 
 - Archivos `*.int.test.js` junto al módulo, con un `vitest.integration.config.js`
   propio. La config unitaria (`vitest.config.js`) los excluye.

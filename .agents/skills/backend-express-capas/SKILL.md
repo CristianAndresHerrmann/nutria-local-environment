@@ -29,6 +29,21 @@ orden de capas, sin saltarse ninguna:
 7. **Docs** — actualizar la documentación de la API (donde esté centralizada en el
    repo) con el endpoint nuevo.
 
+### Cuerpos de entrada en OpenAPI (AUD-005)
+
+- Registrar el schema Zod real en `src/docs/requestSchemas.js` con el nombre que
+  usa el `$ref` de la ruta. El cuerpo se genera con `z.toJSONSchema`, para OpenAPI
+  3.0, sin repetir campos, tipos, enums ni límites en `components.js`.
+- Las descripciones, ejemplos, formatos de presentación y `uniqueItems` de los
+  refinamientos personalizados van en `src/docs/requestAnnotations.json`. Una
+  anotación no puede reemplazar los tipos ni límites generados.
+- El adaptador respeta los opcionales de `optionalField` y los límites de texto
+  posteriores a la normalización. Los topes describen el texto normalizado.
+- Las reglas cruzadas (`superRefine`), fechas no futuras y límites en bytes no se
+  expresan por completo en JSON Schema: mantener su explicación y sus tests Zod.
+- Las respuestas, errores y parámetros siguen en `components.js`. No se derivan
+  de los validadores de entrada, porque pueden tener otra forma y serialización.
+
 ## Reglas que no se negocian
 
 - **Nunca leer `nutricionista_id` del cliente.** Sale siempre del token JWT

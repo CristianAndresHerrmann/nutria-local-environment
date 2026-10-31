@@ -29,6 +29,8 @@ credenciales efímeras escritas en el workflow y `DATABASE_URL` a nivel job.
 5. `npm test`
 6. `npm audit --audit-level=high`
 7. `docker build` (sin push)
+8. Integración contra Postgres dentro de esa imagen (`npm run test:integration`,
+   deriva y recrea solo `nutria_test` a partir de `DATABASE_URL`).
 
 Sin lint en el backend (DA-24).
 
@@ -143,8 +145,8 @@ aplicación (`JWT_SECRET`, contraseñas) viven en los `.env` de la VM, no en Git
 4. Probarlo en un PR real antes de darlo por cerrado; no alcanza con que el YAML
    sea válido (`actionlint` ayuda, pero no lo reemplaza).
 
-Integración contra Postgres, E2E y carga (DA-24) se suman al workflow cuando
-existan, cada una en su propia tarea.
+La integración contra Postgres (AUD-001) ya corre en el workflow del backend.
+E2E y carga (DA-24) se sumarán cuando existan, cada una en su propia tarea.
 
 ## Cuando un check falla
 

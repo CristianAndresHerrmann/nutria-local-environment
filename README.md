@@ -124,8 +124,8 @@ de una tarea.
 
 | Comando | Qué hace |
 |---|---|
-| `npm run up` | Levanta todo el stack (`proxy`, `frontend`, `backend`, `ia`, `postgres`, `pgadmin`) rebuildeando imágenes. |
-| `npm run dev` | Igual que `up`, pero queda en primer plano mirando los cambios: lo que se guarda en el frontend se ve al instante, y un cambio en `nutria-backend/src` reinicia el backend en segundos. Ctrl+C baja el stack. Ver "Ver cambios sin rebuildear". |
+| `npm run up` | Levanta todo el stack (`proxy`, `frontend`, `backend`, `ia`, `postgres`, `pgadmin`) rebuildeando imágenes. El frontend queda con hot reload, también al reiniciarlo desde Docker Desktop. |
+| `npm run dev` | Levanta el stack en primer plano y agrega Compose Watch para reiniciar el backend al editar `src` y reconstruir imágenes al cambiar dependencias. El hot reload del frontend funciona también sin este comando. Ctrl+C detiene el stack. |
 | `npm run down` | Baja el stack. Los datos de Postgres quedan en el volumen. |
 | `npm run ps` | Estado de los contenedores. |
 | `npm run logs` | Logs en vivo de todo. Para un servicio: `npm run logs -- backend`. |
@@ -136,9 +136,39 @@ de una tarea.
 | Comando | Qué hace |
 |---|---|
 | `npm run test:backend` | Vitest del backend. |
+| `npm run test:backend:integration` | Integración del backend contra Postgres real. Levanta `postgres`, recrea solo `nutria_test` con las migraciones y corre los tests en serie, con fixtures ficticias. |
 | `npm run test:backend:coverage` | Ídem + cobertura: tabla en terminal y reporte en `nutria-backend/coverage/index.html` (y `lcov.info`). |
 | `npm run test:ia` | `pytest` del servicio de IA, en el servicio `ia-test` del compose (etapa `test` del Dockerfile de `nutria-ia`, con `requirements-dev.txt`). |
 | `npm run test:frontend` | Vitest del frontend. |
+
+La integración usa las credenciales y el servidor de `DATABASE_URL`, cambiando la
+base por `nutria_test`. Esa base queda reservada para pruebas y se vacía en cada
+corrida; la base de desarrollo no se modifica. Opcionalmente se puede definir
+`TEST_DATABASE_URL` en `nutria-backend/.env`: debe apuntar a `nutria_test` con el
+schema `public`, o el comando falla antes del reset. Los archivos `*.int.test.js`
+se excluyen de la suite unitaria. No requiere levantar IA ni frontend.
+
+### Contrato backend ↔ IA
+
+El OpenAPI de IA se versiona en `nutria-ia/contracts/openapi.json`, con una copia
+en `nutria-backend/src/schemas/fixtures/ia.openapi.json`. `test:ia` comprueba que
+FastAPI sigue publicando ese contrato; `test:backend` compara los enums de Prisma,
+la propuesta validada por Zod y los topes del catálogo y textos de contexto con
+su copia. Cada repo puede ejecutar su CI sin clonar el otro.
+
+Cuando un cambio intencional afecte el contrato, revisar su compatibilidad y
+ejecutar desde esta carpeta:
+
+```bash
+npm run contract:ia:update
+npm run test:ia
+npm run test:backend
+```
+
+El primer comando genera ambas copias desde FastAPI dentro de Docker, sin
+levantar servidores ni llamar al proveedor. Las copias se actualizan a propósito:
+las suites no las regeneran ni ocultan una divergencia. Al cambiar el contrato,
+ambos repos deben incorporar la actualización coordinada antes de desplegar.
 
 ### Base de datos
 
@@ -185,13 +215,24 @@ cambio de código solo invalida la capa que copia el código fuente — Docker n
 reinstala dependencias salvo que `package.json`/`package-lock.json` (o
 `requirements.txt` en `ia`) hayan cambiado — así que en la práctica el rebuild
 tarda segundos y **nunca hay que acordarse de rebuildear a mano antes de
-testear**. No hay ningún archivo de compose extra para esto ni código montado
-de forma permanente: es el `docker-compose.yml` de siempre con un flag.
+testear**. Se usa el mismo `docker-compose.yml`. El frontend lee el código desde
+sus mounts de solo lectura; las dependencias y la ejecución de las pruebas
+permanecen dentro del contenedor.
 
 Dos comandos puntuales (`db:migrate:dev`, que genera un archivo de migración, y
 `test:backend:coverage`, que genera un reporte HTML) agregan un `-v` al comando
 para que ese archivo quede en el host en vez de perderse con el contenedor
 efímero — nada permanente, solo para esa corrida.
+
+Las imágenes de Node instalan con `npm ci`, respetando el lockfile. El backend
+construye y ejecuta sus comandos como `node` (UID/GID 1000), incluidas las pruebas
+y Prisma. `test:backend:coverage` elimina el reporte generado anterior y recrea la
+carpeta de salida con el usuario del host; los tests y los reportes se ejecutan
+dentro del contenedor. Esto evita reutilizar archivos de cobertura escritos por
+root o que Docker cree el directorio como root cuando todavía no existe. En Linux,
+los directorios montados (`prisma/` y `coverage/`) deben permitir escritura al UID
+1000. Si un reporte anterior creado por root no permite limpiarlo, hay que corregir
+su propietario antes de ejecutar el comando.
 
 `npm run up` también rebuildea (por eso el `--build` en su script) y además dejás
 las migraciones al día: el `CMD` del backend corre `prisma migrate deploy` antes
@@ -201,21 +242,40 @@ sincronizado.
 
 ## Ver cambios sin rebuildear
 
-Con `npm run up`, los contenedores tienen una copia del código hecha al
-construir la imagen: un cambio recién se ve con otro `npm run up`. Para iterar
-(probar un ajuste de estilos, un texto, un endpoint) usar `npm run dev`, que usa
+El **frontend tiene hot reload al iniciar desde Docker Desktop**. Una vez creados
+los contenedores con `npm run up`, podés detener/iniciar el stack desde la interfaz
+de Docker Desktop: guardás un archivo y Vite actualiza `http://local.nutria.com`.
+No requiere una terminal abierta ni ejecutar Compose Watch.
+
+El compose monta `src/`, `public/`, `index.html` y `vite.config.js` del frontend en
+solo lectura. Vite consulta cambios cada 500 ms (`WATCH_POLLING=true` en el servicio
+local), para detectar también las ediciones de Windows/OneDrive. `node_modules`
+queda dentro de la imagen, con las dependencias de Linux. Staging elimina estos
+mounts y el polling mediante su override y sirve el build estático de nginx.
+
+Si ya había un contenedor creado antes de esta configuración, recrearlo una vez:
+
+```bash
+docker compose -f nutria-backend/docker-compose.yml up -d --build --no-deps frontend
+```
+
+Esto lo incorpora al contenedor; reiniciar uno viejo desde Docker Desktop no
+aplica cambios en el compose. Después alcanza con los controles de Docker Desktop.
+
+Para observar además el **backend y las dependencias**, `npm run dev` agrega
 Compose Watch (bloque `develop.watch` del `docker-compose.yml`):
 
 | Qué cambia | Qué pasa |
 |---|---|
-| `nutria-frontend/src`, `public/` o `index.html` | Se copia al contenedor y Vite recarga el navegador solo. |
+| `nutria-frontend/src`, `public/` o `index.html` | Hot reload de Vite por los mounts, incluso sin Compose Watch. |
+| `nutria-frontend/vite.config.js` | Vite reinicia automáticamente su servidor de desarrollo. |
 | `nutria-backend/src` | Se copia y se reinicia el contenedor del backend (unos segundos). |
-| `package.json`/`package-lock.json` de cualquiera de los dos, `vite.config.js` o `nutria-backend/prisma/` | Rebuild automático de esa imagen. |
+| `package.json`/`package-lock.json` de cualquiera de los dos o `nutria-backend/prisma/` | Rebuild automático de esa imagen con Compose Watch activo. |
 | `nutria-ia` | No se mira: sigue necesitando `npm run up`. |
 
-Los archivos se copian dentro del contenedor en vez de montar la carpeta: con un
-volumen desde Windows (y más dentro de OneDrive) Vite no detecta los cambios sin
-activar polling.
+Al usar solo Docker Desktop, los cambios de dependencias requieren reconstruir la
+imagen; los cambios de variables de entorno o del compose requieren recrear el
+contenedor. Los archivos de código del frontend no necesitan ninguno de esos pasos.
 
 ## Skills para Claude Code
 

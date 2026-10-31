@@ -53,7 +53,7 @@ Dentro de esa opción se decidió además:
 |---|---|---|---|---|---|---|
 | Unitarias | Lógica de negocio, schemas, aislamiento con fakes, spec OpenAPI | Vitest | Junto al código, `*.test.js` | `npm run test:backend`, `npm run test:frontend` | Cada cambio | Implementadas |
 | Lint | Errores de código del frontend | oxlint (ya en `nutria-frontend`) | Config del repo | `npm run lint:frontend` (previsto) | Cada cambio | Falta el comando en la raíz |
-| Integración (backend) | API real contra Postgres | Vitest, con config aparte | Junto al módulo, `*.int.test.js` | `npm run test:backend:integration` (previsto) | Al cerrar cada tarea del backend | Definida |
+| Integración (backend) | API real contra Postgres, repositorios, restricciones y transacciones | Vitest, con config aparte | Junto al módulo, `*.int.test.js` | `npm run test:backend:integration` | Al cerrar cada tarea del backend y en CI | Implementada (AUD-001) |
 | E2E | Camino feliz de los flujos necesarios, en el navegador | Playwright | `nutria-frontend/e2e/` | `npm run test:e2e` (previsto) | Al cerrar cada tarea que toque esos flujos, y al cerrar el incremento | Definida |
 | Carga | Umbrales de los RNF medibles, con pocos usuarios | k6 | A definir al implementarla | `npm run test:load` (previsto) | Al cerrar el incremento, y en staging | Definida |
 | Estrés | Dónde se degrada el sistema y qué conviene mejorar | k6 (los mismos escenarios) | Ídem | Ídem, con otra configuración | Cuando haya uso real | Más adelante |
@@ -65,9 +65,19 @@ y E2E si los tiempos lo permiten.
 
 ### Integración del backend
 
+Implementada para AUD-001: aislamiento de paciente, condición, consulta, medición,
+plan y receta privada (API y repositorios reales); atomicidad de `createGenerated`,
+`replaceDraft` y consulta con hijos; CHECK de `patient_condition` y `ai_generation`,
+FK compuestas, RESTRICT, `citext`, `createManyAndReturn` y seed sobre base vacía.
+La validación general de respuestas contra Swagger y los demás escenarios de
+integración de esta estrategia siguen pendientes.
+
 - **Base:** `nutria_test`, en el Postgres del compose. Cada corrida arranca con
   `prisma migrate reset --force --skip-seed`, así que de paso prueba las migraciones
   desde base vacía.
+- **Protección del destino:** se deriva `nutria_test` desde `DATABASE_URL`. Un
+  `TEST_DATABASE_URL` explícito solo se acepta para `nutria_test` y schema `public`;
+  se valida antes del reset. La limpieza verifica también la base y schema reales.
 - **Datos:** fixtures propias con Prisma, no el seed. Cada archivo vacía las tablas antes
   de cada test, y los archivos corren en serie porque comparten la base. Un test aparte
   verifica que el seed corre sobre base vacía.
@@ -168,8 +178,8 @@ Cada una entra cuando existe lo que prueba.
 
 ## Consecuencias
 
-- Nada de esto, salvo las unitarias, está implementado. Cada tipo se implementa en su
-  propia tarea, y el skill `pruebas-vitest` dice qué existe hoy y qué es previsto.
+- Las unitarias y la integración contra Postgres están implementadas. Los demás tipos
+  se implementan en sus propias tareas; el skill `pruebas-vitest` distingue el estado.
 - No se versionan scripts de verificación sueltos. Lo que hoy hace un script
   descartable (el recorrido de T23, el volumen de referencia, la medición de RNF-01)
   pasa a ser una prueba de integración, de E2E o de carga.

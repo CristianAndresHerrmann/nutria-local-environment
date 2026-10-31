@@ -43,6 +43,7 @@ El resumen con numeración DA para los informes de avance está en
 | [Autenticación con JWT + bcrypt y aislamiento por nutricionista](autenticacion-jwt-y-aislamiento-por-nutricionista.md) | T5 |
 | [Alta de nutricionistas solo por seed](alta-de-nutricionistas-por-seed.md) — *modificada* | T5 |
 | [Rol administrador y gestión de cuentas desde la aplicación](administrador-y-gestion-de-cuentas.md) | T31 |
+| [Revocación de tokens al restablecer la contraseña](revocacion-de-tokens-al-restablecer-contrasena.md) | AUD-016 |
 
 ## API
 

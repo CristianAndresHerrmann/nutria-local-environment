@@ -1,0 +1,2250 @@
+{
+  "work": {
+    "occupation": "Administrativa",
+    "work_context": "Oficina, de 8 a 16 h, horario regular"
+  },
+  "habits": {
+    "alcohol": "Ocasional, fines de semana",
+    "smoking": "No fuma",
+    "meal_schedule": "Desayuno 7 h, almuerzo 13 h, cena 21 h",
+    "sleep_schedule": "De 23 h a 6:30 h",
+    "physical_activity": "Camina 30 minutos, dos veces por semana"
+  },
+  "catalog": {
+    "foods": [
+      {
+        "code": "A1",
+        "name": "Abadejo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G37"
+      },
+      {
+        "code": "A2",
+        "name": "Aceite de canola",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G1"
+      },
+      {
+        "code": "A3",
+        "name": "Aceite de girasol",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G1"
+      },
+      {
+        "code": "A4",
+        "name": "Aceite de girasol alto oleico",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G1"
+      },
+      {
+        "code": "A5",
+        "name": "Aceite de maíz",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G1"
+      },
+      {
+        "code": "A6",
+        "name": "Aceite de oliva",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G1"
+      },
+      {
+        "code": "A7",
+        "name": "Aceitunas",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G19"
+      },
+      {
+        "code": "A8",
+        "name": "Acelga",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G44"
+      },
+      {
+        "code": "A9",
+        "name": "Agua",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G6"
+      },
+      {
+        "code": "A10",
+        "name": "Agua mineral",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G6"
+      },
+      {
+        "code": "A11",
+        "name": "Ají molido",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G39"
+      },
+      {
+        "code": "A12",
+        "name": "Ajo",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G7"
+      },
+      {
+        "code": "A13",
+        "name": "Albahaca",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G39"
+      },
+      {
+        "code": "A14",
+        "name": "Alcaucil",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G11"
+      },
+      {
+        "code": "A15",
+        "name": "Almendras",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G20"
+      },
+      {
+        "code": "A16",
+        "name": "Almidón de maíz",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A17",
+        "name": "Amaranto",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A18",
+        "name": "Ananá",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A19",
+        "name": "Apio",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G7"
+      },
+      {
+        "code": "A20",
+        "name": "Arándanos",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A21",
+        "name": "Arroz blanco",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A22",
+        "name": "Arroz integral",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A23",
+        "name": "Arroz parboil",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A24",
+        "name": "Arvejas frescas",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G25"
+      },
+      {
+        "code": "A25",
+        "name": "Arvejas secas",
+        "categories": [
+          "protein",
+          "fiber"
+        ],
+        "group_code": "G32"
+      },
+      {
+        "code": "A26",
+        "name": "Asado",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G8"
+      },
+      {
+        "code": "A27",
+        "name": "Atún al natural",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G37"
+      },
+      {
+        "code": "A28",
+        "name": "Atún en aceite",
+        "categories": [
+          "protein",
+          "healthy_fat"
+        ],
+        "group_code": "G37"
+      },
+      {
+        "code": "A29",
+        "name": "Avellanas",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G20"
+      },
+      {
+        "code": "A30",
+        "name": "Avena arrollada",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A31",
+        "name": "Avena sin TACC",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A32",
+        "name": "Azúcar",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G5"
+      },
+      {
+        "code": "A33",
+        "name": "Azúcar mascabo",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G5"
+      },
+      {
+        "code": "A34",
+        "name": "Banana",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A35",
+        "name": "Batata",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G42"
+      },
+      {
+        "code": "A36",
+        "name": "Bebida de soja",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G13"
+      },
+      {
+        "code": "A37",
+        "name": "Berenjena",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G25"
+      },
+      {
+        "code": "A38",
+        "name": "Bizcochos de grasa",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G22"
+      },
+      {
+        "code": "A39",
+        "name": "Bondiola de cerdo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G8"
+      },
+      {
+        "code": "A40",
+        "name": "Brócoli",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G11"
+      },
+      {
+        "code": "A41",
+        "name": "Caballa",
+        "categories": [
+          "protein",
+          "healthy_fat"
+        ],
+        "group_code": "G37"
+      },
+      {
+        "code": "A42",
+        "name": "Cacao amargo en polvo",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G14"
+      },
+      {
+        "code": "A43",
+        "name": "Café",
+        "categories": [
+          "infusion"
+        ],
+        "group_code": "G27"
+      },
+      {
+        "code": "A44",
+        "name": "Café descafeinado",
+        "categories": [
+          "infusion"
+        ],
+        "group_code": "G27"
+      },
+      {
+        "code": "A45",
+        "name": "Calamar",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G34"
+      },
+      {
+        "code": "A46",
+        "name": "Caldo en cubo",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G40"
+      },
+      {
+        "code": "A47",
+        "name": "Carne de cordero",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G8"
+      },
+      {
+        "code": "A48",
+        "name": "Carne picada común",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G8"
+      },
+      {
+        "code": "A49",
+        "name": "Carne picada magra",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G8"
+      },
+      {
+        "code": "A50",
+        "name": "Carne vacuna magra",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G8"
+      },
+      {
+        "code": "A51",
+        "name": "Castañas de cajú",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G20"
+      },
+      {
+        "code": "A52",
+        "name": "Cebada perlada",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A53",
+        "name": "Cebolla",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G7"
+      },
+      {
+        "code": "A54",
+        "name": "Cebolla de verdeo",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G7"
+      },
+      {
+        "code": "A55",
+        "name": "Champiñones",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G11"
+      },
+      {
+        "code": "A56",
+        "name": "Chauchas",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G25"
+      },
+      {
+        "code": "A57",
+        "name": "Choclo",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G42"
+      },
+      {
+        "code": "A58",
+        "name": "Chocolate",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G14"
+      },
+      {
+        "code": "A59",
+        "name": "Chorizo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G15"
+      },
+      {
+        "code": "A60",
+        "name": "Ciruela",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A61",
+        "name": "Ciruelas pasas",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G17"
+      },
+      {
+        "code": "A62",
+        "name": "Clara de huevo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G26"
+      },
+      {
+        "code": "A63",
+        "name": "Coliflor",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G11"
+      },
+      {
+        "code": "A64",
+        "name": "Comino",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G39"
+      },
+      {
+        "code": "A65",
+        "name": "Copos de maíz sin azúcar",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G22"
+      },
+      {
+        "code": "A66",
+        "name": "Crema de leche",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G23"
+      },
+      {
+        "code": "A67",
+        "name": "Damasco",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A68",
+        "name": "Dátiles",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G17"
+      },
+      {
+        "code": "A69",
+        "name": "Dulce de batata",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G14"
+      },
+      {
+        "code": "A70",
+        "name": "Dulce de leche",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G14"
+      },
+      {
+        "code": "A71",
+        "name": "Dulce de membrillo",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G14"
+      },
+      {
+        "code": "A72",
+        "name": "Durazno",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A73",
+        "name": "Edulcorante",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G5"
+      },
+      {
+        "code": "A74",
+        "name": "Esencia de vainilla",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G28"
+      },
+      {
+        "code": "A75",
+        "name": "Espárragos",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G11"
+      },
+      {
+        "code": "A76",
+        "name": "Espinaca",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G44"
+      },
+      {
+        "code": "A77",
+        "name": "Fécula de mandioca",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A78",
+        "name": "Fiambre de pavo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G15"
+      },
+      {
+        "code": "A79",
+        "name": "Fideos de arroz",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G36"
+      },
+      {
+        "code": "A80",
+        "name": "Fideos frescos",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G36"
+      },
+      {
+        "code": "A81",
+        "name": "Fideos integrales",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G36"
+      },
+      {
+        "code": "A82",
+        "name": "Fideos secos",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G36"
+      },
+      {
+        "code": "A83",
+        "name": "Fideos sin TACC",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G36"
+      },
+      {
+        "code": "A84",
+        "name": "Frutilla",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A85",
+        "name": "Galletitas de agua",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G22"
+      },
+      {
+        "code": "A86",
+        "name": "Galletitas de salvado",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G22"
+      },
+      {
+        "code": "A87",
+        "name": "Galletitas dulces simples",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G22"
+      },
+      {
+        "code": "A88",
+        "name": "Galletitas integrales",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G22"
+      },
+      {
+        "code": "A89",
+        "name": "Galletitas sin TACC",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G22"
+      },
+      {
+        "code": "A90",
+        "name": "Garbanzos",
+        "categories": [
+          "protein",
+          "fiber"
+        ],
+        "group_code": "G32"
+      },
+      {
+        "code": "A91",
+        "name": "Gelatina sin sabor",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G28"
+      },
+      {
+        "code": "A92",
+        "name": "Granola",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G22"
+      },
+      {
+        "code": "A93",
+        "name": "Harina de arroz",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A94",
+        "name": "Harina de garbanzo",
+        "categories": [
+          "protein",
+          "fiber"
+        ],
+        "group_code": "G13"
+      },
+      {
+        "code": "A95",
+        "name": "Harina de maíz (polenta)",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A96",
+        "name": "Harina de trigo",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A97",
+        "name": "Harina integral",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A98",
+        "name": "Hígado de pollo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G3"
+      },
+      {
+        "code": "A99",
+        "name": "Hígado vacuno",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G8"
+      },
+      {
+        "code": "A100",
+        "name": "Huevo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G26"
+      },
+      {
+        "code": "A101",
+        "name": "Jamón cocido",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G15"
+      },
+      {
+        "code": "A102",
+        "name": "Jamón crudo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G15"
+      },
+      {
+        "code": "A103",
+        "name": "Kéfir",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G30"
+      },
+      {
+        "code": "A104",
+        "name": "Kétchup",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G40"
+      },
+      {
+        "code": "A105",
+        "name": "Kiwi",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A106",
+        "name": "Langostinos",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G34"
+      },
+      {
+        "code": "A107",
+        "name": "Laurel",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G39"
+      },
+      {
+        "code": "A108",
+        "name": "Leche descremada",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G30"
+      },
+      {
+        "code": "A109",
+        "name": "Leche deslactosada",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G30"
+      },
+      {
+        "code": "A110",
+        "name": "Leche en polvo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G30"
+      },
+      {
+        "code": "A111",
+        "name": "Leche parcialmente descremada",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G30"
+      },
+      {
+        "code": "A112",
+        "name": "Lechuga",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G44"
+      },
+      {
+        "code": "A113",
+        "name": "Lentejas",
+        "categories": [
+          "protein",
+          "fiber"
+        ],
+        "group_code": "G32"
+      },
+      {
+        "code": "A114",
+        "name": "Levadura",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G28"
+      },
+      {
+        "code": "A115",
+        "name": "Limón",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A116",
+        "name": "Lomo de cerdo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G8"
+      },
+      {
+        "code": "A117",
+        "name": "Malta",
+        "categories": [
+          "infusion"
+        ],
+        "group_code": "G27"
+      },
+      {
+        "code": "A118",
+        "name": "Mandarina",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A119",
+        "name": "Mandioca",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G42"
+      },
+      {
+        "code": "A120",
+        "name": "Mango",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A121",
+        "name": "Maní sin sal",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G33"
+      },
+      {
+        "code": "A122",
+        "name": "Manteca",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G23"
+      },
+      {
+        "code": "A123",
+        "name": "Manzana",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A124",
+        "name": "Margarina",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G23"
+      },
+      {
+        "code": "A125",
+        "name": "Masa para lasaña",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G36"
+      },
+      {
+        "code": "A126",
+        "name": "Matambre",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G8"
+      },
+      {
+        "code": "A127",
+        "name": "Mate",
+        "categories": [
+          "infusion"
+        ],
+        "group_code": "G27"
+      },
+      {
+        "code": "A128",
+        "name": "Mate cocido",
+        "categories": [
+          "infusion"
+        ],
+        "group_code": "G27"
+      },
+      {
+        "code": "A129",
+        "name": "Mayonesa",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G40"
+      },
+      {
+        "code": "A130",
+        "name": "Mejillones",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G34"
+      },
+      {
+        "code": "A131",
+        "name": "Melón",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A132",
+        "name": "Merluza",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G37"
+      },
+      {
+        "code": "A133",
+        "name": "Mermelada",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G14"
+      },
+      {
+        "code": "A134",
+        "name": "Mermelada reducida en azúcar",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G14"
+      },
+      {
+        "code": "A135",
+        "name": "Miel",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G5"
+      },
+      {
+        "code": "A136",
+        "name": "Morcilla",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G15"
+      },
+      {
+        "code": "A137",
+        "name": "Morrón",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G25"
+      },
+      {
+        "code": "A138",
+        "name": "Mostaza",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G40"
+      },
+      {
+        "code": "A139",
+        "name": "Mozzarella",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G38"
+      },
+      {
+        "code": "A140",
+        "name": "Naranja",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A141",
+        "name": "Nuez moscada",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G39"
+      },
+      {
+        "code": "A142",
+        "name": "Orégano",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G39"
+      },
+      {
+        "code": "A143",
+        "name": "Orejones",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G17"
+      },
+      {
+        "code": "A144",
+        "name": "Paleta cocida",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G15"
+      },
+      {
+        "code": "A145",
+        "name": "Palta",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G19"
+      },
+      {
+        "code": "A146",
+        "name": "Pan árabe",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A147",
+        "name": "Pan de salvado",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A148",
+        "name": "Pan francés",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A149",
+        "name": "Pan integral",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A150",
+        "name": "Pan lactal blanco",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A151",
+        "name": "Pan lactal integral",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A152",
+        "name": "Pan rallado",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A153",
+        "name": "Pan sin TACC",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A154",
+        "name": "Papa",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G42"
+      },
+      {
+        "code": "A155",
+        "name": "Pasas de uva",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G17"
+      },
+      {
+        "code": "A156",
+        "name": "Pasta de maní",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G33"
+      },
+      {
+        "code": "A157",
+        "name": "Pata y muslo de pollo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G3"
+      },
+      {
+        "code": "A158",
+        "name": "Pechuga de pavo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G3"
+      },
+      {
+        "code": "A159",
+        "name": "Pechuga de pollo",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G3"
+      },
+      {
+        "code": "A160",
+        "name": "Pejerrey",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G37"
+      },
+      {
+        "code": "A161",
+        "name": "Pepino",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G25"
+      },
+      {
+        "code": "A162",
+        "name": "Pera",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A163",
+        "name": "Perejil",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G39"
+      },
+      {
+        "code": "A164",
+        "name": "Pimentón",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G39"
+      },
+      {
+        "code": "A165",
+        "name": "Pimienta",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G39"
+      },
+      {
+        "code": "A166",
+        "name": "Pistachos",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G20"
+      },
+      {
+        "code": "A167",
+        "name": "Pollo entero",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G3"
+      },
+      {
+        "code": "A168",
+        "name": "Polvo de hornear",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G28"
+      },
+      {
+        "code": "A169",
+        "name": "Pomelo",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A170",
+        "name": "Poroto de soja",
+        "categories": [
+          "protein",
+          "fiber"
+        ],
+        "group_code": "G32"
+      },
+      {
+        "code": "A171",
+        "name": "Porotos alubia",
+        "categories": [
+          "protein",
+          "fiber"
+        ],
+        "group_code": "G32"
+      },
+      {
+        "code": "A172",
+        "name": "Porotos colorados",
+        "categories": [
+          "protein",
+          "fiber"
+        ],
+        "group_code": "G32"
+      },
+      {
+        "code": "A173",
+        "name": "Porotos negros",
+        "categories": [
+          "protein",
+          "fiber"
+        ],
+        "group_code": "G32"
+      },
+      {
+        "code": "A174",
+        "name": "Premezcla sin TACC",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A175",
+        "name": "Puerro",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G7"
+      },
+      {
+        "code": "A176",
+        "name": "Queso de cabra",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G38"
+      },
+      {
+        "code": "A177",
+        "name": "Queso de máquina",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G38"
+      },
+      {
+        "code": "A178",
+        "name": "Queso fresco",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G38"
+      },
+      {
+        "code": "A179",
+        "name": "Queso port salut",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G38"
+      },
+      {
+        "code": "A180",
+        "name": "Queso rallado",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G38"
+      },
+      {
+        "code": "A181",
+        "name": "Queso untable",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G38"
+      },
+      {
+        "code": "A182",
+        "name": "Queso untable descremado",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G38"
+      },
+      {
+        "code": "A183",
+        "name": "Quinoa",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A184",
+        "name": "Rabanito",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G7"
+      },
+      {
+        "code": "A185",
+        "name": "Radicheta",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G44"
+      },
+      {
+        "code": "A186",
+        "name": "Remolacha",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G7"
+      },
+      {
+        "code": "A187",
+        "name": "Repollitos de Bruselas",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G11"
+      },
+      {
+        "code": "A188",
+        "name": "Repollo",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G44"
+      },
+      {
+        "code": "A189",
+        "name": "Repollo colorado",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G44"
+      },
+      {
+        "code": "A190",
+        "name": "Ricota",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G38"
+      },
+      {
+        "code": "A191",
+        "name": "Ricota descremada",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G38"
+      },
+      {
+        "code": "A192",
+        "name": "Rúcula",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G44"
+      },
+      {
+        "code": "A193",
+        "name": "Sal con bajo contenido de sodio",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G39"
+      },
+      {
+        "code": "A194",
+        "name": "Sal fina",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G39"
+      },
+      {
+        "code": "A195",
+        "name": "Salame",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G15"
+      },
+      {
+        "code": "A196",
+        "name": "Salchichas",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G15"
+      },
+      {
+        "code": "A197",
+        "name": "Salmón",
+        "categories": [
+          "protein",
+          "healthy_fat"
+        ],
+        "group_code": "G37"
+      },
+      {
+        "code": "A198",
+        "name": "Salsa de soja",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G40"
+      },
+      {
+        "code": "A199",
+        "name": "Salvado de avena",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A200",
+        "name": "Salvado de trigo",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A201",
+        "name": "Sandía",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A202",
+        "name": "Sardinas en lata",
+        "categories": [
+          "protein",
+          "healthy_fat"
+        ],
+        "group_code": "G37"
+      },
+      {
+        "code": "A203",
+        "name": "Semillas de chía",
+        "categories": [
+          "fiber",
+          "healthy_fat"
+        ],
+        "group_code": "G41"
+      },
+      {
+        "code": "A204",
+        "name": "Semillas de girasol",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G41"
+      },
+      {
+        "code": "A205",
+        "name": "Semillas de lino",
+        "categories": [
+          "fiber",
+          "healthy_fat"
+        ],
+        "group_code": "G41"
+      },
+      {
+        "code": "A206",
+        "name": "Semillas de sésamo",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G41"
+      },
+      {
+        "code": "A207",
+        "name": "Semillas de zapallo",
+        "categories": [
+          "healthy_fat"
+        ],
+        "group_code": "G41"
+      },
+      {
+        "code": "A208",
+        "name": "Soda",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G6"
+      },
+      {
+        "code": "A209",
+        "name": "Soja texturizada",
+        "categories": [
+          "protein",
+          "fiber"
+        ],
+        "group_code": "G13"
+      },
+      {
+        "code": "A210",
+        "name": "Surubí",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G37"
+      },
+      {
+        "code": "A211",
+        "name": "Tapas de empanada",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A212",
+        "name": "Tapas de tarta",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G35"
+      },
+      {
+        "code": "A213",
+        "name": "Té",
+        "categories": [
+          "infusion"
+        ],
+        "group_code": "G27"
+      },
+      {
+        "code": "A214",
+        "name": "Té de hierbas",
+        "categories": [
+          "infusion"
+        ],
+        "group_code": "G27"
+      },
+      {
+        "code": "A215",
+        "name": "Tofu",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G13"
+      },
+      {
+        "code": "A216",
+        "name": "Tomate",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G25"
+      },
+      {
+        "code": "A217",
+        "name": "Tomate en conserva",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G25"
+      },
+      {
+        "code": "A218",
+        "name": "Tostadas de arroz",
+        "categories": [
+          "carbohydrate"
+        ],
+        "group_code": "G22"
+      },
+      {
+        "code": "A219",
+        "name": "Trigo burgol",
+        "categories": [
+          "carbohydrate",
+          "fiber"
+        ],
+        "group_code": "G2"
+      },
+      {
+        "code": "A220",
+        "name": "Uva",
+        "categories": [
+          "fiber"
+        ],
+        "group_code": "G18"
+      },
+      {
+        "code": "A221",
+        "name": "Vacío",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G8"
+      },
+      {
+        "code": "A222",
+        "name": "Vinagre",
+        "categories": [
+          "complementary"
+        ],
+        "group_code": "G40"
+      },
+      {
+        "code": "A223",
+        "name": "Yogur bebible",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G30"
+      },
+      {
+        "code": "A224",
+        "name": "Yogur descremado",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G30"
+      },
+      {
+        "code": "A225",
+        "name": "Yogur griego",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G30"
+      },
+      {
+        "code": "A226",
+        "name": "Yogur natural",
+        "categories": [
+          "protein"
+        ],
+        "group_code": "G30"
+      },
+      {
+        "code": "A227",
+        "name": "Zanahoria",
+        "categories": [
+          "fiber",
+          "vegetable"
+        ],
+        "group_code": "G7"
+      },
+      {
+        "code": "A228",
+        "name": "Zapallito",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G25"
+      },
+      {
+        "code": "A229",
+        "name": "Zucchini",
+        "categories": [
+          "vegetable"
+        ],
+        "group_code": "G25"
+      }
+    ],
+    "food_groups": [
+      {
+        "code": "G1",
+        "name": "Aceites"
+      },
+      {
+        "code": "G2",
+        "name": "Arroz y granos"
+      },
+      {
+        "code": "G3",
+        "name": "Aves"
+      },
+      {
+        "code": "G4",
+        "name": "Azúcares y dulces"
+      },
+      {
+        "code": "G5",
+        "name": "Azúcares y edulcorantes"
+      },
+      {
+        "code": "G6",
+        "name": "Bebidas"
+      },
+      {
+        "code": "G7",
+        "name": "Bulbos, raíces y tallos"
+      },
+      {
+        "code": "G8",
+        "name": "Carnes"
+      },
+      {
+        "code": "G9",
+        "name": "Carnes, pescados y huevos"
+      },
+      {
+        "code": "G10",
+        "name": "Cereales y derivados"
+      },
+      {
+        "code": "G11",
+        "name": "Coles, flores y hongos"
+      },
+      {
+        "code": "G12",
+        "name": "Condimentos y aderezos"
+      },
+      {
+        "code": "G13",
+        "name": "Derivados de legumbres"
+      },
+      {
+        "code": "G14",
+        "name": "Dulces y confituras"
+      },
+      {
+        "code": "G15",
+        "name": "Fiambres y embutidos"
+      },
+      {
+        "code": "G16",
+        "name": "Frutas"
+      },
+      {
+        "code": "G17",
+        "name": "Frutas desecadas"
+      },
+      {
+        "code": "G18",
+        "name": "Frutas frescas"
+      },
+      {
+        "code": "G19",
+        "name": "Frutas oleosas"
+      },
+      {
+        "code": "G20",
+        "name": "Frutos secos"
+      },
+      {
+        "code": "G21",
+        "name": "Frutos secos y semillas"
+      },
+      {
+        "code": "G22",
+        "name": "Galletitas y cereales de desayuno"
+      },
+      {
+        "code": "G23",
+        "name": "Grasas sólidas y cremas"
+      },
+      {
+        "code": "G24",
+        "name": "Grasas y aceites"
+      },
+      {
+        "code": "G25",
+        "name": "Hortalizas de fruto"
+      },
+      {
+        "code": "G26",
+        "name": "Huevos"
+      },
+      {
+        "code": "G27",
+        "name": "Infusiones"
+      },
+      {
+        "code": "G28",
+        "name": "Ingredientes de repostería"
+      },
+      {
+        "code": "G29",
+        "name": "Lácteos"
+      },
+      {
+        "code": "G30",
+        "name": "Leches y yogures"
+      },
+      {
+        "code": "G31",
+        "name": "Legumbres"
+      },
+      {
+        "code": "G32",
+        "name": "Legumbres secas y en conserva"
+      },
+      {
+        "code": "G33",
+        "name": "Maní y derivados"
+      },
+      {
+        "code": "G34",
+        "name": "Mariscos"
+      },
+      {
+        "code": "G35",
+        "name": "Panificados y harinas"
+      },
+      {
+        "code": "G36",
+        "name": "Pastas"
+      },
+      {
+        "code": "G37",
+        "name": "Pescados"
+      },
+      {
+        "code": "G38",
+        "name": "Quesos"
+      },
+      {
+        "code": "G39",
+        "name": "Sal, especias y hierbas"
+      },
+      {
+        "code": "G40",
+        "name": "Salsas y aderezos"
+      },
+      {
+        "code": "G41",
+        "name": "Semillas"
+      },
+      {
+        "code": "G42",
+        "name": "Tubérculos y choclo"
+      },
+      {
+        "code": "G43",
+        "name": "Verduras"
+      },
+      {
+        "code": "G44",
+        "name": "Verduras de hoja"
+      }
+    ]
+  },
+  "cooking": {
+    "cooks": true,
+    "cooking_time": "30 minutos por día",
+    "likes_cooking": true,
+    "home_equipment": "Horno, anafe y microondas",
+    "usual_shopping_place": "Supermercado y verdulería del barrio"
+  },
+  "conditions": [
+    {
+      "name": "Frutas",
+      "type": "preference"
+    },
+    {
+      "name": "Celiaquía",
+      "type": "pathology"
+    },
+    {
+      "name": "Zapallo",
+      "type": "rejection"
+    },
+    {
+      "name": "Nueces",
+      "type": "allergy"
+    },
+    {
+      "name": "Leche",
+      "type": "intolerance"
+    }
+  ],
+  "meal_types": [
+    "breakfast",
+    "lunch",
+    "afternoon_snack",
+    "dinner"
+  ],
+  "outside_home": {
+    "outside_equipment": "Heladera y microondas en la oficina",
+    "meals_outside_home": "Almuerzo de lunes a viernes"
+  },
+  "candidate_recipes": [
+    {
+      "code": "R1",
+      "name": "Arroz con pollo y verduras",
+      "meal_types": [
+        "lunch",
+        "dinner"
+      ],
+      "time_minutes": 35,
+      "cooking_method": "stovetop"
+    },
+    {
+      "code": "R2",
+      "name": "Ensalada de arroz y atún",
+      "meal_types": [
+        "lunch",
+        "dinner"
+      ],
+      "time_minutes": 25,
+      "cooking_method": "stovetop"
+    },
+    {
+      "code": "R3",
+      "name": "Ensalada de garbanzos, choclo y tomate",
+      "meal_types": [
+        "lunch",
+        "dinner"
+      ],
+      "time_minutes": 10,
+      "cooking_method": "no_cooking"
+    },
+    {
+      "code": "R4",
+      "name": "Fideos con salsa de tomate y carne picada",
+      "meal_types": [
+        "lunch",
+        "dinner"
+      ],
+      "time_minutes": 30,
+      "cooking_method": "stovetop"
+    },
+    {
+      "code": "R5",
+      "name": "Guiso de lentejas con verduras",
+      "meal_types": [
+        "lunch",
+        "dinner"
+      ],
+      "time_minutes": 50,
+      "cooking_method": "stovetop"
+    },
+    {
+      "code": "R6",
+      "name": "Milanesa de carne al horno con ensalada",
+      "meal_types": [
+        "lunch",
+        "dinner"
+      ],
+      "time_minutes": 35,
+      "cooking_method": "oven"
+    },
+    {
+      "code": "R7",
+      "name": "Pan integral con queso untable y tomate",
+      "meal_types": [
+        "breakfast",
+        "afternoon_snack"
+      ],
+      "time_minutes": 5,
+      "cooking_method": "no_cooking"
+    },
+    {
+      "code": "R8",
+      "name": "Panqueques de avena y banana",
+      "meal_types": [
+        "breakfast",
+        "afternoon_snack"
+      ],
+      "time_minutes": 15,
+      "cooking_method": "stovetop"
+    },
+    {
+      "code": "R9",
+      "name": "Pollo al horno con papas y zanahorias",
+      "meal_types": [
+        "lunch",
+        "dinner"
+      ],
+      "time_minutes": 60,
+      "cooking_method": "oven"
+    },
+    {
+      "code": "R10",
+      "name": "Tarta de acelga y huevo",
+      "meal_types": [
+        "lunch",
+        "dinner"
+      ],
+      "time_minutes": 50,
+      "cooking_method": "oven"
+    },
+    {
+      "code": "R11",
+      "name": "Tortilla de papa con tomate",
+      "meal_types": [
+        "lunch",
+        "dinner"
+      ],
+      "time_minutes": 35,
+      "cooking_method": "stovetop"
+    },
+    {
+      "code": "R12",
+      "name": "Tostadas de arroz con palta y huevo duro",
+      "meal_types": [
+        "breakfast",
+        "afternoon_snack"
+      ],
+      "time_minutes": 15,
+      "cooking_method": "stovetop"
+    },
+    {
+      "code": "R13",
+      "name": "Wrap de pan árabe con atún y vegetales",
+      "meal_types": [
+        "lunch",
+        "dinner"
+      ],
+      "time_minutes": 10,
+      "cooking_method": "no_cooking"
+    },
+    {
+      "code": "R14",
+      "name": "Yogur con banana y semillas de lino",
+      "meal_types": [
+        "breakfast",
+        "afternoon_snack"
+      ],
+      "time_minutes": 5,
+      "cooking_method": "no_cooking"
+    },
+    {
+      "code": "R15",
+      "name": "Yogur con granola y frutillas",
+      "meal_types": [
+        "breakfast",
+        "afternoon_snack"
+      ],
+      "time_minutes": 5,
+      "cooking_method": "no_cooking"
+    }
+  ]
+}

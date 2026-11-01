@@ -55,6 +55,7 @@ El resumen con numeración DA para los informes de avance está en
 | [Documentación de API con Swagger](documentacion-de-api-con-swagger.md) | Soporte |
 | [Aviso de datos clínicos faltantes calculado en el backend](aviso-de-datos-clinicos-faltantes.md) | T16 |
 | [Contrato del servicio de IA para generar el plan, con proveedor simulado](contrato-del-servicio-de-ia.md) | T33 |
+| [Adaptadores de Gemini y OpenAI detrás de la interfaz de proveedor](adaptadores-de-proveedores-de-ia.md) | T36 |
 | [Generación del plan: traza sin plan ante una falla, catálogo permitido, errores y datos en texto libre](traza-de-generaciones-sin-plan.md) | T37 |
 
 ## Frontend

@@ -1,0 +1,147 @@
+{
+  "meal_types": [
+    "breakfast",
+    "lunch",
+    "afternoon_snack",
+    "dinner"
+  ],
+  "conditions": [
+    {
+      "type": "pathology",
+      "name": "Celiaquía"
+    },
+    {
+      "type": "preference",
+      "name": "Pescado"
+    }
+  ],
+  "cooking": {
+    "cooks": true,
+    "likes_cooking": false,
+    "cooking_time": "30 minutos por día",
+    "home_equipment": "Horno y microondas",
+    "usual_shopping_place": "Supermercado del barrio"
+  },
+  "outside_home": {
+    "meals_outside_home": "Almuerza en el trabajo",
+    "outside_equipment": "Heladera y microondas"
+  },
+  "work": {
+    "occupation": "Empleo administrativo",
+    "work_context": "Horario fijo de 8 a 16"
+  },
+  "habits": {
+    "physical_activity": "Camina 30 minutos tres veces por semana",
+    "smoking": "No fuma",
+    "alcohol": "Ocasional",
+    "meal_schedule": "Desayuno 7, almuerzo 13, merienda 17, cena 21",
+    "sleep_schedule": "De 23 a 6:30"
+  },
+  "catalog": {
+    "food_groups": [
+      {
+        "code": "G1",
+        "name": "Frutas"
+      },
+      {
+        "code": "G2",
+        "name": "Verduras"
+      },
+      {
+        "code": "G3",
+        "name": "Carnes"
+      },
+      {
+        "code": "G4",
+        "name": "Cereales sin TACC"
+      },
+      {
+        "code": "G5",
+        "name": "Lácteos"
+      },
+      {
+        "code": "G6",
+        "name": "Infusiones"
+      }
+    ],
+    "foods": [
+      {
+        "code": "A1",
+        "name": "Manzana",
+        "group_code": "G1",
+        "categories": [
+          "fiber"
+        ]
+      },
+      {
+        "code": "A2",
+        "name": "Zanahoria",
+        "group_code": "G2",
+        "categories": [
+          "vegetable",
+          "fiber"
+        ]
+      },
+      {
+        "code": "A3",
+        "name": "Zapallito",
+        "group_code": "G2",
+        "categories": [
+          "vegetable"
+        ]
+      },
+      {
+        "code": "A4",
+        "name": "Pollo",
+        "group_code": "G3",
+        "categories": [
+          "protein"
+        ]
+      },
+      {
+        "code": "A5",
+        "name": "Merluza",
+        "group_code": "G3",
+        "categories": [
+          "protein"
+        ]
+      },
+      {
+        "code": "A6",
+        "name": "Arroz",
+        "group_code": "G4",
+        "categories": [
+          "carbohydrate"
+        ]
+      },
+      {
+        "code": "A7",
+        "name": "Yogur natural",
+        "group_code": "G5",
+        "categories": [
+          "protein"
+        ]
+      },
+      {
+        "code": "A8",
+        "name": "Té",
+        "group_code": "G6",
+        "categories": [
+          "infusion"
+        ]
+      }
+    ]
+  },
+  "candidate_recipes": [
+    {
+      "code": "R1",
+      "name": "Tarta de verduras sin TACC",
+      "meal_types": [
+        "lunch",
+        "dinner"
+      ],
+      "cooking_method": "oven",
+      "time_minutes": 40
+    }
+  ]
+}

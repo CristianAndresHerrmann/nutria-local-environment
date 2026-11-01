@@ -1,0 +1,246 @@
+{
+  "proposal": {
+    "situational_diagnosis": "Tenés horarios regulares: desayunás temprano, almorzás en la oficina y cenás por la noche. Te gustan las frutas y cocinar; contás con horno, anafe y microondas. Para las propuestas se consideran tus preferencias y los alimentos que mencionaste que evitás o te generan inconvenientes.",
+    "introduction": "Esta es una propuesta para que la revises con tu nutricionista. Podés intercambiar opciones dentro de cada comida según tus gustos, tus horarios y lo que tengas disponible.",
+    "objectives": "Organizar opciones variadas para tus comidas habituales, sumar frutas que te gustan y facilitar la preparación de almuerzos que puedas llevar y guardar en la oficina.",
+    "general_recommendations": "Guiate por la ilustración del método del plato para organizar las proporciones, sin necesidad de medir los alimentos. Elegí entre las opciones que te resulten prácticas y acompañá las comidas con agua si te dan ganas.",
+    "contextual_recommendations": "Para el almuerzo, prepará la comida en un recipiente con tapa, guardala en la heladera de la oficina y calentala en el microondas al comer. Al elegir productos envasados, revisá el rotulado y la información sobre ingredientes; prestá atención también a la manipulación y al contacto cruzado en la cocina. Las opciones que incluyen avena o productos sin TACC requieren verificar que el producto elegido esté identificado como tal.",
+    "thematic_recommendations": "Podés alternar frutas frescas en desayunos y meriendas, y verduras distintas en almuerzos y cenas. Si una comida te queda muy extensa para tu horario, conversá con tu nutricionista sobre cómo organizarla; cualquier fraccionamiento puede indicarse en las instrucciones de esa comida.",
+    "meals": [
+      {
+        "meal_type": "breakfast",
+        "instructions": null,
+        "options": [
+          {
+            "description": "Fruta, tostadas de arroz y huevo.",
+            "items": [
+              {
+                "type": "food",
+                "code": "A123"
+              },
+              {
+                "type": "food",
+                "code": "A218"
+              },
+              {
+                "type": "food",
+                "code": "A100"
+              }
+            ]
+          },
+          {
+            "description": "Panqueques con banana; verificá que la avena sea sin TACC.",
+            "items": [
+              {
+                "type": "recipe",
+                "code": "R8"
+              }
+            ]
+          },
+          {
+            "description": "Fruta, semillas de chía y una infusión.",
+            "items": [
+              {
+                "type": "food",
+                "code": "A84"
+              },
+              {
+                "type": "food",
+                "code": "A203"
+              },
+              {
+                "type": "food",
+                "code": "A213"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "meal_type": "lunch",
+        "instructions": "Llevá la comida en un recipiente con tapa, mantenela en la heladera de la oficina y calentala en el microondas al almorzar.",
+        "options": [
+          {
+            "description": "Ensalada de arroz y atún, para llevar.",
+            "items": [
+              {
+                "type": "recipe",
+                "code": "R2"
+              }
+            ]
+          },
+          {
+            "description": "Ensalada de garbanzos, choclo y tomate, para llevar.",
+            "items": [
+              {
+                "type": "recipe",
+                "code": "R3"
+              }
+            ]
+          },
+          {
+            "description": "Plato para armar con pollo, arroz y verduras; preparalo en casa y guardalo refrigerado.",
+            "items": [
+              {
+                "type": "food",
+                "code": "A159"
+              },
+              {
+                "type": "food",
+                "code": "A22"
+              },
+              {
+                "type": "food",
+                "code": "A40"
+              },
+              {
+                "type": "food",
+                "code": "A216"
+              }
+            ]
+          },
+          {
+            "description": "Quinoa con merluza y verduras, para llevar.",
+            "items": [
+              {
+                "type": "food",
+                "code": "A183"
+              },
+              {
+                "type": "food",
+                "code": "A132"
+              },
+              {
+                "type": "food",
+                "code": "A76"
+              },
+              {
+                "type": "food",
+                "code": "A137"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "meal_type": "afternoon_snack",
+        "instructions": null,
+        "options": [
+          {
+            "description": "Fruta con tostadas de arroz y palta.",
+            "items": [
+              {
+                "type": "food",
+                "code": "A162"
+              },
+              {
+                "type": "food",
+                "code": "A218"
+              },
+              {
+                "type": "food",
+                "code": "A145"
+              }
+            ]
+          },
+          {
+            "description": "Panqueques de banana; verificá que la avena sea sin TACC.",
+            "items": [
+              {
+                "type": "recipe",
+                "code": "R8"
+              }
+            ]
+          },
+          {
+            "description": "Fruta y semillas de girasol.",
+            "items": [
+              {
+                "type": "food",
+                "code": "A140"
+              },
+              {
+                "type": "food",
+                "code": "A204"
+              }
+            ]
+          },
+          {
+            "description": "Tostadas de arroz con huevo duro y tomate.",
+            "items": [
+              {
+                "type": "recipe",
+                "code": "R12"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "meal_type": "dinner",
+        "instructions": null,
+        "options": [
+          {
+            "description": "Ensalada de garbanzos, choclo y tomate.",
+            "items": [
+              {
+                "type": "recipe",
+                "code": "R3"
+              }
+            ]
+          },
+          {
+            "description": "Merluza al horno con papa y ensalada de hojas.",
+            "items": [
+              {
+                "type": "food",
+                "code": "A132"
+              },
+              {
+                "type": "food",
+                "code": "A154"
+              },
+              {
+                "type": "food",
+                "code": "A112"
+              },
+              {
+                "type": "food",
+                "code": "A192"
+              }
+            ]
+          },
+          {
+            "description": "Pollo con arroz y verduras.",
+            "items": [
+              {
+                "type": "recipe",
+                "code": "R1"
+              }
+            ]
+          },
+          {
+            "description": "Tortilla de papa con tomate; verificá los ingredientes y la manipulación para evitar contacto cruzado.",
+            "items": [
+              {
+                "type": "recipe",
+                "code": "R11"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "generation": {
+    "provider": "openai",
+    "model": "gpt-6-luna",
+    "template_version": "plan_proposal_v1",
+    "duration_ms": 12618,
+    "input_tokens": 13238,
+    "output_tokens": 1203,
+    "result": "success",
+    "validation_result": "warnings",
+    "generated_at": "2026-11-01T04:45:38.446"
+  }
+}

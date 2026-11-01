@@ -1,0 +1,122 @@
+{
+  "proposal": {
+    "situational_diagnosis": "Tenés un horario de comidas bastante regular, almorzás en el trabajo y contás con heladera y microondas. Cocinás, aunque preferís dedicarle poco tiempo. Te gusta el pescado y el contexto menciona celiaquía; la propuesta prioriza opciones del catálogo identificadas como sin TACC cuando corresponde.",
+    "introduction": "Esta es una propuesta para que la revises con tu nutricionista y puedan ajustarla juntos. Las opciones son intercambiables dentro de cada comida.",
+    "objectives": "Organizar las comidas alrededor de tus horarios habituales, facilitar el almuerzo en el trabajo y ofrecer alternativas simples para preparar en casa, incluyendo pescado.",
+    "general_recommendations": "Podés usar la ilustración del método del plato como guía para organizar las proporciones, sin necesidad de medir alimentos. Para productos envasados, revisá el etiquetado y la identificación sin TACC con tu nutricionista.",
+    "contextual_recommendations": "Para el almuerzo laboral, llevá la comida en un recipiente cerrado, conservála en la heladera del trabajo y recalentala en el microondas. Como preferís cocinar poco y tenés horno y microondas, elegí preparaciones sencillas y aprovechá las verduras disponibles.",
+    "thematic_recommendations": "Podés alternar merluza y pollo, y combinar las comidas con verduras, frutas, arroz y lácteos según las opciones propuestas. Si querés incorporar una receta, tené en cuenta que la tarta de verduras sin TACC requiere más tiempo de preparación que el que mencionás para cocinar a diario.",
+    "meals": [
+      {
+        "meal_type": "breakfast",
+        "instructions": null,
+        "options": [
+          {
+            "description": "Una alternativa sencilla para empezar la mañana.",
+            "items": [
+              { "type": "food_group", "code": "G4" },
+              { "type": "food", "code": "A7" },
+              { "type": "food", "code": "A8" }
+            ]
+          },
+          {
+            "description": "Otra opción, con fruta.",
+            "items": [
+              { "type": "food_group", "code": "G4" },
+              { "type": "food", "code": "A1" },
+              { "type": "food", "code": "A8" }
+            ]
+          }
+        ]
+      },
+      {
+        "meal_type": "lunch",
+        "instructions": "Llevá el almuerzo en un recipiente cerrado y mantenelo en la heladera del trabajo hasta el momento de comer. Podés recalentarlo en el microondas.",
+        "options": [
+          {
+            "description": "Opción con pescado, arroz y verduras.",
+            "items": [
+              { "type": "food", "code": "A5" },
+              { "type": "food", "code": "A6" },
+              { "type": "food", "code": "A2" },
+              { "type": "food", "code": "A3" }
+            ]
+          },
+          {
+            "description": "Opción con pollo, arroz y verduras.",
+            "items": [
+              { "type": "food", "code": "A4" },
+              { "type": "food", "code": "A6" },
+              { "type": "food", "code": "A2" },
+              { "type": "food", "code": "A3" }
+            ]
+          },
+          {
+            "description": "Para un día en que tengas tiempo de prepararla con anticipación.",
+            "items": [
+              { "type": "recipe", "code": "R1" }
+            ]
+          }
+        ]
+      },
+      {
+        "meal_type": "afternoon_snack",
+        "instructions": null,
+        "options": [
+          {
+            "description": "Una combinación simple para la merienda.",
+            "items": [
+              { "type": "food", "code": "A7" },
+              { "type": "food", "code": "A1" }
+            ]
+          },
+          {
+            "description": "Una alternativa con infusión.",
+            "items": [
+              { "type": "food", "code": "A8" },
+              { "type": "food_group", "code": "G4" }
+            ]
+          }
+        ]
+      },
+      {
+        "meal_type": "dinner",
+        "instructions": null,
+        "options": [
+          {
+            "description": "Merluza con verduras y arroz.",
+            "items": [
+              { "type": "food", "code": "A5" },
+              { "type": "food", "code": "A2" },
+              { "type": "food", "code": "A3" },
+              { "type": "food", "code": "A6" }
+            ]
+          },
+          {
+            "description": "Pollo con verduras y arroz.",
+            "items": [
+              { "type": "food", "code": "A4" },
+              { "type": "food", "code": "A2" },
+              { "type": "food", "code": "A3" },
+              { "type": "food", "code": "A6" }
+            ]
+          },
+          {
+            "description": "Tarta de verduras sin TACC, si te organizás para prepararla.",
+            "items": [
+              { "type": "recipe", "code": "R1" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "generation": {
+    "provider": "openai",
+    "model": "gpt-6-luna",
+    "template_version": "plan_proposal_v1",
+    "duration_ms": 9870,
+    "input_tokens": 1769,
+    "output_tokens": 845
+  }
+}

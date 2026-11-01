@@ -138,13 +138,14 @@ integración de esta estrategia siguen pendientes.
 |---|---|---|
 | RNF-01: ficha completa < 5 s en P95 | Las requests de la ficha completa con varios usuarios. Se vuelve a medir cuando la ficha incluya planes | Ahora |
 | RNF-05: aislamiento | Chequeo dentro de la carga: con varios nutricionistas a la vez, cada respuesta trae solo datos propios | Ahora |
-| Generación del plan < 15 s en P95 (RNF propuesto en la tabla 7 del Informe de Avances 2) | De punta a punta: la solicitud, el backend, `nutria-ia`, el proveedor y la validación, con casos ficticios. Con pocos usuarios, por el costo por token y el límite de solicitudes del proveedor | Incremento 3 (preliminar), Incremento 4 (definitiva) |
+| Generación del plan < 15 s en P95 (RNF propuesto en la tabla 7 del Informe de Avances 2) | De punta a punta: la solicitud, el backend, `nutria-ia`, el proveedor y la validación, con casos ficticios. Con pocos usuarios, por el costo por token y el límite de solicitudes del proveedor. La preliminar del Incremento 3 se hizo sin k6, con un script secuencial contra el stack local (T41, [ficha](medicion-de-la-generacion.md)) | Incremento 3 (preliminar, hecha), Incremento 4 (definitiva) |
 | RNF-02: la interfaz sigue operativa durante la generación | La parte del backend: mientras hay generaciones en curso, las demás requests siguen cumpliendo el RNF-01, y con la IA lenta o caída cada generación termina en un error controlado | Incremento 3 |
 | RNF-11: trazabilidad de la generación | Al terminar una corrida con generaciones concurrentes, hay exactamente una traza por generación | Incremento 3 |
 
 Otros dos requerimientos se miden, pero no con carga. RNF-12 (el tamaño del documento) se
 verifica con un test sobre el archivo generado, cuando se fije el umbral. La meta del 95%
-de propuestas sin hallazgos bloqueantes es una evaluación del modelo (ver abajo).
+de propuestas sin hallazgos bloqueantes es una evaluación del modelo (ver abajo); su
+medición preliminar sale del mismo script de T41, sobre los casos clínicos del seed.
 
 ### Pruebas que se suman
 

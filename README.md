@@ -170,6 +170,12 @@ levantar servidores ni llamar al proveedor. Las copias se actualizan a propósit
 las suites no las regeneran ni ocultan una divergencia. Al cambiar el contrato,
 ambos repos deben incorporar la actualización coordinada antes de desplegar.
 
+### Medición de la generación
+
+| Comando | Qué hace |
+|---|---|
+| `npm run measure:generation -- --n <N>` | Corre N generaciones de plan por cada caso clínico del seed contra el stack levantado, con el proveedor configurado en `nutria-ia/.env`, y deja el resultado en `docs/mediciones-de-generacion/`. Solo a mano: con un proveedor real cada generación tiene costo. Opciones y cómo cambiar de proveedor en el README de esa carpeta. |
+
 ### Base de datos
 
 Todos levantan `postgres` si no está y esperan a que responda antes de conectar.

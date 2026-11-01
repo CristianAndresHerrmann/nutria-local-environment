@@ -56,6 +56,7 @@ quedan fuera del `repr` de la configuración.
 | Almacenamiento | `store=false`: no registra la solicitud aunque el proyecto lo tenga activado | `store=false`: sin estado de aplicación (30 días por defecto) |
 | Reintentos del SDK | Ninguno (`attempts=1`) | Ninguno (`max_retries=0`) |
 | Tokens de salida | Respuesta + razonamiento | `output_tokens` (ya incluye el razonamiento) |
+| Tokens de razonamiento (aparte, desde T41) | `thoughts_token_count` (no vino en ninguna respuesta de `gemini-3.8-flash` con `low`) | `output_tokens_details.reasoning_tokens` |
 
 Al proveedor viaja solo el prompt renderizado, nunca la solicitud. Ningún SDK reintenta,
 porque `AI_PROVIDER_TIMEOUT_SECONDS` cubre la generación completa y el reintento lo
@@ -148,5 +149,12 @@ actualización 28/04/2026);
   DA-12: con el catálogo completo de 231 alimentos la entrada crece y la latencia
   también. Las respuestas, la solicitud y las corridas repetidas están en
   [`muestras-de-generacion/`](../muestras-de-generacion/README.md), como línea de base
-  para comparar cuando se implemente RAG.
+  para comparar cuando se implemente RAG. La repetición con los casos de T41 (3 por caso
+  y por proveedor, por el backend y con el catálogo completo) está en
+  [`mediciones-de-generacion/`](../mediciones-de-generacion/README.md).
 - **Staging.** Las claves van en el `.env` de `nutria-ia` en la VM. El compose no cambia.
+- **Niveles de razonamiento admitidos** (verificado el 01/11/2026, T41): `gpt-6-luna` no
+  admite `minimal`, y su nivel más bajo es `none`. `gemini-3.8-flash` tampoco lo admite,
+  así que su mínimo es `low`. Un nivel no admitido falla con `400` en cada generación
+  (`PROVIDER_ERROR`), aunque el servicio arranque. Con `none`, GPT-6 Luna baja el P95 de
+  16,4 s a 10,5 s: ver [`mediciones-de-generacion/`](../mediciones-de-generacion/README.md).

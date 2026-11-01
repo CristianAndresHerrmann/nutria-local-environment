@@ -178,4 +178,7 @@ Para que la comparación sea válida, repetir con:
 
 Lo ideal es correr además varias generaciones por proveedor y por el backend, con el
 catálogo completo: así los hallazgos de composición y de condición los calcula el motor de
-reglas y no una lectura manual.
+reglas y no una lectura manual. Eso es lo que hace `npm run measure:generation` (T41) con
+los casos clínicos del seed: la primera corrida sin RAG, del 01/11/2026, está en
+[`mediciones-de-generacion/`](../mediciones-de-generacion/README.md) y es la línea de base
+de tiempos para comparar.

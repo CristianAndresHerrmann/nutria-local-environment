@@ -70,6 +70,7 @@ El resumen con numeración DA para los informes de avance está en
 | Decisión | Tarea |
 |---|---|
 | [Estrategia de pruebas: un tipo de prueba por objetivo](estrategia-de-pruebas.md) | T23 |
+| [Medición de la generación con un script contra el stack local](medicion-de-la-generacion.md) | T41 |
 
 ## Proceso de trabajo
 

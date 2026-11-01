@@ -1,0 +1,2002 @@
+{
+  "meta": {
+    "experiment": "Una llamada con las 4 comidas frente a 4 llamadas simultáneas de una comida, directo contra nutria-ia",
+    "date": "2026-11-01T18:20:27.382Z",
+    "provider": "gemini",
+    "model": "gemini-3.8-flash",
+    "iterations": 3,
+    "label": "razonamiento-low",
+    "contexts": "Último context_sent exitoso de cada caso en ai_generation (el que arma el backend)",
+    "prices": {
+      "input": 0.75,
+      "output": 3.75,
+      "source": "https://ai.google.dev/gemini-api/docs/pricing",
+      "note": "Hasta el 31/12/2026; desde el 01/01/2027, 1,50 y 7,50"
+    }
+  },
+  "summary": {
+    "single": {
+      "attempts": 21,
+      "valid": 21,
+      "totalMs": {
+        "n": 21,
+        "mean": 13534,
+        "p50": 13308,
+        "p95": 15898,
+        "max": 18327
+      },
+      "providerMsMax": {
+        "n": 21,
+        "mean": 13522,
+        "p50": 13297,
+        "p95": 15882,
+        "max": 18316
+      },
+      "outputTokens": {
+        "n": 21,
+        "mean": 1588,
+        "p50": 1603,
+        "p95": 1827,
+        "max": 1847
+      },
+      "inputTokens": {
+        "n": 21,
+        "mean": 15900,
+        "p50": 16045,
+        "p95": 16273,
+        "max": 16273
+      },
+      "costPerGeneration": 0.017880035714285716,
+      "costTotal": 0.37548075000000003,
+      "options": {
+        "n": 21,
+        "mean": 12,
+        "p50": 12,
+        "p95": 14,
+        "max": 14
+      },
+      "repeats": {
+        "n": 21,
+        "mean": 0,
+        "p50": 0,
+        "p95": 0,
+        "max": 1
+      },
+      "textChars": {
+        "n": 21,
+        "mean": 1619,
+        "p50": 1600,
+        "p95": 2011,
+        "max": 2032
+      },
+      "over15s": 2
+    },
+    "parallel": {
+      "attempts": 21,
+      "valid": 21,
+      "totalMs": {
+        "n": 21,
+        "mean": 11011,
+        "p50": 9850,
+        "p95": 16618,
+        "max": 21217
+      },
+      "providerMsMax": {
+        "n": 21,
+        "mean": 10971,
+        "p50": 9834,
+        "p95": 16601,
+        "max": 21207
+      },
+      "outputTokens": {
+        "n": 21,
+        "mean": 3027,
+        "p50": 3039,
+        "p95": 3293,
+        "max": 3519
+      },
+      "inputTokens": {
+        "n": 21,
+        "mean": 61269,
+        "p50": 61710,
+        "p95": 62308,
+        "max": 62308
+      },
+      "costPerGeneration": 0.05730435714285713,
+      "costTotal": 1.2033914999999997,
+      "options": {
+        "n": 21,
+        "mean": 16,
+        "p50": 16,
+        "p95": 19,
+        "max": 19
+      },
+      "repeats": {
+        "n": 21,
+        "mean": 2,
+        "p50": 2,
+        "p95": 4,
+        "max": 4
+      },
+      "textChars": {
+        "n": 21,
+        "mean": 1256,
+        "p50": 1231,
+        "p95": 1643,
+        "max": 1746
+      },
+      "over15s": 2
+    }
+  },
+  "rows": [
+    {
+      "caseCode": "C1",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 12129,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 12128,
+          "providerMs": 11971,
+          "inputTokens": 15431,
+          "outputTokens": 1143,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9146,
+          "providerMs": 9096,
+          "inputTokens": 15693,
+          "outputTokens": 660,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9066,
+          "providerMs": 8968,
+          "inputTokens": 15435,
+          "outputTokens": 749,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8824,
+          "providerMs": 8717,
+          "inputTokens": 15693,
+          "outputTokens": 737,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 11971,
+      "inputTokens": 62252,
+      "outputTokens": 3289,
+      "cost": 0.05902275,
+      "options": 13,
+      "repeats": 2,
+      "textChars": 1165,
+      "slowestMeal": "breakfast"
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 12328,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 12327,
+          "providerMs": 12317,
+          "inputTokens": 16259,
+          "outputTokens": 1491,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 12317,
+      "inputTokens": 16259,
+      "outputTokens": 1491,
+      "cost": 0.0177855,
+      "options": 8,
+      "repeats": 0,
+      "textChars": 1426
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 12260,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 12260,
+          "providerMs": 12251,
+          "inputTokens": 16273,
+          "outputTokens": 1473,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 12251,
+      "inputTokens": 16273,
+      "outputTokens": 1473,
+      "cost": 0.0177285,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1298
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 8942,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6936,
+          "providerMs": 6925,
+          "inputTokens": 15445,
+          "outputTokens": 687,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8673,
+          "providerMs": 8656,
+          "inputTokens": 15707,
+          "outputTokens": 731,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8291,
+          "providerMs": 8271,
+          "inputTokens": 15449,
+          "outputTokens": 669,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8940,
+          "providerMs": 8913,
+          "inputTokens": 15707,
+          "outputTokens": 773,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 8913,
+      "inputTokens": 62308,
+      "outputTokens": 2860,
+      "cost": 0.057456,
+      "options": 17,
+      "repeats": 1,
+      "textChars": 1231,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 9268,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9268,
+          "providerMs": 9223,
+          "inputTokens": 15188,
+          "outputTokens": 754,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9092,
+          "providerMs": 9071,
+          "inputTokens": 15031,
+          "outputTokens": 937,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7035,
+          "providerMs": 6995,
+          "inputTokens": 15192,
+          "outputTokens": 688,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8783,
+          "providerMs": 8753,
+          "inputTokens": 15031,
+          "outputTokens": 711,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 9223,
+      "inputTokens": 60442,
+      "outputTokens": 3090,
+      "cost": 0.056919,
+      "options": 14,
+      "repeats": 4,
+      "textChars": 1643,
+      "slowestMeal": "breakfast"
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 18327,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 18327,
+          "providerMs": 18316,
+          "inputTokens": 15358,
+          "outputTokens": 1802,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 18316,
+      "inputTokens": 15358,
+      "outputTokens": 1802,
+      "cost": 0.018276,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1516
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 13472,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 13470,
+          "providerMs": 13461,
+          "inputTokens": 15754,
+          "outputTokens": 1676,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 13461,
+      "inputTokens": 15754,
+      "outputTokens": 1676,
+      "cost": 0.0181005,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 2032
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 8904,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8903,
+          "providerMs": 8860,
+          "inputTokens": 15142,
+          "outputTokens": 781,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6936,
+          "providerMs": 6879,
+          "inputTokens": 15348,
+          "outputTokens": 817,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7553,
+          "providerMs": 7477,
+          "inputTokens": 15146,
+          "outputTokens": 691,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7754,
+          "providerMs": 7689,
+          "inputTokens": 15348,
+          "outputTokens": 674,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 8860,
+      "inputTokens": 60984,
+      "outputTokens": 2963,
+      "cost": 0.05684925,
+      "options": 18,
+      "repeats": 3,
+      "textChars": 1551,
+      "slowestMeal": "breakfast"
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 10878,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7888,
+          "providerMs": 7857,
+          "inputTokens": 15217,
+          "outputTokens": 744,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7853,
+          "providerMs": 7829,
+          "inputTokens": 15636,
+          "outputTokens": 739,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8534,
+          "providerMs": 8520,
+          "inputTokens": 15221,
+          "outputTokens": 761,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10875,
+          "providerMs": 10859,
+          "inputTokens": 15636,
+          "outputTokens": 1031,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 10859,
+      "inputTokens": 61710,
+      "outputTokens": 3275,
+      "cost": 0.05856375,
+      "options": 16,
+      "repeats": 2,
+      "textChars": 1173,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 13190,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 13190,
+          "providerMs": 13180,
+          "inputTokens": 16045,
+          "outputTokens": 1449,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 13180,
+      "inputTokens": 16045,
+      "outputTokens": 1449,
+      "cost": 0.0174675,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1552
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 14340,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 14340,
+          "providerMs": 14325,
+          "inputTokens": 16243,
+          "outputTokens": 1564,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 14325,
+      "inputTokens": 16243,
+      "outputTokens": 1564,
+      "cost": 0.01804725,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1956
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 8816,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7972,
+          "providerMs": 7949,
+          "inputTokens": 15415,
+          "outputTokens": 716,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8815,
+          "providerMs": 8794,
+          "inputTokens": 15677,
+          "outputTokens": 803,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7413,
+          "providerMs": 7399,
+          "inputTokens": 15419,
+          "outputTokens": 635,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8163,
+          "providerMs": 8147,
+          "inputTokens": 15677,
+          "outputTokens": 578,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 8794,
+      "inputTokens": 62188,
+      "outputTokens": 2732,
+      "cost": 0.056886,
+      "options": 16,
+      "repeats": 1,
+      "textChars": 1352,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 9197,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6792,
+          "providerMs": 6768,
+          "inputTokens": 14692,
+          "outputTokens": 613,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9195,
+          "providerMs": 9166,
+          "inputTokens": 14806,
+          "outputTokens": 660,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7107,
+          "providerMs": 7076,
+          "inputTokens": 14696,
+          "outputTokens": 631,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7358,
+          "providerMs": 7322,
+          "inputTokens": 14806,
+          "outputTokens": 637,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 9166,
+      "inputTokens": 59000,
+      "outputTokens": 2541,
+      "cost": 0.05377875,
+      "options": 15,
+      "repeats": 3,
+      "textChars": 1054,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 13715,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 13715,
+          "providerMs": 13700,
+          "inputTokens": 15370,
+          "outputTokens": 1388,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 13700,
+      "inputTokens": 15370,
+      "outputTokens": 1388,
+      "cost": 0.0167325,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1728
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 12528,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 12528,
+          "providerMs": 12521,
+          "inputTokens": 16259,
+          "outputTokens": 1553,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 12521,
+      "inputTokens": 16259,
+      "outputTokens": 1553,
+      "cost": 0.018018,
+      "options": 8,
+      "repeats": 0,
+      "textChars": 1600
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 16618,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7139,
+          "providerMs": 7126,
+          "inputTokens": 15431,
+          "outputTokens": 679,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 16618,
+          "providerMs": 16601,
+          "inputTokens": 15693,
+          "outputTokens": 770,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8027,
+          "providerMs": 8005,
+          "inputTokens": 15435,
+          "outputTokens": 793,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10401,
+          "providerMs": 10376,
+          "inputTokens": 15693,
+          "outputTokens": 1041,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 16601,
+      "inputTokens": 62252,
+      "outputTokens": 3283,
+      "cost": 0.05900025,
+      "options": 13,
+      "repeats": 1,
+      "textChars": 1151,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 14404,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9528,
+          "providerMs": 9513,
+          "inputTokens": 15445,
+          "outputTokens": 857,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10183,
+          "providerMs": 10171,
+          "inputTokens": 15707,
+          "outputTokens": 894,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9257,
+          "providerMs": 9239,
+          "inputTokens": 15449,
+          "outputTokens": 881,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 14402,
+          "providerMs": 14379,
+          "inputTokens": 15707,
+          "outputTokens": 887,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 14379,
+      "inputTokens": 62308,
+      "outputTokens": 3519,
+      "cost": 0.05992725,
+      "options": 19,
+      "repeats": 2,
+      "textChars": 1474,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 12794,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 12794,
+          "providerMs": 12778,
+          "inputTokens": 16273,
+          "outputTokens": 1407,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 12778,
+      "inputTokens": 16273,
+      "outputTokens": 1407,
+      "cost": 0.017481,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1149
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 14533,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 14532,
+          "providerMs": 14517,
+          "inputTokens": 15358,
+          "outputTokens": 1759,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 14517,
+      "inputTokens": 15358,
+      "outputTokens": 1759,
+      "cost": 0.01811475,
+      "options": 12,
+      "repeats": 1,
+      "textChars": 1366
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 9465,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9465,
+          "providerMs": 9392,
+          "inputTokens": 15188,
+          "outputTokens": 785,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7528,
+          "providerMs": 7518,
+          "inputTokens": 15031,
+          "outputTokens": 761,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7064,
+          "providerMs": 7051,
+          "inputTokens": 15192,
+          "outputTokens": 629,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8045,
+          "providerMs": 8027,
+          "inputTokens": 15031,
+          "outputTokens": 702,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 9392,
+      "inputTokens": 60442,
+      "outputTokens": 2877,
+      "cost": 0.05612025,
+      "options": 14,
+      "repeats": 1,
+      "textChars": 1405,
+      "slowestMeal": "breakfast"
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 10942,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7554,
+          "providerMs": 7535,
+          "inputTokens": 15142,
+          "outputTokens": 742,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8115,
+          "providerMs": 8092,
+          "inputTokens": 15348,
+          "outputTokens": 772,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10941,
+          "providerMs": 10908,
+          "inputTokens": 15146,
+          "outputTokens": 762,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9489,
+          "providerMs": 9478,
+          "inputTokens": 15348,
+          "outputTokens": 838,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 10908,
+      "inputTokens": 60984,
+      "outputTokens": 3114,
+      "cost": 0.0574155,
+      "options": 16,
+      "repeats": 3,
+      "textChars": 1324,
+      "slowestMeal": "afternoon_snack"
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 14613,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 14612,
+          "providerMs": 14599,
+          "inputTokens": 15754,
+          "outputTokens": 1847,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 14599,
+      "inputTokens": 15754,
+      "outputTokens": 1847,
+      "cost": 0.01874175,
+      "options": 13,
+      "repeats": 0,
+      "textChars": 2011
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 12555,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 12555,
+          "providerMs": 12538,
+          "inputTokens": 16045,
+          "outputTokens": 1421,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 12538,
+      "inputTokens": 16045,
+      "outputTokens": 1421,
+      "cost": 0.0173625,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1111
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 8978,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8978,
+          "providerMs": 8962,
+          "inputTokens": 15217,
+          "outputTokens": 672,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7805,
+          "providerMs": 7794,
+          "inputTokens": 15636,
+          "outputTokens": 756,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8495,
+          "providerMs": 8470,
+          "inputTokens": 15221,
+          "outputTokens": 724,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7895,
+          "providerMs": 7864,
+          "inputTokens": 15636,
+          "outputTokens": 675,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 8962,
+      "inputTokens": 61710,
+      "outputTokens": 2827,
+      "cost": 0.05688375,
+      "options": 14,
+      "repeats": 0,
+      "textChars": 1259,
+      "slowestMeal": "breakfast"
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 21217,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7604,
+          "providerMs": 7577,
+          "inputTokens": 15415,
+          "outputTokens": 663,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 21216,
+          "providerMs": 21207,
+          "inputTokens": 15677,
+          "outputTokens": 844,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8465,
+          "providerMs": 8453,
+          "inputTokens": 15419,
+          "outputTokens": 808,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10665,
+          "providerMs": 10648,
+          "inputTokens": 15677,
+          "outputTokens": 724,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 21207,
+      "inputTokens": 62188,
+      "outputTokens": 3039,
+      "cost": 0.05803725,
+      "options": 18,
+      "repeats": 2,
+      "textChars": 1144,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 13081,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 13080,
+          "providerMs": 13072,
+          "inputTokens": 16243,
+          "outputTokens": 1618,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 13072,
+      "inputTokens": 16243,
+      "outputTokens": 1618,
+      "cost": 0.01824975,
+      "options": 14,
+      "repeats": 0,
+      "textChars": 1774
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 14694,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 14693,
+          "providerMs": 14684,
+          "inputTokens": 15370,
+          "outputTokens": 1720,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 14684,
+      "inputTokens": 15370,
+      "outputTokens": 1720,
+      "cost": 0.0179775,
+      "options": 13,
+      "repeats": 0,
+      "textChars": 1652
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 9289,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6597,
+          "providerMs": 6575,
+          "inputTokens": 14692,
+          "outputTokens": 612,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8778,
+          "providerMs": 8750,
+          "inputTokens": 14806,
+          "outputTokens": 700,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7595,
+          "providerMs": 7563,
+          "inputTokens": 14696,
+          "outputTokens": 738,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9286,
+          "providerMs": 9251,
+          "inputTokens": 14806,
+          "outputTokens": 736,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 9251,
+      "inputTokens": 59000,
+      "outputTokens": 2786,
+      "cost": 0.0546975,
+      "options": 16,
+      "repeats": 2,
+      "textChars": 1082,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 9850,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9455,
+          "providerMs": 9430,
+          "inputTokens": 15431,
+          "outputTokens": 837,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9469,
+          "providerMs": 9435,
+          "inputTokens": 15693,
+          "outputTokens": 896,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8204,
+          "providerMs": 8187,
+          "inputTokens": 15435,
+          "outputTokens": 768,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9846,
+          "providerMs": 9834,
+          "inputTokens": 15693,
+          "outputTokens": 792,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 9834,
+      "inputTokens": 62252,
+      "outputTokens": 3293,
+      "cost": 0.05903775,
+      "options": 13,
+      "repeats": 0,
+      "textChars": 925,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 13308,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 13307,
+          "providerMs": 13297,
+          "inputTokens": 16259,
+          "outputTokens": 1742,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 13297,
+      "inputTokens": 16259,
+      "outputTokens": 1742,
+      "cost": 0.01872675,
+      "options": 8,
+      "repeats": 0,
+      "textChars": 1935
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 13971,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 13970,
+          "providerMs": 13959,
+          "inputTokens": 16273,
+          "outputTokens": 1688,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 13959,
+      "inputTokens": 16273,
+      "outputTokens": 1688,
+      "cost": 0.01853475,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1776
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 9720,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9420,
+          "providerMs": 9383,
+          "inputTokens": 15445,
+          "outputTokens": 806,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8522,
+          "providerMs": 8496,
+          "inputTokens": 15707,
+          "outputTokens": 688,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9265,
+          "providerMs": 9213,
+          "inputTokens": 15449,
+          "outputTokens": 758,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9715,
+          "providerMs": 9669,
+          "inputTokens": 15707,
+          "outputTokens": 969,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 9669,
+      "inputTokens": 62308,
+      "outputTokens": 3221,
+      "cost": 0.05880975,
+      "options": 17,
+      "repeats": 1,
+      "textChars": 1746,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 11442,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 11441,
+          "providerMs": 11398,
+          "inputTokens": 15188,
+          "outputTokens": 778,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10514,
+          "providerMs": 10457,
+          "inputTokens": 15031,
+          "outputTokens": 898,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7978,
+          "providerMs": 7914,
+          "inputTokens": 15192,
+          "outputTokens": 748,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8578,
+          "providerMs": 8542,
+          "inputTokens": 15031,
+          "outputTokens": 844,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 11398,
+      "inputTokens": 60442,
+      "outputTokens": 3268,
+      "cost": 0.0575865,
+      "options": 15,
+      "repeats": 2,
+      "textChars": 1232,
+      "slowestMeal": "breakfast"
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 13728,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 13728,
+          "providerMs": 13721,
+          "inputTokens": 15358,
+          "outputTokens": 1667,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 13721,
+      "inputTokens": 15358,
+      "outputTokens": 1667,
+      "cost": 0.01776975,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1542
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 12498,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 12497,
+          "providerMs": 12487,
+          "inputTokens": 15754,
+          "outputTokens": 1603,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 12487,
+      "inputTokens": 15754,
+      "outputTokens": 1603,
+      "cost": 0.01782675,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1671
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 10717,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8503,
+          "providerMs": 8431,
+          "inputTokens": 15142,
+          "outputTokens": 661,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7012,
+          "providerMs": 6952,
+          "inputTokens": 15348,
+          "outputTokens": 923,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7605,
+          "providerMs": 7565,
+          "inputTokens": 15146,
+          "outputTokens": 728,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10715,
+          "providerMs": 10637,
+          "inputTokens": 15348,
+          "outputTokens": 952,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 10637,
+      "inputTokens": 60984,
+      "outputTokens": 3264,
+      "cost": 0.057978,
+      "options": 19,
+      "repeats": 4,
+      "textChars": 1062,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 10492,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7893,
+          "providerMs": 7880,
+          "inputTokens": 15217,
+          "outputTokens": 756,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10491,
+          "providerMs": 10480,
+          "inputTokens": 15636,
+          "outputTokens": 633,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7905,
+          "providerMs": 7889,
+          "inputTokens": 15221,
+          "outputTokens": 648,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8412,
+          "providerMs": 8394,
+          "inputTokens": 15636,
+          "outputTokens": 783,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 10480,
+      "inputTokens": 61710,
+      "outputTokens": 2820,
+      "cost": 0.0568575,
+      "options": 14,
+      "repeats": 0,
+      "textChars": 1361,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 15898,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 15898,
+          "providerMs": 15882,
+          "inputTokens": 16045,
+          "outputTokens": 1827,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 15882,
+      "inputTokens": 16045,
+      "outputTokens": 1827,
+      "cost": 0.018885,
+      "options": 14,
+      "repeats": 0,
+      "textChars": 1975
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 11297,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 11297,
+          "providerMs": 11283,
+          "inputTokens": 16243,
+          "outputTokens": 1376,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 11283,
+      "inputTokens": 16243,
+      "outputTokens": 1376,
+      "cost": 0.01734225,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1437
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 11379,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7825,
+          "providerMs": 7804,
+          "inputTokens": 15415,
+          "outputTokens": 654,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8902,
+          "providerMs": 8893,
+          "inputTokens": 15677,
+          "outputTokens": 798,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7894,
+          "providerMs": 7872,
+          "inputTokens": 15419,
+          "outputTokens": 610,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 11378,
+          "providerMs": 11358,
+          "inputTokens": 15677,
+          "outputTokens": 802,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 11358,
+      "inputTokens": 62188,
+      "outputTokens": 2864,
+      "cost": 0.057381,
+      "options": 16,
+      "repeats": 2,
+      "textChars": 1051,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 8585,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6219,
+          "providerMs": 6196,
+          "inputTokens": 14692,
+          "outputTokens": 568,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8584,
+          "providerMs": 8535,
+          "inputTokens": 14806,
+          "outputTokens": 764,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8345,
+          "providerMs": 8314,
+          "inputTokens": 14696,
+          "outputTokens": 677,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7740,
+          "providerMs": 7700,
+          "inputTokens": 14806,
+          "outputTokens": 640,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 8535,
+      "inputTokens": 59000,
+      "outputTokens": 2649,
+      "cost": 0.05418375,
+      "options": 16,
+      "repeats": 2,
+      "textChars": 1001,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 11094,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 11092,
+          "providerMs": 11079,
+          "inputTokens": 15370,
+          "outputTokens": 1276,
+          "model": "gemini-3.8-flash",
+          "provider": "gemini"
+        }
+      ],
+      "providerMsMax": 11079,
+      "inputTokens": 15370,
+      "outputTokens": 1276,
+      "cost": 0.0163125,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1497
+    }
+  ]
+}

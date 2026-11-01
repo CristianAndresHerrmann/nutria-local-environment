@@ -1,0 +1,2001 @@
+{
+  "meta": {
+    "experiment": "Una llamada con las 4 comidas frente a 4 llamadas simultáneas de una comida, directo contra nutria-ia",
+    "date": "2026-11-01T18:11:29.813Z",
+    "provider": "openai",
+    "model": "gpt-6-luna",
+    "iterations": 3,
+    "label": "razonamiento-low",
+    "contexts": "Último context_sent exitoso de cada caso en ai_generation (el que arma el backend)",
+    "prices": {
+      "input": 0.1,
+      "output": 0.5,
+      "source": "https://developers.openai.com/api/docs/models/gpt-6-luna"
+    }
+  },
+  "summary": {
+    "single": {
+      "attempts": 21,
+      "valid": 21,
+      "totalMs": {
+        "n": 21,
+        "mean": 12344,
+        "p50": 11827,
+        "p95": 17283,
+        "max": 18806
+      },
+      "providerMsMax": {
+        "n": 21,
+        "mean": 12330,
+        "p50": 11815,
+        "p95": 17267,
+        "max": 18787
+      },
+      "outputTokens": {
+        "n": 21,
+        "mean": 1169,
+        "p50": 1107,
+        "p95": 1551,
+        "max": 1968
+      },
+      "inputTokens": {
+        "n": 21,
+        "mean": 13163,
+        "p50": 13282,
+        "p95": 13476,
+        "max": 13476
+      },
+      "costPerGeneration": 0.0019006428571428566,
+      "costTotal": 0.03991349999999999,
+      "options": {
+        "n": 21,
+        "mean": 15,
+        "p50": 16,
+        "p95": 19,
+        "max": 19
+      },
+      "repeats": {
+        "n": 21,
+        "mean": 2,
+        "p50": 2,
+        "p95": 6,
+        "max": 7
+      },
+      "textChars": {
+        "n": 21,
+        "mean": 1459,
+        "p50": 1439,
+        "p95": 1780,
+        "max": 1790
+      },
+      "over15s": 2
+    },
+    "parallel": {
+      "attempts": 21,
+      "valid": 21,
+      "totalMs": {
+        "n": 21,
+        "mean": 7932,
+        "p50": 7493,
+        "p95": 9999,
+        "max": 10231
+      },
+      "providerMsMax": {
+        "n": 21,
+        "mean": 7886,
+        "p50": 7472,
+        "p95": 9899,
+        "max": 10045
+      },
+      "outputTokens": {
+        "n": 21,
+        "mean": 2189,
+        "p50": 2152,
+        "p95": 2749,
+        "max": 2962
+      },
+      "inputTokens": {
+        "n": 21,
+        "mean": 50647,
+        "p50": 51004,
+        "p95": 51516,
+        "max": 51516
+      },
+      "costPerGeneration": 0.006159166666666668,
+      "costTotal": 0.12934250000000003,
+      "options": {
+        "n": 21,
+        "mean": 21,
+        "p50": 21,
+        "p95": 25,
+        "max": 30
+      },
+      "repeats": {
+        "n": 21,
+        "mean": 6,
+        "p50": 6,
+        "p95": 11,
+        "max": 14
+      },
+      "textChars": {
+        "n": 21,
+        "mean": 1072,
+        "p50": 1048,
+        "p95": 1284,
+        "max": 1308
+      },
+      "over15s": 0
+    }
+  },
+  "rows": [
+    {
+      "caseCode": "C1",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 10231,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10105,
+          "providerMs": 9796,
+          "inputTokens": 12742,
+          "outputTokens": 734,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8759,
+          "providerMs": 8483,
+          "inputTokens": 12977,
+          "outputTokens": 663,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10125,
+          "providerMs": 10045,
+          "inputTokens": 12744,
+          "outputTokens": 691,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10188,
+          "providerMs": 9916,
+          "inputTokens": 12977,
+          "outputTokens": 874,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 10045,
+      "inputTokens": 51440,
+      "outputTokens": 2962,
+      "cost": 0.006625,
+      "options": 18,
+      "repeats": 0,
+      "textChars": 1308,
+      "slowestMeal": "afternoon_snack"
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 17283,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 17282,
+          "providerMs": 17267,
+          "inputTokens": 13457,
+          "outputTokens": 1968,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 17267,
+      "inputTokens": 13457,
+      "outputTokens": 1968,
+      "cost": 0.0023296999999999997,
+      "options": 16,
+      "repeats": 1,
+      "textChars": 1790
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 10838,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10837,
+          "providerMs": 10815,
+          "inputTokens": 13476,
+          "outputTokens": 996,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 10815,
+      "inputTokens": 13476,
+      "outputTokens": 996,
+      "cost": 0.0018456000000000002,
+      "options": 16,
+      "repeats": 1,
+      "textChars": 1413
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 6643,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6307,
+          "providerMs": 6219,
+          "inputTokens": 12761,
+          "outputTokens": 477,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6286,
+          "providerMs": 6236,
+          "inputTokens": 12996,
+          "outputTokens": 475,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5961,
+          "providerMs": 5870,
+          "inputTokens": 12763,
+          "outputTokens": 458,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6630,
+          "providerMs": 6541,
+          "inputTokens": 12996,
+          "outputTokens": 490,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 6541,
+      "inputTokens": 51516,
+      "outputTokens": 1900,
+      "cost": 0.0061016,
+      "options": 23,
+      "repeats": 7,
+      "textChars": 842,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 7202,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5718,
+          "providerMs": 5709,
+          "inputTokens": 12539,
+          "outputTokens": 433,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6519,
+          "providerMs": 6495,
+          "inputTokens": 12408,
+          "outputTokens": 529,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5494,
+          "providerMs": 5481,
+          "inputTokens": 12541,
+          "outputTokens": 509,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7199,
+          "providerMs": 7183,
+          "inputTokens": 12408,
+          "outputTokens": 590,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 7183,
+      "inputTokens": 49896,
+      "outputTokens": 2061,
+      "cost": 0.0060201000000000005,
+      "options": 20,
+      "repeats": 6,
+      "textChars": 1048,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 11072,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 11072,
+          "providerMs": 11064,
+          "inputTokens": 12690,
+          "outputTokens": 1042,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 11064,
+      "inputTokens": 12690,
+      "outputTokens": 1042,
+      "cost": 0.00179,
+      "options": 16,
+      "repeats": 4,
+      "textChars": 1469
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 12123,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 12123,
+          "providerMs": 12113,
+          "inputTokens": 13042,
+          "outputTokens": 1091,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 12113,
+      "inputTokens": 13042,
+      "outputTokens": 1091,
+      "cost": 0.0018497000000000001,
+      "options": 16,
+      "repeats": 6,
+      "textChars": 1677
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 7493,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5252,
+          "providerMs": 5235,
+          "inputTokens": 12512,
+          "outputTokens": 453,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7493,
+          "providerMs": 7472,
+          "inputTokens": 12695,
+          "outputTokens": 638,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5840,
+          "providerMs": 5817,
+          "inputTokens": 12514,
+          "outputTokens": 502,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5694,
+          "providerMs": 5663,
+          "inputTokens": 12695,
+          "outputTokens": 474,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 7472,
+      "inputTokens": 50416,
+      "outputTokens": 2067,
+      "cost": 0.0060751,
+      "options": 23,
+      "repeats": 10,
+      "textChars": 1264,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 7922,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6882,
+          "providerMs": 6857,
+          "inputTokens": 12567,
+          "outputTokens": 618,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5904,
+          "providerMs": 5863,
+          "inputTokens": 12934,
+          "outputTokens": 518,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5666,
+          "providerMs": 5648,
+          "inputTokens": 12569,
+          "outputTokens": 482,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7920,
+          "providerMs": 7891,
+          "inputTokens": 12934,
+          "outputTokens": 768,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 7891,
+      "inputTokens": 51004,
+      "outputTokens": 2386,
+      "cost": 0.0062934,
+      "options": 19,
+      "repeats": 1,
+      "textChars": 1284,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 11827,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 11826,
+          "providerMs": 11815,
+          "inputTokens": 13282,
+          "outputTokens": 1107,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 11815,
+      "inputTokens": 13282,
+      "outputTokens": 1107,
+      "cost": 0.0018817,
+      "options": 19,
+      "repeats": 3,
+      "textChars": 1233
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 12376,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 12375,
+          "providerMs": 12354,
+          "inputTokens": 13444,
+          "outputTokens": 1177,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 12354,
+      "inputTokens": 13444,
+      "outputTokens": 1177,
+      "cost": 0.0019329,
+      "options": 19,
+      "repeats": 3,
+      "textChars": 1780
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 7724,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7144,
+          "providerMs": 7130,
+          "inputTokens": 12729,
+          "outputTokens": 693,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6246,
+          "providerMs": 6223,
+          "inputTokens": 12964,
+          "outputTokens": 572,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5818,
+          "providerMs": 5791,
+          "inputTokens": 12731,
+          "outputTokens": 533,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7722,
+          "providerMs": 7689,
+          "inputTokens": 12964,
+          "outputTokens": 659,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 7689,
+      "inputTokens": 51388,
+      "outputTokens": 2457,
+      "cost": 0.0063673,
+      "options": 25,
+      "repeats": 11,
+      "textChars": 976,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 1,
+      "mode": "parallel",
+      "totalMs": 9299,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5760,
+          "providerMs": 5746,
+          "inputTokens": 12165,
+          "outputTokens": 485,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9298,
+          "providerMs": 9247,
+          "inputTokens": 12269,
+          "outputTokens": 775,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5222,
+          "providerMs": 5181,
+          "inputTokens": 12167,
+          "outputTokens": 451,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5217,
+          "providerMs": 5186,
+          "inputTokens": 12269,
+          "outputTokens": 441,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 9247,
+      "inputTokens": 48870,
+      "outputTokens": 2152,
+      "cost": 0.005963,
+      "options": 18,
+      "repeats": 2,
+      "textChars": 1077,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 1,
+      "mode": "single",
+      "totalMs": 11786,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 11786,
+          "providerMs": 11777,
+          "inputTokens": 12749,
+          "outputTokens": 1071,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 11777,
+      "inputTokens": 12749,
+      "outputTokens": 1071,
+      "cost": 0.0018104,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1336
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 13761,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 13760,
+          "providerMs": 13746,
+          "inputTokens": 13457,
+          "outputTokens": 1551,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 13746,
+      "inputTokens": 13457,
+      "outputTokens": 1551,
+      "cost": 0.0021211999999999997,
+      "options": 12,
+      "repeats": 0,
+      "textChars": 1609
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 9999,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8935,
+          "providerMs": 8846,
+          "inputTokens": 12742,
+          "outputTokens": 751,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8137,
+          "providerMs": 8041,
+          "inputTokens": 12977,
+          "outputTokens": 618,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9997,
+          "providerMs": 9899,
+          "inputTokens": 12744,
+          "outputTokens": 683,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8378,
+          "providerMs": 8269,
+          "inputTokens": 12977,
+          "outputTokens": 697,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 9899,
+      "inputTokens": 51440,
+      "outputTokens": 2749,
+      "cost": 0.0065185,
+      "options": 18,
+      "repeats": 2,
+      "textChars": 1028,
+      "slowestMeal": "afternoon_snack"
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 7306,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7306,
+          "providerMs": 7243,
+          "inputTokens": 12761,
+          "outputTokens": 645,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6826,
+          "providerMs": 6739,
+          "inputTokens": 12996,
+          "outputTokens": 558,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6306,
+          "providerMs": 6264,
+          "inputTokens": 12763,
+          "outputTokens": 525,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6022,
+          "providerMs": 5994,
+          "inputTokens": 12996,
+          "outputTokens": 554,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 7243,
+      "inputTokens": 51516,
+      "outputTokens": 2282,
+      "cost": 0.006292600000000001,
+      "options": 30,
+      "repeats": 14,
+      "textChars": 977,
+      "slowestMeal": "breakfast"
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 12077,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 12076,
+          "providerMs": 12069,
+          "inputTokens": 13476,
+          "outputTokens": 1027,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 12069,
+      "inputTokens": 13476,
+      "outputTokens": 1027,
+      "cost": 0.0018611,
+      "options": 16,
+      "repeats": 4,
+      "textChars": 1456
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 12547,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 12546,
+          "providerMs": 12530,
+          "inputTokens": 12690,
+          "outputTokens": 1129,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 12530,
+      "inputTokens": 12690,
+      "outputTokens": 1129,
+      "cost": 0.0018335,
+      "options": 14,
+      "repeats": 6,
+      "textChars": 1350
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 6708,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6684,
+          "providerMs": 6665,
+          "inputTokens": 12539,
+          "outputTokens": 457,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5572,
+          "providerMs": 5552,
+          "inputTokens": 12408,
+          "outputTokens": 440,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6706,
+          "providerMs": 6670,
+          "inputTokens": 12541,
+          "outputTokens": 558,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5311,
+          "providerMs": 5272,
+          "inputTokens": 12408,
+          "outputTokens": 404,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 6670,
+      "inputTokens": 49896,
+      "outputTokens": 1859,
+      "cost": 0.0059191,
+      "options": 16,
+      "repeats": 6,
+      "textChars": 1104,
+      "slowestMeal": "afternoon_snack"
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 9700,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7118,
+          "providerMs": 7065,
+          "inputTokens": 12512,
+          "outputTokens": 548,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9698,
+          "providerMs": 9672,
+          "inputTokens": 12695,
+          "outputTokens": 768,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5772,
+          "providerMs": 5736,
+          "inputTokens": 12514,
+          "outputTokens": 489,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7015,
+          "providerMs": 6985,
+          "inputTokens": 12695,
+          "outputTokens": 501,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 9672,
+      "inputTokens": 50416,
+      "outputTokens": 2306,
+      "cost": 0.006194600000000001,
+      "options": 23,
+      "repeats": 10,
+      "textChars": 1219,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 9661,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9660,
+          "providerMs": 9648,
+          "inputTokens": 13042,
+          "outputTokens": 983,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 9648,
+      "inputTokens": 13042,
+      "outputTokens": 983,
+      "cost": 0.0017957000000000001,
+      "options": 16,
+      "repeats": 2,
+      "textChars": 1439
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 11082,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 11080,
+          "providerMs": 11067,
+          "inputTokens": 13282,
+          "outputTokens": 1108,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 11067,
+      "inputTokens": 13282,
+      "outputTokens": 1108,
+      "cost": 0.0018822,
+      "options": 15,
+      "repeats": 0,
+      "textChars": 1319
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 6475,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6168,
+          "providerMs": 6120,
+          "inputTokens": 12567,
+          "outputTokens": 473,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6473,
+          "providerMs": 6433,
+          "inputTokens": 12934,
+          "outputTokens": 529,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5896,
+          "providerMs": 5865,
+          "inputTokens": 12569,
+          "outputTokens": 434,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5599,
+          "providerMs": 5544,
+          "inputTokens": 12934,
+          "outputTokens": 437,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 6433,
+      "inputTokens": 51004,
+      "outputTokens": 1873,
+      "cost": 0.0060369,
+      "options": 18,
+      "repeats": 6,
+      "textChars": 1214,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 7279,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6522,
+          "providerMs": 6504,
+          "inputTokens": 12729,
+          "outputTokens": 461,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7276,
+          "providerMs": 7252,
+          "inputTokens": 12964,
+          "outputTokens": 567,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6156,
+          "providerMs": 6144,
+          "inputTokens": 12731,
+          "outputTokens": 466,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6040,
+          "providerMs": 6021,
+          "inputTokens": 12964,
+          "outputTokens": 485,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 7252,
+      "inputTokens": 51388,
+      "outputTokens": 1979,
+      "cost": 0.006128300000000001,
+      "options": 19,
+      "repeats": 6,
+      "textChars": 935,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 9973,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9973,
+          "providerMs": 9954,
+          "inputTokens": 13444,
+          "outputTokens": 906,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 9954,
+      "inputTokens": 13444,
+      "outputTokens": 906,
+      "cost": 0.0017974,
+      "options": 18,
+      "repeats": 5,
+      "textChars": 1375
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 2,
+      "mode": "single",
+      "totalMs": 13904,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 13904,
+          "providerMs": 13885,
+          "inputTokens": 12749,
+          "outputTokens": 1221,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 13885,
+      "inputTokens": 12749,
+      "outputTokens": 1221,
+      "cost": 0.0018854000000000002,
+      "options": 13,
+      "repeats": 2,
+      "textChars": 1538
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 2,
+      "mode": "parallel",
+      "totalMs": 8667,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6913,
+          "providerMs": 6901,
+          "inputTokens": 12165,
+          "outputTokens": 629,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6914,
+          "providerMs": 6887,
+          "inputTokens": 12269,
+          "outputTokens": 525,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8666,
+          "providerMs": 8645,
+          "inputTokens": 12167,
+          "outputTokens": 580,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5738,
+          "providerMs": 5708,
+          "inputTokens": 12269,
+          "outputTokens": 491,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 8645,
+      "inputTokens": 48870,
+      "outputTokens": 2225,
+      "cost": 0.0059995,
+      "options": 23,
+      "repeats": 6,
+      "textChars": 1011,
+      "slowestMeal": "afternoon_snack"
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 9900,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6183,
+          "providerMs": 6159,
+          "inputTokens": 12742,
+          "outputTokens": 443,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7739,
+          "providerMs": 7729,
+          "inputTokens": 12977,
+          "outputTokens": 674,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9898,
+          "providerMs": 9882,
+          "inputTokens": 12744,
+          "outputTokens": 630,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7870,
+          "providerMs": 7846,
+          "inputTokens": 12977,
+          "outputTokens": 717,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 9882,
+      "inputTokens": 51440,
+      "outputTokens": 2464,
+      "cost": 0.006376,
+      "options": 18,
+      "repeats": 1,
+      "textChars": 885,
+      "slowestMeal": "afternoon_snack"
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 18806,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 18805,
+          "providerMs": 18787,
+          "inputTokens": 13457,
+          "outputTokens": 1514,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 18787,
+      "inputTokens": 13457,
+      "outputTokens": 1514,
+      "cost": 0.0021027,
+      "options": 16,
+      "repeats": 0,
+      "textChars": 1545
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 10188,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10185,
+          "providerMs": 10177,
+          "inputTokens": 13476,
+          "outputTokens": 988,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 10177,
+      "inputTokens": 13476,
+      "outputTokens": 988,
+      "cost": 0.0018416,
+      "options": 16,
+      "repeats": 1,
+      "textChars": 1208
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 6515,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5347,
+          "providerMs": 5322,
+          "inputTokens": 12761,
+          "outputTokens": 409,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5792,
+          "providerMs": 5758,
+          "inputTokens": 12996,
+          "outputTokens": 503,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6417,
+          "providerMs": 6373,
+          "inputTokens": 12763,
+          "outputTokens": 527,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6511,
+          "providerMs": 6482,
+          "inputTokens": 12996,
+          "outputTokens": 531,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 6482,
+      "inputTokens": 51516,
+      "outputTokens": 1970,
+      "cost": 0.006136600000000001,
+      "options": 25,
+      "repeats": 8,
+      "textChars": 925,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 6703,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5839,
+          "providerMs": 5794,
+          "inputTokens": 12539,
+          "outputTokens": 467,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5965,
+          "providerMs": 5891,
+          "inputTokens": 12408,
+          "outputTokens": 444,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5807,
+          "providerMs": 5744,
+          "inputTokens": 12541,
+          "outputTokens": 446,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6699,
+          "providerMs": 6644,
+          "inputTokens": 12408,
+          "outputTokens": 500,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 6644,
+      "inputTokens": 49896,
+      "outputTokens": 1857,
+      "cost": 0.005918100000000001,
+      "options": 18,
+      "repeats": 6,
+      "textChars": 1135,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 13346,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 13346,
+          "providerMs": 13330,
+          "inputTokens": 12690,
+          "outputTokens": 1157,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 13330,
+      "inputTokens": 12690,
+      "outputTokens": 1157,
+      "cost": 0.0018475,
+      "options": 15,
+      "repeats": 7,
+      "textChars": 1350
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 11459,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 11458,
+          "providerMs": 11439,
+          "inputTokens": 13042,
+          "outputTokens": 1107,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 11439,
+      "inputTokens": 13042,
+      "outputTokens": 1107,
+      "cost": 0.0018577,
+      "options": 18,
+      "repeats": 4,
+      "textChars": 1443
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 9022,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6958,
+          "providerMs": 6929,
+          "inputTokens": 12512,
+          "outputTokens": 533,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8791,
+          "providerMs": 8776,
+          "inputTokens": 12695,
+          "outputTokens": 642,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 9021,
+          "providerMs": 9002,
+          "inputTokens": 12514,
+          "outputTokens": 648,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5616,
+          "providerMs": 5605,
+          "inputTokens": 12695,
+          "outputTokens": 488,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 9002,
+      "inputTokens": 50416,
+      "outputTokens": 2311,
+      "cost": 0.0061971000000000005,
+      "options": 25,
+      "repeats": 11,
+      "textChars": 1171,
+      "slowestMeal": "afternoon_snack"
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 6052,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5707,
+          "providerMs": 5684,
+          "inputTokens": 12567,
+          "outputTokens": 534,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5285,
+          "providerMs": 5254,
+          "inputTokens": 12934,
+          "outputTokens": 491,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5396,
+          "providerMs": 5380,
+          "inputTokens": 12569,
+          "outputTokens": 454,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6051,
+          "providerMs": 6041,
+          "inputTokens": 12934,
+          "outputTokens": 508,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 6041,
+      "inputTokens": 51004,
+      "outputTokens": 1987,
+      "cost": 0.0060939,
+      "options": 21,
+      "repeats": 3,
+      "textChars": 1030,
+      "slowestMeal": "dinner"
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 10428,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 10428,
+          "providerMs": 10417,
+          "inputTokens": 13282,
+          "outputTokens": 964,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 10417,
+      "inputTokens": 13282,
+      "outputTokens": 964,
+      "cost": 0.0018102,
+      "options": 10,
+      "repeats": 0,
+      "textChars": 1299
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 11383,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 11383,
+          "providerMs": 11374,
+          "inputTokens": 13444,
+          "outputTokens": 1203,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 11374,
+      "inputTokens": 13444,
+      "outputTokens": 1203,
+      "cost": 0.0019459000000000002,
+      "options": 15,
+      "repeats": 1,
+      "textChars": 1374
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 7217,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5671,
+          "providerMs": 5655,
+          "inputTokens": 12729,
+          "outputTokens": 470,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7216,
+          "providerMs": 7195,
+          "inputTokens": 12964,
+          "outputTokens": 583,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 6948,
+          "providerMs": 6923,
+          "inputTokens": 12731,
+          "outputTokens": 644,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 7203,
+          "providerMs": 7173,
+          "inputTokens": 12964,
+          "outputTokens": 548,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 7195,
+      "inputTokens": 51388,
+      "outputTokens": 2245,
+      "cost": 0.0062613,
+      "options": 25,
+      "repeats": 7,
+      "textChars": 1009,
+      "slowestMeal": "lunch"
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 3,
+      "mode": "parallel",
+      "totalMs": 8516,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5015,
+          "providerMs": 4995,
+          "inputTokens": 12165,
+          "outputTokens": 473,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "breakfast"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5654,
+          "providerMs": 5595,
+          "inputTokens": 12269,
+          "outputTokens": 448,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "lunch"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 8515,
+          "providerMs": 8483,
+          "inputTokens": 12167,
+          "outputTokens": 464,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "afternoon_snack"
+        },
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 5533,
+          "providerMs": 5489,
+          "inputTokens": 12269,
+          "outputTokens": 490,
+          "model": "gpt-6-luna",
+          "provider": "openai",
+          "mealType": "dinner"
+        }
+      ],
+      "providerMsMax": 8483,
+      "inputTokens": 48870,
+      "outputTokens": 1875,
+      "cost": 0.0058245,
+      "options": 24,
+      "repeats": 9,
+      "textChars": 1074,
+      "slowestMeal": "afternoon_snack"
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 3,
+      "mode": "single",
+      "totalMs": 13308,
+      "valid": true,
+      "codes": [],
+      "calls": [
+        {
+          "status": 200,
+          "code": null,
+          "wallMs": 13308,
+          "providerMs": 13299,
+          "inputTokens": 12749,
+          "outputTokens": 1233,
+          "model": "gpt-6-luna",
+          "provider": "openai"
+        }
+      ],
+      "providerMsMax": 13299,
+      "inputTokens": 12749,
+      "outputTokens": 1233,
+      "cost": 0.0018914000000000001,
+      "options": 14,
+      "repeats": 1,
+      "textChars": 1631
+    }
+  ]
+}

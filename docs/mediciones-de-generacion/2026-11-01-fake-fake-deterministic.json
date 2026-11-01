@@ -1,0 +1,4818 @@
+{
+  "meta": {
+    "startedAt": "2026-11-01T17:21:42.863Z",
+    "finishedAt": "2026-11-01T17:21:46.845Z",
+    "provider": "fake",
+    "model": "fake-deterministic",
+    "templateVersion": "plan_proposal_v1",
+    "iterations": 5,
+    "cases": [
+      {
+        "code": "C1",
+        "title": "Celiaquía"
+      },
+      {
+        "code": "C2",
+        "title": "Diabetes"
+      },
+      {
+        "code": "C3",
+        "title": "Hipertensión"
+      },
+      {
+        "code": "C4",
+        "title": "Alergia alimentaria"
+      },
+      {
+        "code": "C5",
+        "title": "Intolerancia"
+      },
+      {
+        "code": "C6",
+        "title": "Sin condiciones"
+      },
+      {
+        "code": "C7",
+        "title": "Rechazo de un grupo"
+      }
+    ],
+    "account": "nutricionista@nutria.com",
+    "apiUrl": "http://backend:3000",
+    "prices": {
+      "fake-deterministic": {
+        "input": 0,
+        "output": 0
+      }
+    },
+    "goals": {
+      "totalP95Ms": 15000,
+      "noBlockingRate": 0.95
+    },
+    "note": null
+  },
+  "summary": {
+    "models": [
+      "fake-deterministic"
+    ],
+    "overall": {
+      "attempts": 35,
+      "valid": 35,
+      "validRate": 1,
+      "failures": {},
+      "noBlocking": 0,
+      "noBlockingRateOfValid": 0,
+      "noBlockingRateOfAttempts": 0,
+      "totalMs": {
+        "n": 35,
+        "mean": 107,
+        "p50": 105,
+        "p95": 174,
+        "max": 209
+      },
+      "providerMs": {
+        "n": 35,
+        "mean": 1,
+        "p50": 1,
+        "p95": 2,
+        "max": 2
+      },
+      "overheadMs": {
+        "n": 35,
+        "mean": 106,
+        "p50": 104,
+        "p95": 172,
+        "max": 208
+      },
+      "inputTokens": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "outputTokens": {
+        "n": 0,
+        "mean": null,
+        "p50": null,
+        "p95": null,
+        "max": null
+      },
+      "cost": {
+        "total": null,
+        "perAttempt": null
+      },
+      "goals": {
+        "p95UnderTimeGoal": true,
+        "noBlockingAtLeastGoal": false
+      }
+    },
+    "byCase": {
+      "C1": {
+        "attempts": 5,
+        "valid": 5,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 0,
+        "noBlockingRateOfValid": 0,
+        "noBlockingRateOfAttempts": 0,
+        "totalMs": {
+          "n": 5,
+          "mean": 124,
+          "p50": 109,
+          "p95": 209,
+          "max": 209
+        },
+        "providerMs": {
+          "n": 5,
+          "mean": 0,
+          "p50": 0,
+          "p95": 1,
+          "max": 1
+        },
+        "overheadMs": {
+          "n": 5,
+          "mean": 124,
+          "p50": 109,
+          "p95": 208,
+          "max": 208
+        },
+        "inputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "outputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "cost": {
+          "total": null,
+          "perAttempt": null
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": false
+        }
+      },
+      "C2": {
+        "attempts": 5,
+        "valid": 5,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 0,
+        "noBlockingRateOfValid": 0,
+        "noBlockingRateOfAttempts": 0,
+        "totalMs": {
+          "n": 5,
+          "mean": 106,
+          "p50": 98,
+          "p95": 129,
+          "max": 129
+        },
+        "providerMs": {
+          "n": 5,
+          "mean": 1,
+          "p50": 1,
+          "p95": 1,
+          "max": 1
+        },
+        "overheadMs": {
+          "n": 5,
+          "mean": 105,
+          "p50": 97,
+          "p95": 128,
+          "max": 128
+        },
+        "inputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "outputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "cost": {
+          "total": null,
+          "perAttempt": null
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": false
+        }
+      },
+      "C3": {
+        "attempts": 5,
+        "valid": 5,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 0,
+        "noBlockingRateOfValid": 0,
+        "noBlockingRateOfAttempts": 0,
+        "totalMs": {
+          "n": 5,
+          "mean": 116,
+          "p50": 114,
+          "p95": 174,
+          "max": 174
+        },
+        "providerMs": {
+          "n": 5,
+          "mean": 1,
+          "p50": 0,
+          "p95": 2,
+          "max": 2
+        },
+        "overheadMs": {
+          "n": 5,
+          "mean": 115,
+          "p50": 113,
+          "p95": 172,
+          "max": 172
+        },
+        "inputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "outputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "cost": {
+          "total": null,
+          "perAttempt": null
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": false
+        }
+      },
+      "C4": {
+        "attempts": 5,
+        "valid": 5,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 0,
+        "noBlockingRateOfValid": 0,
+        "noBlockingRateOfAttempts": 0,
+        "totalMs": {
+          "n": 5,
+          "mean": 102,
+          "p50": 106,
+          "p95": 130,
+          "max": 130
+        },
+        "providerMs": {
+          "n": 5,
+          "mean": 1,
+          "p50": 1,
+          "p95": 2,
+          "max": 2
+        },
+        "overheadMs": {
+          "n": 5,
+          "mean": 101,
+          "p50": 106,
+          "p95": 128,
+          "max": 128
+        },
+        "inputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "outputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "cost": {
+          "total": null,
+          "perAttempt": null
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": false
+        }
+      },
+      "C5": {
+        "attempts": 5,
+        "valid": 5,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 0,
+        "noBlockingRateOfValid": 0,
+        "noBlockingRateOfAttempts": 0,
+        "totalMs": {
+          "n": 5,
+          "mean": 96,
+          "p50": 95,
+          "p95": 111,
+          "max": 111
+        },
+        "providerMs": {
+          "n": 5,
+          "mean": 1,
+          "p50": 1,
+          "p95": 1,
+          "max": 1
+        },
+        "overheadMs": {
+          "n": 5,
+          "mean": 96,
+          "p50": 94,
+          "p95": 110,
+          "max": 110
+        },
+        "inputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "outputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "cost": {
+          "total": null,
+          "perAttempt": null
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": false
+        }
+      },
+      "C6": {
+        "attempts": 5,
+        "valid": 5,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 0,
+        "noBlockingRateOfValid": 0,
+        "noBlockingRateOfAttempts": 0,
+        "totalMs": {
+          "n": 5,
+          "mean": 107,
+          "p50": 106,
+          "p95": 119,
+          "max": 119
+        },
+        "providerMs": {
+          "n": 5,
+          "mean": 1,
+          "p50": 1,
+          "p95": 1,
+          "max": 1
+        },
+        "overheadMs": {
+          "n": 5,
+          "mean": 106,
+          "p50": 106,
+          "p95": 118,
+          "max": 118
+        },
+        "inputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "outputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "cost": {
+          "total": null,
+          "perAttempt": null
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": false
+        }
+      },
+      "C7": {
+        "attempts": 5,
+        "valid": 5,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 0,
+        "noBlockingRateOfValid": 0,
+        "noBlockingRateOfAttempts": 0,
+        "totalMs": {
+          "n": 5,
+          "mean": 99,
+          "p50": 95,
+          "p95": 121,
+          "max": 121
+        },
+        "providerMs": {
+          "n": 5,
+          "mean": 1,
+          "p50": 1,
+          "p95": 1,
+          "max": 1
+        },
+        "overheadMs": {
+          "n": 5,
+          "mean": 99,
+          "p50": 94,
+          "p95": 121,
+          "max": 121
+        },
+        "inputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "outputTokens": {
+          "n": 0,
+          "mean": null,
+          "p50": null,
+          "p95": null,
+          "max": null
+        },
+        "cost": {
+          "total": null,
+          "perAttempt": null
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": false
+        }
+      }
+    }
+  },
+  "generations": [
+    {
+      "caseCode": "C1",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 209,
+      "planId": "5935acae-6832-49d9-94b7-63cd2cde6b15",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 208,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 129,
+      "planId": "641cfb68-9032-4270-a2b6-d00fb397eafe",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 128,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 114,
+      "planId": "cd596dd9-4d03-44d2-92e3-a651f049e50d",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 113,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 130,
+      "planId": "4a2bad23-3c37-4901-bbe0-c83ca35f4d46",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 2,
+      "overheadMs": 128,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 111,
+      "planId": "c9979cf6-6b06-4d07-ad48-1c02355ad977",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 110,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 119,
+      "planId": "69c802d3-3deb-4d4b-87ec-8e06633ac0a6",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 118,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 90,
+      "planId": "3463fabf-7295-407b-ade7-33a9aaf78842",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 89,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Asado",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Asado",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 95,
+      "planId": "8f91d2f8-2121-493f-99ab-996449adbe5d",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 95,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 98,
+      "planId": "d12ffa66-2fba-4501-ad22-c63287cfaf4f",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 97,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 174,
+      "planId": "79465652-68dc-417e-a4ed-6e53ad9fba4f",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 2,
+      "overheadMs": 172,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 117,
+      "planId": "9ea43d2a-e14c-42cd-8b35-e3b54ea5eb10",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 117,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 85,
+      "planId": "fcb9651c-d692-4116-ae18-26d5c79cf1fc",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 85,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 102,
+      "planId": "9beee423-84d0-4c56-af84-daa18ffd9347",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 101,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 121,
+      "planId": "18dba032-5703-4749-a976-a4a9c7822516",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 121,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Asado",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Asado",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 115,
+      "planId": "81e84977-ffc8-447c-8922-f8391b26b1a3",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 114,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 75,
+      "planId": "02f42c4c-526c-477e-9fa8-7a8a821d9c81",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 74,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 86,
+      "planId": "082d46a2-af0c-4b81-80cb-29e350ae71e6",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 86,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 106,
+      "planId": "0bc0b563-544a-4bf0-b328-a5ff93ec52b2",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 106,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 95,
+      "planId": "4e8ad524-8b68-4c91-851a-c7236e53ee48",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 94,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 97,
+      "planId": "b3515835-0a9c-48dd-a8ae-382b2b6c2572",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 97,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 80,
+      "planId": "54177ef8-729f-4205-bc31-77fb143f6f3b",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 80,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Asado",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Asado",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 4,
+      "status": 201,
+      "totalMs": 109,
+      "planId": "2cd3f6a2-db27-4c8b-8621-c862e6049264",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 109,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 4,
+      "status": 201,
+      "totalMs": 129,
+      "planId": "89586350-cd95-4e7e-9cf6-a2982522cf87",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 128,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 4,
+      "status": 201,
+      "totalMs": 123,
+      "planId": "bcf77dc0-6600-4d1c-b6ee-80593c6f1583",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 123,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 4,
+      "status": 201,
+      "totalMs": 86,
+      "planId": "456cb798-9ea0-468f-917f-310db046bc01",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 2,
+      "overheadMs": 84,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 4,
+      "status": 201,
+      "totalMs": 85,
+      "planId": "444be2bd-780f-4591-ab97-77b405c16eb1",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 85,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 4,
+      "status": 201,
+      "totalMs": 106,
+      "planId": "e0918691-b258-4b75-9991-516c4c133440",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 106,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 4,
+      "status": 201,
+      "totalMs": 95,
+      "planId": "5c2d8da1-4a16-4cbf-8e3d-d27c8e377fa8",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 94,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Asado",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Asado",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 5,
+      "status": 201,
+      "totalMs": 94,
+      "planId": "e5edbcd7-b167-47ea-a897-6e050f9aed2d",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 94,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 5,
+      "status": 201,
+      "totalMs": 98,
+      "planId": "586b97d9-c051-4947-9b58-800b35a3e5a4",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 97,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 5,
+      "status": 201,
+      "totalMs": 81,
+      "planId": "56f61558-b5a8-450b-a604-c1f9c22ccdd3",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 0,
+      "overheadMs": 81,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 5,
+      "status": 201,
+      "totalMs": 70,
+      "planId": "48d63ca6-63f1-4091-8bea-4920ab28a957",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 69,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 5,
+      "status": 201,
+      "totalMs": 105,
+      "planId": "0ab6b0fa-42d7-4a3d-81f7-145bfae8a8f1",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 104,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 5,
+      "status": 201,
+      "totalMs": 109,
+      "planId": "01692137-9123-4041-91fd-48e937236c33",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 108,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Arvejas secas",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 5,
+      "status": 201,
+      "totalMs": 110,
+      "planId": "81ea975d-e3c4-4f45-bf13-4dccc62f8777",
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 4,
+      "provider": "fake",
+      "model": "fake-deterministic",
+      "templateVersion": "plan_proposal_v1",
+      "providerMs": 1,
+      "overheadMs": 109,
+      "inputTokens": null,
+      "outputTokens": null,
+      "cost": null,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Agua\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto",
+              "No reconocido: Agua"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Asado",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Café",
+              "Almidón de maíz",
+              "Amaranto"
+            ],
+            [
+              "Café descafeinado",
+              "Amaranto",
+              "Ananá",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Abadejo",
+              "Almidón de maíz",
+              "Acelga"
+            ],
+            [
+              "Asado",
+              "Amaranto",
+              "Ajo",
+              "Aceites (grupo)"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

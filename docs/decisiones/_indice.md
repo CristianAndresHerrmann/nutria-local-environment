@@ -34,6 +34,7 @@ El resumen con numeración DA para los informes de avance está en
 | [IMC calculado al leer, con la talla más reciente a la fecha del peso](imc-calculado-con-la-talla-mas-reciente.md) | T20 |
 | [Composición esperada por tipo de comida](composicion-esperada-por-tipo-de-comida.md) | T27 |
 | [Motor de reglas v1: condiciones directas, ítem no reconocido y composición](motor-de-reglas-v1.md) | T34 |
+| [Reglas por patología v1: matriz con fuente bibliográfica, sin entrevista](reglas-por-patologia-v1.md) | T35 |
 | [Categoría complementaria para alimentos sin aporte a la composición](categoria-complementaria.md) | T28 |
 
 ## Seguridad y acceso

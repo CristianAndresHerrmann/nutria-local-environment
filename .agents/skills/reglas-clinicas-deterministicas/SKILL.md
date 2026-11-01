@@ -23,8 +23,10 @@ tiene ficha ahí no es una regla. Las decisiones que lo fundamentan son DA-29 y 
   a partir de su propio conocimiento clínico, aunque parezcan obvias o pueda citar
   bibliografía. Si falta el origen, se detiene, lo pide y no codifica nada.
 - Las reglas por patología son **datos** en `clinical_rule` (patología → alimento o grupo,
-  severidad, fuente bibliográfica). No son código, ni texto en un prompt. Se cargan en T35,
-  y cada fila necesita su fuente y su origen en el catálogo.
+  severidad, fuente bibliográfica). No son código, ni texto en un prompt. Las carga el seed
+  desde `nutria-backend/scripts/seed-data/clinical-rules.js` (T35, DA-36), y cada fila
+  necesita su fuente y su origen en la matriz de R-05 del catálogo. El origen vive solo en
+  el catálogo, no en la base.
 - La información nutricional general (bibliografía, RAG) no se mezcla con las
   restricciones clínicas obligatorias.
 - Los hallazgos **se recalculan y se reemplazan** en cada guardado (RF-46). No se
@@ -44,8 +46,9 @@ tiene ficha ahí no es una regla. Las decisiones que lo fundamentan son DA-29 y 
   catálogo.
 - Una S o una V pasa a E solo cuando el registro de la entrevista la confirma. Si la
   corrige, se registra la decisión y se cambia la regla.
-- Las reglas de la entrevista entran por T35 (datos en `clinical_rule`), no por este
-  skill. El skill no tiene contenido clínico.
+- Una regla por patología nueva o corregida (por ejemplo, después de la entrevista) se
+  carga como una fila de `clinical-rules.js`, con su fila en la matriz de R-05. No se
+  escribe código por regla. El skill no tiene contenido clínico.
 
 ## Estructura
 
@@ -53,24 +56,30 @@ tiene ficha ahí no es una regla. Las decisiones que lo fundamentan son DA-29 y 
 |---|---|
 | `validatePlan.js` | Entrada del motor. `validatePlan({ plan, conditions, catalog }) → Hallazgo[]` y `validationResult(findings)` (para `ai_generation.validation_result`). |
 | `directCondition.js` | Regla de condición directa (RF-37, RF-43). |
+| `pathologyRule.js` | Regla por patología (RF-43, RF-47): evalúa las filas de `clinical_rule` de las patologías del paciente. |
 | `itemCategories.js` | Categorías que cada tipo de ítem aporta a la composición. |
 | `mealComposition.js` | Configuración de la composición esperada por tipo de comida (T27). Se edita acá, versionada. |
 | `catalogIndex.js` | Indexa el catálogo de entrada y corta si falta un id. |
 
 Fuera de la carpeta:
 
-- `src/utils/recipeConditionFilter.js`: `conditionScopes` y `scopeCoversFood` definen
-  qué está comprendido en una condición. Son el **único** criterio, compartido con el
-  filtro de recetas de RF-28 (DA-23). No dupliques esa lógica.
-- `src/services/planValidation.service.js`: `revalidate(planId, nutritionistId)` arma las
-  entradas y llama a `plan.repository.replaceFindings`, que borra y crea en una
-  transacción. La generación y el editor lo llaman después de cada guardado. No hay
+- `src/utils/recipeConditionFilter.js`: `conditionScopes`, `ruleScopes` y `scopeCoversFood`
+  definen qué está comprendido en una condición o en una regla por patología. Son el
+  **único** criterio, compartido con el filtro de recetas de RF-28 (DA-23) y con el catálogo
+  permitido de la generación (DA-31). No dupliques esa lógica.
+- `src/services/planValidation.service.js`: `loadInputs` arma las entradas (con las reglas
+  vigentes de las patologías del paciente, de `clinicalRule.repository`), y
+  `revalidate(planId, nutritionistId)` llama a `plan.repository.replaceFindings`, que borra
+  y crea en una transacción. La generación y el editor lo llaman después de cada guardado. No hay
   endpoint propio.
 
 ### Entradas
 
 - `plan`: con la forma de `PLAN_INCLUDE` (comidas → opciones → ítems).
 - `conditions`: las del paciente, de `patientConditionRepository.findAllForPatient`.
+- `rules`: las reglas vigentes de sus patologías, de
+  `clinicalRuleRepository.findActiveForPathologies`. El motor descarta las de patologías
+  que el paciente no tiene.
 - `catalog`: `{ foods, groups, recipes }`:
   - `foods`: alimentos comunes y privados del nutricionista, **incluidos los dados de
     baja** (`foodRepository.findAllVisible`).
@@ -83,7 +92,8 @@ entrada da la misma salida, en el mismo orden.
 ### Hallazgo
 
 Un hallazgo tiene las columnas de `Finding`, salvo `id`, `planId` y `detectedAt`:
-`{ type, severity, optionId, optionItemId, patientConditionId, message }`. Debe cumplir
+`{ type, severity, optionId, optionItemId, patientConditionId, message }`, más
+`clinicalRuleId` en el de patología. Debe cumplir
 `finding_origin_chk`:
 
 | Tipo | Ficha | Severidad | Referencias | Dispara cuando |
@@ -91,12 +101,13 @@ Un hallazgo tiene las columnas de `Finding`, salvo `id`, `planId` y `detectedAt`
 | `unrecognized_item` | R-02 | `blocking` | ítem | El ítem es `unrecognized`. |
 | `direct_condition` | R-01 | `blocking` | ítem + condición | El alimento, un ingrediente de la receta o el grupo del ítem está comprendido en una alergia, intolerancia o rechazo (por alimento, o por grupo con sus subgrupos). Genera un hallazgo por cada par de ítem y condición. |
 | `composition` | R-03, R-04 | `warning` | opción (sin ítem) | Falta una categoría esperada para la comida. |
-| `pathology_rule` | R-05 | (T35) | ítem + regla | La define T35, a partir de `clinical_rule`. |
+| `pathology_rule` | R-05 | `blocking` si la regla es `prohibited`; `warning` si es `moderate` | ítem + regla | El alimento, un ingrediente de la receta o el grupo del ítem está comprendido en una regla vigente de una patología del paciente. Genera un hallazgo por cada par de ítem y regla, y el mensaje nombra la patología y la fuente. |
 
 Lo que **no** dispara:
 
 - Las preferencias.
-- Las condiciones de tipo patología. Esas pasan por `clinical_rule`.
+- Las condiciones de tipo patología, como condición directa. Esas pasan por
+  `clinical_rule`.
 - Un ítem de grupo más amplio que la condición. Por ejemplo, "una fruta" con alergia a la
   banana (DA-30).
 

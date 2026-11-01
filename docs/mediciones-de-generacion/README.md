@@ -128,8 +128,11 @@ El P50 (mediana) se calcula igual, en la posición ⌈0,5 × N⌉: con 21 muestr
 ## Casos
 
 Los define `nutria-backend/scripts/seed-data/clinical-cases.js` y el seed los carga en
-`nutricionista@nutria.com`. Todo es ficticio. **El resultado esperado de cada caso queda
-pendiente de la matriz de la entrevista (T35).**
+`nutricionista@nutria.com`. Todo es ficticio. El resultado esperado de cada caso contra
+la matriz de reglas de T35 está en la ficha R-05 de
+[`reglas-clinicas.md`](../reglas-clinicas.md#casos-de-t41) y lo prueba
+`clinical-cases.rules.test.js`. Las corridas de abajo son anteriores a T35: no tienen
+reglas por patología cargadas.
 
 | Código | Caso | Paciente | Condición | Contexto |
 |---|---|---|---|---|

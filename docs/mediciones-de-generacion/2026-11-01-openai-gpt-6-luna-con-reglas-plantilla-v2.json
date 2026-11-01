@@ -1,0 +1,2505 @@
+{
+  "meta": {
+    "startedAt": "2026-11-01T23:17:06.377Z",
+    "finishedAt": "2026-11-01T23:20:18.095Z",
+    "provider": "openai",
+    "model": "gpt-6-luna",
+    "templateVersion": "plan_proposal_v2",
+    "iterations": 3,
+    "cases": [
+      {
+        "code": "C1",
+        "title": "Celiaquía"
+      },
+      {
+        "code": "C2",
+        "title": "Diabetes"
+      },
+      {
+        "code": "C3",
+        "title": "Hipertensión"
+      },
+      {
+        "code": "C4",
+        "title": "Alergia alimentaria"
+      },
+      {
+        "code": "C5",
+        "title": "Intolerancia"
+      },
+      {
+        "code": "C6",
+        "title": "Sin condiciones"
+      },
+      {
+        "code": "C7",
+        "title": "Rechazo de un grupo"
+      }
+    ],
+    "account": "nutricionista@nutria.com",
+    "apiUrl": "http://backend:3000",
+    "prices": {
+      "gpt-6-luna": {
+        "input": 0.1,
+        "output": 0.5,
+        "source": "https://developers.openai.com/api/docs/models/gpt-6-luna"
+      }
+    },
+    "goals": {
+      "totalP95Ms": 15000,
+      "noBlockingRate": 0.95
+    },
+    "note": "Con la matriz de T35 cargada (37 reglas). Razonamiento low, plantilla plan_proposal_v2. Corrida DA-12.",
+    "label": "con-reglas-plantilla-v2"
+  },
+  "summary": {
+    "models": [
+      "gpt-6-luna"
+    ],
+    "overall": {
+      "attempts": 21,
+      "valid": 21,
+      "validRate": 1,
+      "failures": {},
+      "noBlocking": 20,
+      "noBlockingRateOfValid": 0.9523809523809523,
+      "noBlockingRateOfAttempts": 0.9523809523809523,
+      "totalMs": {
+        "n": 21,
+        "mean": 9125,
+        "p50": 9024,
+        "p95": 11107,
+        "max": 12246
+      },
+      "providerMs": {
+        "n": 21,
+        "mean": 9037,
+        "p50": 8913,
+        "p95": 10948,
+        "max": 12168
+      },
+      "overheadMs": {
+        "n": 21,
+        "mean": 88,
+        "p50": 81,
+        "p95": 118,
+        "max": 159
+      },
+      "inputTokens": {
+        "n": 21,
+        "mean": 12936,
+        "p50": 13081,
+        "p95": 13515,
+        "max": 13515
+      },
+      "outputTokens": {
+        "n": 21,
+        "mean": 739,
+        "p50": 703,
+        "p95": 1004,
+        "max": 1112
+      },
+      "reasoningTokens": {
+        "n": 21,
+        "mean": 59,
+        "p50": 0,
+        "p95": 200,
+        "max": 242
+      },
+      "options": {
+        "n": 21,
+        "mean": 12,
+        "p50": 12,
+        "p95": 12,
+        "max": 12
+      },
+      "textChars": {
+        "n": 21,
+        "mean": 938,
+        "p50": 932,
+        "p95": 1060,
+        "max": 1077
+      },
+      "cost": {
+        "total": 0.0349302,
+        "perAttempt": 0.0016633428571428573
+      },
+      "goals": {
+        "p95UnderTimeGoal": true,
+        "noBlockingAtLeastGoal": true
+      }
+    },
+    "byCase": {
+      "C1": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 9720,
+          "p50": 8584,
+          "p95": 12246,
+          "max": 12246
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 9641,
+          "p50": 8510,
+          "p95": 12168,
+          "max": 12168
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 80,
+          "p50": 78,
+          "p95": 87,
+          "max": 87
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 11682,
+          "p50": 11682,
+          "p95": 11682,
+          "max": 11682
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 822,
+          "p50": 722,
+          "p95": 1112,
+          "max": 1112
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 0,
+          "p50": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "options": {
+          "n": 3,
+          "mean": 12,
+          "p50": 12,
+          "p95": 12,
+          "max": 12
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 967,
+          "p50": 935,
+          "p95": 1077,
+          "max": 1077
+        },
+        "cost": {
+          "total": 0.0047381,
+          "perAttempt": 0.0015793666666666668
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": true
+        }
+      },
+      "C2": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 9702,
+          "p50": 10133,
+          "p95": 10795,
+          "max": 10795
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 9632,
+          "p50": 10075,
+          "p95": 10736,
+          "max": 10736
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 70,
+          "p50": 59,
+          "p95": 92,
+          "max": 92
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 13515,
+          "p50": 13515,
+          "p95": 13515,
+          "max": 13515
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 780,
+          "p50": 704,
+          "p95": 956,
+          "max": 956
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 115,
+          "p50": 126,
+          "p95": 130,
+          "max": 130
+        },
+        "options": {
+          "n": 3,
+          "mean": 12,
+          "p50": 12,
+          "p95": 12,
+          "max": 12
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 896,
+          "p50": 907,
+          "p95": 914,
+          "max": 914
+        },
+        "cost": {
+          "total": 0.0052245,
+          "perAttempt": 0.0017415
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": true
+        }
+      },
+      "C3": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 8926,
+          "p50": 8177,
+          "p95": 11107,
+          "max": 11107
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 8831,
+          "p50": 8112,
+          "p95": 10948,
+          "max": 10948
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 95,
+          "p50": 65,
+          "p95": 159,
+          "max": 159
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 12684,
+          "p50": 12684,
+          "p95": 12684,
+          "max": 12684
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 762,
+          "p50": 659,
+          "p95": 1004,
+          "max": 1004
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 0,
+          "p50": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "options": {
+          "n": 3,
+          "mean": 12,
+          "p50": 12,
+          "p95": 12,
+          "max": 12
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 912,
+          "p50": 932,
+          "p95": 953,
+          "max": 953
+        },
+        "cost": {
+          "total": 0.004948200000000001,
+          "perAttempt": 0.0016494000000000003
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": true
+        }
+      },
+      "C4": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 8906,
+          "p50": 9024,
+          "p95": 9969,
+          "max": 9969
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 8818,
+          "p50": 8913,
+          "p95": 9886,
+          "max": 9886
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 88,
+          "p50": 83,
+          "p95": 111,
+          "max": 111
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 13081,
+          "p50": 13081,
+          "p95": 13081,
+          "max": 13081
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 717,
+          "p50": 629,
+          "p95": 904,
+          "max": 904
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 0,
+          "p50": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "options": {
+          "n": 3,
+          "mean": 12,
+          "p50": 12,
+          "p95": 12,
+          "max": 12
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 1035,
+          "p50": 1034,
+          "p95": 1060,
+          "max": 1060
+        },
+        "cost": {
+          "total": 0.0049993,
+          "perAttempt": 0.0016664333333333333
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": true
+        }
+      },
+      "C5": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 10416,
+          "p50": 10630,
+          "p95": 10933,
+          "max": 10933
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 10322,
+          "p50": 10524,
+          "p95": 10838,
+          "max": 10838
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 94,
+          "p50": 95,
+          "p95": 106,
+          "max": 106
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 13321,
+          "p50": 13321,
+          "p95": 13321,
+          "max": 13321
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 813,
+          "p50": 825,
+          "p95": 829,
+          "max": 829
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 197,
+          "p50": 175,
+          "p95": 242,
+          "max": 242
+        },
+        "options": {
+          "n": 3,
+          "mean": 12,
+          "p50": 12,
+          "p95": 12,
+          "max": 12
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 911,
+          "p50": 919,
+          "p95": 958,
+          "max": 958
+        },
+        "cost": {
+          "total": 0.005215300000000001,
+          "perAttempt": 0.0017384333333333335
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": true
+        }
+      },
+      "C6": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 8828,
+          "p50": 9056,
+          "p95": 10479,
+          "max": 10479
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 8729,
+          "p50": 8940,
+          "p95": 10374,
+          "max": 10374
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 99,
+          "p50": 105,
+          "p95": 116,
+          "max": 116
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 13483,
+          "p50": 13483,
+          "p95": 13483,
+          "max": 13483
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 681,
+          "p50": 703,
+          "p95": 774,
+          "max": 774
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 105,
+          "p50": 115,
+          "p95": 200,
+          "max": 200
+        },
+        "options": {
+          "n": 3,
+          "mean": 11,
+          "p50": 12,
+          "p95": 12,
+          "max": 12
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 911,
+          "p50": 879,
+          "p95": 1022,
+          "max": 1022
+        },
+        "cost": {
+          "total": 0.005066900000000001,
+          "perAttempt": 0.001688966666666667
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": true
+        }
+      },
+      "C7": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 2,
+        "noBlockingRateOfValid": 0.6666666666666666,
+        "noBlockingRateOfAttempts": 0.6666666666666666,
+        "totalMs": {
+          "n": 3,
+          "mean": 7373,
+          "p50": 7611,
+          "p95": 7879,
+          "max": 7879
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 7285,
+          "p50": 7530,
+          "p95": 7813,
+          "max": 7813
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 88,
+          "p50": 81,
+          "p95": 118,
+          "max": 118
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 12788,
+          "p50": 12788,
+          "p95": 12788,
+          "max": 12788
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 601,
+          "p50": 588,
+          "p95": 657,
+          "max": 657
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 0,
+          "p50": 0,
+          "p95": 0,
+          "max": 0
+        },
+        "options": {
+          "n": 3,
+          "mean": 12,
+          "p50": 12,
+          "p95": 12,
+          "max": 12
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 932,
+          "p50": 950,
+          "p95": 990,
+          "max": 990
+        },
+        "cost": {
+          "total": 0.004737900000000001,
+          "perAttempt": 0.0015793000000000003
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": false
+        }
+      }
+    }
+  },
+  "generations": [
+    {
+      "caseCode": "C1",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 8331,
+      "planId": "7cb962c6-df94-4eb7-a683-e469db90c6e4",
+      "options": 12,
+      "textChars": 890,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 1,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 8244,
+      "overheadMs": 87,
+      "inputTokens": 11682,
+      "outputTokens": 633,
+      "reasoningTokens": 0,
+      "cost": 0.0014847,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la merienda: falta proteína y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Tostadas de arroz con palta y huevo duro"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Pan sin TACC",
+              "Queso untable",
+              "Frutas frescas (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Ensalada de arroz y atún"
+            ],
+            [
+              "Receta: Tortilla de papa con tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Receta: Tostadas de arroz con palta y huevo duro"
+            ],
+            [
+              "Frutas frescas (grupo)",
+              "Frutos secos (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 10133,
+      "planId": "de95cc66-276d-4833-a34e-d0949ce6894b",
+      "options": 12,
+      "textChars": 914,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 10075,
+      "overheadMs": 58,
+      "inputTokens": 13515,
+      "outputTokens": 704,
+      "reasoningTokens": 130,
+      "cost": 0.0017035,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Panqueques de avena y banana"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Guiso de lentejas con verduras"
+            ],
+            [
+              "Receta: Tarta de acelga y huevo"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 7495,
+      "planId": "e6dbf17a-83d5-4be3-ac17-dd369c757892",
+      "options": 12,
+      "textChars": 852,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 2,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 7434,
+      "overheadMs": 61,
+      "inputTokens": 12684,
+      "outputTokens": 623,
+      "reasoningTokens": 0,
+      "cost": 0.0015799000000000002,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 del almuerzo: falta verdura y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la cena: falta verdura"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ],
+            [
+              "Aves (grupo)",
+              "Verduras (grupo)",
+              "Arroz y granos (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ],
+            [
+              "Pescados (grupo)",
+              "Verduras (grupo)",
+              "Tubérculos y choclo (grupo)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 9969,
+      "planId": "24d25b01-b7c5-4c04-aae0-f29135a1a4f9",
+      "options": 12,
+      "textChars": 1060,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 9886,
+      "overheadMs": 83,
+      "inputTokens": 13081,
+      "outputTokens": 904,
+      "reasoningTokens": 0,
+      "cost": 0.0017601000000000001,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 9686,
+      "planId": "42820dfe-a9e7-4d7d-8b0a-260ab7d22a4b",
+      "options": 12,
+      "textChars": 958,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 3,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 9605,
+      "overheadMs": 81,
+      "inputTokens": 13321,
+      "outputTokens": 825,
+      "reasoningTokens": 173,
+      "cost": 0.0017446000000000002,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Pan integral",
+              "Palta",
+              "Mate"
+            ],
+            [
+              "Avena arrollada",
+              "Banana",
+              "Bebida de soja"
+            ],
+            [
+              "Receta: Panqueques de avena y banana"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Frutas (grupo)",
+              "Almendras",
+              "Té"
+            ],
+            [
+              "Tostadas de arroz",
+              "Palta",
+              "Mate"
+            ],
+            [
+              "Receta: Panqueques de avena y banana"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Ensalada de arroz y atún"
+            ],
+            [
+              "Receta: Tarta de acelga y huevo"
+            ],
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 9056,
+      "planId": "64f61f9b-a4a5-4d8d-a11c-b847baddd025",
+      "options": 12,
+      "textChars": 879,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 8940,
+      "overheadMs": 116,
+      "inputTokens": 13483,
+      "outputTokens": 703,
+      "reasoningTokens": 115,
+      "cost": 0.0016998000000000002,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Ensalada de arroz y atún"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Tarta de acelga y huevo"
+            ],
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 6630,
+      "planId": "06911de1-3298-480b-a128-3b4de1782a54",
+      "options": 12,
+      "textChars": 857,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 6512,
+      "overheadMs": 118,
+      "inputTokens": 12788,
+      "outputTokens": 558,
+      "reasoningTokens": 0,
+      "cost": 0.0015578000000000002,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Tarta de acelga y huevo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Tortilla de papa con tomate"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 8584,
+      "planId": "790c955c-ac43-42f8-9aad-37d3f0e8a79e",
+      "options": 12,
+      "textChars": 1077,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 1,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 8510,
+      "overheadMs": 74,
+      "inputTokens": 11682,
+      "outputTokens": 722,
+      "reasoningTokens": 0,
+      "cost": 0.0015292,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Yogur natural",
+              "Banana",
+              "Semillas de chía"
+            ],
+            [
+              "Receta: Tostadas de arroz con palta y huevo duro"
+            ],
+            [
+              "Pan sin TACC",
+              "Queso untable",
+              "Frutas frescas (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Ensalada de arroz y atún"
+            ],
+            [
+              "Pechuga de pollo",
+              "Arroz integral",
+              "Brócoli",
+              "Tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Frutas frescas (grupo)",
+              "Almendras"
+            ],
+            [
+              "Galletitas sin TACC",
+              "Queso untable"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Tortilla de papa con tomate"
+            ],
+            [
+              "Merluza",
+              "Zapallo",
+              "Papa"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 8178,
+      "planId": "a6245b37-9520-4e89-8cf2-98ef3086457e",
+      "options": 12,
+      "textChars": 866,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 8086,
+      "overheadMs": 92,
+      "inputTokens": 13515,
+      "outputTokens": 680,
+      "reasoningTokens": 126,
+      "cost": 0.0016915,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Panqueques de avena y banana"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Tarta de acelga y huevo"
+            ],
+            [
+              "Receta: Ensalada de arroz y atún"
+            ],
+            [
+              "Receta: Pollo al horno con papas y zanahorias"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 11107,
+      "planId": "0a5cfa5b-b197-4531-a042-2f2adc514c66",
+      "options": 12,
+      "textChars": 932,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 2,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 10948,
+      "overheadMs": 159,
+      "inputTokens": 12684,
+      "outputTokens": 1004,
+      "reasoningTokens": 0,
+      "cost": 0.0017704,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 del almuerzo: falta verdura y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la cena: falta verdura y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ],
+            [
+              "Verduras (grupo)",
+              "Carnes, pescados y huevos (grupo)",
+              "Arroz y granos (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ],
+            [
+              "Verduras (grupo)",
+              "Carnes, pescados y huevos (grupo)",
+              "Arroz y granos (grupo)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 9024,
+      "planId": "f9614e91-47ed-4a99-ab72-1b4cccd39ba2",
+      "options": 12,
+      "textChars": 1034,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 8913,
+      "overheadMs": 111,
+      "inputTokens": 13081,
+      "outputTokens": 617,
+      "reasoningTokens": 0,
+      "cost": 0.0016166000000000002,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 10933,
+      "planId": "dd09260c-84e7-4d53-aab8-90ed6f317010",
+      "options": 12,
+      "textChars": 857,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 2,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 10838,
+      "overheadMs": 95,
+      "inputTokens": 13321,
+      "outputTokens": 829,
+      "reasoningTokens": 242,
+      "cost": 0.0017466,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la merienda: falta proteína y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Panqueques de avena y banana"
+            ],
+            [
+              "Receta: Tostadas de arroz con palta y huevo duro"
+            ],
+            [
+              "Frutas (grupo)",
+              "Pan integral",
+              "Mate"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Panqueques de avena y banana"
+            ],
+            [
+              "Receta: Tostadas de arroz con palta y huevo duro"
+            ],
+            [
+              "Frutas (grupo)",
+              "Frutos secos (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ],
+            [
+              "Receta: Tortilla de papa con tomate"
+            ],
+            [
+              "Receta: Ensalada de arroz y atún"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 6950,
+      "planId": "60ac94c6-2c2c-4214-bfec-a8dd8ffda854",
+      "options": 12,
+      "textChars": 832,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 6873,
+      "overheadMs": 77,
+      "inputTokens": 13483,
+      "outputTokens": 567,
+      "reasoningTokens": 0,
+      "cost": 0.0016318,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Tarta de acelga y huevo"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 7879,
+      "planId": "cda355cb-5102-4b5f-8011-406cc6e0a18c",
+      "options": 12,
+      "textChars": 950,
+      "validationResult": "blocking",
+      "blocking": 1,
+      "warnings": 3,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 7813,
+      "overheadMs": 66,
+      "inputTokens": 12788,
+      "outputTokens": 657,
+      "reasoningTokens": 0,
+      "cost": 0.0016073,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del almuerzo: falta verdura"
+        },
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Elegí una opción del comedor escolar y acompañala con verduras y fruta, según la oferta disponible.\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 del almuerzo: falta verdura, proteína y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la merienda: falta hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ],
+            [
+              "Pan integral",
+              "Jamón cocido",
+              "Frutas frescas (grupo)"
+            ],
+            [
+              "No reconocido: Elegí una opción del comedor escolar y acompañala con verduras y fruta, según la oferta disponible."
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Panqueques de avena y banana"
+            ],
+            [
+              "Frutas frescas (grupo)",
+              "Yogur descremado"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Tarta de acelga y huevo"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 12246,
+      "planId": "7db808b3-9bbb-4260-a517-352d4b356bd3",
+      "options": 12,
+      "textChars": 935,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 3,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 12168,
+      "overheadMs": 78,
+      "inputTokens": 11682,
+      "outputTokens": 1112,
+      "reasoningTokens": 0,
+      "cost": 0.0017242,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Tostadas de arroz con palta y huevo duro"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Pan sin TACC",
+              "Queso untable",
+              "Frutas frescas (grupo)",
+              "Café"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Ensalada de arroz y atún"
+            ],
+            [
+              "Garbanzos",
+              "Tostadas de arroz",
+              "Tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Yogur natural",
+              "Frutas frescas (grupo)"
+            ],
+            [
+              "Frutas frescas (grupo)",
+              "Almendras"
+            ],
+            [
+              "Tostadas de arroz",
+              "Palta"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Guiso de lentejas con verduras"
+            ],
+            [
+              "Receta: Tortilla de papa con tomate"
+            ],
+            [
+              "Merluza",
+              "Papa",
+              "Zapallo"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 10795,
+      "planId": "b9e7d604-7b99-4898-ae3a-064c22090302",
+      "options": 12,
+      "textChars": 907,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 10736,
+      "overheadMs": 59,
+      "inputTokens": 13515,
+      "outputTokens": 956,
+      "reasoningTokens": 88,
+      "cost": 0.0018295,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Tarta de acelga y huevo"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 8177,
+      "planId": "61e7bc24-21d0-4071-bedd-64e1a09ff789",
+      "options": 12,
+      "textChars": 953,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 3,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 8112,
+      "overheadMs": 65,
+      "inputTokens": 12684,
+      "outputTokens": 659,
+      "reasoningTokens": 0,
+      "cost": 0.0015979000000000002,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 del almuerzo: falta verdura y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la merienda: falta hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la cena: falta verdura y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ],
+            [
+              "Carnes, pescados y huevos (grupo)",
+              "Verduras (grupo)",
+              "Arroz y granos (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Frutas (grupo)",
+              "Yogur descremado"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ],
+            [
+              "Carnes, pescados y huevos (grupo)",
+              "Verduras (grupo)",
+              "Arroz y granos (grupo)"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 7726,
+      "planId": "74b429a0-4099-4dd3-8821-4d58fa78b5ad",
+      "options": 12,
+      "textChars": 1012,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 1,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 7655,
+      "overheadMs": 71,
+      "inputTokens": 13081,
+      "outputTokens": 629,
+      "reasoningTokens": 0,
+      "cost": 0.0016226,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la merienda: falta proteína y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Frutas frescas (grupo)",
+              "Frutos secos (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Guiso de lentejas con verduras"
+            ],
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 10630,
+      "planId": "96b0b85c-bc1d-4a41-a047-2247f19b35e2",
+      "options": 12,
+      "textChars": 919,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 1,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 10524,
+      "overheadMs": 106,
+      "inputTokens": 13321,
+      "outputTokens": 784,
+      "reasoningTokens": 175,
+      "cost": 0.0017241000000000001,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la merienda: falta proteína y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Avena arrollada",
+              "Banana",
+              "Bebida de soja"
+            ],
+            [
+              "Tostadas de arroz",
+              "Palta",
+              "Huevo"
+            ],
+            [
+              "Receta: Panqueques de avena y banana"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Frutas (grupo)",
+              "Almendras"
+            ],
+            [
+              "Receta: Tostadas de arroz con palta y huevo duro"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ],
+            [
+              "Receta: Tarta de acelga y huevo"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 10479,
+      "planId": "4ae3033c-e805-42ce-ad53-568bca3f0330",
+      "options": 10,
+      "textChars": 1022,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 10374,
+      "overheadMs": 105,
+      "inputTokens": 13483,
+      "outputTokens": 774,
+      "reasoningTokens": 200,
+      "cost": 0.0017353000000000002,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Ensalada de arroz y atún"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 7611,
+      "planId": "7e2331be-6577-4ae3-943e-2ca0f55ae658",
+      "options": 12,
+      "textChars": 990,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v2",
+      "providerMs": 7530,
+      "overheadMs": 81,
+      "inputTokens": 12788,
+      "outputTokens": 588,
+      "reasoningTokens": 0,
+      "cost": 0.0015728000000000003,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ],
+            [
+              "Receta: Panqueques de avena y banana"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Tortilla de papa con tomate"
+            ],
+            [
+              "Receta: Ensalada de arroz y atún"
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

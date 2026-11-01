@@ -131,8 +131,8 @@ Los define `nutria-backend/scripts/seed-data/clinical-cases.js` y el seed los ca
 `nutricionista@nutria.com`. Todo es ficticio. El resultado esperado de cada caso contra
 la matriz de reglas de T35 está en la ficha R-05 de
 [`reglas-clinicas.md`](../reglas-clinicas.md#casos-de-t41) y lo prueba
-`clinical-cases.rules.test.js`. Las corridas de abajo son anteriores a T35: no tienen
-reglas por patología cargadas.
+`clinical-cases.rules.test.js`. Las corridas de abajo son anteriores a T35 y no tienen
+reglas por patología cargadas, salvo las del [benchmark DA-12](#01112026--benchmark-da-12-con-la-matriz-de-t35).
 
 | Código | Caso | Paciente | Condición | Contexto |
 |---|---|---|---|---|
@@ -771,6 +771,228 @@ staging no se tocó.
   profesional. Conviene mostrarla en la entrevista (T35) junto a una propuesta de la v1.
 - **La medición definitiva** (Incremento 4) necesita más muestras por configuración, por
   ejemplo N=10 por caso (70 generaciones), y comparar en la misma franja horaria.
+
+## 01/11/2026 — benchmark DA-12, con la matriz de T35
+
+El benchmark propio de DA-12. Repite las corridas anteriores con la matriz de reglas de T35
+cargada, así que el porcentaje sin bloqueantes ya incluye las patologías. Además suma lo
+que faltaba para los criterios de selección del IA2: la consistencia entre ejecuciones y la
+calidad en español. Las cinco configuraciones se corrieron una detrás de otra en la misma
+franja, con el script oficial. La decisión está en la
+[ficha de DA-12](../decisiones/proveedor-de-ia.md).
+
+### Resumen para el informe
+
+- **Ninguna propuesta se bloqueó por una regla de patología.** Las reglas `prohibited`
+  sacan los alimentos del catálogo enviado (DA-31): en celiaquía (C1), la entrada bajó
+  unos 1 800 tokens. Además, ningún modelo eligió un alimento `moderate`. Todos los
+  bloqueos son ítems de texto libre (DA-26), casi siempre comidas fuera de casa que el
+  catálogo no tiene: rotisería y comedor escolar.
+- **Proporción sin bloqueantes (meta 95 %):**
+  - Gemini 3.8 Flash con la v1: 100 %.
+  - GPT-6 Luna con la v1 y la v2: 95,2 %.
+  - Gemini con la v2 y GPT-6 Luna con `none`: 85,7 %.
+- **Tiempo (P95, meta 15 s):**
+  - Cumplen solo GPT-6 Luna con la v2 (11,1 s) y con `none` (11,8 s).
+  - Gemini no cumple con ninguna de las dos plantillas en esta franja: 17,0 s y 15,6 s,
+    con una generación de 22,9 s.
+- **Validez:** 104 de 105 salidas cumplieron el contrato. La que no, fue un
+  `provider_error` de Gemini.
+- **Consistencia:** variación de tiempo parecida en los dos proveedores. Entre corridas del
+  mismo caso, los dos usan en buena parte los mismos alimentos. GPT-6 Luna repite cerca de
+  la mitad de las opciones enteras, y Gemini casi siempre las arma distinto.
+- **Español:** los dos escriben en castellano rioplatense, sin inglés.
+  - Gemini es más natural y concreto, pero con la v1 escribe el diagnóstico en tercera
+    persona.
+  - GPT-6 Luna es más formulaico, a veces habla del contexto que recibió ("En el contexto
+    figura…") y tiene errores de tilde menores.
+- **Costo por generación:** US$ 0,0017 a 0,0019 con GPT-6 Luna y US$ 0,016 a 0,018 con
+  Gemini. La corrida completa costó US$ 0,83.
+
+### Condiciones
+
+| | |
+|---|---|
+| Recorrido | Script → backend → `nutria-ia` → proveedor, en el stack local, como las corridas anteriores |
+| Reglas clínicas cargadas | **La matriz de T35**: 37 reglas vigentes, 28 `prohibited` y 9 `moderate` (DA-36) |
+| Configuraciones | GPT-6 Luna y Gemini 3.8 Flash con razonamiento `low` y las plantillas v1 y v2; GPT-6 Luna con `none` y la v1 |
+| Corridas | N=3 por caso (21 generaciones por configuración, 105 en total), de 20:07 a 20:28, alternando proveedor |
+| RAG | No |
+
+### Resumen por configuración
+
+| | GPT-6 Luna `low` v1 | Gemini `low` v1 | GPT-6 Luna `low` v2 | Gemini `low` v2 | GPT-6 Luna `none` v1 |
+|---|---|---|---|---|---|
+| Archivo | [JSON](2026-11-01-openai-gpt-6-luna-con-reglas-plantilla-v1.json) | [JSON](2026-11-01-gemini-gemini-3.8-flash-con-reglas-plantilla-v1.json) | [JSON](2026-11-01-openai-gpt-6-luna-con-reglas-plantilla-v2.json) | [JSON](2026-11-01-gemini-gemini-3.8-flash-con-reglas-plantilla-v2.json) | [JSON](2026-11-01-openai-gpt-6-luna-con-reglas-razonamiento-none.json) |
+| Válidas | 21/21 | 21/21 | 21/21 | 20/21 | 21/21 |
+| **Sin bloqueantes** (meta ≥ 95 %) | **95,2 % ✓** (20/21) | **100 % ✓** | **95,2 % ✓** (20/21) | **85,7 % ✗** (18/21) | **85,7 % ✗** (18/21) |
+| Sin ningún hallazgo | 3 | 12 | 10 | 13 | 5 |
+| Advertencias de composición | 55 | 16 | 22 | 12 | 45 |
+| Hallazgos por regla de patología | 0 | 0 | 0 | 0 | 0 |
+| Media | 14 611 ms | 12 064 ms | 9 125 ms | 11 118 ms | 10 314 ms |
+| P50 | 14 349 ms | 11 885 ms | 9 024 ms | 10 682 ms | 10 410 ms |
+| **P95** (meta ≤ 15 s) | **18 012 ms ✗** | **17 008 ms ✗** | **11 107 ms ✓** | **15 619 ms ✗** | **11 807 ms ✓** |
+| Máximo | 18 244 ms | 17 142 ms | 12 246 ms | 22 945 ms | 14 381 ms |
+| Por encima de 15 s | 9 de 21 | 3 de 21 | 0 de 21 | 2 de 20 | 0 de 21 |
+| Overhead medio | 116 ms | 92 ms | 88 ms | 87 ms | 99 ms |
+| Tokens de entrada / salida (media) | 12 897 / 1 186 | 15 572 / 1 683 | 12 936 / 739 | 15 626 / 1 388 | 12 897 / 1 126 |
+| De razonamiento (media) | 189 | No informa | 59 | No informa | 0 |
+| Opciones por plan (media) | 14,2 | 12,4 | 11,9 | 11,9 | 15,7 |
+| Caracteres de los seis textos (media) | 1 386 | 1 812 | 938 | 1 157 | 1 634 |
+| **Costo por generación** | US$ 0,0019 | US$ 0,0180 | US$ 0,0017 | US$ 0,0161 | US$ 0,0019 |
+
+En Gemini v2, el P95 es sobre 20 válidas (la 19.ª). La falla cuenta como intento sin
+propuesta utilizable en "Sin bloqueantes".
+
+Tiempos totales ordenados (ms). La mediana es el 11.º valor y el P95 el 20.º:
+
+| | 1.º–10.º | **11.º (P50)** | 12.º–19.º | **20.º (P95)** | 21.º |
+|---|---|---|---|---|---|
+| GPT-6 Luna `low` v1 | 10 980 · 12 110 · 12 390 · 12 859 · 13 016 · 13 459 · 13 500 · 13 647 · 13 827 · 14 144 | **14 349** | 14 935 · 15 344 · 15 357 · 15 514 · 15 796 · 16 066 · 16 343 · 16 942 | **18 012** | 18 244 |
+| Gemini `low` v1 | 8 811 · 9 075 · 9 137 · 9 687 · 9 961 · 10 099 · 10 210 · 10 218 · 10 491 · 11 551 | **11 885** | 12 364 · 12 369 · 12 445 · 13 075 · 13 428 · 13 573 · 14 238 · 16 570 | **17 008** | 17 142 |
+| GPT-6 Luna `low` v2 | 6 630 · 6 950 · 7 495 · 7 611 · 7 726 · 7 879 · 8 177 · 8 178 · 8 331 · 8 584 | **9 024** | 9 056 · 9 686 · 9 969 · 10 133 · 10 479 · 10 630 · 10 795 · 10 933 | **11 107** | 12 246 |
+| GPT-6 Luna `none` v1 | 7 959 · 8 234 · 8 240 · 8 638 · 8 926 · 8 966 · 9 539 · 9 634 · 9 785 · 10 021 | **10 410** | 10 537 · 10 609 · 10 960 · 11 172 · 11 591 · 11 703 · 11 727 · 11 759 | **11 807** | 14 381 |
+
+Gemini v2, 20 válidas: 8 119 · 8 231 · 8 484 · 8 631 · 8 728 · 9 053 · 9 225 · 9 306 ·
+10 244 · **10 682 (P50)** · 10 932 · 11 014 · 11 113 · 11 200 · 11 345 · 11 752 · 12 103 ·
+13 629 · **15 619 (P95)** · 22 945.
+
+### Bloqueos y fallas
+
+| Configuración | Caso | Qué bloqueó |
+|---|---|---|
+| GPT-6 Luna `low` v1 | C3 | "Comida recién preparada de rotisería con verduras, un alimento con proteína y un acompañamiento." (dos veces) |
+| GPT-6 Luna `low` v2 | C7 | "Elegí una opción del comedor escolar y acompañala con verduras y fruta, según la oferta disponible." |
+| Gemini `low` v2 | C7 (dos intentos) | "Plato principal del comedor con verduras"; "Menú escolar con carne magra o pollo, arroz o fideos y ensalada" |
+| Gemini `low` v2 | C3 | **Falla:** `provider_error` a los 24 s, sin tokens. El detalle del SDK estaba en el log de `nutria-ia` y se perdió al recrear el contenedor para la corrida siguiente. |
+| GPT-6 Luna `none` v1 | C7 | "Elegir una comida disponible en el comedor escolar." |
+| GPT-6 Luna `none` v1 | C5 (dos intentos) | "Panqueques caseros de avena y banana preparados sin leche", "Tarta casera de acelga y huevo preparada sin leche" |
+
+- **Comidas fuera de casa sin control del paciente** (C3, C7). Es el hueco del catálogo que
+  ya señalaron las corridas anteriores: no hay "comida comprada hecha" ni "menú del
+  comedor". Le pasa a los dos proveedores. Lo resuelve un ítem de catálogo, no el proveedor.
+- **Con `none`, GPT-6 Luna adapta recetas excluidas.** A la paciente intolerante a la
+  leche le propuso, como texto libre, recetas del catálogo que llevan leche, "preparadas
+  sin leche". El catálogo enviado ya no las tenía (DA-31). Es contenido que el motor no
+  puede validar, y no pasó con `low`. Se suma a la avena común de la corrida anterior con
+  `none`.
+- **Las reglas de patología funcionan por el catálogo, no por el motor.** C1 no tuvo ni
+  una receta con trigo, avena, cebada o centeno, ni la avena común que propuso `none` antes
+  de T35. Ningún modelo eligió avena sin TACC, azúcar, sal fina ni fiambres, que siguen
+  disponibles como `moderate`. Por eso no hubo ninguna advertencia de patología.
+
+### Consistencia entre ejecuciones (riesgo 19)
+
+Para cada caso se comparan sus 3 generaciones y se promedia sobre los 7 casos:
+
+- **CV:** el coeficiente de variación (desvío estándar sobre media) del tiempo y de los
+  tokens de salida.
+- **Ítems comunes:** el índice de Jaccard entre los conjuntos de ítems de cada par de
+  generaciones del caso, de 0 (nada en común) a 1 (los mismos ítems).
+- **Opciones comunes:** el mismo índice sobre las opciones completas (comida y conjunto de
+  ítems).
+- **Mismo resultado:** casos cuyas 3 generaciones terminaron con el mismo
+  `validation_result`.
+
+El cálculo se hizo sobre los JSON de esta carpeta con un script de una sola vez, que no se
+versionó.
+
+| | GPT-6 Luna `low` v1 | Gemini `low` v1 | GPT-6 Luna `low` v2 | Gemini `low` v2 | GPT-6 Luna `none` v1 |
+|---|---|---|---|---|---|
+| CV del tiempo | 6 % | 6 % | 12 % | 9 % | 10 % |
+| CV de los tokens de salida | 5 % | 7 % | 15 % | 5 % | 8 % |
+| Opciones por plan (mín.–máx.) | 10–20 | 11–14 | 10–12 | 11–12 | 12–20 |
+| Ítems comunes (Jaccard) | 0,54 | 0,62 | 0,62 | 0,64 | 0,60 |
+| Opciones comunes (Jaccard) | 0,47 | 0,15 | 0,54 | 0,16 | 0,49 |
+| Casos con el mismo resultado | 4 de 7 | 4 de 7 | 5 de 7 | 4 de 7 | 2 de 7 |
+
+- **Ninguno es inestable en lo que importa para el sistema.** La salida siempre cumple el
+  esquema. Cuando el resultado de un caso cambia entre corridas, el cambio es entre
+  "advertencias" y "sin hallazgos" (composición), o por un ítem de texto libre ocasional.
+- **Dos estilos distintos.**
+  - GPT-6 Luna repite cerca de la mitad de las opciones exactas de una corrida a otra.
+  - Gemini usa los mismos alimentos (0,62 a 0,64), pero casi nunca arma la misma opción
+    (0,15).
+
+  Para el profesional, regenerar con Gemini da más variedad, y con GPT-6 Luna, una
+  propuesta más predecible.
+- **La cantidad de opciones es estable con la v2 en los dos** (10 a 12). Con la v1,
+  GPT-6 Luna varía de 10 a 20 opciones por plan.
+- **Antes de T35 el patrón era el mismo:** en los controles de la v1 de las 15:31, las
+  opciones comunes daban 0,37 en GPT-6 Luna y 0,15 en Gemini.
+
+### Calidad en español
+
+La plantilla pide "castellano rioplatense, en un tono claro y dirigido al paciente". Se
+evaluó de dos maneras:
+
+- **Lectura manual** de los seis textos de la primera generación de cada caso con la v1
+  en los dos proveedores (14 propuestas), y de C1 y C5 con la v2.
+- **Barrido automático** de las 104 propuestas: inglés, errores de tilde, persona del
+  diagnóstico y referencias al contexto enviado.
+
+El JSON de la medición no guarda los textos, así que se leyeron desde los borradores en la
+base local. Quedaron exportados en
+[`2026-11-01-textos-benchmark-da-12.json`](2026-11-01-textos-benchmark-da-12.json): los seis
+textos de las 104 propuestas, sin ediciones, con su corrida, caso e intento.
+
+| | GPT-6 Luna v1 | Gemini v1 | GPT-6 Luna v2 | Gemini v2 | GPT-6 Luna `none` |
+|---|---|---|---|---|---|
+| Palabras en inglés | 0 | 0 | 0 | 0 | 0 |
+| Voseo | Sí, en todos los textos | Sí, salvo el diagnóstico | Sí | Sí | Sí |
+| Diagnóstico en segunda persona | 21 de 21 | 1 de 21 (18 en tercera: "Paciente con…") | 20 de 21 | 15 de 20 | 21 de 21 |
+| Errores de tilde ("guiáte", "Tratà") | 3 | 1 | 3 | 0 | 7 |
+| Referencias al contexto enviado ("En el contexto figura…", "se omiten por sus ingredientes") | 3 | 0 | 1 | 0 | 0 |
+| "La persona nutricionista" en lugar de "tu nutricionista" | 7 | 0 | 2 | 0 | 9 |
+
+- **Gemini escribe mejor.** Sus textos son más concretos y naturales: lunchera con geles
+  refrigerantes, cocinar en tandas, armar la bandeja del comedor con la opción proteica del
+  día.
+  - Con la v1, el diagnóstico sale en tercera persona y en tono de historia clínica
+    ("Paciente con diagnóstico de celiaquía que…"), que no es lo que pide la plantilla. Con
+    la v2 pasa a segunda persona.
+  - Algún tecnicismo suelto ("regenerarlas en el microondas").
+- **GPT-6 Luna es correcto pero formulaico.**
+  - Abre casi siempre con "Te comparto una propuesta…".
+  - Repite "la ilustración del método del plato" en casi todas las propuestas.
+  - A veces le habla al paciente de lo que recibió: "En el contexto figura intolerancia a
+    la leche", "Las recetas de pan integral con queso untable y tomate, y las de yogur, se
+    omiten por sus ingredientes".
+  - A cambio, deriva más a la nutricionista ("conversá con tu nutricionista sobre cómo
+    incluirlo"), que encaja con la revisión profesional.
+- **Los dos nombran la condición clínica** en los textos (celiaquía, alergia al huevo,
+  intolerancia a la leche). Es el riesgo residual de DA-28 (riesgo 18), y es parecido en
+  los dos. Con la v2 baja en los dos, porque los textos son más cortos.
+- **Todo esto se corrige en la plantilla** (persona del diagnóstico, no mencionar el
+  contexto, "tu nutricionista"), sin cambiar de proveedor. Lo que pide revisión es el
+  contenido, no el idioma.
+
+### TTFT
+
+No se midió. Ningún adaptador usa streaming (T36), y la propuesta se valida contra el
+contrato recién cuando está completa (DA-28). Por eso el primer token no le muestra nada
+al profesional, y la meta de la Tabla 7 es sobre el tiempo total. Los dos proveedores
+permiten streaming. Si un incremento futuro muestra la propuesta mientras se genera, se
+mide entonces.
+
+### El P95 a lo largo del día
+
+Todas las corridas de una llamada del 01/11 con razonamiento `low` o `none` (ms):
+
+| Configuración | 14:22–14:48 | 15:05–15:20 (directo a `nutria-ia`) | 15:31–15:48 | 20:07–20:28 (con T35) |
+|---|---|---|---|---|
+| GPT-6 Luna `low` v1 | 16 430 ✗ | 17 283 ✗ | 20 084 ✗ | 18 012 ✗ |
+| Gemini `low` v1 | 17 132 ✗ | 15 898 ✗ | 14 652 ✓ | 17 008 ✗ |
+| GPT-6 Luna `low` v2 | — | — | 13 915 ✓ | 11 107 ✓ |
+| Gemini `low` v2 | — | — | 13 596 ✓ | 15 619 ✗ |
+| GPT-6 Luna `none` v1 | 10 484 ✓ | — | — | 11 807 ✓ |
+
+- **Con la v1, ningún proveedor cumple de forma estable.** GPT-6 Luna no cumplió nunca, y
+  Gemini una vez de cuatro.
+- **GPT-6 Luna con la v2 cumplió las dos veces.** Su peor generación de las 42 fue de
+  16,4 s.
+- **Gemini tiene la cola más larga.** Hubo generaciones de 20,6 s, 21,4 s y 22,9 s, aunque
+  su mediana con la v1 es más baja que la de GPT-6 Luna. La meta mide justamente la cola.
 
 ## Cómo comparar
 

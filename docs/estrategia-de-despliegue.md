@@ -42,7 +42,7 @@ VM OCI Always Free (A1, ARM, Ubuntu 24.04) — docker compose
    Traefik ──► frontend (nginx, build estático)     https://<APP_HOST>
            └─► backend (Express)                     https://api.<APP_HOST>
                   ├──► ia (FastAPI) — sin ruta pública, solo red interna
-                  │        └──► Gemini API (sin datos identificatorios)
+                  │        └──► OpenAI API, GPT-6 Luna (sin datos identificatorios; DA-12)
                   └──► postgres (pgvector) — sin puerto publicado, volumen en la VM
 ```
 
@@ -74,7 +74,8 @@ sea sí.
 1. **Alerta de presupuesto** de USD 1 en OCI.
 2. **Crear solo recursos marcados *Always Free-eligible*** (shape A1, disco dentro de los
    200 GB totales, sin Load Balancer ni bases administradas).
-3. **Cuota de solicitudes** en la clave de Gemini, cuando el servicio de IA la use.
+3. **Límite de gasto** en el proyecto de OpenAI de la clave de `nutria-ia` (unos US$ 0,002
+   por generación, DA-12), y cuota en la de Gemini si se activa la alternativa.
 
 A cambio, en Pay As You Go Oracle no recupera la VM por inactividad, como sí lo hace con
 las cuentas Free Tier.
@@ -109,7 +110,8 @@ Reglas del entorno:
 
 ## 6. Inconsistencias a alinear
 
-- **Proveedor de IA.** `AGENTS.md` da Gemini por cerrado y el Informe de Avances 2 lo
-  tiene en evaluación (DA-12).
+- **Proveedor de IA.** Resuelto el 01/11/2026: GPT-6 Luna, con Gemini 3.8 Flash como
+  alternativa (DA-12). `AGENTS.md` ya está alineado. El Informe de Avances 2 lo tiene en
+  evaluación y se actualiza en el próximo informe.
 - **DA-14** sigue "en evaluación" en el Informe de Avances 2. Se actualiza en el próximo
   informe (staging en OCI, producción pendiente).

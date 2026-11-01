@@ -39,7 +39,9 @@ commits.
 - **Frontend:** React.
 - **Base de datos:** PostgreSQL con `pgvector`, en un contenedor Docker tanto en
   local como en staging (sin base administrada).
-- **IA generativa:** Gemini API, tier pago cubierto por el crédito de Google AI Pro.
+- **IA generativa:** OpenAI API con GPT-6 Luna, razonamiento `low` (DA-12, ver
+  `docs/decisiones/proveedor-de-ia.md`). Gemini 3.8 Flash queda como alternativa
+  detrás del mismo adaptador, por configuración (`AI_PROVIDER`, `AI_MODEL`).
 - **Staging:** una VM de OCI Always Free que corre el mismo compose de
   `nutria-backend/` más `docker-compose.staging.yml` (HTTPS, sin pgAdmin, sin puerto
   de Postgres, servicio de IA sin ruta pública). Se despliega con cada push a

@@ -92,7 +92,8 @@ Si hace falta desplegar la versión vigente de `staging` sin un push nuevo, se c
 Reglas del entorno:
 - Solo datos ficticios. Avisar explícitamente a la nutricionista que no cargue pacientes
   reales.
-- Aviso visible en la interfaz de que es un entorno de prueba.
+- Sin aviso en la interfaz. Hasta T42 había un aviso fijo de entorno de prueba; se quitó
+  porque tapaba contenido, y las nutricionistas ya saben que es un entorno de prueba.
 - Acceso solo con cuentas creadas por el administrador desde el panel, o por el seed
   ([administrador y gestión de cuentas](decisiones/administrador-y-gestion-de-cuentas.md),
   T31). Las credenciales del administrador y la contraseña del seed salen de variables

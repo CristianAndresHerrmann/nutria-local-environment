@@ -99,7 +99,7 @@ Corridas el 01/11/2026 dentro de los contenedores, desde la raíz `nutria/`:
 | `nutria-backend` | `npm run test:backend` (Vitest: dominio, servicios, repositorios, schemas, serializers, middlewares, spec OpenAPI, contrato con la IA y la app completa sin base) | 72 archivos, 1257 tests en verde |
 | `nutria-backend` | `npm run test:backend:integration` (API real y repositorios contra Postgres, base `nutria_test`) | 7 archivos, 58 tests en verde |
 | `nutria-ia` | `npm run test:ia` (pytest: contrato, proveedor simulado, adaptadores con el cliente simulado, plantillas, OpenAPI) | 8 archivos, 85 tests en verde |
-| `nutria-frontend` | `npm run test:frontend` (Vitest con `jsdom`: cliente HTTP, mapeos, hooks, componentes y páginas) | 33 archivos, 314 tests en verde |
+| `nutria-frontend` | `npm run test:frontend` (Vitest con `jsdom`: cliente HTTP, mapeos, hooks, componentes y páginas) | 32 archivos, 312 tests en verde (después de quitar el aviso de entorno y su test) |
 
 Al cierre del Incremento 2 el backend tenía 671 tests y el frontend 139, y `nutria-ia` no
 tenía tests ni había pruebas contra una base real.
@@ -165,6 +165,7 @@ preliminar: local, sin concurrencia y con N=3. La definitiva es del Incremento 4
 | El recorrido de la card pide un paciente de T41 en la cuenta creada por el panel, que no lo tiene | Se cargó un paciente equivalente por la API, y el recorrido se repitió con el paciente del seed |
 | Los CHANGELOG tenían el Incremento 2 sin cortar, y T31, que es del Incremento 3, ya había llegado a staging | Cortadas `0.0.2` (lo que estaba en staging, sin T31) y `0.0.3` en los tres repos |
 | La generación no tiene límite por nutricionista, y en staging corre con la clave real | Card a crear (arriba). Mitigación: tope de gasto en la clave |
+| En staging, el aviso fijo "Entorno de prueba — solo datos ficticios" molestaba, y su reserva de altura dejaba un salto al final de cada pantalla | Resuelta: se quitó el aviso (`EnvironmentBanner` y `VITE_ENV_LABEL`). RNF-08 queda cubierto por el recordatorio al dar cada cuenta |
 | El estado de la CI en GitHub no se pudo consultar desde el entorno de esta revisión | Se revisa antes de abrir las PRs a `staging` (checklist) |
 
 ## Limitaciones
@@ -207,6 +208,6 @@ ficticios (RNF-08).
 - [ ] Recorrido por HTTPS desde las pantallas: el admin crea una cuenta, la nutricionista
       inicia sesión, carga un paciente ficticio, genera, ve los hallazgos, edita y revalida.
 - [ ] La generación quedó con `provider = openai` en `ai_generation`.
-- [ ] Recordatorio a las nutricionistas: solo pacientes ficticios. La interfaz lo avisa en un cartel fijo.
+- [ ] Recordatorio a las nutricionistas: solo pacientes ficticios. La interfaz ya no muestra el aviso de entorno de prueba (se quitó al cierre), así que el recordatorio es el único resguardo.
 
 Resultado del despliegue (completar): fecha, commits desplegados e incidencias.

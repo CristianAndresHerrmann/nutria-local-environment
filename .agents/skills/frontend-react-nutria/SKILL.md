@@ -84,8 +84,6 @@ Decisión y motivos en `docs/decisiones/framework-de-estilos-tailwind.md`.
   sus controles. `DateInput` usa un portal y ajusta su posición al viewport;
   `FoodPicker` permanece en el flujo debajo de `xl`, con scroll vertical local.
   Contemplar bordes del viewport, cambios de tamaño y teclado virtual.
-- El banner de entorno hace wrap y reserva su altura cuando está presente,
-  también en login; nunca debe impedir alcanzar las últimas acciones.
 - Verificar cada ruta y sus estados con datos ficticios en 360, 390, 768, 1024,
   1280 y 1440 px. Separar pruebas automatizadas de revisión visual: jsdom no
   comprueba geometría, breakpoints ni la contención nativa del foco.

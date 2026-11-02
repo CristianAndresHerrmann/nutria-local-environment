@@ -26,6 +26,7 @@ El resumen con numeración DA para los informes de avance está en
 | [Ajustes al modelo de datos del Anexo A — Incremento 3](ajustes-al-modelo-del-anexo-a-incremento-3.md) | T32 |
 | [Catálogos comunes a todos los nutricionistas; recetas propias](catalogos-comunes-entre-nutricionistas.md) | T14 |
 | [Catálogos curados por un administrador; alimentos privados por nutricionista](abm-de-catalogos-comunes.md) | T15 |
+| [Curado del catálogo desde el panel del administrador](curado-del-catalogo-por-el-administrador.md) | T25 |
 | [Nombres de catálogo únicos sin distinguir mayúsculas, con `citext`](nombres-de-catalogo-sin-distinguir-mayusculas.md) | T15 |
 | [Recomendaciones clínicas comunes de solo lectura, y privadas por nutricionista](recomendaciones-privadas-por-nutricionista.md) | T22 |
 | [Recetas básicas comunes de solo lectura, y privadas por nutricionista](recetas-comunes.md) | T30 |

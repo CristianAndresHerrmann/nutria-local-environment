@@ -74,3 +74,5 @@ T15 abre la carga manual (RF-24, "base mínima controlada de carga manual"), y h
   nutricionista sí edita y da de baja las suyas
   ([recomendaciones-privadas-por-nutricionista.md](recomendaciones-privadas-por-nutricionista.md)).
 - **Hay que confirmarlo en la entrevista de validación con nutricionistas.**
+- **T25 implementa la curación del administrador** y el paso de un privado al común:
+  [curado-del-catalogo-por-el-administrador.md](curado-del-catalogo-por-el-administrador.md).

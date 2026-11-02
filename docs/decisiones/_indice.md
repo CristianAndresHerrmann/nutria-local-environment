@@ -81,3 +81,4 @@ El resumen con numeración DA para los informes de avance está en
 |---|---|
 | [Flujo de ramas y convención de commits](flujo-de-ramas.md) | T10 |
 | [Asistentes de IA con contexto versionado](asistentes-de-ia-con-contexto-versionado.md) | T11 |
+| [Alcance del Incremento 3: RAG y generación de recetas pasan al Incremento 4](alcance-del-incremento-3.md) | T42 |

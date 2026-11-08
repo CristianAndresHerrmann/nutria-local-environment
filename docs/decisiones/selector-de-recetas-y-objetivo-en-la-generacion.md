@@ -1,7 +1,7 @@
 # El selector de recetas aplica las reglas prohibitivas, y el objetivo del paciente viaja a la IA
 
 **Fecha:** 07/11/2026
-**Tarea relacionada:** sin card todavía (ampliación del catálogo de recetas para probar la generación)
+**Tarea relacionada:** T53 (DA-39, en [`registro-de-decisiones-incremento-4.md`](../registro-de-decisiones-incremento-4.md))
 
 ## Contexto
 

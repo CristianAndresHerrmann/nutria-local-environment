@@ -63,6 +63,9 @@ backend, en `/docs`).
 no declarado da `422` y el proveedor no se llama. Trae lo siguiente:
 
 - Tipos de comida pedidos.
+- Objetivo del paciente, opcional, con el filtro de los demás textos libres. Se sumó después
+  de esta decisión: ver
+  [selector-de-recetas-y-objetivo-en-la-generacion.md](selector-de-recetas-y-objetivo-en-la-generacion.md).
 - Condiciones del paciente, con tipo y nombre. Las observaciones no viajan, porque son
   texto libre.
 - Contexto de cocina (RF-08), comidas fuera del hogar (RF-09), trabajo y horarios

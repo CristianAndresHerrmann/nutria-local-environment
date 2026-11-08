@@ -60,6 +60,7 @@ El resumen con numeración DA para los informes de avance está en
 | [Adaptadores de Gemini y OpenAI detrás de la interfaz de proveedor](adaptadores-de-proveedores-de-ia.md) | T36 |
 | [Proveedor de IA: GPT-6 Luna por defecto, Gemini 3.8 Flash como alternativa](proveedor-de-ia.md) | DA-12 |
 | [Generación del plan: traza sin plan ante una falla, catálogo permitido, errores y datos en texto libre](traza-de-generaciones-sin-plan.md) | T37 |
+| [El selector de recetas aplica las reglas prohibitivas, y el objetivo del paciente viaja a la IA](selector-de-recetas-y-objetivo-en-la-generacion.md) | Sin card |
 
 ## Frontend
 

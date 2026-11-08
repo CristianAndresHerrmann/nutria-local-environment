@@ -994,6 +994,137 @@ Todas las corridas de una llamada del 01/11 con razonamiento `low` o `none` (ms)
 - **Gemini tiene la cola más larga.** Hubo generaciones de 20,6 s, 21,4 s y 22,9 s, aunque
   su mediana con la v1 es más baja que la de GPT-6 Luna. La meta mide justamente la cola.
 
+## 07/11/2026 — catálogo de recetas ampliado, con objetivo y sin RAG
+
+**Es la línea de base contra la que se compara el RAG.** Comprueba el comportamiento del
+sistema con un catálogo más grande: qué recetas se ofrecen y se eligen en cada caso. No es una
+validación clínica: las recetas tienen origen V y las reglas siguen pendientes de la
+entrevista.
+
+### Resumen
+
+- **Selección determinística: sin ninguna falla.** Ninguna propuesta incluye una receta o un
+  alimento alcanzado por una regla `prohibited` o una condición directa. Lo confirma también un
+  cruce de cada propuesta con los ingredientes del seed, independiente del motor.
+- **Aislamiento: sin ninguna falla.** La cuenta 2 no recibió ninguna receta privada de la
+  cuenta 1, en el catálogo, el selector, la generación ni el plan guardado.
+- **Tiempo: no cumple** la meta, con un P95 de 16,7 s. Tampoco la cumplía antes (18,0 s con la
+  v1). No empeoró aunque la entrada creció un 43 %, pero el P95 varía varios segundos entre
+  franjas horarias.
+- **Sin bloqueantes: no cumple**, con 90,5 % (19 de 21). Los dos bloqueos son de C3 y son texto
+  libre de comida de rotisería, la misma causa que en la corrida anterior (20 de 21).
+- **La IA elige por el nombre.** En hipertensión eligió 2 de 3 veces la receta con sal oculta en
+  los ingredientes, y ninguna vez la que dice "jamón cocido" en el nombre. Con N=3 es un indicio,
+  no una tasa.
+
+### Condiciones
+
+| | |
+|---|---|
+| Recorrido | Script → backend → `nutria-ia` → proveedor, en el stack local |
+| Modelo | GPT-6 Luna, razonamiento `low` |
+| Plantilla | `plan_proposal_v3` (la v1 más el objetivo del paciente) |
+| Reglas clínicas cargadas | La matriz de T35: 37 reglas vigentes |
+| Catálogo | `nutricionista@`: 123 recetas (77 comunes y 46 propias, 5 de ellas de control). `nutricionista2@`: 78 (77 comunes y 1 propia) |
+| Corridas | N=3 por caso, 21 generaciones, [JSON](2026-11-07-openai-gpt-6-luna-catalogo-ampliado.json) |
+| RAG | No |
+
+Cambian tres cosas a la vez frente al 01/11 (catálogo, plantilla y objetivo), así que esta
+corrida no atribuye una diferencia de calidad a ninguna de ellas en particular.
+
+### Resultados
+
+| Caso | Intentos | Válidas | Sin bloqueantes | Total P50 (ms) | Total P95 (ms) | Total máx. (ms) | Proveedor P95 (ms) | Overhead P95 (ms) | Tokens entrada (media) | Tokens salida (media) | De razonamiento (media) | Costo |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| C1 | 3 | 3 | 3 | 16 423 | 19 336 | 19 336 | 18 872 | 464 | 15 831 | 1 236 | 205 | US$ 0,0066 |
+| C2 | 3 | 3 | 3 | 11 167 | 11 247 | 11 247 | 11 041 | 254 | 20 532 | 971 | 107 | US$ 0,0076 |
+| C3 | 3 | 3 | 1 | 12 987 | 14 788 | 14 788 | 14 574 | 236 | 15 109 | 1 215 | 80 | US$ 0,0064 |
+| C4 | 3 | 3 | 3 | 14 157 | 16 656 | 16 656 | 16 441 | 373 | 18 608 | 1 192 | 211 | US$ 0,0074 |
+| C5 | 3 | 3 | 3 | 12 754 | 15 901 | 15 901 | 15 692 | 335 | 19 628 | 1 060 | 179 | US$ 0,0075 |
+| C6 | 3 | 3 | 3 | 12 286 | 13 725 | 13 725 | 13 551 | 246 | 20 501 | 1 125 | 60 | US$ 0,0078 |
+| C7 | 3 | 3 | 3 | 13 729 | 14 125 | 14 125 | 13 934 | 246 | 18 654 | 1 047 | 209 | US$ 0,0072 |
+| **Global** | 21 | 21 | 19 | 12 987 | 16 656 | 19 336 | 16 441 | 373 | 18 409 | 1 121 | 150 | US$ 0,0504 |
+
+| Caso | Candidatas (media) | Recetas propuestas | Propias | De control | Fuera de las candidatas | En otra comida |
+|---|---|---|---|---|---|---|
+| C1 | 71 | 41 | 3 | 0 | 0 | 0 |
+| C2 | 123 | 50 | 2 | 0 | 0 | 0 |
+| C3 | 41 | 33 | 4 | 2 | 0 | 0 |
+| C4 | 95 | 37 | 5 | 1 | 0 | 0 |
+| C5 | 110 | 39 | 4 | 0 | 0 | 0 |
+| C6 | 123 | 45 | 4 | 1 | 0 | 0 |
+| C7 | 104 | 29 | 0 | 0 | 0 | 0 |
+| **Global** | 95 | 274 | 22 | 4 | 0 | 0 |
+
+### Frente a la corrida con reglas del 01/11
+
+Con GPT-6 Luna `low` y plantilla v1.
+
+| | 01/11 | 07/11 |
+|---|---|---|
+| Total P50 | 14 349 ms | 12 987 ms |
+| Total P95 | 18 012 ms | 16 656 ms |
+| Tokens de entrada (media) | 12 897 | 18 409 |
+| Costo por generación | US$ 0,0019 | US$ 0,0024 |
+| Sin bloqueantes | 20 de 21 | 19 de 21 |
+| Sin ningún hallazgo | 3 | 8 |
+| Advertencias de composición | 55 | 25 |
+| Hallazgos por regla de patología | 0 | 7 (todos advertencias) |
+
+Los 7 hallazgos por regla son los esperados. Las recetas de control y las de avena sin TACC
+existen para que esas reglas se disparen, algo que el catálogo anterior no permitía observar.
+
+### Lectura caso por caso
+
+Observaciones sobre la ficha de cada paciente, sin valor de validación clínica.
+
+- **Recetas de control, con la patología que las alcanza:**
+
+  | Receta | Lo delata el nombre | Caso | Elegida en |
+  |---|---|---|---|
+  | Tostadas con mermelada y queso untable | Sí | C2, diabetes | 0 de 3 |
+  | Merienda casera de pan con leche (azúcar) | No | C2, diabetes | 0 de 3 |
+  | Sándwich de jamón cocido y tomate | Sí | C3, hipertensión | 0 de 3 |
+  | Ensalada de lentejas y tomate con pan (sal fina) | No | C3, hipertensión | 2 de 3 |
+
+  Las otras 2 elecciones de control son de pacientes sin esa patología (C4 y C6), y no generan
+  hallazgos. "Arroz con pollo al caldo" (`prohibited`) no llega a C3, que además no cocina.
+- **C1, celiaquía:** eligió en las 3 corridas la receta con avena sin TACC, que el motor advierte
+  (R-05). Es la opción que el nombre presenta como apta. No tiene horno y recibió 1 receta de horno
+  de 41. Cocina 20 minutos por día, y 9 de 41 recetas tardan más.
+- **C3, no cocina:** ninguna receta requiere cocción. Compra comida hecha, y en 2 de 3 corridas
+  propuso preparaciones de rotisería como texto libre: tiene sentido para el paciente, pero el
+  catálogo no las tiene y bloquean.
+- **C2, "Controlar glucemia":** predominan integrales, avena y legumbres. Sin una corrida de
+  control no se puede atribuir eso al objetivo: la diabetes ya viajaba en las condiciones.
+- **Recetas propias:** son el 37 % del catálogo de la cuenta y el 8 % de las elegidas (22 de 274),
+  y se usaron 65 recetas distintas. La IA tiende a las más simples.
+
+### Comprobaciones complementarias
+
+Con las dos cuentas del seed, contra la API del stack local:
+
+| Comprobación | Resultado |
+|---|---|
+| Catálogo de la cuenta 2 con recetas propias de la cuenta 1 | 0 de 78 |
+| Detalle de una receta de la cuenta 1 pedido por la cuenta 2 | 404 |
+| Selector con un paciente de la cuenta 1 pedido por la cuenta 2 | 404 |
+| Guardar una receta de la cuenta 1 en un plan de la cuenta 2 | 400, "la receta no existe" |
+| Generación real para los 2 pacientes de la cuenta 2 | 27 recetas propuestas, 0 de la cuenta 1, sin hallazgos |
+| Traza: privadas de la cuenta 1 entre las 156 candidatas enviadas para la cuenta 2 | 0 |
+| Misma consulta sobre la cuenta 1, para confirmar que el control detecta | 735 |
+| Selector para C1 | 71 de 123 recetas, sin "Milanesa de carne al horno"; con avena sin TACC visible y advertencia al guardar |
+| Selector para C3 | 122 de 123: solo falta "Arroz con pollo al caldo", que C6 sí ve |
+
+### Qué queda para decidir
+
+- **C3 y la comida comprada:** el bloqueo es el mismo del 01/11 y no se resuelve con más recetas.
+  Es la causa de no llegar al 95 %, y el RAG no lo cambia.
+- **Enviar ingredientes a la IA:** el indicio de C3 apunta a que ayudaría, a costa de más tokens.
+  Conviene repetir con un N mayor antes de decidir.
+- **Tiempo:** la v2 cumplió la meta el 01/11, y su adopción sigue pendiente de revisión profesional
+  (DA-12).
+
 ## Cómo comparar
 
 Para que una corrida nueva sea comparable con estas:

@@ -4,9 +4,11 @@ Una decisión por archivo, a partir de [`_plantilla.md`](_plantilla.md).
 
 El resumen con numeración DA para los informes de avance está en
 [`registro-de-decisiones-incremento-2.md`](../registro-de-decisiones-incremento-2.md)
-(Incremento 2, DA-15 a DA-24) y
+(Incremento 2, DA-15 a DA-24),
 [`registro-de-decisiones-incremento-3.md`](../registro-de-decisiones-incremento-3.md)
-(Incremento 3, desde DA-25).
+(Incremento 3, DA-25 a DA-38) y
+[`registro-de-decisiones-incremento-4.md`](../registro-de-decisiones-incremento-4.md)
+(Incremento 4, desde DA-39).
 
 ## Infraestructura y entorno
 
@@ -37,6 +39,7 @@ El resumen con numeración DA para los informes de avance está en
 | [Motor de reglas v1: condiciones directas, ítem no reconocido y composición](motor-de-reglas-v1.md) | T34 |
 | [Reglas por patología v1: matriz con fuente bibliográfica, sin entrevista](reglas-por-patologia-v1.md) | T35 |
 | [Categoría complementaria para alimentos sin aporte a la composición](categoria-complementaria.md) | T28 |
+| [Pautas de adecuación nutricional v1: pautas positivas con fuente, medibles y sin efecto en el editor](pautas-de-adecuacion-v1.md) | T57 |
 
 ## Seguridad y acceso
 

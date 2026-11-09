@@ -10,7 +10,9 @@ cambia una regla está en el skill `reglas-clinicas-deterministicas`
 El motor valida el plan alimentario y produce hallazgos, que el nutricionista revisa en
 el editor. Vive en el backend, separado del servicio de IA y del RAG: la IA propone y el
 motor valida. La información nutricional general no se mezcla con las restricciones
-clínicas obligatorias.
+clínicas obligatorias. Lo que conviene ofrecer (pautas positivas por patología, objetivo y
+población general) no son reglas: está en [Pautas de adecuación](pautas-de-adecuacion.md)
+y no genera hallazgos (DA-41).
 
 | Requerimiento | Cómo lo cubre el motor |
 |---|---|
@@ -269,6 +271,7 @@ matriz de R-05 quedó con origen S y también se revisa ahí.
 - [Motor de reglas v1](decisiones/motor-de-reglas-v1.md) (DA-30)
 - [Reglas por patología v1](decisiones/reglas-por-patologia-v1.md) (DA-36)
 - [Restricciones de lo que se ofrece a la IA y receta fuera de su comida](decisiones/restricciones-de-lo-ofrecido-a-la-ia.md) (DA-40)
+- [Pautas de adecuación nutricional v1](decisiones/pautas-de-adecuacion-v1.md) (DA-41), que no son reglas
 - [Ajustes al modelo del Anexo A — Incremento 3](decisiones/ajustes-al-modelo-del-anexo-a-incremento-3.md) (DA-26, DA-27)
 - [Registro de decisiones del Incremento 2](registro-de-decisiones-incremento-2.md) (DA-16, DA-23)
 - [Registro de decisiones del Incremento 3](registro-de-decisiones-incremento-3.md)

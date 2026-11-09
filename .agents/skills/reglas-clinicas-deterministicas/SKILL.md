@@ -101,6 +101,7 @@ Un hallazgo tiene las columnas de `Finding`, salvo `id`, `planId` y `detectedAt`
 | `unrecognized_item` | R-02 | `blocking` | ítem | El ítem es `unrecognized`. |
 | `direct_condition` | R-01 | `blocking` | ítem + condición | El alimento, un ingrediente de la receta o el grupo del ítem está comprendido en una alergia, intolerancia o rechazo (por alimento, o por grupo con sus subgrupos). Genera un hallazgo por cada par de ítem y condición. |
 | `composition` | R-03, R-04 | `warning` | opción (sin ítem) | Falta una categoría esperada para la comida. |
+| `meal_type_mismatch` | R-06 | `warning` | ítem | El ítem es una receta y la comida que lo contiene no está entre los tipos de comida de la receta. |
 | `pathology_rule` | R-05 | `blocking` si la regla es `prohibited`; `warning` si es `moderate` | ítem + regla | El alimento, un ingrediente de la receta o el grupo del ítem está comprendido en una regla vigente de una patología del paciente. Genera un hallazgo por cada par de ítem y regla, y el mensaje nombra la patología y la fuente. |
 
 Lo que **no** dispara:
@@ -109,7 +110,7 @@ Lo que **no** dispara:
 - Las condiciones de tipo patología, como condición directa. Esas pasan por
   `clinical_rule`.
 - Un ítem de grupo más amplio que la condición. Por ejemplo, "una fruta" con alergia a la
-  banana (DA-30).
+  banana (DA-30). Ese grupo tampoco se le ofrece a la IA (DA-40, `allowedCatalog.js`).
 
 ## Agregar o cambiar una regla
 
@@ -127,7 +128,8 @@ Lo que **no** dispara:
    no entran en el CHECK actual, el cambio es de modelo: seguí el skill
    `prisma-migraciones`.
 4. **Cableado** en `validatePlan.js`, respetando el orden. Por ítem: no reconocido, después
-   condiciones y después reglas por patología. La composición va al final de cada opción.
+   condiciones, reglas por patología y receta fuera de su comida (R-06). La composición va al
+   final de cada opción.
 5. **Pruebas** en `<regla>.test.js` y en `validatePlan.test.js`, siempre casos que disparan
    **y** casos que no. Cubrí alimento directo, grupo y subgrupo, ingrediente de receta,
    alimento privado y lo que explícitamente no dispara. Corré `npm run test:backend` desde

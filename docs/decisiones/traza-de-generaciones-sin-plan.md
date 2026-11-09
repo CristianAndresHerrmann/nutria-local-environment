@@ -80,6 +80,9 @@ resolver cuatro cosas:
 - **Reglas de patología:** solo las vigentes con severidad `prohibited` excluyen del
   catálogo enviado, con el mismo criterio de alcance que las condiciones (DA-23). Las
   `moderate` se envían, y el hallazgo lo decide el motor (T35).
+  - *Modificado por DA-40 (T54):* tampoco se envían los grupos que contienen algo excluido,
+    ni las recetas con un ingrediente dado de baja. Ver
+    [la decisión](restricciones-de-lo-ofrecido-a-la-ia.md).
 - **Texto libre:** antes de enviar, en cada texto libre del contexto se reemplazan por
   `[dato omitido]` los emails, los teléfonos (7 o más dígitos) y cada palabra de 3 o más
   letras del nombre y apellido del paciente y de su responsable, como palabra completa y

@@ -15,7 +15,7 @@ clínicas obligatorias.
 | Requerimiento | Cómo lo cubre el motor |
 |---|---|
 | RF-43 | Validación determinística contra las condiciones del paciente y las reglas de sus patologías. Lo contraindicado bloquea (R-01, R-02, R-05). Lo que una regla por patología solo modera, advierte (R-05). |
-| RF-44 | La composición esperada de cada comida genera una advertencia que no bloquea la aprobación (R-03, R-04). |
+| RF-44 | La composición esperada de cada comida genera una advertencia que no bloquea la aprobación (R-03, R-04). Una receta en una comida que no es la suya también advierte (R-06). |
 | RF-46 | Los hallazgos se recalculan y se reemplazan en cada guardado (`planValidation.service.revalidate`). No se descartan a mano. |
 | RF-47 | Las reglas por patología son datos en `clinical_rule`, con fuente bibliográfica obligatoria (R-05). |
 
@@ -59,7 +59,8 @@ clínicas obligatorias.
 Criterios de aplicación:
 
 - **Un ítem de grupo más amplio que la condición no dispara.** Por ejemplo, "una fruta"
-  con alergia a la banana. Origen **V** (DA-30).
+  con alergia a la banana. Origen **V** (DA-30). Desde T54, ese grupo no se le ofrece a la
+  IA (DA-40): solo puede llegar al plan si el profesional lo agrega a mano.
 - Las preferencias no disparan. Origen **P** (DA-23).
 - Las condiciones de tipo patología no disparan acá. Pasan por R-05.
 
@@ -136,7 +137,7 @@ con las categorías de sus ingredientes también se prueba en `validatePlan.test
 | Condición | Una patología del paciente. |
 | Restricción | Un alimento o un grupo, según cada fila vigente de `clinical_rule`. Ver la [matriz cargada](#matriz-cargada). |
 | Alcance | Igual que R-01: ítem de alimento (comunes y privados), ingrediente de un ítem de receta, e ítem de grupo si su grupo es el de la regla o un subgrupo. |
-| Comportamiento | `pathology_rule`, con `optionItemId` y `clinicalRuleId`. Si la regla es `prohibited`, el hallazgo es `blocking`; si es `moderate`, es `warning` y no impide aprobar. Hay un hallazgo por cada par de ítem y regla, y el mensaje nombra la patología y la fuente. Además, las reglas `prohibited` sacan su alimento o su grupo del catálogo que se envía a la IA (DA-31). |
+| Comportamiento | `pathology_rule`, con `optionItemId` y `clinicalRuleId`. Si la regla es `prohibited`, el hallazgo es `blocking`; si es `moderate`, es `warning` y no impide aprobar. Hay un hallazgo por cada par de ítem y regla, y el mensaje nombra la patología y la fuente. Además, las reglas `prohibited` sacan su alimento o su grupo del catálogo que se envía a la IA (DA-31), y también los grupos que los contienen (DA-40). |
 | Origen | **S** en cada fila (DA-36): la fuente bibliográfica (obra y páginas) está en la regla (`clinical_rule.source`, obligatoria por `clinical_rule_source_chk`, RF-47) y en la matriz. La entrevista de validación no se hizo, y la matriz pasa a E cuando una nutricionista la confirme. |
 | Implementación | `pathologyRule.js` (`pathologyRuleScopes`, `pathologyRuleFindings`); los alcances, en `ruleScopes` y `scopeCoversFood` de `src/utils/recipeConditionFilter.js`. Las reglas las carga `planValidation.service.loadInputs` (`clinicalRule.repository.findActiveForPathologies`). Los datos están en `scripts/seed-data/clinical-rules.js`. |
 | Pruebas | `pathologyRule.test.js`, `validatePlan.test.js` ("reglas por patología dentro del plan"), `planValidation.service.test.js`, `planGeneration.service.test.js` y `app.int.test.js` (T35). Los datos se prueban en `clinical-rules.test.js` y `seed.int.test.js`, y los casos de T41 en `clinical-cases.rules.test.js`. |
@@ -151,7 +152,8 @@ Criterios de aplicación:
   desarrollador, sobre el catálogo de T28. Origen **V** (DA-36, DA-32).
 - **Un ítem de grupo más amplio que la regla no dispara**, igual que en R-01. Por ejemplo,
   "Panificados y harinas" en celiaquía, porque las reglas son por alimento. Origen **V**
-  (DA-30).
+  (DA-30). Desde T54 la generación ya no ofrece esos grupos a un paciente con la patología
+  (DA-40), y `clinical-cases.rules.test.js` lo controla para C1 con los datos del seed.
 - Las reglas de una patología que el paciente no tiene no se evalúan. Una alergia y una
   regla sobre el mismo alimento dan dos hallazgos.
 
@@ -221,6 +223,27 @@ prueba, con los datos reales del seed. El plan tiene los siguientes ítems:
 Ninguno dispara con Pan sin TACC, Edulcorante, Sal con bajo contenido de sodio, ni con el
 grupo Cereales y derivados.
 
+### R-06 Receta fuera de su tipo de comida
+
+| | |
+|---|---|
+| Condición | Ninguna: depende del ítem y de la comida que lo contiene. |
+| Restricción | Un ítem de receta en una comida que no está entre los tipos de comida de la receta (`recipe_meal_type`). |
+| Alcance | Ítems de receta, de la propuesta de la IA y de la edición manual. |
+| Comportamiento | `meal_type_mismatch`, `warning`, con `optionItemId`. El mensaje nombra la receta, la comida y los tipos de comida para los que se indica. Nunca bloquea. |
+| Origen | **P**: RF-27 (la receta declara sus tipos de comida), RF-28 y RF-43; riesgo 1. Bajada a código en DA-40 (T54). La severidad es **V** (DA-40): no es un riesgo clínico, como la composición. |
+| Implementación | `recipeMealType.js` (`recipeMealTypeFinding`), cableado en `validatePlan.js` después de las reglas por patología. Migración `agrega_hallazgo_de_receta_fuera_de_su_comida`. |
+| Pruebas | `recipeMealType.test.js`; `validatePlan.test.js` ("receta fuera de su tipo de comida (R-06)" y `finding_origin_chk`); `plan.repository.int.test.js` (CHECK contra Postgres). |
+
+Casos de prueba:
+
+| Dispara | No dispara |
+|---|---|
+| Receta de almuerzo y cena en el desayuno | Receta en uno de sus tipos de comida |
+| Receta con una condición y fuera de su comida: los dos hallazgos, la condición primero | Alimentos, grupos e ítems no reconocidos |
+
+Una receta que no está en el catálogo es un error, y el ítem no se saltea.
+
 ## Pendientes para la entrevista
 
 Lo que la entrevista confirma o corrige. La entrevista de T35 no se hizo, así que la
@@ -236,7 +259,8 @@ matriz de R-05 quedó con origen S y también se revisa ahí.
 | R-05 | V | ¿La lista de alimentos con trigo, avena, cebada o centeno es correcta (por ejemplo, la malta)? (DA-36) |
 | R-05 | S | ¿La avena sin TACC se modera, se excluye o se permite? (DA-36) |
 | R-05 | S | ¿Diabetes alcanza solo azúcares y dulces, o también la lista de ultraprocesados de la GPC DM2, pp. 251-252 (grasas, fiambres, aderezos)? (DA-36) |
-| R-05 | V | Un ítem de grupo amplio ("un pan") no avisa por celiaquía. ¿Tiene que avisar? (DA-30, DA-36) |
+| R-05 | V | Un ítem de grupo amplio ("un pan") no avisa por celiaquía. ¿Tiene que avisar? Desde T54 la IA ya no lo propone; queda el caso del profesional que lo agrega a mano. (DA-30, DA-36, DA-40) |
+| R-06 | V | ¿Una receta en una comida que no es la suya tiene que advertir, bloquear o nada? (DA-40) |
 | R-05 | — | Fuera de la matriz: productos industrializados que dependen del listado ALG (fiambres, condimentos, salsa de soja), y conservas y salsa de soja en hipertensión. ¿Se agregan? (DA-36) |
 
 ## Fundamento
@@ -244,6 +268,7 @@ matriz de R-05 quedó con origen S y también se revisa ahí.
 - [Composición esperada por tipo de comida](decisiones/composicion-esperada-por-tipo-de-comida.md) (DA-29)
 - [Motor de reglas v1](decisiones/motor-de-reglas-v1.md) (DA-30)
 - [Reglas por patología v1](decisiones/reglas-por-patologia-v1.md) (DA-36)
+- [Restricciones de lo que se ofrece a la IA y receta fuera de su comida](decisiones/restricciones-de-lo-ofrecido-a-la-ia.md) (DA-40)
 - [Ajustes al modelo del Anexo A — Incremento 3](decisiones/ajustes-al-modelo-del-anexo-a-incremento-3.md) (DA-26, DA-27)
 - [Registro de decisiones del Incremento 2](registro-de-decisiones-incremento-2.md) (DA-16, DA-23)
 - [Registro de decisiones del Incremento 3](registro-de-decisiones-incremento-3.md)

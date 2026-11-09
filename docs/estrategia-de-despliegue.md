@@ -53,7 +53,7 @@ VM OCI Always Free (A1, ARM, Ubuntu 24.04) — docker compose
 | Servicios | `docker-compose.yml` de `nutria-backend` + `docker-compose.staging.yml`: HTTPS en Traefik, frontend con build estático, sin pgAdmin, sin puerto de Postgres, IA sin ruta pública, `restart: unless-stopped`. |
 | Base de datos | El Postgres del compose, con volumen en la VM. Solo datos ficticios (del seed y de las nutricionistas que prueban), sin backups. El corpus del RAG va en una base separada de la operativa (DA-13). |
 | Dominio y TLS | Subdominio gratuito de DuckDNS; Traefik pide y renueva el certificado de Let's Encrypt. |
-| Build y despliegue | `cd-staging.yml` en cada repo, por push a `staging` o a mano: corre el CI, entra por SSH con una clave restringida a `scripts/deploy-staging.sh` y rebuildea el servicio en la VM. Smoke test por HTTPS. |
+| Build y despliegue | `cd-staging.yml` en cada repo, por push a `staging` o a mano: corre el CI, entra por SSH con una clave restringida a `scripts/deploy-staging.sh` y rebuildea el servicio en la VM. Smoke test por HTTPS, que además falla si la IA corre con el proveedor simulado (lo lee de `/health/ia`, sin llamarlo). |
 | Variables y secretos | Los de la aplicación, en los `.env` de la VM (no se versionan). Los del CD, en el Environment `staging` de GitHub. En los README se documentan solo los nombres. |
 
 El detalle operativo (variables, primer arranque, clave de despliegue, comandos) está en

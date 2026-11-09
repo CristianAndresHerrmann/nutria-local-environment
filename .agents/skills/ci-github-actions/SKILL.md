@@ -85,6 +85,9 @@ smoke test:
    `ssh $STAGING_SSH_USER@$STAGING_HOST <backend|frontend|ia>`.
 3. Smoke test por HTTPS con reintentos (~3 min): `/health` y `/health/ia` del backend,
    la página del frontend. La IA no tiene ruta pública: se verifica por `/health/ia`.
+4. Backend e IA: step "Proveedor de IA real". Lee `ia.provider` de `/health/ia` (el
+   proveedor configurado, sin llamarlo: costo cero) y falla si es `fake` o no viene
+   informado. Si el contrato de `/health` cambia, nutria-ia se despliega primero.
 
 En la VM, la clave de despliegue está en `authorized_keys` con
 `restrict,command="bash …/nutria-backend/scripts/deploy-staging.sh"`: pida lo que
@@ -169,5 +172,10 @@ E2E y carga (DA-24) se sumarán cuando existan, cada una en su propia tarea.
 3. **Falla el script o el smoke test:** entrar a la VM con la clave personal y mirar
    `dcs ps` y `dcs logs <servicio>` (alias del README de `nutria-backend`). Un
    certificado que todavía no salió se ve en `dcs logs proxy`.
-4. Corregir con un PR nuevo y volver a desplegar; no editar archivos a mano en la VM
-   (el siguiente despliegue los pisa con `git reset --hard`).
+4. **Falla "Proveedor de IA real":** el despliegue terminó, pero la IA corre con el
+   simulado. Completar `AI_PROVIDER` (y `AI_MODEL`, la clave) en `nutria-ia/.env` de la
+   VM — los `.env` no se versionan y el deploy no los pisa — y volver a desplegar
+   (`workflow_dispatch`). Con "sin informar", la IA desplegada es anterior a T74:
+   desplegar primero nutria-ia.
+5. Corregir con un PR nuevo y volver a desplegar; no editar archivos versionados a
+   mano en la VM (el siguiente despliegue los pisa con `git reset --hard`).

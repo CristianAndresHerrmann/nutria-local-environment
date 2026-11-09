@@ -87,7 +87,9 @@ smoke test:
    la página del frontend. La IA no tiene ruta pública: se verifica por `/health/ia`.
 4. Backend e IA: step "Proveedor de IA real". Lee `ia.provider` de `/health/ia` (el
    proveedor configurado, sin llamarlo: costo cero) y falla si es `fake` o no viene
-   informado. Si el contrato de `/health` cambia, nutria-ia se despliega primero.
+   informado. Los dos lo leen a través del backend: si cambia el contrato de
+   `/health`, el CD del repo que llega primero a `staging` queda en rojo con "sin
+   informar" hasta que se despliega el otro, y después se vuelve a correr.
 
 En la VM, la clave de despliegue está en `authorized_keys` con
 `restrict,command="bash …/nutria-backend/scripts/deploy-staging.sh"`: pida lo que
@@ -175,7 +177,7 @@ E2E y carga (DA-24) se sumarán cuando existan, cada una en su propia tarea.
 4. **Falla "Proveedor de IA real":** el despliegue terminó, pero la IA corre con el
    simulado. Completar `AI_PROVIDER` (y `AI_MODEL`, la clave) en `nutria-ia/.env` de la
    VM — los `.env` no se versionan y el deploy no los pisa — y volver a desplegar
-   (`workflow_dispatch`). Con "sin informar", la IA desplegada es anterior a T74:
-   desplegar primero nutria-ia.
+   (`workflow_dispatch`). Con "sin informar", el backend o la IA desplegados no
+   tienen T74: promover a `staging` el que falte y volver a correr el CD que falló.
 5. Corregir con un PR nuevo y volver a desplegar; no editar archivos versionados a
    mano en la VM (el siguiente despliegue los pisa con `git reset --hard`).

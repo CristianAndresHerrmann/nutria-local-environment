@@ -11,7 +11,7 @@ RF-24, RF-25; DA-21 y DA-32). La lista completa vive en
 | Grupos raíz | 12 |
 | Subgrupos | 32 |
 | Alimentos comunes | 232 (el objetivo de DA-21 es de 150 a 250) |
-| Con categoría `complementary` | 40 |
+| Con categoría `complementary` | 38 |
 | Origen | **V** (pendiente de validación) en todo el catálogo |
 
 Es una propuesta del desarrollador a partir de los grupos de las *Guías Alimentarias para
@@ -38,8 +38,10 @@ lo cargó es responsable de su contenido: la IA no es un origen.
 - **Categorías (RF-25)**, con las convenciones del seed: lácteos como proteína, papa como
   hidrato, frutas como fibra (ninguna como hidrato: la fruta no reemplaza al hidrato del
   plato), legumbres secas y en conserva como proteína, hidrato y fibra, palta como grasa
-  saludable. Alimentos sin aporte a la composición: `complementary` (DA-32), incluidos el
-  ajo y el queso rallado, que se usan en cantidad de condimento (DA-42).
+  saludable. Alimentos sin aporte a la composición: `complementary` (DA-32). El ajo y el
+  queso rallado conservan `vegetable` y `protein` aunque se usen como condimento. Si no,
+  los ítems de grupo Lácteos, Quesos y "Bulbos, raíces y tallos" se quedan sin categoría,
+  porque un grupo aporta solo las que comparten todos sus alimentos (DA-30, DA-42).
 - **Compatibilidad con el seed.** El seed hace upsert por nombre y no borra. Los 15 nombres
   de grupo y los 31 de alimento anteriores no se renombran, porque los grupos no tienen
   baja lógica y las condiciones y recetas del seed los referencian por nombre. Algunos
@@ -64,8 +66,9 @@ casos de prueba. No define reglas: eso va en `clinical_rule`.
 únicos sin distinguir mayúsculas (alimentos y grupos), grupos existentes y hoja, padres
 declarados antes que sus hijos, al menos una categoría válida y sin repetir, y que los
 nombres que el seed referencia sigan existiendo. También las correcciones de DA-42:
-ninguna fruta con `carbohydrate`, las legumbres secas con `carbohydrate`, y el ajo y el
-queso rallado como `complementary`.
+ninguna fruta con `carbohydrate` y las legumbres secas con `carbohydrate`.
+`clinical-cases.rules.test.js` corre el motor con estas categorías y controla que los
+ítems de grupo (un lácteo, un queso, un bulbo, una legumbre) completen la opción.
 
 ## Pendientes para la entrevista de validación
 

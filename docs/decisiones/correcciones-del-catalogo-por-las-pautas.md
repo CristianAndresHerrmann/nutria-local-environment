@@ -40,6 +40,14 @@ de composición (R-03, R-04), la matriz por patología (R-05) y los indicadores 
   cargadas, sin regla.
 - **Agregar `carbohydrate` a todas las frutas.** Descartada: la fruta pasaría a completar
   el hidrato del plato en R-03 y R-04.
+- **Pasar Ajo y Queso rallado a `complementary`.** Se aplicó y se revirtió el mismo día.
+  Un ítem de grupo aporta solo las categorías que comparten todos sus alimentos (DA-30), así
+  que Lácteos, Quesos y "Bulbos, raíces y tallos" se quedaban sin categoría, y "un lácteo y
+  pan" advertía en el desayuno. Los tests no lo detectaban porque el motor se probaba con un
+  catálogo propio.
+- **Que los alimentos `complementary` no cuenten en la intersección de un grupo.**
+  Descartada: es un cambio del criterio de DA-30, y "Grasas y aceites" pasaría a aportar
+  `healthy_fat` aunque incluye manteca y crema.
 - **Cargar también quesos duros, aceitunas y la sal con bajo contenido de sodio en la
   matriz de HTA.** Queda para T65. La sal baja en sodio no tiene una fuente con página que
   la nombre, y una regla sin fuente no se carga (RF-47).
@@ -49,7 +57,8 @@ de composición (R-03, R-04), la matriz por patología (R-05) y los indicadores 
 1. **Categorías del catálogo:**
    - Banana: solo `fiber`. Ninguna fruta aporta `carbohydrate`.
    - Legumbres secas y en conserva: suman `carbohydrate`.
-   - Ajo y Queso rallado: `complementary`.
+   - Ajo y Queso rallado conservan `vegetable` y `protein`. No cuentan como porción solo
+     en las pautas (CM-10).
    - Alimento nuevo: Copos de maíz sin TACC (`carbohydrate`).
 2. **Matriz de R-05:**
    - Copos de maíz sin azúcar, `prohibited` para celiaquía (CEL pp. 35 y 43). Que lleven
@@ -62,7 +71,7 @@ de composición (R-03, R-04), la matriz por patología (R-05) y los indicadores 
    - CM-04: sin Cebada perlada, Granola ni salvados.
    - CM-05: con la Ricota; un ítem de grupo sale del denominador.
    - CM-06: con Lomo de cerdo e Hígado vacuno.
-   - CM-10 nuevo: Limón y Ajo no cuentan como porción.
+   - CM-10 nuevo: Limón, Ajo y Queso rallado no cuentan como porción.
    - PA-DM2-02 cuenta también la fruta.
    - PA-HTA-02 suma Cebolla de verdeo y Puerro, y no cuenta la sal baja en sodio.
    - PA-CEL-02 usa los copos sin TACC.
@@ -76,16 +85,23 @@ Todo sigue con origen S o V hasta la entrevista de T65.
   el alimento y las reglas nuevas. Staging necesita correr el seed a mano después del
   despliegue.
 - **Los planes ya guardados no cambian**, porque sus ítems guardan una copia de las
-  categorías (DA-16). Un ítem nuevo de banana, ajo o queso rallado deja de completar la
-  opción, y un ítem nuevo de legumbre completa el hidrato.
-- **Generación:** a un paciente celíaco ya no se le ofrecen los copos de maíz comunes ni
-  las 2 recetas que los siguen usando. Las recetas comunes de desayuno candidatas para C1
-  pasan de 11 a 8, todavía por encima del mínimo de 5 por comida que controla
+  categorías (DA-16). Un ítem nuevo de banana deja de completar el hidrato, y uno de
+  legumbre lo completa.
+- **Ajo y queso rallado en R-03:** un ítem de ajo o de queso rallado sigue completando la
+  verdura o la proteína en el motor. Corregirlo necesita un atributo propio en el catálogo,
+  y queda como pregunta para T65.
+- **Generación:** a un paciente celíaco ya no se le ofrecen los copos de maíz comunes, ni
+  las 2 recetas que los siguen usando, ni los 2 licuados que ahora llevan avena arrollada.
+  Las recetas comunes de desayuno candidatas para C1 pasan de 11 a 7 (de 17 a 13 con las
+  privadas), todavía por encima del mínimo de 5 por comida que controla
   `clinical-cases.rules.test.js`. A un hipertenso la salsa de soja se le sigue ofreciendo,
   y advierte.
 - **Línea de base:** cambian las categorías y las recetas que viajan a la IA, así que la
   medición sin RAG del 07/11/2026 deja de ser comparable 1 a 1 y se vuelve a medir con el
   catálogo corregido.
-- **Cobertura de los tests de datos:** `catalogs.test.js` controla los invariantes nuevos.
-  `recipes.test.js` admite ajo y queso rallado como condimentos permitidos.
-- Completa DA-36 y DA-41. Actualiza DA-32 (ajo y queso rallado como `complementary`).
+- **Cobertura de los tests de datos:**
+  - `catalogs.test.js` controla las frutas sin `carbohydrate` y las legumbres secas con él.
+  - `clinical-cases.rules.test.js` corre el motor con las categorías reales del seed: un
+    lácteo, un queso, un bulbo y una legumbre como ítems de grupo completan la opción, y la
+    fruta no completa el hidrato.
+- Completa DA-36 y DA-41.

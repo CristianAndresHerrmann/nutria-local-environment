@@ -1,0 +1,4877 @@
+{
+  "meta": {
+    "startedAt": "2026-11-09T19:44:04.923Z",
+    "finishedAt": "2026-11-09T19:48:45.718Z",
+    "provider": "openai",
+    "model": "gpt-6-luna",
+    "templateVersion": "plan_proposal_v3",
+    "iterations": 3,
+    "cases": [
+      {
+        "code": "C1",
+        "title": "Celiaquía"
+      },
+      {
+        "code": "C2",
+        "title": "Diabetes"
+      },
+      {
+        "code": "C3",
+        "title": "Hipertensión"
+      },
+      {
+        "code": "C4",
+        "title": "Alergia alimentaria"
+      },
+      {
+        "code": "C5",
+        "title": "Intolerancia"
+      },
+      {
+        "code": "C6",
+        "title": "Sin condiciones"
+      },
+      {
+        "code": "C7",
+        "title": "Rechazo de un grupo"
+      }
+    ],
+    "account": "nutricionista@nutria.com",
+    "apiUrl": "http://backend:3000",
+    "prices": {
+      "gpt-6-luna": {
+        "input": 0.1,
+        "output": 0.5,
+        "source": "https://developers.openai.com/api/docs/models/gpt-6-luna"
+      }
+    },
+    "goals": {
+      "totalP95Ms": 15000,
+      "noBlockingRate": 0.95
+    },
+    "note": "GPT-6 Luna low, plantilla v3, catálogo corregido (DA-42), sin RAG",
+    "label": "catalogo-corregido"
+  },
+  "summary": {
+    "models": [
+      "gpt-6-luna"
+    ],
+    "overall": {
+      "attempts": 21,
+      "valid": 21,
+      "validRate": 1,
+      "failures": {},
+      "noBlocking": 19,
+      "noBlockingRateOfValid": 0.9047619047619048,
+      "noBlockingRateOfAttempts": 0.9047619047619048,
+      "totalMs": {
+        "n": 21,
+        "mean": 13365,
+        "p50": 13541,
+        "p95": 17359,
+        "max": 19225
+      },
+      "providerMs": {
+        "n": 21,
+        "mean": 13219,
+        "p50": 13402,
+        "p95": 17258,
+        "max": 19052
+      },
+      "overheadMs": {
+        "n": 21,
+        "mean": 147,
+        "p50": 133,
+        "p95": 220,
+        "max": 291
+      },
+      "inputTokens": {
+        "n": 21,
+        "mean": 18397,
+        "p50": 18699,
+        "p95": 20619,
+        "max": 20619
+      },
+      "outputTokens": {
+        "n": 21,
+        "mean": 1102,
+        "p50": 1095,
+        "p95": 1379,
+        "max": 1471
+      },
+      "reasoningTokens": {
+        "n": 21,
+        "mean": 171,
+        "p50": 178,
+        "p95": 269,
+        "max": 431
+      },
+      "options": {
+        "n": 21,
+        "mean": 13,
+        "p50": 14,
+        "p95": 16,
+        "max": 16
+      },
+      "textChars": {
+        "n": 21,
+        "mean": 1594,
+        "p50": 1531,
+        "p95": 1956,
+        "max": 2071
+      },
+      "recipes": {
+        "candidates": {
+          "n": 21,
+          "mean": 95,
+          "p50": 104,
+          "p95": 123,
+          "max": 123
+        },
+        "proposed": 240,
+        "own": 25,
+        "control": 4,
+        "notOffered": 0,
+        "wrongMeal": 0
+      },
+      "cost": {
+        "total": 0.050206600000000004,
+        "perAttempt": 0.002390790476190476
+      },
+      "goals": {
+        "p95UnderTimeGoal": false,
+        "noBlockingAtLeastGoal": false
+      }
+    },
+    "byCase": {
+      "C1": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 16011,
+          "p50": 16675,
+          "p95": 17359,
+          "max": 17359
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 15867,
+          "p50": 16455,
+          "p95": 17258,
+          "max": 17258
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 144,
+          "p50": 110,
+          "p95": 220,
+          "max": 220
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 15412,
+          "p50": 15412,
+          "p95": 15412,
+          "max": 15412
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 1260,
+          "p50": 1272,
+          "p95": 1274,
+          "max": 1274
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 304,
+          "p50": 269,
+          "p95": 431,
+          "max": 431
+        },
+        "options": {
+          "n": 3,
+          "mean": 13,
+          "p50": 13,
+          "p95": 14,
+          "max": 14
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 1690,
+          "p50": 1745,
+          "p95": 1778,
+          "max": 1778
+        },
+        "recipes": {
+          "candidates": {
+            "n": 3,
+            "mean": 67,
+            "p50": 67,
+            "p95": 67,
+            "max": 67
+          },
+          "proposed": 29,
+          "own": 4,
+          "control": 0,
+          "notOffered": 0,
+          "wrongMeal": 0
+        },
+        "cost": {
+          "total": 0.006513099999999999,
+          "perAttempt": 0.002171033333333333
+        },
+        "goals": {
+          "p95UnderTimeGoal": false,
+          "noBlockingAtLeastGoal": true
+        }
+      },
+      "C2": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 10100,
+          "p50": 10655,
+          "p95": 11055,
+          "max": 11055
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 9937,
+          "p50": 10480,
+          "p95": 10887,
+          "max": 10887
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 163,
+          "p50": 168,
+          "p95": 175,
+          "max": 175
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 20619,
+          "p50": 20619,
+          "p95": 20619,
+          "max": 20619
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 888,
+          "p50": 854,
+          "p95": 991,
+          "max": 991
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 70,
+          "p50": 80,
+          "p95": 129,
+          "max": 129
+        },
+        "options": {
+          "n": 3,
+          "mean": 13,
+          "p50": 14,
+          "p95": 14,
+          "max": 14
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 1582,
+          "p50": 1530,
+          "p95": 1842,
+          "max": 1842
+        },
+        "recipes": {
+          "candidates": {
+            "n": 3,
+            "mean": 123,
+            "p50": 123,
+            "p95": 123,
+            "max": 123
+          },
+          "proposed": 40,
+          "own": 2,
+          "control": 0,
+          "notOffered": 0,
+          "wrongMeal": 0
+        },
+        "cost": {
+          "total": 0.0075172,
+          "perAttempt": 0.002505733333333333
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": true
+        }
+      },
+      "C3": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 1,
+        "noBlockingRateOfValid": 0.3333333333333333,
+        "noBlockingRateOfAttempts": 0.3333333333333333,
+        "totalMs": {
+          "n": 3,
+          "mean": 15172,
+          "p50": 13541,
+          "p95": 19225,
+          "max": 19225
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 15011,
+          "p50": 13402,
+          "p95": 19052,
+          "max": 19052
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 161,
+          "p50": 172,
+          "p95": 173,
+          "max": 173
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 15137,
+          "p50": 15137,
+          "p95": 15137,
+          "max": 15137
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 1226,
+          "p50": 1269,
+          "p95": 1379,
+          "max": 1379
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 141,
+          "p50": 203,
+          "p95": 220,
+          "max": 220
+        },
+        "options": {
+          "n": 3,
+          "mean": 14,
+          "p50": 14,
+          "p95": 16,
+          "max": 16
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 1624,
+          "p50": 1539,
+          "p95": 1956,
+          "max": 1956
+        },
+        "recipes": {
+          "candidates": {
+            "n": 3,
+            "mean": 41,
+            "p50": 41,
+            "p95": 41,
+            "max": 41
+          },
+          "proposed": 22,
+          "own": 1,
+          "control": 1,
+          "notOffered": 0,
+          "wrongMeal": 0
+        },
+        "cost": {
+          "total": 0.0063796,
+          "perAttempt": 0.0021265333333333335
+        },
+        "goals": {
+          "p95UnderTimeGoal": false,
+          "noBlockingAtLeastGoal": false
+        }
+      },
+      "C4": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 13880,
+          "p50": 15045,
+          "p95": 15087,
+          "max": 15087
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 13772,
+          "p50": 14947,
+          "p95": 14977,
+          "max": 14977
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 109,
+          "p50": 110,
+          "p95": 118,
+          "max": 118
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 18670,
+          "p50": 18670,
+          "p95": 18670,
+          "max": 18670
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 1103,
+          "p50": 1126,
+          "p95": 1177,
+          "max": 1177
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 182,
+          "p50": 178,
+          "p95": 242,
+          "max": 242
+        },
+        "options": {
+          "n": 3,
+          "mean": 13,
+          "p50": 12,
+          "p95": 16,
+          "max": 16
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 1768,
+          "p50": 1726,
+          "p95": 2071,
+          "max": 2071
+        },
+        "recipes": {
+          "candidates": {
+            "n": 3,
+            "mean": 95,
+            "p50": 95,
+            "p95": 95,
+            "max": 95
+          },
+          "proposed": 40,
+          "own": 6,
+          "control": 2,
+          "notOffered": 0,
+          "wrongMeal": 0
+        },
+        "cost": {
+          "total": 0.0072555,
+          "perAttempt": 0.0024185
+        },
+        "goals": {
+          "p95UnderTimeGoal": false,
+          "noBlockingAtLeastGoal": true
+        }
+      },
+      "C5": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 12576,
+          "p50": 12040,
+          "p95": 14760,
+          "max": 14760
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 12407,
+          "p50": 11934,
+          "p95": 14650,
+          "max": 14650
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 169,
+          "p50": 110,
+          "p95": 291,
+          "max": 291
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 19652,
+          "p50": 19652,
+          "p95": 19652,
+          "max": 19652
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 1025,
+          "p50": 996,
+          "p95": 1095,
+          "max": 1095
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 192,
+          "p50": 175,
+          "p95": 239,
+          "max": 239
+        },
+        "options": {
+          "n": 3,
+          "mean": 15,
+          "p50": 14,
+          "p95": 16,
+          "max": 16
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 1507,
+          "p50": 1366,
+          "p95": 1841,
+          "max": 1841
+        },
+        "recipes": {
+          "candidates": {
+            "n": 3,
+            "mean": 110,
+            "p50": 110,
+            "p95": 110,
+            "max": 110
+          },
+          "proposed": 41,
+          "own": 7,
+          "control": 0,
+          "notOffered": 0,
+          "wrongMeal": 0
+        },
+        "cost": {
+          "total": 0.0074331,
+          "perAttempt": 0.0024776999999999998
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": true
+        }
+      },
+      "C6": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 11731,
+          "p50": 11603,
+          "p95": 13821,
+          "max": 13821
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 11599,
+          "p50": 11506,
+          "p95": 13698,
+          "max": 13698
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 132,
+          "p50": 123,
+          "p95": 177,
+          "max": 177
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 20588,
+          "p50": 20588,
+          "p95": 20588,
+          "max": 20588
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 973,
+          "p50": 972,
+          "p95": 1074,
+          "max": 1074
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 83,
+          "p50": 121,
+          "p95": 127,
+          "max": 127
+        },
+        "options": {
+          "n": 3,
+          "mean": 14,
+          "p50": 15,
+          "p95": 15,
+          "max": 15
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 1466,
+          "p50": 1482,
+          "p95": 1531,
+          "max": 1531
+        },
+        "recipes": {
+          "candidates": {
+            "n": 3,
+            "mean": 123,
+            "p50": 123,
+            "p95": 123,
+            "max": 123
+          },
+          "proposed": 42,
+          "own": 4,
+          "control": 1,
+          "notOffered": 0,
+          "wrongMeal": 0
+        },
+        "cost": {
+          "total": 0.0076364,
+          "perAttempt": 0.0025454666666666665
+        },
+        "goals": {
+          "p95UnderTimeGoal": true,
+          "noBlockingAtLeastGoal": true
+        }
+      },
+      "C7": {
+        "attempts": 3,
+        "valid": 3,
+        "validRate": 1,
+        "failures": {},
+        "noBlocking": 3,
+        "noBlockingRateOfValid": 1,
+        "noBlockingRateOfAttempts": 1,
+        "totalMs": {
+          "n": 3,
+          "mean": 14085,
+          "p50": 14589,
+          "p95": 15400,
+          "max": 15400
+        },
+        "providerMs": {
+          "n": 3,
+          "mean": 13938,
+          "p50": 14394,
+          "p95": 15286,
+          "max": 15286
+        },
+        "overheadMs": {
+          "n": 3,
+          "mean": 147,
+          "p50": 133,
+          "p95": 195,
+          "max": 195
+        },
+        "inputTokens": {
+          "n": 3,
+          "mean": 18699,
+          "p50": 18699,
+          "p95": 18699,
+          "max": 18699
+        },
+        "outputTokens": {
+          "n": 3,
+          "mean": 1241,
+          "p50": 1155,
+          "p95": 1471,
+          "max": 1471
+        },
+        "reasoningTokens": {
+          "n": 3,
+          "mean": 226,
+          "p50": 220,
+          "p95": 264,
+          "max": 264
+        },
+        "options": {
+          "n": 3,
+          "mean": 12,
+          "p50": 12,
+          "p95": 12,
+          "max": 12
+        },
+        "textChars": {
+          "n": 3,
+          "mean": 1523,
+          "p50": 1455,
+          "p95": 1714,
+          "max": 1714
+        },
+        "recipes": {
+          "candidates": {
+            "n": 3,
+            "mean": 104,
+            "p50": 104,
+            "p95": 104,
+            "max": 104
+          },
+          "proposed": 26,
+          "own": 1,
+          "control": 0,
+          "notOffered": 0,
+          "wrongMeal": 0
+        },
+        "cost": {
+          "total": 0.007471700000000001,
+          "perAttempt": 0.0024905666666666672
+        },
+        "goals": {
+          "p95UnderTimeGoal": false,
+          "noBlockingAtLeastGoal": true
+        }
+      }
+    }
+  },
+  "generations": [
+    {
+      "caseCode": "C1",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 16675,
+      "planId": "38c18d77-f785-4c47-bbc5-fbba0597e9ba",
+      "options": 13,
+      "textChars": 1745,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 3,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 16455,
+      "overheadMs": 220,
+      "inputTokens": 15412,
+      "outputTokens": 1233,
+      "reasoningTokens": 269,
+      "cost": 0.0021577,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "pathology_rule",
+          "message": "Receta Avena sin TACC remojada con bebida de soja y manzana, ingrediente Avena sin TACC: a moderar por Celiaquía (MSAL, GPC enfermedad celíaca (2016), p. 43; ANMAT, Menú libre de gluten seguro (2023), p. 15)"
+        },
+        {
+          "severity": "warning",
+          "type": "pathology_rule",
+          "message": "Receta Panqueques de avena sin TACC y manzana, ingrediente Avena sin TACC: a moderar por Celiaquía (MSAL, GPC enfermedad celíaca (2016), p. 43; ANMAT, Menú libre de gluten seguro (2023), p. 15)"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del almuerzo: falta verdura y proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena sin TACC remojada con bebida de soja y manzana"
+            ],
+            [
+              "Receta: Tostadas de arroz con ricota y frutillas"
+            ],
+            [
+              "Receta: Panqueques de avena sin TACC y manzana"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Atún al natural",
+              "Tostadas de arroz",
+              "Manzana",
+              "Tomate"
+            ],
+            [
+              "Galletitas sin TACC",
+              "Pan sin TACC",
+              "Mandarina",
+              "Agua"
+            ],
+            [
+              "Garbanzos",
+              "Choclo",
+              "Tomate",
+              "Naranja"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur descremado con copos de maíz y mango"
+            ],
+            [
+              "Receta: Galletitas sin TACC con queso untable y kiwi"
+            ],
+            [
+              "Receta: Pan sin TACC con huevo revuelto y palta"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Fideos sin TACC con salsa de tomate y atún"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Quinoa con verduras salteadas y huevo"
+            ],
+            [
+              "Receta: Merluza a la plancha con arroz integral y brócoli"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 67,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena sin TACC remojada con bebida de soja y manzana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Tostadas de arroz con ricota y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Panqueques de avena sin TACC y manzana",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur descremado con copos de maíz y mango",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Galletitas sin TACC con queso untable y kiwi",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan sin TACC con huevo revuelto y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos sin TACC con salsa de tomate y atún",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de garbanzos, choclo y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Quinoa con verduras salteadas y huevo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Merluza a la plancha con arroz integral y brócoli",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 11055,
+      "planId": "98262703-1625-4f40-a7f6-ee664e7c988c",
+      "options": 12,
+      "textChars": 1842,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 10887,
+      "overheadMs": 168,
+      "inputTokens": 20619,
+      "outputTokens": 991,
+      "reasoningTokens": 129,
+      "cost": 0.0025574,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan de salvado con huevo revuelto y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Pollo a la plancha con puré de papa y zapallo"
+            ],
+            [
+              "Receta: Ensalada de lentejas, choclo y morrón"
+            ],
+            [
+              "Receta: Merluza a la plancha con arroz integral y brócoli"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Tostadas de arroz con palta y huevo duro"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Tarta de brócoli y ricota"
+            ],
+            [
+              "Receta: Salmón al horno con batata y espárragos"
+            ],
+            [
+              "Receta: Ensalada de garbanzos y pepino con pan árabe"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 123,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena cocida con leche y pera",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan de salvado con huevo revuelto y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Pollo a la plancha con puré de papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de lentejas, choclo y morrón",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Merluza a la plancha con arroz integral y brócoli",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur con granola y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Tostadas de arroz con palta y huevo duro",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Tarta de brócoli y ricota",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Salmón al horno con batata y espárragos",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de garbanzos y pepino con pan árabe",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 13541,
+      "planId": "427e9630-6070-4d83-85e7-691e22a4fdbe",
+      "options": 14,
+      "textChars": 1539,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 8,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 13402,
+      "overheadMs": 139,
+      "inputTokens": 15137,
+      "outputTokens": 1379,
+      "reasoningTokens": 203,
+      "cost": 0.0022031999999999998,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del almuerzo: falta verdura y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del almuerzo: falta verdura"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 del almuerzo: falta verdura"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la merienda: falta proteína y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la cena: falta verdura y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la cena: falta verdura"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la cena: falta verdura"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Receta: Pan francés con queso fresco y mandarina"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Verduras (grupo)",
+              "Aves (grupo)",
+              "Arroz y granos (grupo)"
+            ],
+            [
+              "Verduras (grupo)",
+              "Pescados (grupo)",
+              "Tubérculos y choclo (grupo)"
+            ],
+            [
+              "Verduras (grupo)",
+              "Legumbres (grupo)",
+              "Panificados y harinas (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Frutas frescas (grupo)",
+              "Yogur natural"
+            ],
+            [
+              "Pan integral",
+              "Queso fresco",
+              "Frutas frescas (grupo)"
+            ],
+            [
+              "Frutas frescas (grupo)",
+              "Frutos secos (grupo)"
+            ],
+            [
+              "Té",
+              "Galletitas integrales",
+              "Queso untable"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Verduras (grupo)",
+              "Carnes (grupo)",
+              "Arroz y granos (grupo)"
+            ],
+            [
+              "Verduras (grupo)",
+              "Huevos (grupo)",
+              "Tubérculos y choclo (grupo)"
+            ],
+            [
+              "Verduras (grupo)",
+              "Legumbres (grupo)",
+              "Panificados y harinas (grupo)"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 41,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan francés con queso fresco y mandarina",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 11509,
+      "planId": "735739dc-9c2c-4221-966e-43e75a0f2f9a",
+      "options": 12,
+      "textChars": 1726,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 11391,
+      "overheadMs": 118,
+      "inputTokens": 18670,
+      "outputTokens": 1006,
+      "reasoningTokens": 125,
+      "cost": 0.00237,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de pollo, arroz integral y palta"
+            ],
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de lentejas y tomate con pan"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ],
+            [
+              "Receta: Yogur griego con copos de maíz y arándanos"
+            ],
+            [
+              "Receta: Pan lactal integral con queso fresco y palta"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Tofu salteado con vegetales y arroz integral"
+            ],
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 95,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena cocida con leche y pera",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de pollo, arroz integral y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Arroz con pollo y verduras",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de lentejas y tomate con pan",
+            "own": true,
+            "control": true,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur griego con copos de maíz y arándanos",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan lactal integral con queso fresco y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Merluza al horno con papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Tofu salteado con vegetales y arroz integral",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos con salsa de tomate y carne picada",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 10928,
+      "planId": "39384894-2a3c-4f23-9960-7625e16f101f",
+      "options": 14,
+      "textChars": 1366,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 2,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 10637,
+      "overheadMs": 291,
+      "inputTokens": 19652,
+      "outputTokens": 984,
+      "reasoningTokens": 175,
+      "cost": 0.0024571999999999997,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 del desayuno: falta proteína"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la merienda: falta proteína y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena sin TACC remojada con bebida de soja y manzana"
+            ],
+            [
+              "Receta: Pan de salvado con huevo revuelto y tomate"
+            ],
+            [
+              "Frutas frescas (grupo)",
+              "Tostadas de arroz",
+              "Té"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Quinoa con verduras salteadas y huevo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Galletas de avena y banana con chía"
+            ],
+            [
+              "Receta: Pan sin TACC con huevo revuelto y palta"
+            ],
+            [
+              "Frutas frescas (grupo)",
+              "Frutos secos (grupo)",
+              "Té de hierbas"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Ensalada de arroz y atún"
+            ],
+            [
+              "Receta: Fideos de arroz salteados con pollo y vegetales"
+            ],
+            [
+              "Receta: Tofu salteado con vegetales y arroz integral"
+            ],
+            [
+              "Receta: Tortilla de verduras al horno"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 110,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena sin TACC remojada con bebida de soja y manzana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan de salvado con huevo revuelto y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Arroz con pollo y verduras",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de garbanzos, choclo y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Merluza al horno con papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Quinoa con verduras salteadas y huevo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Galletas de avena y banana con chía",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan sin TACC con huevo revuelto y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de arroz y atún",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos de arroz salteados con pollo y vegetales",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Tofu salteado con vegetales y arroz integral",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Tortilla de verduras al horno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 9770,
+      "planId": "2f2e3a37-c206-4acc-8842-f246026408ed",
+      "options": 15,
+      "textChars": 1531,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 9593,
+      "overheadMs": 177,
+      "inputTokens": 20588,
+      "outputTokens": 874,
+      "reasoningTokens": 0,
+      "cost": 0.0024958000000000003,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ],
+            [
+              "Receta: Pan de salvado con huevo revuelto y tomate"
+            ],
+            [
+              "Receta: Avena cocida con leche y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de pollo, arroz integral y palta"
+            ],
+            [
+              "Receta: Ensalada de garbanzos y pepino con pan árabe"
+            ],
+            [
+              "Receta: Frittata de brócoli y queso con batata"
+            ],
+            [
+              "Receta: Wrap de pan árabe con atún y vegetales"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur bebible con granola y banana"
+            ],
+            [
+              "Receta: Pan francés con queso fresco y mandarina"
+            ],
+            [
+              "Receta: Galletas de avena y banana con chía"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Fideos integrales con brócoli, ajo y queso rallado"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Ensalada de lentejas y tomate con pan"
+            ],
+            [
+              "Receta: Hamburguesas de lentejas con pan integral y ensalada"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 123,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan de salvado con huevo revuelto y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Avena cocida con leche y pera",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de pollo, arroz integral y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de garbanzos y pepino con pan árabe",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Frittata de brócoli y queso con batata",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Wrap de pan árabe con atún y vegetales",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur bebible con granola y banana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan francés con queso fresco y mandarina",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Galletas de avena y banana con chía",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos integrales con brócoli, ajo y queso rallado",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Merluza al horno con papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de lentejas y tomate con pan",
+            "own": true,
+            "control": true,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Hamburguesas de lentejas con pan integral y ensalada",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 1,
+      "status": 201,
+      "totalMs": 15400,
+      "planId": "b1105aec-518f-4d7a-b94e-0d136418a18c",
+      "options": 11,
+      "textChars": 1714,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 2,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 15286,
+      "overheadMs": 114,
+      "inputTokens": 18699,
+      "outputTokens": 1471,
+      "reasoningTokens": 193,
+      "cost": 0.0026054,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del almuerzo: falta verdura"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del almuerzo: falta verdura"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Aves (grupo)",
+              "Verduras (grupo)",
+              "Arroz y granos (grupo)",
+              "Tubérculos y choclo (grupo)"
+            ],
+            [
+              "Carnes, pescados y huevos (grupo)",
+              "Pescados (grupo)",
+              "Verduras (grupo)",
+              "Arroz y granos (grupo)",
+              "Tubérculos y choclo (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Pan francés con queso fresco y mandarina"
+            ],
+            [
+              "Receta: Yogur bebible con granola y banana"
+            ],
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Pollo a la plancha con puré de papa y zapallo"
+            ],
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ],
+            [
+              "Receta: Tortilla de verduras al horno"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 104,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena cocida con leche y pera",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con granola y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan francés con queso fresco y mandarina",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur bebible con granola y banana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Pollo a la plancha con puré de papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos con salsa de tomate y carne picada",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Tortilla de verduras al horno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 17359,
+      "planId": "747a7d1b-e72b-4130-a7c2-b32fb1fd0e1d",
+      "options": 12,
+      "textChars": 1548,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 2,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 17258,
+      "overheadMs": 101,
+      "inputTokens": 15412,
+      "outputTokens": 1272,
+      "reasoningTokens": 431,
+      "cost": 0.0021772,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "pathology_rule",
+          "message": "Receta Avena sin TACC remojada con bebida de soja y manzana, ingrediente Avena sin TACC: a moderar por Celiaquía (MSAL, GPC enfermedad celíaca (2016), p. 43; ANMAT, Menú libre de gluten seguro (2023), p. 15)"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del almuerzo: falta verdura"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena sin TACC remojada con bebida de soja y manzana"
+            ],
+            [
+              "Receta: Pan sin TACC con huevo revuelto y palta"
+            ],
+            [
+              "Receta: Galletitas sin TACC con queso untable y kiwi",
+              "Café"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Atún al natural",
+              "Tostadas de arroz",
+              "Frutas frescas (grupo)"
+            ],
+            [
+              "Garbanzos",
+              "Choclo",
+              "Tomate",
+              "Frutas frescas (grupo)"
+            ],
+            [
+              "Receta: Sándwich de pan sin TACC con atún y zanahoria"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Galletitas sin TACC con queso untable y kiwi"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Receta: Panqueques de harina de arroz con banana"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Fideos sin TACC con salsa de tomate y atún"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Sándwich de pan sin TACC con atún y zanahoria"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 67,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena sin TACC remojada con bebida de soja y manzana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan sin TACC con huevo revuelto y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Galletitas sin TACC con queso untable y kiwi",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Sándwich de pan sin TACC con atún y zanahoria",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Galletitas sin TACC con queso untable y kiwi",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Panqueques de harina de arroz con banana",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos sin TACC con salsa de tomate y atún",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de garbanzos, choclo y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Sándwich de pan sin TACC con atún y zanahoria",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 8590,
+      "planId": "f2dd3df1-f804-4a36-9801-0c5d4926ed43",
+      "options": 14,
+      "textChars": 1530,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 8443,
+      "overheadMs": 147,
+      "inputTokens": 20619,
+      "outputTokens": 818,
+      "reasoningTokens": 0,
+      "cost": 0.0024709000000000003,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan de salvado con huevo revuelto y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Merluza a la plancha con arroz integral y brócoli"
+            ],
+            [
+              "Receta: Ensalada de lentejas, choclo y morrón"
+            ],
+            [
+              "Receta: Pollo al limón con arroz integral y chauchas"
+            ],
+            [
+              "Receta: Ensalada tibia de quinoa, garbanzos y calabaza asada"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Caballa grillada con puré de batata y espinaca"
+            ],
+            [
+              "Receta: Tarta de brócoli y ricota"
+            ],
+            [
+              "Receta: Ensalada de garbanzos y pepino con pan árabe"
+            ],
+            [
+              "Receta: Bife magro con ensalada y papas al horno"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 123,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena cocida con leche y pera",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan de salvado con huevo revuelto y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Merluza a la plancha con arroz integral y brócoli",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de lentejas, choclo y morrón",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Pollo al limón con arroz integral y chauchas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada tibia de quinoa, garbanzos y calabaza asada",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur con granola y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Caballa grillada con puré de batata y espinaca",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Tarta de brócoli y ricota",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de garbanzos y pepino con pan árabe",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Bife magro con ensalada y papas al horno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 19225,
+      "planId": "df76aa78-c280-4579-a321-bca549d66469",
+      "options": 12,
+      "textChars": 1956,
+      "validationResult": "blocking",
+      "blocking": 6,
+      "warnings": 6,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 19052,
+      "overheadMs": 173,
+      "inputTokens": 15137,
+      "outputTokens": 1269,
+      "reasoningTokens": 220,
+      "cost": 0.0021482,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Comida preparada de rotisería con verduras, pollo y arroz.\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del almuerzo: falta verdura, proteína y hidrato"
+        },
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Ensalada preparada de legumbres y verduras, con pan opcional.\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del almuerzo: falta verdura, proteína y hidrato"
+        },
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Comida preparada de pescado con verduras y papa o arroz.\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 del almuerzo: falta verdura, proteína y hidrato"
+        },
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Comida preparada de rotisería con verduras, carne vacuna y papa o arroz.\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la cena: falta verdura, proteína y hidrato"
+        },
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Comida preparada de pollo con verduras y arroz.\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 de la cena: falta verdura, proteína y hidrato"
+        },
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Tarta de verduras con ensalada fresca, compradas y consumidas en el momento.\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 de la cena: falta verdura, proteína y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "No reconocido: Comida preparada de rotisería con verduras, pollo y arroz."
+            ],
+            [
+              "No reconocido: Ensalada preparada de legumbres y verduras, con pan opcional."
+            ],
+            [
+              "No reconocido: Comida preparada de pescado con verduras y papa o arroz."
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Pan francés con queso fresco y mandarina"
+            ],
+            [
+              "Receta: Tostadas de arroz con ricota y frutillas"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "No reconocido: Comida preparada de rotisería con verduras, carne vacuna y papa o arroz."
+            ],
+            [
+              "No reconocido: Comida preparada de pollo con verduras y arroz."
+            ],
+            [
+              "No reconocido: Tarta de verduras con ensalada fresca, compradas y consumidas en el momento."
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 41,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur con granola y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan francés con queso fresco y mandarina",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Tostadas de arroz con ricota y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 15045,
+      "planId": "97232847-0b15-4044-bb42-60e4b50a9e5b",
+      "options": 16,
+      "textChars": 1506,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 14947,
+      "overheadMs": 98,
+      "inputTokens": 18670,
+      "outputTokens": 1177,
+      "reasoningTokens": 242,
+      "cost": 0.0024555,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Mate cocido con leche y pan integral con ricota"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de pollo, arroz integral y palta"
+            ],
+            [
+              "Receta: Ensalada de arroz y atún"
+            ],
+            [
+              "Receta: Fideos de arroz salteados con pollo y vegetales"
+            ],
+            [
+              "Receta: Ensalada tibia de quinoa, garbanzos y calabaza asada"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ],
+            [
+              "Receta: Yogur griego con copos de maíz y arándanos"
+            ],
+            [
+              "Receta: Pan lactal integral con queso fresco y palta"
+            ],
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Pollo al limón con arroz integral y chauchas"
+            ],
+            [
+              "Receta: Fideos integrales con brócoli, ajo y queso rallado"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Medallones de soja texturizada con arroz y ensalada"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 95,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena cocida con leche y pera",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Mate cocido con leche y pan integral con ricota",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de pollo, arroz integral y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de arroz y atún",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Fideos de arroz salteados con pollo y vegetales",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada tibia de quinoa, garbanzos y calabaza asada",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Licuado de banana con leche y avena",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur griego con copos de maíz y arándanos",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan lactal integral con queso fresco y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Pollo al limón con arroz integral y chauchas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos integrales con brócoli, ajo y queso rallado",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Merluza al horno con papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Medallones de soja texturizada con arroz y ensalada",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 14760,
+      "planId": "24943d08-fc98-45a9-bbcb-d31935978559",
+      "options": 16,
+      "textChars": 1841,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 1,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 14650,
+      "overheadMs": 110,
+      "inputTokens": 19652,
+      "outputTokens": 1095,
+      "reasoningTokens": 163,
+      "cost": 0.0025126999999999997,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 4 de la merienda: falta proteína y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena sin TACC remojada con bebida de soja y manzana"
+            ],
+            [
+              "Receta: Pan de salvado con huevo revuelto y tomate"
+            ],
+            [
+              "Receta: Panqueques de avena y banana"
+            ],
+            [
+              "Receta: Tostadas de arroz con palta y huevo duro"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada tibia de quinoa, garbanzos y calabaza asada"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Quinoa con verduras salteadas y huevo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Avena sin TACC remojada con bebida de soja y manzana"
+            ],
+            [
+              "Receta: Pan de salvado con huevo revuelto y tomate"
+            ],
+            [
+              "Receta: Panqueques de avena y banana"
+            ],
+            [
+              "Frutas (grupo)",
+              "Infusiones (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Quinoa con verduras salteadas y huevo"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 110,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena sin TACC remojada con bebida de soja y manzana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan de salvado con huevo revuelto y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Panqueques de avena y banana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Tostadas de arroz con palta y huevo duro",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Arroz con pollo y verduras",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada tibia de quinoa, garbanzos y calabaza asada",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Merluza al horno con papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Quinoa con verduras salteadas y huevo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Avena sin TACC remojada con bebida de soja y manzana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan de salvado con huevo revuelto y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Panqueques de avena y banana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Arroz con pollo y verduras",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de garbanzos, choclo y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Merluza al horno con papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Quinoa con verduras salteadas y huevo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 11603,
+      "planId": "a5fa4582-7bad-4ae2-a117-02c4d258f259",
+      "options": 15,
+      "textChars": 1385,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 11506,
+      "overheadMs": 97,
+      "inputTokens": 20588,
+      "outputTokens": 1074,
+      "reasoningTokens": 121,
+      "cost": 0.0025958,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de lentejas, choclo y morrón"
+            ],
+            [
+              "Receta: Ensalada de pollo, arroz integral y palta"
+            ],
+            [
+              "Receta: Fideos integrales con brócoli, ajo y queso rallado"
+            ],
+            [
+              "Receta: Tarta de acelga y huevo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Receta: Pan francés con queso fresco y mandarina"
+            ],
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ],
+            [
+              "Receta: Galletas de avena y banana con chía"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Fideos integrales con brócoli, ajo y queso rallado"
+            ],
+            [
+              "Receta: Revuelto de arvejas, papa y huevo"
+            ],
+            [
+              "Receta: Pollo a la plancha con puré de papa y zapallo"
+            ],
+            [
+              "Receta: Tortilla de verduras al horno"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 123,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con granola y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de lentejas, choclo y morrón",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de pollo, arroz integral y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Fideos integrales con brócoli, ajo y queso rallado",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Tarta de acelga y huevo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan francés con queso fresco y mandarina",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Galletas de avena y banana con chía",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos integrales con brócoli, ajo y queso rallado",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Revuelto de arvejas, papa y huevo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Pollo a la plancha con puré de papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Tortilla de verduras al horno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 2,
+      "status": 201,
+      "totalMs": 12267,
+      "planId": "81446f69-e7f2-4514-a1b1-5416fbcf2741",
+      "options": 12,
+      "textChars": 1400,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 3,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 12134,
+      "overheadMs": 133,
+      "inputTokens": 18699,
+      "outputTokens": 1098,
+      "reasoningTokens": 220,
+      "cost": 0.0024189000000000003,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del almuerzo: falta verdura y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del almuerzo: falta verdura"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 del almuerzo: falta verdura y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Aves (grupo)",
+              "Arroz y granos (grupo)",
+              "Verduras (grupo)"
+            ],
+            [
+              "Carnes (grupo)",
+              "Tubérculos y choclo (grupo)",
+              "Verduras (grupo)"
+            ],
+            [
+              "Huevos (grupo)",
+              "Cereales y derivados (grupo)",
+              "Verduras (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur bebible con granola y banana"
+            ],
+            [
+              "Receta: Pan francés con queso fresco y mandarina"
+            ],
+            [
+              "Receta: Galletitas sin TACC con queso untable y kiwi"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Fideos con salsa de tomate y carne picada"
+            ],
+            [
+              "Receta: Tarta de zapallitos y queso"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 104,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con granola y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur bebible con granola y banana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan francés con queso fresco y mandarina",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Galletitas sin TACC con queso untable y kiwi",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Merluza al horno con papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos con salsa de tomate y carne picada",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Tarta de zapallitos y queso",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C1",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 13998,
+      "planId": "11b8d24b-a3fe-48e8-b8b2-29304969c213",
+      "options": 14,
+      "textChars": 1778,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 4,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 13888,
+      "overheadMs": 110,
+      "inputTokens": 15412,
+      "outputTokens": 1274,
+      "reasoningTokens": 213,
+      "cost": 0.0021782,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "pathology_rule",
+          "message": "Receta Avena sin TACC remojada con bebida de soja y manzana, ingrediente Avena sin TACC: a moderar por Celiaquía (MSAL, GPC enfermedad celíaca (2016), p. 43; ANMAT, Menú libre de gluten seguro (2023), p. 15)"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del almuerzo: falta verdura"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 del almuerzo: falta verdura"
+        },
+        {
+          "severity": "warning",
+          "type": "pathology_rule",
+          "message": "Receta Avena sin TACC remojada con bebida de soja y manzana, ingrediente Avena sin TACC: a moderar por Celiaquía (MSAL, GPC enfermedad celíaca (2016), p. 43; ANMAT, Menú libre de gluten seguro (2023), p. 15)"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena sin TACC remojada con bebida de soja y manzana"
+            ],
+            [
+              "Receta: Galletitas sin TACC con queso untable y kiwi"
+            ],
+            [
+              "Receta: Panqueques de harina de arroz con banana"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Atún al natural",
+              "Tostadas de arroz",
+              "Manzana"
+            ],
+            [
+              "Garbanzos",
+              "Choclo",
+              "Tomate",
+              "Agua"
+            ],
+            [
+              "Sardinas en lata",
+              "Tostadas de arroz",
+              "Naranja"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Galletitas sin TACC con queso untable y kiwi"
+            ],
+            [
+              "Receta: Avena sin TACC remojada con bebida de soja y manzana"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Receta: Tostadas de arroz con queso de cabra y pera"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Fideos sin TACC con salsa de tomate y atún"
+            ],
+            [
+              "Merluza",
+              "Arroz integral",
+              "Brócoli",
+              "Aceite de oliva"
+            ],
+            [
+              "Huevo",
+              "Zapallito",
+              "Papa",
+              "Tomate"
+            ],
+            [
+              "Receta: Ensalada de garbanzos, choclo y tomate"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 67,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena sin TACC remojada con bebida de soja y manzana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Galletitas sin TACC con queso untable y kiwi",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Panqueques de harina de arroz con banana",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Galletitas sin TACC con queso untable y kiwi",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Avena sin TACC remojada con bebida de soja y manzana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Tostadas de arroz con queso de cabra y pera",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos sin TACC con salsa de tomate y atún",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de garbanzos, choclo y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C2",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 10655,
+      "planId": "c6a098b1-b4cb-40ba-bfaf-f094fe0488f0",
+      "options": 14,
+      "textChars": 1375,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 10480,
+      "overheadMs": 175,
+      "inputTokens": 20619,
+      "outputTokens": 854,
+      "reasoningTokens": 80,
+      "cost": 0.0024889,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan de salvado con huevo revuelto y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Merluza a la plancha con arroz integral y brócoli"
+            ],
+            [
+              "Receta: Ensalada tibia de quinoa, garbanzos y calabaza asada"
+            ],
+            [
+              "Receta: Pollo al limón con arroz integral y chauchas"
+            ],
+            [
+              "Receta: Tarta de brócoli y ricota"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Bife magro con ensalada y papas al horno"
+            ],
+            [
+              "Receta: Ensalada de lentejas, choclo y morrón"
+            ],
+            [
+              "Receta: Frittata de brócoli y queso con batata"
+            ],
+            [
+              "Receta: Ensalada de pollo, arroz integral y palta"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 123,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena cocida con leche y pera",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan de salvado con huevo revuelto y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Merluza a la plancha con arroz integral y brócoli",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada tibia de quinoa, garbanzos y calabaza asada",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Pollo al limón con arroz integral y chauchas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Tarta de brócoli y ricota",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur con granola y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Bife magro con ensalada y papas al horno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de lentejas, choclo y morrón",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Frittata de brócoli y queso con batata",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de pollo, arroz integral y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C3",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 12751,
+      "planId": "ac3642cf-f4ec-4c21-872a-aff10fc13150",
+      "options": 16,
+      "textChars": 1376,
+      "validationResult": "blocking",
+      "blocking": 2,
+      "warnings": 4,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 12579,
+      "overheadMs": 172,
+      "inputTokens": 15137,
+      "outputTokens": 1029,
+      "reasoningTokens": 0,
+      "cost": 0.0020282,
+      "findings": [
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Una preparación de pollo o pescado con verduras y arroz o papa, elegida en la rotisería.\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 4 del almuerzo: falta verdura, proteína y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 4 de la merienda: falta proteína y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "pathology_rule",
+          "message": "Receta Ensalada de lentejas y tomate con pan, ingrediente Sal fina: a moderar por Hipertensión (MSAL, GPC hipertensión arterial, versión breve (2026), pp. 8 y 14)"
+        },
+        {
+          "severity": "blocking",
+          "type": "unrecognized_item",
+          "message": "\"Una preparación de pescado o pollo con verduras y un acompañamiento, elegida en la rotisería.\" no está en el catálogo y no se puede validar hasta reemplazarlo por un alimento, un grupo o una receta"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 4 de la cena: falta verdura, proteína y hidrato"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ],
+            [
+              "Frutas frescas (grupo)",
+              "Té",
+              "Pan integral",
+              "Queso untable"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de atún, choclo y lechuga con tostadas de arroz"
+            ],
+            [
+              "Receta: Ensalada de garbanzos y pepino con pan árabe"
+            ],
+            [
+              "Receta: Ensalada de ricota, rúcula y nueces con galletitas integrales"
+            ],
+            [
+              "No reconocido: Una preparación de pollo o pescado con verduras y arroz o papa, elegida en la rotisería."
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ],
+            [
+              "Receta: Pan francés con queso fresco y mandarina"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Frutas frescas (grupo)",
+              "Frutos secos (grupo)",
+              "Té"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Ensalada de lentejas y tomate con pan"
+            ],
+            [
+              "Receta: Ensalada caprese con pan integral"
+            ],
+            [
+              "Receta: Wrap de pan árabe con hummus y vegetales"
+            ],
+            [
+              "No reconocido: Una preparación de pescado o pollo con verduras y un acompañamiento, elegida en la rotisería."
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 41,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de atún, choclo y lechuga con tostadas de arroz",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de garbanzos y pepino con pan árabe",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de ricota, rúcula y nueces con galletitas integrales",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan francés con queso fresco y mandarina",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur con granola y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de lentejas y tomate con pan",
+            "own": true,
+            "control": true,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada caprese con pan integral",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Wrap de pan árabe con hummus y vegetales",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C4",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 15087,
+      "planId": "422c479d-4e92-4157-8164-a0a665bb9fa8",
+      "options": 12,
+      "textChars": 2071,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 14977,
+      "overheadMs": 110,
+      "inputTokens": 18670,
+      "outputTokens": 1126,
+      "reasoningTokens": 178,
+      "cost": 0.00243,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena cocida con leche y pera"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur griego con copos de maíz y arándanos"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de pollo, arroz integral y palta"
+            ],
+            [
+              "Receta: Ensalada de lentejas y tomate con pan"
+            ],
+            [
+              "Receta: Fideos integrales con brócoli, ajo y queso rallado"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Licuado de banana con leche y avena"
+            ],
+            [
+              "Receta: Pan lactal integral con queso fresco y palta"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Pollo al limón con arroz integral y chauchas"
+            ],
+            [
+              "Receta: Tofu salteado con vegetales y arroz integral"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 95,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena cocida con leche y pera",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur griego con copos de maíz y arándanos",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de pollo, arroz integral y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de lentejas y tomate con pan",
+            "own": true,
+            "control": true,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Fideos integrales con brócoli, ajo y queso rallado",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Licuado de banana con leche y avena",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan lactal integral con queso fresco y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur con granola y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Pollo al limón con arroz integral y chauchas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Tofu salteado con vegetales y arroz integral",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Merluza al horno con papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C5",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 12040,
+      "planId": "5e9785b0-f0cd-490a-b494-276ca61248d3",
+      "options": 14,
+      "textChars": 1315,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 11934,
+      "overheadMs": 106,
+      "inputTokens": 19652,
+      "outputTokens": 996,
+      "reasoningTokens": 239,
+      "cost": 0.0024632,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena sin TACC remojada con bebida de soja y manzana"
+            ],
+            [
+              "Receta: Galletas de avena y banana con chía"
+            ],
+            [
+              "Receta: Panqueques de avena y banana"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de arroz y atún"
+            ],
+            [
+              "Receta: Merluza a la plancha con arroz integral y brócoli"
+            ],
+            [
+              "Receta: Quinoa con verduras salteadas y huevo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Avena sin TACC remojada con bebida de soja y manzana"
+            ],
+            [
+              "Receta: Galletas de avena y banana con chía"
+            ],
+            [
+              "Receta: Panqueques de avena y banana"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Ensalada de arroz y atún"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Quinoa con verduras salteadas y huevo"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 110,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena sin TACC remojada con bebida de soja y manzana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Galletas de avena y banana con chía",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Panqueques de avena y banana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Arroz con pollo y verduras",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de arroz y atún",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Merluza a la plancha con arroz integral y brócoli",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Quinoa con verduras salteadas y huevo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Avena sin TACC remojada con bebida de soja y manzana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Galletas de avena y banana con chía",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Panqueques de avena y banana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Arroz con pollo y verduras",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de arroz y atún",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Merluza al horno con papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Quinoa con verduras salteadas y huevo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C6",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 13821,
+      "planId": "cf33d9eb-e4dc-477f-bbbb-ac77b90f4717",
+      "options": 12,
+      "textChars": 1482,
+      "validationResult": "no_findings",
+      "blocking": 0,
+      "warnings": 0,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 13698,
+      "overheadMs": 123,
+      "inputTokens": 20588,
+      "outputTokens": 972,
+      "reasoningTokens": 127,
+      "cost": 0.0025448000000000003,
+      "findings": [],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ],
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con banana y semillas de lino"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Receta: Ensalada de arroz y atún"
+            ],
+            [
+              "Receta: Ensalada de pollo, arroz integral y palta"
+            ],
+            [
+              "Receta: Tarta de acelga y huevo"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Pan francés con queso fresco y mandarina"
+            ],
+            [
+              "Receta: Avena sin TACC remojada con bebida de soja y manzana"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Fideos integrales con brócoli, ajo y queso rallado"
+            ],
+            [
+              "Receta: Tortilla de verduras al horno"
+            ],
+            [
+              "Receta: Ensalada de garbanzos y pepino con pan árabe"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 123,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con banana y semillas de lino",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de arroz y atún",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Ensalada de pollo, arroz integral y palta",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "lunch",
+            "name": "Tarta de acelga y huevo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur con granola y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Pan francés con queso fresco y mandarina",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Avena sin TACC remojada con bebida de soja y manzana",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos integrales con brócoli, ajo y queso rallado",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Tortilla de verduras al horno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Ensalada de garbanzos y pepino con pan árabe",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    },
+    {
+      "caseCode": "C7",
+      "iteration": 3,
+      "status": 201,
+      "totalMs": 14589,
+      "planId": "9f9b0aef-d557-4a55-a5f0-90c1b1fcd1f7",
+      "options": 12,
+      "textChars": 1455,
+      "validationResult": "warnings",
+      "blocking": 0,
+      "warnings": 4,
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "templateVersion": "plan_proposal_v3",
+      "providerMs": 14394,
+      "overheadMs": 195,
+      "inputTokens": 18699,
+      "outputTokens": 1155,
+      "reasoningTokens": 264,
+      "cost": 0.0024474,
+      "findings": [
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 del almuerzo: falta verdura y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 2 del almuerzo: falta verdura y hidrato"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 3 del almuerzo: falta verdura"
+        },
+        {
+          "severity": "warning",
+          "type": "composition",
+          "message": "Opción 1 de la merienda: falta proteína"
+        }
+      ],
+      "proposal": [
+        {
+          "mealType": "breakfast",
+          "options": [
+            [
+              "Receta: Pan integral con queso untable y tomate"
+            ],
+            [
+              "Receta: Yogur con granola y frutillas"
+            ],
+            [
+              "Receta: Avena remojada con yogur y durazno"
+            ]
+          ]
+        },
+        {
+          "mealType": "lunch",
+          "options": [
+            [
+              "Verduras (grupo)",
+              "Arroz y granos (grupo)",
+              "Carnes, pescados y huevos (grupo)"
+            ],
+            [
+              "Aves (grupo)",
+              "Verduras (grupo)",
+              "Arroz y granos (grupo)"
+            ],
+            [
+              "Pescados (grupo)",
+              "Verduras (grupo)",
+              "Tubérculos y choclo (grupo)"
+            ]
+          ]
+        },
+        {
+          "mealType": "afternoon_snack",
+          "options": [
+            [
+              "Manzana",
+              "Pan integral"
+            ],
+            [
+              "Receta: Galletas de avena y banana con chía"
+            ],
+            [
+              "Receta: Yogur descremado con copos de maíz y mango"
+            ]
+          ]
+        },
+        {
+          "mealType": "dinner",
+          "options": [
+            [
+              "Receta: Arroz con pollo y verduras"
+            ],
+            [
+              "Receta: Merluza al horno con papa y zapallo"
+            ],
+            [
+              "Receta: Fideos integrales con brócoli, ajo y queso rallado"
+            ]
+          ]
+        }
+      ],
+      "recipeAudit": {
+        "candidates": 104,
+        "proposed": [
+          {
+            "mealType": "breakfast",
+            "name": "Pan integral con queso untable y tomate",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Yogur con granola y frutillas",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "breakfast",
+            "name": "Avena remojada con yogur y durazno",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Galletas de avena y banana con chía",
+            "own": true,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "afternoon_snack",
+            "name": "Yogur descremado con copos de maíz y mango",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Arroz con pollo y verduras",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Merluza al horno con papa y zapallo",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          },
+          {
+            "mealType": "dinner",
+            "name": "Fideos integrales con brócoli, ajo y queso rallado",
+            "own": false,
+            "control": false,
+            "offered": true,
+            "mealMatches": true
+          }
+        ]
+      }
+    }
+  ]
+}

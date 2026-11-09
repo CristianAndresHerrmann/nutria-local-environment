@@ -259,6 +259,7 @@ matriz de R-05 quedó con origen S y también se revisa ahí.
 |---|---|---|
 | R-01 | V | ¿Un ítem de grupo que incluye un alimento restringido ("una fruta" con alergia a la banana) tiene que avisar? (DA-30) |
 | R-03 | V | ¿Almuerzo y cena exigen siempre verdura, proteína e hidrato en cada opción? (DA-29) |
+| R-03 | V | Un ítem de ajo o de queso rallado completa la verdura o la proteína, aunque se use en cantidad de condimento. ¿Tiene que dejar de contar? Requiere un atributo propio en el catálogo: cambiarles la categoría deja sin categoría a los ítems de grupo Lácteos, Quesos y "Bulbos, raíces y tallos" (DA-30, DA-42). |
 | R-04 | S | ¿Desayuno y merienda llevan lácteo y pan o cereales? ¿Hace falta exigir fruta? (DA-29) |
 | R-03, R-04 | V | ¿Está bien que un ítem de grupo solo cubra las categorías que comparten todos sus alimentos, y que una receta cubra las de cualquiera de sus ingredientes? (DA-30) |
 | R-05 | S | ¿Se confirma la matriz de celiaquía, diabetes e hipertensión? ¿Las severidades son correctas (lo que se excluye bloquea; lo que se modera advierte)? (DA-36) |

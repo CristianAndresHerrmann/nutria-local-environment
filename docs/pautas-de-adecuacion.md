@@ -97,7 +97,7 @@ ni días, y queda como pregunta para T65.
 | CM-01 Categorías | Igual que el motor: el alimento aporta su copia de `food_categories`; la receta, la unión de las de sus ingredientes; el grupo, la intersección de las de sus alimentos vigentes; el no reconocido, ninguna. | `itemCategories.js` (DA-16, DA-30) |
 | CM-02 Pertenencia a un grupo | Un alimento pertenece a su grupo hoja y a los grupos que lo contienen. Una receta pertenece a los grupos de sus ingredientes. Un ítem de grupo pertenece a un grupo de la pauta si está comprendido en él. Un ítem de grupo más amplio que el de la pauta no cuenta (por ejemplo, "Carnes, pescados y huevos" no cumple una pauta de Pescados). | `scopeCoversFood` en `src/utils/recipeConditionFilter.js` (DA-23, DA-30) |
 | CM-03 Restringidos | Un ítem que dispara un hallazgo `blocking` del motor no cuenta para ninguna pauta. Ante un conflicto entre fuentes, prevalece la de la patología: los cereales con gluten de la GAPA no cuentan en un celíaco. | DA-36, DA-40 |
-| CM-10 Condimentos | Un alimento que se usa en cantidad de condimento no cuenta como porción de su grupo: Limón no cuenta para Frutas, y Ajo no cuenta para Verduras. Sí cuentan para PA-HTA-02. | DA-42 |
+| CM-10 Condimentos | Un alimento que se usa en cantidad de condimento no cuenta como porción de su grupo, aunque el catálogo le dé la categoría: Limón no cuenta para Frutas, Ajo no cuenta para Verduras, y Queso rallado no cuenta para Lácteos ni como proteína. Limón y Ajo sí cuentan para PA-HTA-02. El motor (R-03) no hace esta excepción. | DA-42 |
 
 ### Atributos que el catálogo no tiene
 
@@ -150,7 +150,7 @@ Se aplican a un paciente con Diabetes (CM-07), además de las `GEN`.
 
 | ID | Pauta | Nivel y comidas | Indicador | Cita | Origen |
 |---|---|---|---|---|---|
-| PA-DM2-01 | Método del plato | Opción; almuerzo y cena | Un indicador por componente:<br>a) **Vegetal**: Verduras, sin Tubérculos y choclo ni Ajo (CM-10).<br>b) **Proteína**: Carnes, Aves, Pescados, Mariscos, Huevos o Quesos. Fiambres y embutidos no cuenta.<br>c) **Hidrato complejo**: Legumbres, Cereales y derivados o Tubérculos y choclo.<br>d) **Fruta**: Frutas frescas, sin Limón (CM-10).<br>e) **Grasa saludable**: Aceites, Frutas oleosas o Frutos secos y semillas.<br>Además, el porcentaje de opciones con los cinco. | p. 248: "Consiste en dividir el plato del almuerzo y cena a la mitad." Vegetal: "Una mitad siempre se ocupa con vegetales." Proteína: "alimentos que contengan proteínas (carnes, quesos magros o huevo)". Hidrato: "alimentos que contengan HC complejos (legumbres, cereales, papa, batata, mandioca o pastas)". Fruta: "Se agrega una porción de fruta." Grasa: "Se condimenta con grasas saludables en pequeñas cantidades." p. 249: "NO SE INCLUYEN en este grupos papa, batata, choclo y mandioca." Los fiambres y embutidos se evitan (p. 251). | S |
+| PA-DM2-01 | Método del plato | Opción; almuerzo y cena | Un indicador por componente:<br>a) **Vegetal**: Verduras, sin Tubérculos y choclo ni Ajo (CM-10).<br>b) **Proteína**: Carnes, Aves, Pescados, Mariscos, Huevos o Quesos, sin Queso rallado (CM-10). Fiambres y embutidos no cuenta.<br>c) **Hidrato complejo**: Legumbres, Cereales y derivados o Tubérculos y choclo.<br>d) **Fruta**: Frutas frescas, sin Limón (CM-10).<br>e) **Grasa saludable**: Aceites, Frutas oleosas o Frutos secos y semillas.<br>Además, el porcentaje de opciones con los cinco. | p. 248: "Consiste en dividir el plato del almuerzo y cena a la mitad." Vegetal: "Una mitad siempre se ocupa con vegetales." Proteína: "alimentos que contengan proteínas (carnes, quesos magros o huevo)". Hidrato: "alimentos que contengan HC complejos (legumbres, cereales, papa, batata, mandioca o pastas)". Fruta: "Se agrega una porción de fruta." Grasa: "Se condimenta con grasas saludables en pequeñas cantidades." p. 249: "NO SE INCLUYEN en este grupos papa, batata, choclo y mandioca." Los fiambres y embutidos se evitan (p. 251). | S |
 | PA-DM2-02 | Hidratos repartidos en las comidas | Opción; las cuatro comidas | Porcentaje de opciones de cada comida con `carbohydrate` (CM-01) o con un ítem de Frutas frescas sin Limón: la fruta aporta hidratos aunque no tenga la categoría (DA-42). | p. 251: "Distribuir los alimentos con hidratos de carbono en pequeñas porciones a lo largo del día, para evitar grandes volúmenes en una sola comida." | S |
 | PA-DM2-03 | Hidrato acompañado de proteína | Opción; desayuno y merienda | Si la opción tiene `carbohydrate`, tiene también `protein`. En almuerzo y cena lo mide PA-DM2-01. | p. 251: "Por ejemplo en el desayuno, si se consume pan (hidratos de carbono), acompañarlo con una rodaja de queso descremado". | S |
 | PA-DM2-04 | Alimentos de bajo índice glucémico | Plan | Hay un ítem de Legumbres en el plan. Además, el porcentaje de ítems de Cereales y derivados que son integrales (CM-04). Verduras y frutas ya las miden PA-GEN-03 y PA-GEN-04. | p. 250: "se recomiendan los alimentos con bajo IG (verduras, frutas, legumbres y cereales integrales)." | S |
@@ -266,6 +266,7 @@ en el corpus para que el RAG lo lleve a la IA como texto, y para el criterio del
 | OBE pp. 29, 31 y 33 | — | Leer a mano las imágenes (mensajes GAPA, alimentos no recomendados y plato por comida) y ver si cambian alguna pauta. Incorporar la versión extensa en T46. |
 | Sal con bajo contenido de sodio | V | ¿Se le ofrece a un paciente con HTA? Es cloruro de potasio, desaconsejado con enfermedad renal o con IECA, ARA II o espironolactona, y la medicación no llega al sistema. Hoy se ofrece y no cuenta para PA-HTA-02 (DA-42). |
 | Sodio en HTA | V | ¿Quesos duros (rallado, de máquina), aceitunas y conservas van como `moderate` para HTA, como la Salsa de soja (DA-42)? |
+| Ajo y queso rallado en R-03 | V | Un ítem de ajo o de queso rallado completa la verdura o la proteína de una opción en el motor. Las pautas ya no los cuentan (CM-10). ¿Hace falta que el motor tampoco los cuente? Requiere un atributo propio en el catálogo, porque cambiarles la categoría vacía los ítems de grupo (DA-30, DA-42). |
 | Aderezos en DM2 | S | DM2 p. 251 nombra mayonesa, kétchup, mostaza y salsa de soja entre los productos a evitar, con la misma cita que las reglas de dulces de diabetes. Es la pregunta de R-05 sobre los ultraprocesados de DM2 en [reglas-clinicas.md](reglas-clinicas.md#pendientes-para-la-entrevista). |
 
 ## Respuestas tentativas para T65
@@ -442,16 +443,17 @@ Pendiente: leer las imágenes a mano.
 
 ### Observaciones sobre el catálogo
 
-Errores que distorsionaban las reglas o los indicadores con los datos del seed. Todos
-quedaron resueltos en [DA-42](decisiones/correcciones-del-catalogo-por-las-pautas.md).
+Errores que distorsionaban las reglas o los indicadores con los datos del seed. Quedaron
+resueltos en [DA-42](decisiones/correcciones-del-catalogo-por-las-pautas.md), salvo el ajo y
+el queso rallado en R-03, que se resuelven solo en las pautas.
 
 | Problema | Efecto que tenía | Corrección |
 |---|---|---|
 | Limón está en Frutas frescas | 9 recetas de almuerzo y cena lo llevan como condimento (½ unidad) y cumplían la fruta de PA-GEN-04 y PA-DM2-01 d sin tener fruta | CM-10: no cuenta como porción de fruta. Sigue en Frutas frescas, así una condición sobre Frutas lo alcanza |
-| Ajo tenía `vegetable` | Un ítem de ajo completaba la verdura de R-03 y de PA-GEN-03 | Ajo pasa a `complementary`, y CM-10 lo excluye de Verduras. La cebolla queda como está: "Arroz integral con lentejas y cebolla caramelizada" lleva 2 unidades |
+| Ajo tiene `vegetable` | Un ítem de ajo completaba la verdura de R-03 y de PA-GEN-03 | CM-10 lo excluye de Verduras en las pautas. Conserva `vegetable`: con `complementary`, el ítem de grupo "Bulbos, raíces y tallos" se quedaba sin categoría (DA-30). En R-03 sigue completando la verdura, y queda como pregunta para T65. La cebolla queda como está: "Arroz integral con lentejas y cebolla caramelizada" lleva 2 unidades |
 | Banana tenía `carbohydrate` | R-03 y R-04 la aceptaban como el hidrato del plato | Banana queda solo con `fiber`. Los dos licuados con banana suman avena arrollada, y "Yogur con banana y semillas de lino" suma copos de maíz sin TACC. PA-DM2-02 cuenta `carbohydrate` o Frutas frescas |
 | Legumbres sin `carbohydrate` | Una opción de legumbre con verdura advertía por falta de hidrato | Las Legumbres secas y en conserva suman `carbohydrate`. Tofu, soja texturizada, bebida de soja y harina de garbanzo no cambian |
-| Queso rallado tenía `protein` | "Fideos integrales con brócoli, ajo y queso rallado" pasaba R-03 sin una porción de proteína | Queso rallado pasa a `complementary`, y esa receta suma ricota |
+| Queso rallado tiene `protein` | "Fideos integrales con brócoli, ajo y queso rallado" pasaba R-03 sin una porción de proteína | Esa receta suma ricota, y CM-10 excluye el queso rallado de Lácteos y de la proteína en las pautas. Conserva `protein`: con `complementary`, los ítems de grupo Lácteos y Quesos se quedaban sin categoría, y "un lácteo y pan" advertía en el desayuno (DA-30). En R-03 sigue completando la proteína, y queda como pregunta para T65 |
 | Copos de maíz sin azúcar | Se ofrecían a un celíaco como hidrato sin gluten, y suelen tener malta | Regla `prohibited` para celiaquía, como la de Malta. Alimento nuevo Copos de maíz sin TACC, que usa "Yogur descremado con copos de maíz y mango" |
 
 ## Fundamento

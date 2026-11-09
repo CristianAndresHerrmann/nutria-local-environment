@@ -28,7 +28,9 @@ plantilla. Hubo que resolver lo siguiente:
 - **Llamar por HTTP con `httpx` en vez de usar los SDK.** Evita dos dependencias, pero
   obliga a mantener el formato de request y de respuesta y el mapeo de errores de cada
   API. Los SDK suman unos 20 paquetes y la imagen queda en 208 MB, lejos del límite de
-  0,5 GB.
+  0,5 GB que regía entonces. *Actualización (02/11/2026):* ese límite quedó
+  reemplazado: se quitó porque venía del plan de Cloud Run y no aplica al staging en OCI
+  (ver [estrategia de despliegue](../estrategia-de-despliegue.md), sección 6).
 - **Escribir el JSON Schema a mano.** Se podría ajustar a cada proveedor, pero sería un
   segundo contrato que se desincroniza del de Pydantic sin que ningún test lo note.
 - **Una sola variable `AI_PROVIDER_API_KEY`.** Es más simple, pero comparar los dos

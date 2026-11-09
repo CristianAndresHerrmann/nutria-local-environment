@@ -116,3 +116,10 @@ Reglas del entorno:
   evaluación y se actualiza en el próximo informe.
 - **DA-14** sigue "en evaluación" en el Informe de Avances 2. Se actualiza en el próximo
   informe (staging en OCI, producción pendiente).
+- **Límite de 0,5 GB de la imagen de `nutria-ia`.** Quitado el 02/11/2026. No salía del
+  Plan ni de los informes: venía del plan de Cloud Run, muy probablemente por el free
+  tier de almacenamiento de Artifact Registry (0,5 GB en total por cuenta de
+  facturación, no por imagen). Con staging en la VM de OCI no aplica, así que se sacó
+  del CI de `nutria-ia`, de su README y de los skills, y no es un requisito del IA3.
+  ONNX Runtime en vez de PyTorch se mantiene, por el peso de la imagen, el tiempo de
+  build en ARM y el consumo de memoria en la VM, sin un tope fijo.

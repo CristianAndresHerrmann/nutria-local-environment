@@ -48,7 +48,8 @@ referenciar por id interno).
 
 ## Infraestructura (referencia)
 
-ONNX Runtime en vez de PyTorch (imagen final < 0.5 GB), embeddings locales con
+ONNX Runtime en vez de PyTorch (imagen más liviana, build más rápido en ARM y
+menos memoria en la VM de staging; sin un tope de tamaño fijo), embeddings locales con
 `sentence-transformers` (384 dimensiones) contra `pgvector`. En staging el
 servicio no tiene ruta pública: solo lo alcanza el backend por la red interna de
 Docker (`docker-compose.staging.yml` de `nutria-backend`) — nunca expuesto público.

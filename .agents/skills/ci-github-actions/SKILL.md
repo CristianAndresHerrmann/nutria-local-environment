@@ -47,9 +47,7 @@ Sin lint en el backend (DA-24).
 2. `ruff check`
 3. `pytest`
 4. `pip-audit -r requirements.txt`
-5. `docker build` (target por defecto `runtime`, sin dependencias de desarrollo) +
-   verificación de que pesa menos de 0,5 GB (500 000 000 bytes; sostiene la
-   decisión de usar ONNX Runtime en vez de PyTorch)
+5. `docker build` (target por defecto `runtime`, sin dependencias de desarrollo)
 
 `requirements-dev.txt` no entra en la imagen de runtime: lo instala la etapa `test`
 del Dockerfile, que es la que usa el servicio `ia-test` del compose
@@ -66,8 +64,8 @@ README de cada repo.
   (`actions/checkout@<sha40> # v7.0.1`), nunca `@latest` ni `@v7`. Para subir de
   versión, resolver el SHA del tag en la API de GitHub y actualizar los tres repos.
   Preferir una release con al menos dos semanas de publicada.
-- Solo acciones oficiales de `actions/*`. Lo demás (docker build, chequeo de tamaño)
-  va como `run:`.
+- Solo acciones oficiales de `actions/*`. Lo demás (docker build) va como
+  `run:`.
 - `permissions: contents: read` a nivel workflow y `persist-credentials: false` en
   el checkout.
 - **No renombrar el job `ci`**: es el check obligatorio del ruleset.

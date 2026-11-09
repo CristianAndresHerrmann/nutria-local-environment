@@ -34,8 +34,9 @@ commits.
 ## 2. Stack (decisiones cerradas)
 
 - **Backend:** Node.js/Express, acceso a datos y migraciones con Prisma.
-- **Servicio de IA:** Python/FastAPI, ONNX Runtime (no PyTorch, para mantener la
-  imagen liviana), embeddings con `sentence-transformers` local (384 dimensiones).
+- **Servicio de IA:** Python/FastAPI, ONNX Runtime (no PyTorch: imagen más liviana,
+  build más rápido en ARM y menos memoria en la VM; sin tope de tamaño fijo),
+  embeddings con `sentence-transformers` local (384 dimensiones).
 - **Frontend:** React.
 - **Base de datos:** PostgreSQL con `pgvector`, en un contenedor Docker tanto en
   local como en staging (sin base administrada).

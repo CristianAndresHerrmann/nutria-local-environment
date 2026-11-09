@@ -97,8 +97,12 @@ Todo sigue con origen S o V hasta la entrevista de T65.
   `clinical-cases.rules.test.js`. A un hipertenso la salsa de soja se le sigue ofreciendo,
   y advierte.
 - **Línea de base:** cambian las categorías y las recetas que viajan a la IA, así que la
-  medición sin RAG del 07/11/2026 deja de ser comparable 1 a 1 y se vuelve a medir con el
-  catálogo corregido.
+  medición sin RAG del 07/11/2026 deja de ser comparable 1 a 1. La nueva línea de base es la
+  corrida del 09/11/2026 (`mediciones-de-generacion/`):
+  - P95 de 16,8 s y 18 de 21 propuestas sin bloqueantes. Los 3 bloqueos son texto libre de
+    comida comprada.
+  - 13 de 21 propuestas sin ningún hallazgo.
+  - Ningún hallazgo por condición directa ni por regla `prohibited`.
 - **Cobertura de los tests de datos:**
   - `catalogs.test.js` controla las frutas sin `carbohydrate` y las legumbres secas con él.
   - `clinical-cases.rules.test.js` corre el motor con las categorías reales del seed: un

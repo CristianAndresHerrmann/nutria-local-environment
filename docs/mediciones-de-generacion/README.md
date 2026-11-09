@@ -996,7 +996,9 @@ Todas las corridas de una llamada del 01/11 con razonamiento `low` o `none` (ms)
 
 ## 07/11/2026 — catálogo de recetas ampliado, con objetivo y sin RAG
 
-**Es la línea de base contra la que se compara el RAG.** Comprueba el comportamiento del
+**Fue la línea de base hasta el 09/11/2026**, cuando las correcciones del catálogo (DA-42)
+cambiaron lo que viaja a la IA. Ver [la corrida del 09/11](#09112026--catálogo-corregido-da-42-sin-rag).
+Comprueba el comportamiento del
 sistema con un catálogo más grande: qué recetas se ofrecen y se eligen en cada caso. No es una
 validación clínica: las recetas tienen origen V y las reglas siguen pendientes de la
 entrevista.
@@ -1124,6 +1126,99 @@ Con las dos cuentas del seed, contra la API del stack local:
   Conviene repetir con un N mayor antes de decidir.
 - **Tiempo:** la v2 cumplió la meta el 01/11, y su adopción sigue pendiente de revisión profesional
   (DA-12).
+
+## 09/11/2026 — catálogo corregido (DA-42), sin RAG
+
+**Es la línea de base contra la que se compara el RAG.** Repite la corrida del 07/11 con
+el catálogo corregido por las pautas de adecuación (DA-42). Cambia lo que viaja a la IA:
+- **Categorías:** la banana deja de ser hidrato y las legumbres secas lo suman.
+- **Catálogo:** se agrega Copos de maíz sin TACC.
+- **Reglas:** dos nuevas. Copos de maíz sin azúcar, prohibidos en celiaquía, y Salsa de
+  soja, moderada en hipertensión.
+- **Recetas:** 5 recetas comunes cambian de ingredientes.
+
+No es una validación clínica.
+
+### Resumen
+
+- **Selección determinística: sin ninguna falla.** Ningún hallazgo por condición directa ni
+  por regla `prohibited`. Ninguna propuesta incluye copos de maíz comunes ni salsa de soja.
+- **Tiempo: no cumple** la meta, con un P95 de 16,8 s, igual que el 07/11 (16,7 s).
+- **Sin bloqueantes: no cumple**, con 85,7 % (18 de 21). Los 3 bloqueos son texto libre de
+  comida comprada: 2 en C3 (rotisería) y 1 en C7 (menú del comedor escolar). Es la misma
+  causa del 07/11, que ahora aparece también en C7. Con N=3, 18 de 21 frente a 19 de 21 no
+  es una diferencia atribuible al catálogo.
+- **Más propuestas sin ningún hallazgo:** 13 de 21, contra 8 de 21 el 07/11.
+
+### Condiciones
+
+| | |
+|---|---|
+| Recorrido | Script → backend → `nutria-ia` → proveedor, en el stack local |
+| Modelo | GPT-6 Luna, razonamiento `low` |
+| Plantilla | `plan_proposal_v3` |
+| Reglas clínicas cargadas | 39 reglas vigentes (las 37 de T35 y las 2 de DA-42) |
+| Catálogo | 232 alimentos comunes. `nutricionista@`: 123 recetas (77 comunes y 46 propias, 5 de ellas de control) |
+| Corridas | N=3 por caso, 21 generaciones, [JSON](2026-11-09-openai-gpt-6-luna-catalogo-corregido-v2.json) |
+| RAG | No |
+
+Hubo una corrida intermedia el mismo día, con el ajo y el queso rallado como
+`complementary`: [JSON](2026-11-09-openai-gpt-6-luna-catalogo-corregido.json). Ese cambio se
+revirtió porque dejaba sin categoría a los ítems de grupo Lácteos, Quesos y "Bulbos, raíces y
+tallos" (DA-42). En esa corrida ninguna propuesta usó esos grupos, y sus resultados fueron
+similares: P95 17,4 s, 19 de 21 sin bloqueantes y 10 sin ningún hallazgo. No es la línea de
+base porque no corresponde al catálogo vigente.
+
+### Resultados
+
+| Caso | Intentos | Válidas | Sin bloqueantes | Total P50 (ms) | Total P95 (ms) | Total máx. (ms) | Proveedor P95 (ms) | Overhead P95 (ms) | Tokens entrada (media) | Tokens salida (media) | De razonamiento (media) | Costo |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| C1 | 3 | 3 | 3 | 12 523 | 16 838 | 16 838 | 16 715 | 237 | 15 409 | 1 094 | 120 | US$ 0,0063 |
+| C2 | 3 | 3 | 3 | 10 874 | 10 900 | 10 900 | 10 730 | 170 | 20 616 | 889 | 40 | US$ 0,0075 |
+| C3 | 3 | 3 | 1 | 15 882 | 16 751 | 16 751 | 16 602 | 212 | 15 134 | 1 357 | 147 | US$ 0,0066 |
+| C4 | 3 | 3 | 3 | 12 780 | 12 959 | 12 959 | 12 829 | 220 | 18 667 | 1 084 | 157 | US$ 0,0072 |
+| C5 | 3 | 3 | 3 | 11 452 | 12 263 | 12 263 | 12 048 | 215 | 19 649 | 1 007 | 227 | US$ 0,0074 |
+| C6 | 3 | 3 | 3 | 13 034 | 13 988 | 13 988 | 13 778 | 210 | 20 585 | 1 094 | 140 | US$ 0,0078 |
+| C7 | 3 | 3 | 2 | 12 968 | 13 440 | 13 440 | 13 285 | 199 | 18 696 | 1 121 | 230 | US$ 0,0073 |
+| **Global** | 21 | 21 | 18 | 12 523 | 16 751 | 16 838 | 16 602 | 220 | 18 394 | 1 092 | 152 | US$ 0,0501 |
+
+| Caso | Candidatas (media) | Recetas propuestas | Propias | De control | Fuera de las candidatas | En otra comida |
+|---|---|---|---|---|---|---|
+| C1 | 67 | 42 | 5 | 0 | 0 | 0 |
+| C2 | 123 | 44 | 2 | 0 | 0 | 0 |
+| C3 | 41 | 27 | 2 | 1 | 0 | 0 |
+| C4 | 95 | 46 | 7 | 1 | 0 | 0 |
+| C5 | 110 | 40 | 7 | 1 | 0 | 0 |
+| C6 | 123 | 52 | 7 | 3 | 0 | 0 |
+| C7 | 104 | 31 | 3 | 1 | 0 | 0 |
+| **Global** | 95 | 282 | 33 | 7 | 0 | 0 |
+
+### Frente al 07/11
+
+| | 07/11 | 09/11 |
+|---|---|---|
+| Total P50 | 12 987 ms | 12 523 ms |
+| Total P95 | 16 656 ms | 16 751 ms |
+| Tokens de entrada (media) | 18 409 | 18 394 |
+| Costo por generación | US$ 0,0024 | US$ 0,0024 |
+| Sin bloqueantes | 19 de 21 | 18 de 21 |
+| Ítems de texto libre (todos bloquean) | 3 | 9 |
+| Sin ningún hallazgo | 8 | 13 |
+| Advertencias de composición | 25 | 26 (15 en C3, 8 en C7, 3 en C1) |
+| Hallazgos por regla de patología | 7 (todos advertencias) | 5 (todos advertencias) |
+| Candidatas de C1 (celiaquía) | 71 | 67 |
+
+- **Candidatas de C1:** bajan 4 recetas. Las 2 que llevan copos de maíz comunes ahora son
+  `prohibited`, y los 2 licuados con banana ahora llevan avena arrollada. C1 eligió las
+  alternativas sin gluten nuevas (copos de maíz sin TACC).
+- **Las advertencias de composición se concentran en C3 y C7.** Los ítems de texto libre no
+  aportan categorías, y C7 usa ítems de grupo amplios. "Verduras" como ítem de grupo no
+  aporta `vegetable`, porque incluye Tubérculos y choclo (DA-30): eso ya pasaba antes de
+  DA-42.
+- **Recetas de control:** "Ensalada de lentejas y tomate con pan", que lleva sal fina, se
+  eligió 1 de 3 veces en C3, contra 2 de 3 el 07/11. "Sándwich de jamón cocido y tomate" se
+  eligió 0 de 3 en C3. C1 eligió en las 3 corridas una receta con avena sin TACC, igual que
+  el 07/11.
 
 ## Cómo comparar
 

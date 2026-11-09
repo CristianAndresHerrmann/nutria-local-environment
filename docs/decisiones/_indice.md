@@ -41,6 +41,7 @@ El resumen con numeración DA para los informes de avance está en
 | [Categoría complementaria para alimentos sin aporte a la composición](categoria-complementaria.md) | T28 |
 | [Pautas de adecuación nutricional v1: pautas positivas con fuente, medibles y sin efecto en el editor](pautas-de-adecuacion-v1.md) | T57 |
 | [Correcciones del catálogo por las pautas de adecuación](correcciones-del-catalogo-por-las-pautas.md) | T57 |
+| [Orientación del plan generado: grupos con alimentos a moderar, recomendaciones clínicas, texto de uso y plantilla v4](orientacion-del-plan-generado.md) | T57 |
 
 ## Seguridad y acceso
 

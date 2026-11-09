@@ -156,6 +156,8 @@ Criterios de aplicación:
   "Panificados y harinas" en celiaquía, porque las reglas son por alimento. Origen **V**
   (DA-30). Desde T54 la generación ya no ofrece esos grupos a un paciente con la patología
   (DA-40), y `clinical-cases.rules.test.js` lo controla para C1 con los datos del seed.
+  Desde DA-43 tampoco ofrece los que contienen un alimento a moderar ("Carnes, pescados y
+  huevos" en hipertensión, por los fiambres). Ese mismo test lo controla para C2 y C3.
 - Las reglas de una patología que el paciente no tiene no se evalúan. Una alergia y una
   regla sobre el mismo alimento dan dos hallazgos.
 
@@ -264,12 +266,13 @@ matriz de R-05 quedó con origen S y también se revisa ahí.
 | R-03, R-04 | V | ¿Está bien que un ítem de grupo solo cubra las categorías que comparten todos sus alimentos, y que una receta cubra las de cualquiera de sus ingredientes? (DA-30) |
 | R-05 | S | ¿Se confirma la matriz de celiaquía, diabetes e hipertensión? ¿Las severidades son correctas (lo que se excluye bloquea; lo que se modera advierte)? (DA-36) |
 | R-05 | V | ¿La lista de alimentos con trigo, avena, cebada o centeno es correcta (por ejemplo, la malta y los copos de maíz sin azúcar, que suelen llevarla)? (DA-36, DA-42) |
-| R-05 | S | ¿La avena sin TACC se modera, se excluye o se permite? (DA-36) |
+| R-05 | S | ¿La avena sin TACC se modera, se excluye o se permite? (DA-36). Respuesta tentativa (DA-43): queda `moderate`, a criterio del profesional según el paciente, aunque la IA la eligió en las 3 corridas de C1 del 09/11. |
+| Recomendación común | S | ¿Se confirma el texto "Alimentación reducida en sodio" de Hipertensión, tomado de la GPC HTA p. 14, que se copia a cada plan generado de un paciente hipertenso? (DA-43) |
 | R-05 | S | ¿Diabetes alcanza solo azúcares y dulces, o también la lista de ultraprocesados de la GPC DM2, pp. 251-252 (grasas, fiambres, aderezos)? (DA-36) |
 | R-05 | V | Un ítem de grupo amplio ("un pan") no avisa por celiaquía. ¿Tiene que avisar? Desde T54 la IA ya no lo propone; queda el caso del profesional que lo agrega a mano. (DA-30, DA-36, DA-40) |
 | R-06 | V | ¿Una receta en una comida que no es la suya tiene que advertir, bloquear o nada? (DA-40) |
 | R-05 | — | Fuera de la matriz: productos industrializados que dependen del listado ALG (fiambres, condimentos, salsa de soja). ¿Se agregan? (DA-36) |
-| R-05 | V | Hipertensión ya modera la salsa de soja (DA-42). ¿También quesos duros (rallado, de máquina), aceitunas y conservas? ¿Y la sal con bajo contenido de sodio, que es cloruro de potasio? |
+| R-05 | V | ¿La sal con bajo contenido de sodio, que es cloruro de potasio, se le ofrece a un paciente hipertenso? Hipertensión ya modera la salsa de soja (DA-42). Quesos duros, aceitunas y conservas no llevan regla: el catálogo los considera versiones sin el sello "exceso en sodio" (premisa del proyecto, DA-43). |
 
 ## Fundamento
 
@@ -279,6 +282,7 @@ matriz de R-05 quedó con origen S y también se revisa ahí.
 - [Restricciones de lo que se ofrece a la IA y receta fuera de su comida](decisiones/restricciones-de-lo-ofrecido-a-la-ia.md) (DA-40)
 - [Pautas de adecuación nutricional v1](decisiones/pautas-de-adecuacion-v1.md) (DA-41), que no son reglas
 - [Correcciones del catálogo por las pautas de adecuación](decisiones/correcciones-del-catalogo-por-las-pautas.md) (DA-42)
+- [Orientación del plan generado](decisiones/orientacion-del-plan-generado.md) (DA-43)
 - [Ajustes al modelo del Anexo A — Incremento 3](decisiones/ajustes-al-modelo-del-anexo-a-incremento-3.md) (DA-26, DA-27)
 - [Registro de decisiones del Incremento 2](registro-de-decisiones-incremento-2.md) (DA-16, DA-23)
 - [Registro de decisiones del Incremento 3](registro-de-decisiones-incremento-3.md)

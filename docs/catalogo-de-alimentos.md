@@ -42,6 +42,13 @@ lo cargó es responsable de su contenido: la IA no es un origen.
   queso rallado conservan `vegetable` y `protein` aunque se usen como condimento. Si no,
   los ítems de grupo Lácteos, Quesos y "Bulbos, raíces y tallos" se quedan sin categoría,
   porque un grupo aporta solo las que comparten todos sus alimentos (DA-30, DA-42).
+- **Productos envasados sin "exceso en sodio".** Panes, quesos, conservas, aceitunas y demás
+  envasados del catálogo se consideran versiones sin el sello "exceso en sodio". Es una
+  premisa del proyecto (DA-43), coherente con la GPC HTA, p. 14: "preferir los que no estén
+  rotulados como 'exceso en sodio'". Por eso no tienen regla en hipertensión. Las reglas
+  cubren lo que es alto en sodio por naturaleza, con o sin sello: sal fina, caldo en cubo,
+  salsa de soja, fiambres y embutidos. La recomendación de Hipertensión le indica al
+  paciente que elija esas versiones.
 - **Compatibilidad con el seed.** El seed hace upsert por nombre y no borra. Los 15 nombres
   de grupo y los 31 de alimento anteriores no se renombran, porque los grupos no tienen
   baja lógica y las condiciones y recetas del seed los referencian por nombre. Algunos

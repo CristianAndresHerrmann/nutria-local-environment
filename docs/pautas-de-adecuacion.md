@@ -265,8 +265,8 @@ en el corpus para que el RAG lo lleve a la IA como texto, y para el criterio del
 | Colaciones | S | ¿La colación de DM2 p. 251 se mide en la merienda, o hace falta otra comida en el plan? |
 | OBE pp. 29, 31 y 33 | — | Leer a mano las imágenes (mensajes GAPA, alimentos no recomendados y plato por comida) y ver si cambian alguna pauta. Incorporar la versión extensa en T46. |
 | Sal con bajo contenido de sodio | V | ¿Se le ofrece a un paciente con HTA? Es cloruro de potasio, desaconsejado con enfermedad renal o con IECA, ARA II o espironolactona, y la medicación no llega al sistema. Hoy se ofrece y no cuenta para PA-HTA-02 (DA-42). |
-| Sodio en HTA | V | ¿Quesos duros (rallado, de máquina), aceitunas y conservas van como `moderate` para HTA, como la Salsa de soja (DA-42)? |
 | Ajo y queso rallado en R-03 | V | Un ítem de ajo o de queso rallado completa la verdura o la proteína de una opción en el motor. Las pautas ya no los cuentan (CM-10). ¿Hace falta que el motor tampoco los cuente? Requiere un atributo propio en el catálogo, porque cambiarles la categoría vacía los ítems de grupo (DA-30, DA-42). |
+| Pacientes pediátricos | — | Las pautas y las reglas salen de guías para adultos y de la GAPA sin ajuste por edad, y C7 tiene 12 años. Faltan fuentes para niños y adolescentes (card de investigación en Trello). |
 | Aderezos en DM2 | S | DM2 p. 251 nombra mayonesa, kétchup, mostaza y salsa de soja entre los productos a evitar, con la misma cita que las reglas de dulces de diabetes. Es la pregunta de R-05 sobre los ultraprocesados de DM2 en [reglas-clinicas.md](reglas-clinicas.md#pendientes-para-la-entrevista). |
 
 ## Respuestas tentativas para T65
@@ -331,6 +331,13 @@ DM2 la pide el método del plato. No se exige en cada opción. Se mide como paut
 garantizada, con la meta de tener fruta asegurada en al menos 2 comidas del día (GAPA:
 "2 o 3 frutas por día"). El limón no cuenta como fruta (ver
 [observaciones](#observaciones-sobre-el-catálogo)).
+
+Aplicado en la generación ([DA-43](decisiones/orientacion-del-plan-generado.md)):
+- **Fruta:** si el almuerzo o la cena no la tienen, la plantilla v4 le pide a la IA que
+  sugiera fruta fresca de postre en las recomendaciones generales.
+- **Opciones y porciones:** el plan empieza sus recomendaciones generales con un texto fijo.
+  Aclara que las opciones son alternativas (una por comida, no tres platos ni tres tazas), y
+  que almuerzo y cena se arman con el método del plato (DM2 p. 248).
 
 ### CM-04 a CM-06
 
@@ -420,7 +427,9 @@ Se prefiere una lista cerrada con selección múltiple, más un texto libre para
   - Fuera de la pauta: la Salsa de soja va como `moderate` para HTA (R-05, DA-42), con HTA
     p. 14 ("Reducir el uso de sal y el consumo de alimentos con alto contenido de sodio") y
     MAN p. 18, que la nombra entre los aderezos a "limitar o evitar". Los quesos duros
-    (rallado, de máquina), las aceitunas y las conservas quedan en los pendientes.
+    (rallado, de máquina), las aceitunas y las conservas no llevan regla: el catálogo
+    los considera versiones sin el sello "exceso en sodio", por una premisa del proyecto
+    (DA-43, `catalogo-de-alimentos.md`).
 - **CEL:** la lista es correcta como alimentos naturalmente sin gluten. En los productos
   procesados el cumplimiento depende de la certificación (CEL p. 44, "marcas permitidas"):
   - Copos de maíz: muchos tienen extracto de malta de cebada. Aplicado (DA-42): los Copos
@@ -460,6 +469,7 @@ el queso rallado en R-03, que se resuelven solo en las pautas.
 
 - [Pautas de adecuación nutricional v1](decisiones/pautas-de-adecuacion-v1.md) (DA-41)
 - [Correcciones del catálogo por las pautas de adecuación](decisiones/correcciones-del-catalogo-por-las-pautas.md) (DA-42)
+- [Orientación del plan generado](decisiones/orientacion-del-plan-generado.md) (DA-43)
 - [Composición esperada por tipo de comida](decisiones/composicion-esperada-por-tipo-de-comida.md) (DA-29)
 - [Reglas por patología v1](decisiones/reglas-por-patologia-v1.md) (DA-36)
 - [Restricciones de lo que se ofrece a la IA](decisiones/restricciones-de-lo-ofrecido-a-la-ia.md) (DA-40)

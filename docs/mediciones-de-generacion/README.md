@@ -1129,7 +1129,8 @@ Con las dos cuentas del seed, contra la API del stack local:
 
 ## 09/11/2026 — catálogo corregido (DA-42), sin RAG
 
-**Es la línea de base contra la que se compara el RAG.** Repite la corrida del 07/11 con
+**Fue la línea de base hasta la corrida con la plantilla v4 del mismo día** (DA-43). Ver
+[la corrida con la plantilla v4](#09112026--plantilla-v4-da-43-sin-rag). Repite la corrida del 07/11 con
 el catálogo corregido por las pautas de adecuación (DA-42). Cambia lo que viaja a la IA:
 - **Categorías:** la banana deja de ser hidrato y las legumbres secas lo suman.
 - **Catálogo:** se agrega Copos de maíz sin TACC.
@@ -1219,6 +1220,93 @@ base porque no corresponde al catálogo vigente.
   eligió 1 de 3 veces en C3, contra 2 de 3 el 07/11. "Sándwich de jamón cocido y tomate" se
   eligió 0 de 3 en C3. C1 eligió en las 3 corridas una receta con avena sin TACC, igual que
   el 07/11.
+
+## 09/11/2026 — plantilla v4 (DA-43), sin RAG
+
+**Es la línea de base contra la que se compara el RAG.** Repite la corrida anterior del
+mismo día con los cambios de DA-43:
+- La plantilla `plan_proposal_v4`.
+- Sin grupos que contengan algo a moderar.
+- Las recomendaciones clínicas copiadas del catálogo, con la de sodio para Hipertensión.
+- El texto fijo de uso del plan.
+
+No es una validación clínica.
+
+### Resumen
+
+- **Sin bloqueantes: cumple** la meta, con 95,2 % (20 de 21). El único bloqueo es C3#3: 8
+  ítems de texto libre de comida comprada lista para consumir, la misma causa de siempre.
+- **Tiempo: no cumple** por poco, con un P95 de 15,5 s (meta 15 s). El P50 bajó a 11,4 s.
+  Con N=21 y la variación entre franjas horarias, no se le atribuye la mejora a la v4.
+- **Selección determinística: sin ninguna falla.** No hay hallazgos por condición directa
+  ni por regla `prohibited`. C2 y C3 no recibieron ni propusieron ningún grupo con algo a
+  moderar.
+- **Los cambios de DA-43 se ven en las propuestas:**
+  - Los 21 planes empiezan sus recomendaciones generales con el texto de uso.
+  - 20 de 21 sugieren fruta fresca de postre. El que no, es de C4.
+  - Las clínicas llevan "Alimentación reducida en sodio" en los 3 planes de C3. En C1 y C2
+    llevan las recomendaciones de su patología, y en C1 se suma la propia de la cuenta.
+  - C5 (intolerancia a la leche) recibió leche deslactosada en las 3 corridas, dentro del
+    licuado de mango y banana. En la corrida anterior no había recibido ningún lácteo.
+
+### Condiciones
+
+| | |
+|---|---|
+| Recorrido | Script → backend → `nutria-ia` → proveedor, en el stack local |
+| Modelo | GPT-6 Luna, razonamiento `low` |
+| Plantilla | `plan_proposal_v4` (registrada en las 21 trazas) |
+| Reglas clínicas cargadas | 39 reglas vigentes |
+| Catálogo | Igual que la corrida anterior: 232 alimentos y 123 recetas en `nutricionista@` |
+| Corridas | N=3 por caso, 21 generaciones, [JSON](2026-11-09-openai-gpt-6-luna-plantilla-v4.json) |
+| RAG | No |
+
+### Resultados
+
+| Caso | Intentos | Válidas | Sin bloqueantes | Total P50 (ms) | Total P95 (ms) | Total máx. (ms) | Proveedor P95 (ms) | Overhead P95 (ms) | Tokens entrada (media) | Tokens salida (media) | De razonamiento (media) | Costo |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| C1 | 3 | 3 | 3 | 15 475 | 15 877 | 15 877 | 15 675 | 478 | 15 564 | 1 246 | 209 | US$ 0,0065 |
+| C2 | 3 | 3 | 3 | 10 305 | 10 462 | 10 462 | 10 268 | 248 | 20 603 | 798 | 111 | US$ 0,0074 |
+| C3 | 3 | 3 | 2 | 10 051 | 11 828 | 11 828 | 11 591 | 275 | 15 177 | 966 | 163 | US$ 0,0060 |
+| C4 | 3 | 3 | 3 | 12 939 | 13 429 | 13 429 | 13 195 | 312 | 18 822 | 1 170 | 162 | US$ 0,0074 |
+| C5 | 3 | 3 | 3 | 10 030 | 11 336 | 11 336 | 11 085 | 251 | 19 804 | 901 | 188 | US$ 0,0073 |
+| C6 | 3 | 3 | 3 | 11 376 | 13 414 | 13 414 | 13 229 | 260 | 20 740 | 1 253 | 112 | US$ 0,0081 |
+| C7 | 3 | 3 | 3 | 11 910 | 13 504 | 13 504 | 13 302 | 224 | 18 851 | 1 019 | 273 | US$ 0,0072 |
+| **Global** | 21 | 21 | 20 | 11 376 | 15 475 | 15 877 | 14 997 | 312 | 18 509 | 1 050 | 174 | US$ 0,0499 |
+
+| Caso | Candidatas (media) | Recetas propuestas | Propias | De control | Fuera de las candidatas | En otra comida |
+|---|---|---|---|---|---|---|
+| C1 | 67 | 46 | 5 | 0 | 0 | 0 |
+| C2 | 123 | 40 | 3 | 1 | 0 | 0 |
+| C3 | 41 | 32 | 3 | 2 | 0 | 0 |
+| C4 | 95 | 44 | 4 | 0 | 0 | 0 |
+| C5 | 110 | 40 | 2 | 2 | 0 | 0 |
+| C6 | 123 | 48 | 6 | 3 | 0 | 0 |
+| C7 | 104 | 41 | 1 | 0 | 0 | 0 |
+| **Global** | 95 | 291 | 24 | 8 | 0 | 0 |
+
+### Frente a la corrida anterior (plantilla v3, catálogo corregido)
+
+| | v3 | v4 |
+|---|---|---|
+| Total P50 | 12 523 ms | 11 376 ms |
+| Total P95 | 16 751 ms | 15 475 ms |
+| Tokens de entrada (media) | 18 394 | 18 509 |
+| Costo por generación | US$ 0,0024 | US$ 0,0024 |
+| Sin bloqueantes | 18 de 21 | 20 de 21 |
+| Ítems de texto libre (todos bloquean) | 9 | 8, todos en una sola propuesta |
+| Sin ningún hallazgo | 13 | 15 |
+| Advertencias de composición | 26 | 17 (8 en C3, 6 en C1, 3 en C7) |
+| Hallazgos por regla de patología | 5 (todos advertencias) | 6 (todos advertencias) |
+
+- **Hay menos advertencias de composición en C7** (de 8 a 3), porque usó recetas en lugar de
+  grupos amplios. C3 no usó ningún ítem de grupo.
+- **Avena sin TACC:** C1 la eligió en las 3 corridas. Advierte, y queda a criterio del
+  profesional (DA-43).
+- **Para revisar en la entrevista:** en C4 (alergia al huevo), la IA sumó a las
+  recomendaciones generales "revisá los rótulos y consultá por trazas de huevo". Es útil,
+  pero es una indicación ligada a una condición, que la regla 6 de la plantilla busca
+  evitar.
 
 ## Cómo comparar
 

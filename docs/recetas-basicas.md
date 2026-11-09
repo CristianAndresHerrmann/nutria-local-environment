@@ -28,7 +28,8 @@ privadas, o duplica una básica y la adapta.
   ingredientes; el agua de cocción es la única excepción.
 - **Alimentos evitados.** Ninguna receta lleva sal, azúcar, dulces, caldo en cubo, salsa de
   soja ni fiambres: con alguno, una regla de patología podría excluir la receta completa.
-  Se condimentan con hierbas, especias, limón y aceite.
+  Se condimentan con hierbas, especias, ajo, limón, queso rallado y aceite. Ajo y queso
+  rallado son `complementary` desde DA-42, pero no se evitan.
 - **Composición (DA-29).** Las de desayuno y merienda incluyen proteína e hidrato; las de
   almuerzo y cena, verdura, proteína e hidrato, según las categorías de sus ingredientes.
 - **Cantidades.** En medidas caseras culinarias, no son una prescripción. El rendimiento
@@ -38,6 +39,14 @@ privadas, o duplica una básica y la adapta.
   Otras 40, las elaboradas o con ingredientes menos habituales, se cargan como privadas de
   `nutricionista@nutria.com` (`seed-data/private-recipes.js`), junto con 5 de control que llevan
   a propósito un alimento alcanzado por una regla. Las 58 restantes no se cargan.
+- **Correcciones del 09/11/2026 (DA-42).** Con la banana y el queso rallado sin aporte a la
+  composición, cinco recetas cambian de ingredientes sin cambiar de nombre (el seed las pone
+  al día por nombre):
+  - Recetas 20 y 35, los licuados con banana: suman avena arrollada.
+  - Receta 4: suma copos de maíz sin TACC.
+  - Receta 61: suma ricota como proteína.
+  - Receta 32: usa copos de maíz sin TACC en lugar de los comunes, que pasan a estar
+    prohibidos en celiaquía.
 
 ## Listado
 

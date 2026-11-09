@@ -97,16 +97,18 @@ ni días, y queda como pregunta para T65.
 | CM-01 Categorías | Igual que el motor: el alimento aporta su copia de `food_categories`; la receta, la unión de las de sus ingredientes; el grupo, la intersección de las de sus alimentos vigentes; el no reconocido, ninguna. | `itemCategories.js` (DA-16, DA-30) |
 | CM-02 Pertenencia a un grupo | Un alimento pertenece a su grupo hoja y a los grupos que lo contienen. Una receta pertenece a los grupos de sus ingredientes. Un ítem de grupo pertenece a un grupo de la pauta si está comprendido en él. Un ítem de grupo más amplio que el de la pauta no cuenta (por ejemplo, "Carnes, pescados y huevos" no cumple una pauta de Pescados). | `scopeCoversFood` en `src/utils/recipeConditionFilter.js` (DA-23, DA-30) |
 | CM-03 Restringidos | Un ítem que dispara un hallazgo `blocking` del motor no cuenta para ninguna pauta. Ante un conflicto entre fuentes, prevalece la de la patología: los cereales con gluten de la GAPA no cuentan en un celíaco. | DA-36, DA-40 |
+| CM-10 Condimentos | Un alimento que se usa en cantidad de condimento no cuenta como porción de su grupo: Limón no cuenta para Frutas, y Ajo no cuenta para Verduras. Sí cuentan para PA-HTA-02. | DA-42 |
 
 ### Atributos que el catálogo no tiene
 
-El catálogo no marca si un alimento es integral, descremado o magro. Se aproximan así:
+El catálogo no marca si un alimento es integral, descremado o magro. Se aproximan así
+(correcciones de DA-42):
 
 | Criterio | Definición |
 |---|---|
-| CM-04 Integral | Un alimento de Cereales y derivados con categoría `fiber`: Pan integral, Pan lactal integral, Pan de salvado, Harina integral, Fideos integrales, Arroz integral, Quinoa, Amaranto, Galletitas integrales, Galletitas de salvado, Granola y los demás que la tengan. |
-| CM-05 Descremado | Un lácteo con "descremada" o "descremado" en el nombre: Leche descremada, Leche parcialmente descremada, Yogur descremado, Queso untable descremado, Ricota descremada. |
-| CM-06 Carnes rojas y cortes magros | Carnes rojas: el subgrupo Carnes (vacuna, cerdo y cordero). Cortes magros: Carne vacuna magra y Carne picada magra. |
+| CM-04 Integral | Un alimento de Cereales y derivados con categoría `fiber`, salvo Cebada perlada (el perlado le quita el salvado), Granola (suele tener azúcar agregada), Salvado de avena y Salvado de trigo (son un agregado, no una porción de cereal). Hoy: Pan integral, Pan lactal integral, Pan de salvado, Harina integral, Fideos integrales, Arroz integral, Avena arrollada, Avena sin TACC, Trigo burgol, Quinoa, Amaranto, Galletitas integrales y Galletitas de salvado. |
+| CM-05 Descremado o magro | Un lácteo con "descremada" o "descremado" en el nombre, más la Ricota, que es magra aunque sea entera: Leche descremada, Leche parcialmente descremada, Yogur descremado, Queso untable descremado, Ricota y Ricota descremada. Un ítem de grupo ("un lácteo") queda sin determinar: sale del denominador. |
+| CM-06 Carnes rojas y cortes magros | Carnes rojas: el subgrupo Carnes (vacuna, cerdo y cordero). Cortes magros: Carne vacuna magra, Carne picada magra, Lomo de cerdo e Hígado vacuno. |
 
 ### A quién se aplica
 
@@ -125,8 +127,8 @@ Se aplican a todos los pacientes. Las fuentes de patología y de objetivo remite
 |---|---|---|---|---|---|
 | PA-GEN-01 | Cuatro comidas al día | Plan | El plan tiene opciones de desayuno, almuerzo, merienda y cena. | GAPA p. 26: "Realizar 4 comidas al día (desayuno, almuerzo, merienda y cena)". También DM2 p. 251 y OBE p. 32. | S |
 | PA-GEN-02 | Alimentos de todos los grupos | Plan | Cuántos de estos 8 aparecen en el plan: Verduras (sin Tubérculos y choclo), Frutas, Legumbres, Cereales y derivados, Lácteos, Huevos, carnes (Carnes, Aves, Pescados o Mariscos) y Aceites. Cumple con 8 de 8. | GAPA p. 26: "incluir verduras, frutas, legumbres, cereales, leche, yogur o queso, huevos, carnes y aceites." | S |
-| PA-GEN-03 | Verduras en el almuerzo y en la cena | Opción; almuerzo y cena | La opción tiene un ítem de Verduras que no es de Tubérculos y choclo. | GAPA p. 26: "Consumir al menos medio plato de verduras en el almuerzo, medio plato en la cena". DM2 p. 250, sobre papa, batata, choclo y mandioca: "No se incluyen en este grupos papa, batata, choclo y mandioca." | S |
-| PA-GEN-04 | Frutas todos los días | Plan | Hay un ítem de Frutas frescas en el plan. Además, se informa en cuántas comidas aparece. | GAPA p. 26: "2 o 3 frutas por día." | S |
+| PA-GEN-03 | Verduras en el almuerzo y en la cena | Opción; almuerzo y cena | La opción tiene un ítem de Verduras que no es de Tubérculos y choclo ni Ajo (CM-10). | GAPA p. 26: "Consumir al menos medio plato de verduras en el almuerzo, medio plato en la cena". DM2 p. 250, sobre papa, batata, choclo y mandioca: "No se incluyen en este grupos papa, batata, choclo y mandioca." | S |
+| PA-GEN-04 | Frutas todos los días | Plan | Hay un ítem de Frutas frescas en el plan, sin contar Limón (CM-10). Además, se informa en cuántas comidas aparece. | GAPA p. 26: "2 o 3 frutas por día." | S |
 | PA-GEN-05 | Lácteos todos los días, preferentemente descremados | Plan | Hay un ítem de Lácteos en el plan. Además, el porcentaje de ítems de Lácteos que son descremados (CM-05). | GAPA p. 27: "Consumir diariamente leche, yogur o queso, preferentemente descremados." | S |
 | PA-GEN-06 | Pescado y huevo | Plan | Hay un ítem de Pescados en el plan. Hay un ítem de Huevos en el plan. Son dos indicadores. | GAPA p. 27: "aumentar el consumo de pescado e incluir huevo." | S |
 | PA-GEN-07 | Legumbres y cereales integrales | Plan | Hay un ítem de Legumbres en el plan. Además, el porcentaje de ítems de Cereales y derivados que son integrales (CM-04). | GAPA p. 27: "Consumir legumbres, cereales preferentemente integrales, papa, batata, choclo o mandioca." | S |
@@ -148,8 +150,8 @@ Se aplican a un paciente con Diabetes (CM-07), además de las `GEN`.
 
 | ID | Pauta | Nivel y comidas | Indicador | Cita | Origen |
 |---|---|---|---|---|---|
-| PA-DM2-01 | Método del plato | Opción; almuerzo y cena | Un indicador por componente:<br>a) **Vegetal**: Verduras, sin Tubérculos y choclo.<br>b) **Proteína**: Carnes, Aves, Pescados, Mariscos, Huevos o Quesos. Fiambres y embutidos no cuenta.<br>c) **Hidrato complejo**: Legumbres, Cereales y derivados o Tubérculos y choclo.<br>d) **Fruta**: Frutas frescas.<br>e) **Grasa saludable**: Aceites, Frutas oleosas o Frutos secos y semillas.<br>Además, el porcentaje de opciones con los cinco. | p. 248: "Consiste en dividir el plato del almuerzo y cena a la mitad." Vegetal: "Una mitad siempre se ocupa con vegetales." Proteína: "alimentos que contengan proteínas (carnes, quesos magros o huevo)". Hidrato: "alimentos que contengan HC complejos (legumbres, cereales, papa, batata, mandioca o pastas)". Fruta: "Se agrega una porción de fruta." Grasa: "Se condimenta con grasas saludables en pequeñas cantidades." p. 249: "NO SE INCLUYEN en este grupos papa, batata, choclo y mandioca." Los fiambres y embutidos se evitan (p. 251). | S |
-| PA-DM2-02 | Hidratos repartidos en las comidas | Opción; las cuatro comidas | Porcentaje de opciones de cada comida con `carbohydrate` (CM-01). | p. 251: "Distribuir los alimentos con hidratos de carbono en pequeñas porciones a lo largo del día, para evitar grandes volúmenes en una sola comida." | S |
+| PA-DM2-01 | Método del plato | Opción; almuerzo y cena | Un indicador por componente:<br>a) **Vegetal**: Verduras, sin Tubérculos y choclo ni Ajo (CM-10).<br>b) **Proteína**: Carnes, Aves, Pescados, Mariscos, Huevos o Quesos. Fiambres y embutidos no cuenta.<br>c) **Hidrato complejo**: Legumbres, Cereales y derivados o Tubérculos y choclo.<br>d) **Fruta**: Frutas frescas, sin Limón (CM-10).<br>e) **Grasa saludable**: Aceites, Frutas oleosas o Frutos secos y semillas.<br>Además, el porcentaje de opciones con los cinco. | p. 248: "Consiste en dividir el plato del almuerzo y cena a la mitad." Vegetal: "Una mitad siempre se ocupa con vegetales." Proteína: "alimentos que contengan proteínas (carnes, quesos magros o huevo)". Hidrato: "alimentos que contengan HC complejos (legumbres, cereales, papa, batata, mandioca o pastas)". Fruta: "Se agrega una porción de fruta." Grasa: "Se condimenta con grasas saludables en pequeñas cantidades." p. 249: "NO SE INCLUYEN en este grupos papa, batata, choclo y mandioca." Los fiambres y embutidos se evitan (p. 251). | S |
+| PA-DM2-02 | Hidratos repartidos en las comidas | Opción; las cuatro comidas | Porcentaje de opciones de cada comida con `carbohydrate` (CM-01) o con un ítem de Frutas frescas sin Limón: la fruta aporta hidratos aunque no tenga la categoría (DA-42). | p. 251: "Distribuir los alimentos con hidratos de carbono en pequeñas porciones a lo largo del día, para evitar grandes volúmenes en una sola comida." | S |
 | PA-DM2-03 | Hidrato acompañado de proteína | Opción; desayuno y merienda | Si la opción tiene `carbohydrate`, tiene también `protein`. En almuerzo y cena lo mide PA-DM2-01. | p. 251: "Por ejemplo en el desayuno, si se consume pan (hidratos de carbono), acompañarlo con una rodaja de queso descremado". | S |
 | PA-DM2-04 | Alimentos de bajo índice glucémico | Plan | Hay un ítem de Legumbres en el plan. Además, el porcentaje de ítems de Cereales y derivados que son integrales (CM-04). Verduras y frutas ya las miden PA-GEN-03 y PA-GEN-04. | p. 250: "se recomiendan los alimentos con bajo IG (verduras, frutas, legumbres y cereales integrales)." | S |
 | PA-DM2-05 | Pescados grasos y aceite de oliva | Plan | Hay un ítem de Caballa, Salmón, Atún al natural, Atún en aceite o Sardinas en lata. Hay un ítem de Aceite de oliva. Son dos indicadores. | p. 252: "pescados grasos de agua fría (ej: salmón, caballa, atún, arenques y sardinas)", "conviene aumentar su consumo a 2 o más porciones por semana", "Se aconseja completar la ingesta con grasas monoinsaturadas", con el aceite de oliva como ejemplo. | S |
@@ -170,7 +172,7 @@ Se aplican a un paciente con Hipertensión (CM-07), además de las `GEN`.
 | ID | Pauta | Nivel y comidas | Indicador | Cita | Origen |
 |---|---|---|---|---|---|
 | PA-HTA-01 | Alimentación adecuada reducida en sodio | Plan | Las mismas pautas e indicadores que PA-GEN-02, PA-GEN-04, PA-GEN-05, PA-GEN-06, PA-GEN-07 y PA-GEN-08. HTA las adopta con las mismas palabras, como parte del tratamiento. | p. 14, "Alimentación adecuada reducida en sodio", "Incluye:", y enumera "Incorporar a diario alimentos de todos los grupos.", "Consumir a diario 5 porciones de frutas y verduras en variedad de tipos y colores.", "Consumir diariamente leche, yogur o queso, preferentemente descremados.", "aumentar el consumo de pescado e incluir huevo.", "Consumir legumbres, cereales preferentemente integrales, papa, batata, choclo o mandioca." y "Consumir aceite crudo como condimento, frutas secas o semillas." | S |
-| PA-HTA-02 | Condimentos en reemplazo de la sal | Plan | Hay al menos una opción con uno de estos alimentos, como ítem o como ingrediente de una receta: Limón, Vinagre, Cebolla, Ajo, Orégano, Perejil, Laurel, Pimentón, Ají molido, Pimienta, Comino, Nuez moscada, Albahaca. Además, el porcentaje de opciones de almuerzo y cena que lo tienen. | p. 14: "Utilizar en su reemplazo: jugo de limón, vinagre, cebolla, ajo, hierbas aromáticas y especias:", y nombra, entre otros, "Orégano, Perejil (fresco o seco), Laurel, Pimentón (dulce o ahumado), Ají molido, Pimienta (negra o blanca)", "Comino" y "Nuez moscada, Albahaca". | S (la lista del catálogo, V) |
+| PA-HTA-02 | Condimentos en reemplazo de la sal | Plan | Hay al menos una opción con uno de estos alimentos, como ítem o como ingrediente de una receta: Limón, Vinagre, Cebolla, Cebolla de verdeo, Puerro, Ajo, Orégano, Perejil, Laurel, Pimentón, Ají molido, Pimienta, Comino, Nuez moscada, Albahaca. Además, el porcentaje de opciones de almuerzo y cena que lo tienen. La Sal con bajo contenido de sodio no cuenta: no es un reemplazo que nombre la guía. | p. 14: "Utilizar en su reemplazo: jugo de limón, vinagre, cebolla, ajo, hierbas aromáticas y especias:", y nombra, entre otros, "Orégano, Perejil (fresco o seco), Laurel, Pimentón (dulce o ahumado), Ají molido, Pimienta (negra o blanca)", "Comino" y "Nuez moscada, Albahaca". | S (la lista del catálogo, V) |
 
 HTA no trae pautas positivas propias más allá de esas dos: no menciona el patrón DASH, el
 potasio ni el método del plato. La sal fina, los fiambres y el caldo en cubo ya son reglas
@@ -183,7 +185,7 @@ Se aplican a un paciente con Celiaquía (CM-07), además de las `GEN` con la sal
 | ID | Pauta | Nivel y comidas | Indicador | Cita | Origen |
 |---|---|---|---|---|---|
 | PA-CEL-01 | Alimentos de todos los grupos, sin gluten | Plan | El mismo indicador que PA-GEN-02. Cereales y derivados cuenta solo con los alimentos de PA-CEL-02. | CEL p. 43: "Una alimentación saludable debe incluir alimentos de todos los grupos". ALG p. 7: "resulta fundamental incluir diariamente una variedad de alimentos que aporten todos los nutrientes esenciales". | S |
-| PA-CEL-02 | Hidratos de fuentes sin gluten | Opción; las cuatro comidas | La opción tiene al menos un ítem de esta lista:<br>- Arroz blanco, Arroz integral, Arroz parboil, Harina de maíz (polenta), Quinoa, Amaranto, Harina de arroz, Almidón de maíz, Fécula de mandioca.<br>- Pan sin TACC, Premezcla sin TACC, Fideos sin TACC, Fideos de arroz, Galletitas sin TACC, Tostadas de arroz, Copos de maíz sin azúcar.<br>- Papa, Batata, Mandioca, Choclo.<br>- Legumbres.<br>Avena sin TACC no cuenta (R-05). | CEL p. 43: "Los pacientes con Enfermedad Celíaca podrán consumir todo lo que es de origen natural, carnes vacuna, pollo, pescado, verduras y frutas frescas, legumbres, huevos, cereales sin gluten". CEL p. 44, alimentos permitidos del grupo cereales: "Granos de arroz y de maíz de cualquier marca envasados; harinas de mandioca, de papa, de soja y sus derivados envasadas y de marcas permitidas, como así también premezclas elaboradas con harinas permitidas." MAN p. 87 (PDF 81), "Cereales sin Gluten": "Harina de arroz", "harina de mandioca, quinoa, amaranto". | S (la lista del catálogo, V) |
+| PA-CEL-02 | Hidratos de fuentes sin gluten | Opción; las cuatro comidas | La opción tiene al menos un ítem de esta lista:<br>- Arroz blanco, Arroz integral, Arroz parboil, Harina de maíz (polenta), Quinoa, Amaranto, Harina de arroz, Almidón de maíz, Fécula de mandioca.<br>- Pan sin TACC, Premezcla sin TACC, Fideos sin TACC, Fideos de arroz, Galletitas sin TACC, Tostadas de arroz, Copos de maíz sin TACC.<br>- Papa, Batata, Mandioca, Choclo.<br>- Legumbres.<br>Avena sin TACC no cuenta (R-05). | CEL p. 43: "Los pacientes con Enfermedad Celíaca podrán consumir todo lo que es de origen natural, carnes vacuna, pollo, pescado, verduras y frutas frescas, legumbres, huevos, cereales sin gluten". CEL p. 44, alimentos permitidos del grupo cereales: "Granos de arroz y de maíz de cualquier marca envasados; harinas de mandioca, de papa, de soja y sus derivados envasadas y de marcas permitidas, como así también premezclas elaboradas con harinas permitidas." MAN p. 87 (PDF 81), "Cereales sin Gluten": "Harina de arroz", "harina de mandioca, quinoa, amaranto". | S (la lista del catálogo, V) |
 
 PA-CEL-02 mide si la propuesta conserva una fuente de hidratos después de que la generación
 saca los alimentos con gluten (DA-31, DA-40). Hay un conflicto: GAPA p. 27 recomienda "arroz
@@ -205,7 +207,7 @@ base para la educación alimentaria en personas con obesidad".
 | ID | Pauta | Nivel y comidas | Indicador | Cita | Origen |
 |---|---|---|---|---|---|
 | PA-OBE-01 | Plan basado en alimentos frescos | Plan | Cuántos de estos 7 aparecen en el plan: Verduras, Frutas, Legumbres, Frutos secos y semillas, Huevos, Pescados y Aceites. Además, el porcentaje de ítems de Cereales y derivados que son integrales (CM-04). | p. 25: "un plan de alimentación saludable basado en alimentos frescos, que incluya verduras, frutas, legumbres, frutos secos, semillas, cereales integrales (ej: arroz integral), huevo, pescados y aceites vegetales insaturados". "Evidencia moderada - FUERTE A FAVOR." | S |
-| PA-OBE-02 | Pocas carnes rojas, de cortes magros | Opción; almuerzo y cena | De las opciones con `protein`, el porcentaje que tiene carnes rojas (CM-06). De los ítems de carnes rojas, el porcentaje de cortes magros. | p. 25: "con bajo consumo de carnes rojas (optando por cortes magros)". | S (el umbral, V) |
+| PA-OBE-02 | Pocas carnes rojas, de cortes magros | Opción; almuerzo y cena | De las opciones con `protein`, el porcentaje que tiene carnes rojas (CM-06). De los ítems de carnes rojas, el porcentaje de cortes magros (CM-06); cumple con al menos 3 de cada 4 (DA-42). | p. 25: "con bajo consumo de carnes rojas (optando por cortes magros)". | S (el umbral, V) |
 | PA-OBE-03 | Cuatro comidas | Plan | El mismo indicador que PA-GEN-01. | p. 32: "Planificar las comidas de la semana contemplando, en la medida de lo posible, 4 comidas diarias: desayuno, almuerzo, merienda y cena." | S |
 | PA-OBE-04 | Vegetal con proteína o con hidrato | Opción; almuerzo y cena | La opción tiene `vegetable` y además `protein` o `carbohydrate`. | p. 33: "Alternativamente se puede combinar vegetales con proteínas en una de las comidas, y vegetales con hidratos de carbono en la otra comida del día." | S |
 
@@ -262,10 +264,200 @@ en el corpus para que el RAG lo lleve a la IA como texto, y para el criterio del
 | PA-HTA-02, PA-CEL-02 | V | ¿Las listas de alimentos del catálogo son correctas? |
 | Colaciones | S | ¿La colación de DM2 p. 251 se mide en la merienda, o hace falta otra comida en el plan? |
 | OBE pp. 29, 31 y 33 | — | Leer a mano las imágenes (mensajes GAPA, alimentos no recomendados y plato por comida) y ver si cambian alguna pauta. Incorporar la versión extensa en T46. |
+| Sal con bajo contenido de sodio | V | ¿Se le ofrece a un paciente con HTA? Es cloruro de potasio, desaconsejado con enfermedad renal o con IECA, ARA II o espironolactona, y la medicación no llega al sistema. Hoy se ofrece y no cuenta para PA-HTA-02 (DA-42). |
+| Sodio en HTA | V | ¿Quesos duros (rallado, de máquina), aceitunas y conservas van como `moderate` para HTA, como la Salsa de soja (DA-42)? |
+| Aderezos en DM2 | S | DM2 p. 251 nombra mayonesa, kétchup, mostaza y salsa de soja entre los productos a evitar, con la misma cita que las reglas de dulces de diabetes. Es la pregunta de R-05 sobre los ultraprocesados de DM2 en [reglas-clinicas.md](reglas-clinicas.md#pendientes-para-la-entrevista). |
+
+## Respuestas tentativas para T65
+
+Borrador escrito desde el rol de nutricionista, para llevar a la entrevista. Ninguna
+respuesta cambia el origen: todo sigue S o V hasta que la nutricionista lo confirme o lo
+corrija. Las correcciones de datos y de criterios que salieron de este borrador ya se
+aplicaron ([DA-42](decisiones/correcciones-del-catalogo-por-las-pautas.md)); el resto, como
+el nivel plan, PA-GEN-09 y 11, PA-OBE-04 y CM-08, sigue tentativo.
+
+### Nivel plan
+
+Para las pautas diarias no alcanza con una opción. El paciente elige una sola opción por
+comida: si la fruta está en 1 de las 3 opciones de cena, puede no comer fruta en toda la
+semana.
+
+- **Pautas diarias** (frutas, lácteos, verduras, aceite o frutos secos: PA-GEN-04, 05 y
+  08). Cumplen de forma **garantizada** si hay al menos una comida en la que todas sus
+  opciones incluyen la pauta. Aparte se informa la lectura débil ("al menos una opción").
+- **Pautas semanales o de variedad** (pescado, huevo, legumbres: PA-GEN-06, PA-GEN-07,
+  PA-DM2-05). Cumplen con al menos una opción, porque las opciones rotan en la semana.
+  Se informa además el porcentaje de opciones de almuerzo y cena que la tienen, como
+  aproximación a la frecuencia: con unos 14 almuerzos y cenas por semana, "pescado 2 o más
+  veces por semana" (GAPA p. 27) equivale a alrededor del 15 %.
+
+### CM-02
+
+De acuerdo: un ítem de grupo más amplio no cuenta. "Carnes, pescados y huevos" no asegura
+pescado, porque el paciente puede elegir carne. Cuando la pauta es del grupo amplio, el
+ítem de grupo sí cuenta ("un lácteo" cumple PA-GEN-05). Para CM-05, "un lácteo" queda sin
+determinar: sale del denominador y no cuenta como "no descremado".
+
+### PA-GEN-03, PA-DM2-01
+
+Papa, batata, mandioca y choclo cuentan como hidrato. Son las verduras "C" (alrededor de
+20 % de hidratos), y la GAPA las agrupa con legumbres y cereales. Arvejas frescas,
+zanahoria, zapallo y remolacha siguen como verdura.
+
+Lo que el plan cuenta como verdura y como hidrato tiene tres problemas de catálogo (ver
+[observaciones](#observaciones-sobre-el-catálogo)): el ajo como verdura, la banana como el
+hidrato del plato y las legumbres sin `carbohydrate`.
+
+### PA-GEN-09
+
+Umbral de 2 grupos para "cumple" y de 3 para "óptimo" (lácteo, cereal y fruta o frutos
+secos). No exigir el lácteo en particular, por los pacientes con intolerancia, rechazo o
+alimentación vegana: hoy la Bebida de soja está en Derivados de legumbres y no cuenta como
+Lácteos. Con 2 grupos el indicador casi repite R-04; el umbral de 3 es el que agrega
+información.
+
+### PA-GEN-11
+
+El día de ejemplo de MAN es una forma de distribuir los grupos, no una pauta por comida. Si
+se mide como cumplimiento, contradice R-03 (carne en el almuerzo y cereal en la cena) y se
+superpone con PA-GEN-09 y PA-GEN-10. Se propone sacarlo como indicador de cumplimiento o
+dejarlo solo como dato descriptivo.
+
+### PA-GEN-04, PA-DM2-01 d
+
+La fruta de postre en el almuerzo y la cena es esperable: es una indicación habitual, y en
+DM2 la pide el método del plato. No se exige en cada opción. Se mide como pauta diaria
+garantizada, con la meta de tener fruta asegurada en al menos 2 comidas del día (GAPA:
+"2 o 3 frutas por día"). El limón no cuenta como fruta (ver
+[observaciones](#observaciones-sobre-el-catálogo)).
+
+### CM-04 a CM-06
+
+La aproximación sirve como transitoria, con estas correcciones, ya aplicadas en los
+criterios (DA-42):
+
+- **Integral:** sacar Cebada perlada, porque el perlado le quita el salvado; Granola, que
+  suele tener azúcar agregada y es ultraprocesada; y Salvado de avena y Salvado de trigo,
+  que son un agregado y no una porción de cereal. Avena arrollada, trigo burgol, quinoa y
+  amaranto están bien.
+- **Descremado:** la leche parcialmente descremada cuenta. El criterio por nombre no
+  detecta los quesos magros que pide DM2 p. 248: la ricota, incluso la entera, es magra.
+- **Magro:** agregar Lomo de cerdo. El hígado vacuno también es magro.
+- **Recomendación:** marcar los atributos en el catálogo (`whole_grain`, `low_fat`,
+  `lean_cut`). El criterio por nombre falla con los alimentos privados: una "Leche light"
+  no coincide.
+
+### PA-OBE-02
+
+Se deriva de la GAPA, que dice "carnes rojas hasta 3 veces por semana": 3 de unos 14
+almuerzos y cenas, alrededor de 21 %.
+
+- **Límite:** carnes rojas en hasta un tercio de las opciones de almuerzo y cena con
+  proteína.
+- **Ideal:** alrededor de un cuarto.
+- **Cortes:** en un paciente que quiere bajar de peso, al menos 3 de cada 4 ítems de
+  carnes rojas deberían ser cortes magros (CM-06). Asado, vacío, matambre, bondiola y carne
+  picada común quedan como excepción. Aplicado en PA-OBE-02 (DA-42).
+
+Los fiambres conviene medirlos aparte.
+
+### PA-OBE-04
+
+Clínicamente aceptable y habitual en planes para bajar de peso, por ejemplo una cena de
+verduras con proteína, siempre que el hidrato esté en la otra comida principal (OBE p. 33).
+Como los hallazgos no se descartan a mano (RF-46), esos planes van a mostrar advertencias de
+R-03 permanentes, con riesgo de fatiga de alertas. Se mantiene R-03 por ahora, y queda como
+el primer caso para flexibilizarla según el objetivo cuando el objetivo sea un dato
+estructurado (CM-08).
+
+### CM-08
+
+Se prefiere una lista cerrada con selección múltiple, más un texto libre para los matices:
+
+- Bajar de peso
+- Mantener el peso
+- Subir de peso
+- Aumentar masa muscular
+- Ordenar las comidas o mejorar hábitos
+- Mejorar el tránsito intestinal
+- Otro
+
+"Controlar la glucemia" no va como objetivo, porque ya sale de la patología.
+
+### Objetivos sin guía
+
+- **Aumentar masa muscular:** no hay una guía oficial argentina. El criterio de consultorio
+  es repartir la proteína en las cuatro comidas, incluidos desayuno y merienda, sin recortar
+  hidratos. Se mide con el porcentaje de opciones de cada comida con `protein`. Sigue V; si
+  la nutricionista lo confirma en la entrevista, pasa a E sin necesidad de una fuente del
+  corpus. Sin una fuente, el RAG no tiene nada que llevarle a la IA sobre este objetivo:
+  candidatas para T46, a verificar, los posicionamientos de ISSN sobre proteína y ejercicio
+  y de ACSM, AND y DC sobre nutrición y rendimiento.
+- **Mejorar la digestión:** no es un objetivo, es un síntoma, y hay que precisar qué le
+  pasa al paciente.
+  - Si es constipación, las pautas son fibra, agua, fruta con cáscara, legumbres e
+    integrales, ya cubiertas por PA-GEN-03, 04 y 07.
+  - Si es acidez o distensión, las pautas son casi todas no medibles: comidas fraccionadas
+    y poco abundantes, menos frituras, cenar temprano. Más fibra y legumbres pueden empeorar
+    la distensión.
+
+  Se sugiere precisar el objetivo del caso C5.
+
+### PA-HTA-02, PA-CEL-02
+
+- **HTA:** la lista es correcta.
+  - Agregar Cebolla de verdeo y Puerro. Aplicado (DA-42).
+  - No contar la Sal con bajo contenido de sodio: no es un reemplazo que nombre la guía, y
+    es cloruro de potasio, desaconsejado con enfermedad renal o con medicación que retiene
+    potasio (IECA, ARA II, espironolactona). La medicación no llega al sistema (RNF-07), así
+    que no se puede filtrar por eso. Aplicado en PA-HTA-02: deja de contar y deja de
+    presentarse como alternativa, pero se sigue ofreciendo a la IA, porque una regla
+    necesita una fuente con página y la guía no la nombra. Queda en los pendientes.
+  - 38 de las 77 recetas comunes ya tienen alguno de esos condimentos (23 con cebolla o
+    ajo), así que a nivel plan el indicador se cumple casi siempre. Para que discrimine,
+    contar solo hierbas, especias, limón y vinagre, o medir el porcentaje por opción.
+  - Fuera de la pauta: la Salsa de soja va como `moderate` para HTA (R-05, DA-42), con HTA
+    p. 14 ("Reducir el uso de sal y el consumo de alimentos con alto contenido de sodio") y
+    MAN p. 18, que la nombra entre los aderezos a "limitar o evitar". Los quesos duros
+    (rallado, de máquina), las aceitunas y las conservas quedan en los pendientes.
+- **CEL:** la lista es correcta como alimentos naturalmente sin gluten. En los productos
+  procesados el cumplimiento depende de la certificación (CEL p. 44, "marcas permitidas"):
+  - Copos de maíz: muchos tienen extracto de malta de cebada. Aplicado (DA-42): los Copos
+    de maíz sin azúcar son `prohibited` para celiaquía, y la lista de PA-CEL-02 usa los
+    Copos de maíz sin TACC.
+  - Polenta, almidón de maíz, tostadas de arroz, quinoa y amaranto requieren certificación
+    sin TACC.
+  - Las legumbres a granel tienen riesgo de contaminación cruzada: indicarlas envasadas.
+
+### Colaciones
+
+No se miden en la merienda, que es una comida principal. DM2 indica la colación solo "en
+presencia de hambre", así que es opcional. No se agrega otra comida al plan. En pacientes
+con insulina o sulfonilureas, la colación la pauta el profesional como recomendación. Se
+mantiene en "No medibles".
+
+### OBE pp. 29, 31 y 33
+
+Pendiente: leer las imágenes a mano.
+
+### Observaciones sobre el catálogo
+
+Errores que distorsionaban las reglas o los indicadores con los datos del seed. Todos
+quedaron resueltos en [DA-42](decisiones/correcciones-del-catalogo-por-las-pautas.md).
+
+| Problema | Efecto que tenía | Corrección |
+|---|---|---|
+| Limón está en Frutas frescas | 9 recetas de almuerzo y cena lo llevan como condimento (½ unidad) y cumplían la fruta de PA-GEN-04 y PA-DM2-01 d sin tener fruta | CM-10: no cuenta como porción de fruta. Sigue en Frutas frescas, así una condición sobre Frutas lo alcanza |
+| Ajo tenía `vegetable` | Un ítem de ajo completaba la verdura de R-03 y de PA-GEN-03 | Ajo pasa a `complementary`, y CM-10 lo excluye de Verduras. La cebolla queda como está: "Arroz integral con lentejas y cebolla caramelizada" lleva 2 unidades |
+| Banana tenía `carbohydrate` | R-03 y R-04 la aceptaban como el hidrato del plato | Banana queda solo con `fiber`. Los dos licuados con banana suman avena arrollada, y "Yogur con banana y semillas de lino" suma copos de maíz sin TACC. PA-DM2-02 cuenta `carbohydrate` o Frutas frescas |
+| Legumbres sin `carbohydrate` | Una opción de legumbre con verdura advertía por falta de hidrato | Las Legumbres secas y en conserva suman `carbohydrate`. Tofu, soja texturizada, bebida de soja y harina de garbanzo no cambian |
+| Queso rallado tenía `protein` | "Fideos integrales con brócoli, ajo y queso rallado" pasaba R-03 sin una porción de proteína | Queso rallado pasa a `complementary`, y esa receta suma ricota |
+| Copos de maíz sin azúcar | Se ofrecían a un celíaco como hidrato sin gluten, y suelen tener malta | Regla `prohibited` para celiaquía, como la de Malta. Alimento nuevo Copos de maíz sin TACC, que usa "Yogur descremado con copos de maíz y mango" |
 
 ## Fundamento
 
 - [Pautas de adecuación nutricional v1](decisiones/pautas-de-adecuacion-v1.md) (DA-41)
+- [Correcciones del catálogo por las pautas de adecuación](decisiones/correcciones-del-catalogo-por-las-pautas.md) (DA-42)
 - [Composición esperada por tipo de comida](decisiones/composicion-esperada-por-tipo-de-comida.md) (DA-29)
 - [Reglas por patología v1](decisiones/reglas-por-patologia-v1.md) (DA-36)
 - [Restricciones de lo que se ofrece a la IA](decisiones/restricciones-de-lo-ofrecido-a-la-ia.md) (DA-40)

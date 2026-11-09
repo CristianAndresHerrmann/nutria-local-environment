@@ -40,6 +40,7 @@ El resumen con numeración DA para los informes de avance está en
 | [Reglas por patología v1: matriz con fuente bibliográfica, sin entrevista](reglas-por-patologia-v1.md) | T35 |
 | [Categoría complementaria para alimentos sin aporte a la composición](categoria-complementaria.md) | T28 |
 | [Pautas de adecuación nutricional v1: pautas positivas con fuente, medibles y sin efecto en el editor](pautas-de-adecuacion-v1.md) | T57 |
+| [Correcciones del catálogo por las pautas de adecuación](correcciones-del-catalogo-por-las-pautas.md) | T57 |
 
 ## Seguridad y acceso
 

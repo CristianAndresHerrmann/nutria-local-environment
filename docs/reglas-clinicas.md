@@ -185,16 +185,20 @@ Fuentes, cada cita verificada contra el texto de su página en el corpus `datos-
   Prevención, Diagnóstico y Tratamiento de la Hipertensión Arterial — versión breve*. 2026.
 - **GAPA:** Ministerio de Salud de la Nación. *Guías alimentarias para la población
   argentina*. 2016.
+- **MAN:** Ministerio de Salud de la Nación. *Manual para la aplicación de las Guías
+  Alimentarias para la Población Argentina*. 2018. Página impresa (la del PDF va entre
+  paréntesis).
 
 | Patología | Alimento o grupo | Severidad | Fuente | Origen |
 |---|---|---|---|---|
-| Celiaquía | Alimentos con trigo, avena, cebada o centeno: Pan francés, Pan integral, Pan lactal blanco, Pan lactal integral, Pan de salvado, Pan árabe, Harina de trigo, Harina integral, Pan rallado, Tapas de tarta, Tapas de empanada, Fideos secos, Fideos integrales, Fideos frescos, Masa para lasaña, Avena arrollada, Salvado de avena, Salvado de trigo, Trigo burgol, Cebada perlada, Galletitas de agua, Galletitas integrales, Galletitas de salvado, Galletitas dulces simples, Bizcochos de grasa, Granola, Malta (una regla por alimento) | `prohibited` | CEL pp. 35 y 43: "la exclusión de cuatro cereales (trigo, avena, cebada y centeno), sus derivados y productos que los contengan de por vida" | S (la lista de alimentos, V) |
+| Celiaquía | Alimentos con trigo, avena, cebada o centeno: Pan francés, Pan integral, Pan lactal blanco, Pan lactal integral, Pan de salvado, Pan árabe, Harina de trigo, Harina integral, Pan rallado, Tapas de tarta, Tapas de empanada, Fideos secos, Fideos integrales, Fideos frescos, Masa para lasaña, Avena arrollada, Salvado de avena, Salvado de trigo, Trigo burgol, Cebada perlada, Galletitas de agua, Galletitas integrales, Galletitas de salvado, Galletitas dulces simples, Bizcochos de grasa, Granola, Copos de maíz sin azúcar (suelen llevar malta de cebada; DA-42), Malta (una regla por alimento) | `prohibited` | CEL pp. 35 y 43: "la exclusión de cuatro cereales (trigo, avena, cebada y centeno), sus derivados y productos que los contengan de por vida" | S (la lista de alimentos, V) |
 | Celiaquía | Avena sin TACC | `moderate` | CEL p. 43: "en Argentina no se recomienda que los pacientes consuman alimentos con avena por el peligro de contaminación cruzada"; ALG p. 15: "se recomienda evitar su utilización en el menú LG, o bien, informar acerca de su presencia" | S |
 | Diabetes | Azúcar, Azúcar mascabo | `moderate` | DM2 p. 245: azúcares agregados ("azúcar de mesa o sacarosa"), "es recomendable evitar su consumo"; p. 253: edulcorantes no nutritivos como sustitutos del azúcar | S |
 | Diabetes | Mermelada, Dulce de leche, Galletitas dulces simples, Bizcochos de grasa | `moderate` | DM2 p. 251: "Evitar los productos alimenticios procesados y ultraprocesados con altas cantidades de grasas, azúcares y/o sal: galletitas dulces, […] bizcochos de grasa, […] dulce de leche, mermeladas (industrializadas)" | S |
 | Hipertensión | Caldo en cubo | `prohibited` | HTA p. 14: "No usar saborizantes en polvo o caldos deshidratados como condimentos" | S |
 | Hipertensión | Sal fina | `moderate` | HTA p. 8: "reducido en sodio: 5 gramos de sal"; p. 14: "Reducir el uso de sal" | S |
 | Hipertensión | Grupo Fiambres y embutidos | `moderate` | GAPA p. 26: "Los fiambres, embutidos y otros alimentos procesados […] contienen elevada cantidad de sodio"; HTA p. 14: "Reducir […] el consumo de alimentos con alto contenido de sodio" | S |
+| Hipertensión | Salsa de soja | `moderate` | HTA p. 14: "Reducir el uso de sal y el consumo de alimentos con alto contenido de sodio"; MAN p. 18 (PDF 17), alimentos ultraprocesados, "Se recomienda limitar o evitar su consumo": "Aderezos: mayonesa, salsa golf, mostaza, kétchup, salsa de soja" (DA-42) | S (que sea un alimento alto en sodio, V) |
 
 En la base, la fuente de cada regla es la cita corta con páginas (por ejemplo, "MSAL, GPC
 enfermedad celíaca (2016), pp. 35 y 43"), y es la que muestra el hallazgo.
@@ -258,12 +262,13 @@ matriz de R-05 quedó con origen S y también se revisa ahí.
 | R-04 | S | ¿Desayuno y merienda llevan lácteo y pan o cereales? ¿Hace falta exigir fruta? (DA-29) |
 | R-03, R-04 | V | ¿Está bien que un ítem de grupo solo cubra las categorías que comparten todos sus alimentos, y que una receta cubra las de cualquiera de sus ingredientes? (DA-30) |
 | R-05 | S | ¿Se confirma la matriz de celiaquía, diabetes e hipertensión? ¿Las severidades son correctas (lo que se excluye bloquea; lo que se modera advierte)? (DA-36) |
-| R-05 | V | ¿La lista de alimentos con trigo, avena, cebada o centeno es correcta (por ejemplo, la malta)? (DA-36) |
+| R-05 | V | ¿La lista de alimentos con trigo, avena, cebada o centeno es correcta (por ejemplo, la malta y los copos de maíz sin azúcar, que suelen llevarla)? (DA-36, DA-42) |
 | R-05 | S | ¿La avena sin TACC se modera, se excluye o se permite? (DA-36) |
 | R-05 | S | ¿Diabetes alcanza solo azúcares y dulces, o también la lista de ultraprocesados de la GPC DM2, pp. 251-252 (grasas, fiambres, aderezos)? (DA-36) |
 | R-05 | V | Un ítem de grupo amplio ("un pan") no avisa por celiaquía. ¿Tiene que avisar? Desde T54 la IA ya no lo propone; queda el caso del profesional que lo agrega a mano. (DA-30, DA-36, DA-40) |
 | R-06 | V | ¿Una receta en una comida que no es la suya tiene que advertir, bloquear o nada? (DA-40) |
-| R-05 | — | Fuera de la matriz: productos industrializados que dependen del listado ALG (fiambres, condimentos, salsa de soja), y conservas y salsa de soja en hipertensión. ¿Se agregan? (DA-36) |
+| R-05 | — | Fuera de la matriz: productos industrializados que dependen del listado ALG (fiambres, condimentos, salsa de soja). ¿Se agregan? (DA-36) |
+| R-05 | V | Hipertensión ya modera la salsa de soja (DA-42). ¿También quesos duros (rallado, de máquina), aceitunas y conservas? ¿Y la sal con bajo contenido de sodio, que es cloruro de potasio? |
 
 ## Fundamento
 
@@ -272,6 +277,7 @@ matriz de R-05 quedó con origen S y también se revisa ahí.
 - [Reglas por patología v1](decisiones/reglas-por-patologia-v1.md) (DA-36)
 - [Restricciones de lo que se ofrece a la IA y receta fuera de su comida](decisiones/restricciones-de-lo-ofrecido-a-la-ia.md) (DA-40)
 - [Pautas de adecuación nutricional v1](decisiones/pautas-de-adecuacion-v1.md) (DA-41), que no son reglas
+- [Correcciones del catálogo por las pautas de adecuación](decisiones/correcciones-del-catalogo-por-las-pautas.md) (DA-42)
 - [Ajustes al modelo del Anexo A — Incremento 3](decisiones/ajustes-al-modelo-del-anexo-a-incremento-3.md) (DA-26, DA-27)
 - [Registro de decisiones del Incremento 2](registro-de-decisiones-incremento-2.md) (DA-16, DA-23)
 - [Registro de decisiones del Incremento 3](registro-de-decisiones-incremento-3.md)

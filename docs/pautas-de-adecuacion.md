@@ -61,11 +61,20 @@ las dos, porque los fragmentos del RAG se referencian por `pagina_pdf`.
 - Las URL de cada obra están en el inventario del corpus
   (`datos-rag/corpus-v1/04_metadatos/bibliografia.md`).
 - **OBE es la versión breve.** Trae las 15 recomendaciones de la guía 2023, que reemplaza a
-  la de 2013. La versión extensa no está en el corpus, y su incorporación queda para T46:
-  `https://www.argentina.gob.ar/sites/default/files/bancos/2023-11/guia_practica_clinica_nacional_sobre_abordaje_integral_obesidad_personas_adultas_14112023.pdf`.
-- **En OBE, las pp. 29, 31 y 33 son imágenes sin texto extraído**: los mensajes GAPA, la
-  lista de alimentos no recomendados y el plato por comida. No se cita nada de esas imágenes.
-  Quedan para leerlas a mano (ver [pendientes](#pendientes-para-la-entrevista-t65)).
+  la de 2013. La versión extensa no está en el corpus, y su incorporación queda para T46.
+  Verificada el 13/11/2026:
+  - URL: `https://www.argentina.gob.ar/sites/default/files/bancos/2023-11/guia_practica_clinica_nacional_sobre_abordaje_integral_obesidad_personas_adultas_14112023.pdf`
+    (responde, PDF de 174 páginas, generado el 13/11/2023).
+  - Versión: es la guía completa, de la que se derivan las versiones abreviadas.
+  - Condiciones de uso, p. 14: "Este y todos los materiales derivados de la guía son de
+    acceso y uso libre, citándolos adecuadamente".
+  - 117 de las 174 páginas tienen el texto con una codificación de fuente rota, y no se
+    extrae. Para incorporarla, T46 necesita OCR.
+- **En OBE, parte de las pp. 30, 31 y 33 es imagen, sin texto en el corpus**: los grupos de
+  la GAPA (p. 30), el grupo de consumo opcional (p. 31) y el plato por comida (p. 33). Se
+  leyeron a mano el 13/11/2026 y se citan como "p. N, imagen". El RAG no las recupera,
+  porque sus fragmentos salen del texto extraído. La p. 29 es la gráfica de la GAPA, sin
+  pautas propias.
 - **Solo DM2 y OBE están en el corpus inicial** (`chunks.jsonl`). Las demás están en
   `02_fuentes_por_revisar`, y el RAG no las recupera hasta que T46 las habilite. Mientras
   tanto, una pauta de GAPA, MAN, HTA, CEL o ALG se puede medir, pero el RAG no la lleva a la
@@ -127,7 +136,7 @@ Se aplican a todos los pacientes. Las fuentes de patología y de objetivo remite
 |---|---|---|---|---|---|
 | PA-GEN-01 | Cuatro comidas al día | Plan | El plan tiene opciones de desayuno, almuerzo, merienda y cena. | GAPA p. 26: "Realizar 4 comidas al día (desayuno, almuerzo, merienda y cena)". También DM2 p. 251 y OBE p. 32. | S |
 | PA-GEN-02 | Alimentos de todos los grupos | Plan | Cuántos de estos 8 aparecen en el plan: Verduras (sin Tubérculos y choclo), Frutas, Legumbres, Cereales y derivados, Lácteos, Huevos, carnes (Carnes, Aves, Pescados o Mariscos) y Aceites. Cumple con 8 de 8. | GAPA p. 26: "incluir verduras, frutas, legumbres, cereales, leche, yogur o queso, huevos, carnes y aceites." | S |
-| PA-GEN-03 | Verduras en el almuerzo y en la cena | Opción; almuerzo y cena | La opción tiene un ítem de Verduras que no es de Tubérculos y choclo ni Ajo (CM-10). | GAPA p. 26: "Consumir al menos medio plato de verduras en el almuerzo, medio plato en la cena". DM2 p. 250, sobre papa, batata, choclo y mandioca: "No se incluyen en este grupos papa, batata, choclo y mandioca." | S |
+| PA-GEN-03 | Verduras en el almuerzo y en la cena | Opción; almuerzo y cena | La opción tiene un ítem de Verduras que no es de Tubérculos y choclo ni Ajo (CM-10). | GAPA p. 26: "Consumir al menos medio plato de verduras en el almuerzo, medio plato en la cena". DM2 p. 250, sobre papa, batata, choclo y mandioca: "No se incluyen en este grupos papa, batata, choclo y mandioca." También OBE p. 30, imagen: "No se incluyen en este grupo papa, batata, choclo y mandioca." | S |
 | PA-GEN-04 | Frutas todos los días | Plan | Hay un ítem de Frutas frescas en el plan, sin contar Limón (CM-10). Además, se informa en cuántas comidas aparece. | GAPA p. 26: "2 o 3 frutas por día." | S |
 | PA-GEN-05 | Lácteos todos los días, preferentemente descremados | Plan | Hay un ítem de Lácteos en el plan. Además, el porcentaje de ítems de Lácteos que son descremados (CM-05). | GAPA p. 27: "Consumir diariamente leche, yogur o queso, preferentemente descremados." | S |
 | PA-GEN-06 | Pescado y huevo | Plan | Hay un ítem de Pescados en el plan. Hay un ítem de Huevos en el plan. Son dos indicadores. | GAPA p. 27: "aumentar el consumo de pescado e incluir huevo." | S |
@@ -207,13 +216,30 @@ base para la educación alimentaria en personas con obesidad".
 | ID | Pauta | Nivel y comidas | Indicador | Cita | Origen |
 |---|---|---|---|---|---|
 | PA-OBE-01 | Plan basado en alimentos frescos | Plan | Cuántos de estos 7 aparecen en el plan: Verduras, Frutas, Legumbres, Frutos secos y semillas, Huevos, Pescados y Aceites. Además, el porcentaje de ítems de Cereales y derivados que son integrales (CM-04). | p. 25: "un plan de alimentación saludable basado en alimentos frescos, que incluya verduras, frutas, legumbres, frutos secos, semillas, cereales integrales (ej: arroz integral), huevo, pescados y aceites vegetales insaturados". "Evidencia moderada - FUERTE A FAVOR." | S |
-| PA-OBE-02 | Pocas carnes rojas, de cortes magros | Opción; almuerzo y cena | De las opciones con `protein`, el porcentaje que tiene carnes rojas (CM-06). De los ítems de carnes rojas, el porcentaje de cortes magros (CM-06); cumple con al menos 3 de cada 4 (DA-42). | p. 25: "con bajo consumo de carnes rojas (optando por cortes magros)". | S (el umbral, V) |
+| PA-OBE-02 | Pocas carnes rojas, de cortes magros | Opción; almuerzo y cena | De las opciones con `protein`, el porcentaje que tiene carnes rojas (CM-06). De los ítems de carnes rojas, el porcentaje de cortes magros (CM-06); cumple con al menos 3 de cada 4 (DA-42). | p. 25: "con bajo consumo de carnes rojas (optando por cortes magros)". p. 30, imagen: "elegir preferentemente cortes magros. Retirar la grasa visible." | S (el umbral, V) |
 | PA-OBE-03 | Cuatro comidas | Plan | El mismo indicador que PA-GEN-01. | p. 32: "Planificar las comidas de la semana contemplando, en la medida de lo posible, 4 comidas diarias: desayuno, almuerzo, merienda y cena." | S |
 | PA-OBE-04 | Vegetal con proteína o con hidrato | Opción; almuerzo y cena | La opción tiene `vegetable` y además `protein` o `carbohydrate`. | p. 33: "Alternativamente se puede combinar vegetales con proteínas en una de las comidas, y vegetales con hidratos de carbono en la otra comida del día." | S |
+| PA-OBE-05 | Plato de almuerzo y cena | Opción; almuerzo y cena | Un indicador por componente:<br>a) **Vegetal**: Verduras, sin Tubérculos y choclo ni Ajo (CM-10).<br>b) **Proteína**: Carnes, Aves, Pescados, Mariscos, Huevos o Quesos, sin Queso rallado (CM-10). Fiambres y embutidos no cuenta (PA-OBE-07).<br>c) **Hidrato complejo**: Legumbres, Cereales y derivados o Tubérculos y choclo. Además, el porcentaje de ítems de Cereales y derivados que son integrales (CM-04).<br>d) **Fruta de postre**: Frutas frescas, sin Limón (CM-10).<br>e) **Aceite**: Aceites. Se informa, pero no entra en el cumplimiento: la fuente dice "se puede".<br>Además, el porcentaje de opciones con a, b, c y d. | p. 33, imagen, "Almuerzos y cenas:". "½ PLATO": "Verduras preferentemente de estación", y enumera acelga, brócoli, zapallo y otras. "¼ PLATO": "Alimentos que aportan proteínas: carnes (vaca, pollo, cerdo, pescado, cordero, entre otras), quesos magros o huevo." "¼ PLATO": "Alimentos que aportan hidratos de carbono complejos (legumbres, cereales o pastas de preferencia integrales, papa, batata, choclo, mandioca)." "Se puede condimentar con 1 cucharada de aceite crudo." "1 fruta como postre." | S |
+| PA-OBE-06 | Desayunos y meriendas con lácteo, fruta y cereal | Opción; desayuno y merienda | Un indicador por componente:<br>- Lácteos, sin Queso rallado (CM-10).<br>- Frutas frescas, sin Limón (CM-10).<br>- Cereales y derivados.<br>Además, el porcentaje de opciones con los tres, y el porcentaje de ítems de Cereales y derivados que son integrales (CM-04) o Copos de maíz sin azúcar o sin TACC. | p. 33, imagen, "Desayunos y meriendas:", en tres columnas. "LECHE, YOGUR Y QUESO": "Leche", "Yogur natural sin agregados", "Quesos simples". "FRUTAS": "Frescas, preferentemente de estación". "CEREALES": "Pan integral", "Copos de cereal sin azúcar agregado", "Avena". | S (exigir los tres en cada opción, V) |
+| PA-OBE-07 | Sin alimentos de consumo opcional | Opción; las cuatro comidas | Porcentaje de opciones con un ítem de esta lista, como ítem o como ingrediente de una receta. Cumple con 0 %.<br>- Galletitas dulces simples y Bizcochos de grasa.<br>- Fiambres y embutidos (todo el grupo).<br>- Hígado vacuno e Hígado de pollo (achuras).<br>- Manteca y Margarina.<br>- Dulce de leche, Mermelada y Mermelada reducida en azúcar.<br>- Mayonesa, Kétchup, Mostaza y Salsa de soja. | p. 31, imagen, "Grupo 6: Alimentos de consumo opcional": "Los alimentos de este grupo no deberían formar parte de la alimentación diaria". "Ejemplos de estos productos alimenticios son: galletitas dulces, saladas, amasados de pastelería (pastelitos fritos, churros, medialunas, bizcochos de grasa, facturas, otros)", "embutidos y chacinados (salchichas, chorizo, morcilla, otros), fiambres, achuras", "manteca, margarina, dulce de leche, mermeladas (industrializadas), aderezos tales como mayonesa, kétchup, mostaza, salsa golf, salsa de soja, otros." | S (la lista del catálogo y el umbral, V) |
 
-PA-OBE-04 es una alternativa al plato completo, y choca con R-03, que pide las tres
-categorías en cada opción. La pauta no cambia la regla: una opción que la cumple sin hidrato
-sigue advirtiendo. Queda para T65.
+- **PA-OBE-04 y PA-OBE-05.** El plato de p. 33 es la base, y PA-OBE-04 su alternativa
+  ("Alternativamente", en la misma página): vegetal con proteína en una de las comidas
+  principales, y vegetal con hidrato en la otra. Por eso PA-OBE-05 no se exige en todas las
+  opciones. PA-OBE-04 choca con R-03, que pide las tres categorías en cada opción. La pauta
+  no cambia la regla: una opción que la cumple sin hidrato sigue advirtiendo. Queda para
+  T65.
+- **PA-OBE-05 y PA-DM2-01.** Es el mismo plato, con dos diferencias: la grasa es solo aceite
+  y es opcional, y la fruta es "de postre".
+- **PA-OBE-06 y R-04.** R-04 pide lácteo y cereal (DA-29). La pauta suma la fruta, como
+  PA-GEN-11, y prefiere cereales integrales o sin azúcar.
+- **PA-OBE-07 es la única pauta que mide lo que conviene dejar afuera.** No es una regla.
+  El objetivo no es una condición del paciente (CM-08) y el catálogo no tiene la patología
+  Obesidad, así que el motor no advierte. La lista no incluye lo que el catálogo no tiene:
+  golosinas, bebidas azucaradas, productos de copetín, carnes procesadas, helados y salsa
+  golf. Hay dos choques: el Hígado vacuno es un corte magro en CM-06 y una achura acá, y
+  Galletitas de agua y Chocolate pueden ser "galletitas saladas" y "golosinas". Quedan para
+  T65.
 
 ### Objetivos sin guía oficial
 
@@ -234,7 +260,8 @@ en el corpus para que el RAG lo lleve a la IA como texto, y para el criterio del
 
 | Tema | Cita | Por qué no se mide |
 |---|---|---|
-| Porciones y proporciones | GAPA p. 27: "Incluir 3 porciones al día de leche, yogur o queso."; DM2 p. 248, el plato dividido "a la mitad"; DM2 p. 250: "al menos 5 porciones por día de verduras o frutas" | El plan no tiene cantidades |
+| Porciones y proporciones | GAPA p. 27: "Incluir 3 porciones al día de leche, yogur o queso."; DM2 p. 248, el plato dividido "a la mitad"; DM2 p. 250: "al menos 5 porciones por día de verduras o frutas"; OBE p. 30, imagen, por grupo: "4 porciones por día", "1 porción por día"; OBE p. 33, imagen: "½ PLATO", "¼ PLATO" | El plan no tiene cantidades |
+| Alcohol | OBE p. 31: "Limitar el consumo de alcohol." | El catálogo no tiene bebidas alcohólicas |
 | Agua | GAPA p. 26: "Tomar a diario 8 vasos de agua segura."; OBE p. 30: "Consumir 8 vasos de agua segura, prefiriendo esta a las bebidas azucaradas."; CEL p. 44: "aproximadamente 2 litros de agua potable a lo largo del día" | Cantidad. El catálogo no tiene bebidas azucaradas |
 | Frecuencias semanales | GAPA p. 27: "pescado 2 o más veces por semana, otras carnes blancas 2 veces por semana y carnes rojas hasta 3 veces por semana"; GAPA p. 27: "al menos una vez por semana un puñado de frutas secas sin salar" | El plan no tiene días ni semanas |
 | Colaciones | DM2 p. 251: "En presencia de hambre entre comidas realizar colaciones: fruta, yogur descremado o un puñado de frutos secos."; MAN p. 49 (PDF 46): "Preferir frutas o verduras entre comidas (media mañana o media tarde)." | El plan no tiene colaciones ni media mañana |
@@ -263,7 +290,10 @@ en el corpus para que el RAG lo lleve a la IA como texto, y para el criterio del
 | Objetivos sin guía | V | ¿Qué pautas aplica la nutricionista a "aumentar masa muscular" y a "mejorar la digestión"? ¿Con qué fuente? |
 | PA-HTA-02, PA-CEL-02 | V | ¿Las listas de alimentos del catálogo son correctas? |
 | Colaciones | S | ¿La colación de DM2 p. 251 se mide en la merienda, o hace falta otra comida en el plan? |
-| OBE pp. 29, 31 y 33 | — | Leer a mano las imágenes (mensajes GAPA, alimentos no recomendados y plato por comida) y ver si cambian alguna pauta. Incorporar la versión extensa en T46. |
+| PA-OBE-06 | V | ¿Desayuno y merienda tienen que llevar lácteo, fruta y cereal en cada opción, o alcanza con el lácteo y el cereal de R-04? |
+| PA-OBE-07 | V | ¿Galletitas de agua y Chocolate entran en el grupo de consumo opcional, como "galletitas saladas" y "golosinas"? ¿El Hígado vacuno sigue siendo un corte magro (CM-06) si OBE pone las achuras en ese grupo? |
+| PA-OBE-07 | S | ¿Alcanza con medirlo en la evaluación, o hace falta una condición Obesidad con reglas `moderate` (R-05) para el grupo de consumo opcional? ¿Se mide también en la población general? |
+| Versión extensa de OBE | — | Incorporarla en T46, con OCR: 117 de sus 174 páginas no tienen texto extraíble. El contenido en imagen de la versión breve (pp. 30, 31 y 33) tampoco llega al RAG sin OCR. |
 | Sal con bajo contenido de sodio | V | ¿Se le ofrece a un paciente con HTA? Es cloruro de potasio, desaconsejado con enfermedad renal o con IECA, ARA II o espironolactona, y la medicación no llega al sistema. Hoy se ofrece y no cuenta para PA-HTA-02 (DA-42). |
 | Ajo y queso rallado en R-03 | V | Un ítem de ajo o de queso rallado completa la verdura o la proteína de una opción en el motor. Las pautas ya no los cuentan (CM-10). ¿Hace falta que el motor tampoco los cuente? Requiere un atributo propio en el catálogo, porque cambiarles la categoría vacía los ítems de grupo (DA-30, DA-42). |
 | Pacientes pediátricos | — | Las pautas y las reglas salen de guías para adultos y de la GAPA sin ajuste por edad, y C7 tiene 12 años. Faltan fuentes para niños y adolescentes (card de investigación en Trello). |
@@ -446,9 +476,11 @@ presencia de hambre", así que es opcional. No se agrega otra comida al plan. En
 con insulina o sulfonilureas, la colación la pauta el profesional como recomendación. Se
 mantiene en "No medibles".
 
-### OBE pp. 29, 31 y 33
+### OBE pp. 30, 31 y 33
 
-Pendiente: leer las imágenes a mano.
+Leídas a mano el 13/11/2026. Sumaron PA-OBE-05 a PA-OBE-07 y dos citas de respaldo (PA-GEN-03
+y PA-OBE-02). Las preguntas que abren quedan en los
+[pendientes](#pendientes-para-la-entrevista-t65), sin respuesta tentativa.
 
 ### Observaciones sobre el catálogo
 
